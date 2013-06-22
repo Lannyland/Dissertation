@@ -1,0 +1,1862 @@
+@inproceedings{LannyPaper,
+	author={Lanny Lin and Michael A. Goodrich},
+	title={{UAV} Intelligent Path Planning for Wilderness Search and Rescue},
+	abstract={In the priority search phase of Wilderness Search and Rescue (WiSAR), a
+		probability distribution map is created. Areas with higher probabilities
+		are searched first in order to find the missing person in the shortest
+		expected time. When using a UAV to support search, the onboard video camera
+		should cover as much of the important areas as possible within a set time.
+		We explore several algorithms in solving this problem and compare their
+		performances against typical WiSAR scenarios. This problem is NP-hard,
+		and our algorithms yield high quality solutions that approximate the optimal
+		solution, making efficient use of the limited UAV flying time.},
+	booktitle={IEEE International Conference on Intelligent Robots and Systems},
+	year={2009},
+	month={October},
+	address={St. Louis, Missouri, USA}
+}
+
+@mastersthesis{[01UAVSpecific]MAGICCUAVs,
+	author={Jon Neal Ostler},
+	title={Flight testing small, electric powered {U}nmanned {A}erial {V}ehicles},
+	abstract={Flight testing methods are developed to find the drag polar for small UAVs
+		powered by electric motors with fixed-pitch propellers. Wind tunnel testing
+		was used to characterize the propeller-motor efficiency. The drag polar
+		was constructed using data from flight tests. The proposed methods were
+		implemented for a small UAV. A drag polar was found for this aircraft with
+		CD0 equal to 0.021, K1 equal to 0.229, and K2 equal to -0.056. This drag
+		polar was then used to find the following performance parameters; maximum
+		velocity, minimum velocity, velocity for maximum range, velocity for maximum
+		endurance, maximum rate of climb, maximum climb angle, minimum turn radius,
+		maximum turn rate, and maximum bank angle. Applications in UAV control
+		and mission planning are also proposed.},
+	school={Department of Mechanical Engineering Brigham Young University},
+	year={2006},
+	month={April},
+	annote={This Master Thesis provides BYU UAV-specific settings and parameters such
+		as size, weight, shape, and speed.},
+	institution={BYUMAGICC Lab, Brigham Young University}
+}
+
+@inproceedings{[01UAVSpecific]Semi-autonomous,
+	author={Morgan Quigley and Michael A. Goodrich and Randal W. Beard},
+	title={Semi-autonomous human-{UAV} interfaces for fixed-wing mini-{UAV}s},
+	abstract={We present several human-UAV interfaces that support real-time control of
+		a small semi-autonomous UAV. These interfaces are designed for searching
+		tasks and other missions that typically do not have a precise predetermined
+		flight plan. We present a detailed analysis of a PDA-based interface and
+		describe how our other interfaces relate to this analysis. We then offer
+		quantative and qualitative performance comparisons of the interfaces, as
+		well as an analysis of their possible real-world applications.},
+	booktitle={Proceedings of the International Conference on Intelligent Robots and Systems},
+	year={2004},
+	pages={2457-2462},
+	volume={3},
+	annote={This paper presented several human-UAV interfaces for real-time control
+		of small semi-autonomous UAVs. These interfaces do not offer great precision,
+		but isolate the user from the technicalities, thus, support efficient task
+		completion, so long as the interfaces are simple, intuitive, and responsive.}
+}
+
+@inproceedings{[01UAVSpecific]RealWorldSearching,
+	author={Morgan Quigley and Blake Barber and Steve Griffiths and Michael A. Goodrich},
+	title={Towards real-world searching with fixed-wing mini-{UAV}s},
+	abstract={We discuss several techniques that assist in the field deployments of fixed-wing
+		mini-UAVs to assist search teams, focusing on automatic takeoff and landing.
+		We also present a real-time flightpath generation routine that performs
+		a spiral search centered around a target point, and a path planner that
+		creates waypoints for searches up mountain canyons.},
+	booktitle={Intelligent Robots and Systems, 2005. (IROS 2005). 2005 IEEE/RSJ International
+		Conference on},
+	year={2005},
+	pages={3028-3033},
+	annote={This paper discusses the implementation of automatic takeoff and landing
+		for fixed-wing mini-UAVs. A series of equations were presented that allowed
+		steadily moving of the camera focal point in a spiral pattern with equal
+		distance between the spiral arms. An A*-based path planner is proposed
+		to identify the lowest-cost path to a specified target. The generated path
+		is further smoothed by iteratively removing intermediate nodes.}
+}
+
+@inproceedings{[01UAVSpecific]TargetAcquisition,
+	author={Morgan Quigley and Michael A. Goodrich and Stephen Griffiths and Andrew
+		Eldredge and Randal W. Beard},
+	title={Target Acquisition, Localization, and Surveillance using a Fixed-Wing, Mini-{UAV}
+		and Gimbaled Camera},
+	abstract={Target acquisition and continuous surveillance using fixed-wing UAVs is
+		a difficult task due to the many degrees of freedom inherent in aircraft
+		and gimbaled cameras. Mini-UAVs further complicate the problem by introducing
+		severe restrictions on the size and weight of electro-optical sensor assemblies.
+		We present a field-tested mini-UAV gimbal mechanism and flightpath generation
+		algorithm as well as a human-UAV interaction scheme in which the operator
+		manually flies the UAV to produce an estimate of the target position, then
+		allows the aircraft to fly itself and control the gimbal while the operator
+		re fines or moves the target position as required.},
+	booktitle={Robotics and Automation, 2005. ICRA 2005. Proceedings of the 2005 IEEE International
+		Conference on},
+	year={2005},
+	pages={2600-2605},
+	annote={This paper describes gimbal hardware used in field-tested mini-UAVs and
+		flightpath generation algorithms and a human-UAV interaction scheme. These
+		techniques combine to enable mini-UAVs to perform target acquisition, localization,
+		and continuous surveillance in real-world environments. }
+}
+
+@article{[01UAVSpecific]CoordinatedTarget,
+	author={Randal W. Beard and Timothy W. McLain and Michael Goodrich and Erik P. Anderson},
+	title={Coordinated target assignment and intercept for {U}nmanned {A}ir {V}ehicles},
+	abstract={Presents an end-to-end solution to the cooperative control problem represented
+		by the scenario where M unmanned air vehicles (UAVs) are assigned to transition
+		through N known target locations in the presence of dynamic threats. The
+		problem is decomposed into the subproblems of: 1) cooperative target assignment;
+		2) coordinated UAV intercept; 3) path planning; 4) feasible trajectory
+		generation; and 5) asymptotic trajectory following. The design technique
+		is based on a hierarchical approach to coordinated control. Simulation
+		results are presented to demonstrate the effectiveness of the approach.},
+	journal={Robotics and Automation, IEEE Transactions on},
+	volume={18},
+	year={2002},
+	pages={911-922},
+	month={Dec},
+	number={6},
+	annote={This paper described a complete system architecture for the target assignment
+		and coordinated intercept problem, which includes cooperative target assignemtn,
+		corredinated UAV intercept, path planning and feasible trajectory generation.}
+}
+
+@inproceedings{[01UAVSpecific]CoordinatedTargetConf,
+	author={Randal W. Beard and Timothy W. McLain and Michael Goodrich},
+	title={Coordinated target assignment and intercept for {U}nmanned {A}ir {V}ehicles},
+	abstract={Presents an end-to-end solution to the battlefield scenario where M unmanned
+		air vehicles are assigned to strike N known targets, in the presence of
+		dynamic threats. The problem is decomposed into the subproblems of (1)
+		cooperative target assignment, (2) coordinated UAV intercept, (3) path
+		planning, and (4) feasible trajectory generation. The design technique
+		is based on a hierarchical approach to coordinated control. Detailed simulation
+		results are presented},
+	booktitle={Robotics and Automation, 2002. Proceedings. ICRA '02. IEEE International
+		Conference on},
+	year={2002},
+	pages={2581-2586},
+	volume={3},
+	annote={This paper described a complete system architecture for the target assignment
+		and coordinated intercept problem, which includes cooperative target assignemtn,
+		corredinated UAV intercept, path planning and feasible trajectory generation.},
+	number={6}
+}
+
+@inproceedings{[01UAVSpecific]BarberGriffithsMcLainBeard2005,
+	author={D. B. Barber and S. R. Griffiths and T. W. McLain and R. W. Beard},
+	title={Autonomous Landing of Miniature Aerial Vehicles},
+	abstract={This paper outlines a simple algorithm for automated landing of miniature
+		aerial vehicles (MAVs). Utilizing estimates of height above ground from
+		barometric pressure and optic flow measurements, repeated landings were
+		performed with a 1.5m wingspan MAV. With height above ground estimated
+		from barometric pressure measurements alone, landing errors averaged 7.6
+		m. When optic flow and barometric pressure measurements were combined to
+		estimate height above ground, the average landing error was only 4.3 m.},
+	booktitle={AIAA Infotech@Aerospace},
+	year={2005},
+	month={Sep},
+	annote={This paper presents a simple algorithm for performaning autonomous mini-UAV
+		landings. The performance can be further improved by direct measurement
+		of height above ground.},
+	number={AIAA-2005-6949}
+}
+
+@article{[01UAVSpecific]AutonomousVehicle,
+	author={Randal Beard and Derek Kingston and Morgan Quigley and Deryl Snyder and
+		Reed Christiansen and Walt Johnson and Timothy McLain and Michael A. Goodrich},
+	title={Autonomous Vehicle Technologies for Small Fixed Wing {UAV}s},
+	abstract={The objective of this paper is to describe the design and implementation
+		of a small semi-autonomous fixed-wing unmanned air vehicle. In particular
+		we describe the hardware and software architectures used in the design.
+		We also describe a low weight, low cost autopilot developed at Brigham
+		Young University and the algorithms associated with the autopilot. Novel
+		PDA and voice interfaces to the UAV are described. In addition, we overview
+		our approach to real-time path planning, trajectory generation, and trajectory
+		tracking. The paper is augmented with movie files that demonstrate the
+		functionality of the UAV and its control software.},
+	journal={Journal of Aerospace Computing, Information, and Communication 2005},
+	volume={2},
+	year={2005},
+	pages={92-108},
+	month={January},
+	number={1},
+	annote={This paper describes the design and implementation of small fixed-wing UAVs,
+		including both the software and hardware architectures. It also describes
+		an autopilot developed at Brigham Young University and the algorithms used.
+		A novice PDA and voice interfaces are described. The paper also described
+		a path planner using modified Voronoi Diagram to generate possible paths
+		that allows the planner to generate waypoint paths through threats or obstacles
+		in the airspace. The Voronoi graph is then searched via Eppstein's $k$-best
+		paths algorithm.}
+}
+
+@mastersthesis{[01UAVSpecific]JosephThesis,
+	author={Joseph L. Cooper},
+	title={Supporting Flight Control for {UAV} Assisted Wilderness Search and Rescue
+		through Human Centered Interface Design},
+	abstract={Inexpensive, rapidly deployable, camera-equipped UAV systems can potentially
+		assist with a huge number of tasks. However, in many cases such as Wilderness
+		Search and Rescue, the potential users of the system may not be trained
+		as pilots. Simple interface concepts can be used to build an interaction
+		layer that allows an operator with minimal training as an operator to use
+		the system to facilitate a search or inspection task. We describe an analysis
+		of Wilderness Search and Rescue task and show how a UAV system might fit
+		into the existing structure. We then discuss preliminary efforts at making
+		that practical along with controlled experiments and field trials which
+		illustrate principles for making UAV-assisted search a reality.},
+	school={Brigham Young University},
+	year={2007},
+	month={August},
+	annote={This thesis presents a sythetic interface that uses simple interface concepts
+		to build interaction layers to allow an operator with minimal training
+		to facilitate a search task. It also analyses and shows how a UAV might
+		fit into the existing Wilderness Search and Rescue structure. The paper
+		then presents results from controlled user studies and field trials.},
+	institution={BYUHCMI, Brigham Young University}
+}
+
+@inbook{[01UAVSpecific]PsychologyOfLost,
+	author={K. A. Hill},
+	title={Lost Person Behavior},
+	chapter={The Psychology of Lost},
+	year={1998},
+	publisher={National SAR Secretariat},
+	address={Ottawa, Canada},
+	annote={A number of reorientation strategies were discussed: random traveling, direction
+		traveling, route sampling, direction sampling, backtracking, using folk
+		wisdom, and staying put. Becoming lost is normally accompanied by high
+		emotional arousal, which, if high enough, tends to interfere with mental
+		functioning, especially the application of rational thought processes toward
+		solving the problem of getting reoriented.}
+}
+
+@book{[01UAVSpecific]SetnickaWiSAR,
+	author={T. J. Setnicka and K Andrasko},
+	title={Wilderness Search and Rescue},
+	publisher={Appalachian Mountain Club},
+	year={1980},
+	annote={This book uses stories and re-told accounts of various rescue situations
+		by the author and others to describe wilderness search and rescue techniques
+		and lost person behaviors. Some technologies described in the book are
+		outdated.}
+}
+
+@book{[01UAVSpecific]SyrotuckIntroToLandSearch,
+	author={W. G. Syrotuck},
+	title={An Introduction to Land Search Probabilities and Calculations},
+	publisher={Barkleigh Productions},
+	year={2000},
+	address={Mechanicsburg, PA},
+	annote={This book discusess how to use mathematic models to calcuate probability
+		of detection, probability of area and probability of success. It also describes
+		an example search mission.}
+}
+
+@inproceedings{[01UAVSpecific]JosephPaper,
+	author={Joseph L. Cooper and Michael A. Goodrich},
+	title={Integrating critical interface elements for intuitive single-display aviation
+		control of {UAV}s},
+	abstract={Although advancing levels of technology allow UAV operators to give increasingly
+		complex commands with expanding temporal scope, it is unlikely that the
+		need for immediate situation awareness and local, short-term flight adjustment
+		will ever be completely superseded. Local awareness and control are particularly
+		important when the operator uses the UAV to perform a search or inspection
+		task. There are many different tasks which would be facilitated by search
+		and inspection capabilities of a camera-equipped UAV. These tasks range
+		from bridge inspection and news reporting to wilderness search and rescue.
+		The system should be simple, inexpensive, and intuitive for non-pilots.
+		An appropriately designed interface should (a) provide a context for interpreting
+		video and (b) support UAV tasking and control, all within a single disply
+		screen. In this paper, we present and analyze an interface that attempts
+		to accomplish this goal. The interface utilizes a georeferenced terrain
+		map rendered from publicly available altitude data and terrain imagery
+		to create a context in which the location of the UAV and the source of
+		the video are communicated to the operator. Rotated and transformed imagery
+		from the UAV provides a stable frame of reference for the operator and
+		integrates cleanly into the terrain model. Simple icons overlaid onto the
+		main display provide intuitive control and feedback when necessary but
+		fade to a semi-transparent state when not in use to avoid distracting the
+		operator's attention from the video signal. With various interface elements
+		integrated into a single display, the interface runs nicely on a small,
+		portable, inexpensive system with a single display screen and simple input
+		device, but is powerful enough to allow a single operator to deploy, control,
+		and recover a small UAV when coupled with appropriate autonomy. As we present
+		elements of the interface design, we will identify concepts that can be
+		leveraged into a large class of UAV applications.},
+	booktitle={Proceedings of the SPIE},
+	year={2006},
+	month={June},
+	address={Kissimmee, FL},
+	volume={6226},
+	annote={This paper analyzed constraints for UAVs in WSAR and presented and portions
+		of an interface designed to support intuitive UAV control that doesn't
+		require extensive training and is usable under pressure. This interface
+		integrate multiple interface components into a single model designed to
+		support perception and understanding of UAV state and video stream while
+		avoiding infomation overload.}
+}
+
+@mastersthesis{[01UAVSpecific]DamonThesis,
+	author={Damon Gerhardt},
+	title={Feature-based {U}nmanned {A}ir {V}ehicle video euclidean stabilization with
+		local mosaics},
+	abstract={Video acquired using a camera mounted on a mini Unmanned Air Vehicle (mUAV)
+		may be very helpful in Wilderness Search and REscue and many other applications
+		but is commonly plagued with limited spatial and temporal field of views,
+		distractive jittery motions, disorienting rotations, and noisy and distorted
+		images. These problems collectively make it very difficult for human viewers
+		to identify objects of interest as well as infer correct orientations throughout
+		the video. In order to expand the temporal and spatial field of view, stabilize,
+		and better orient users of noisy and distorted mUAV video, a method is
+		proposed of estimating in software and in real time the relative motions
+		of each frame to the next by tracking a small subset of features within
+		each frame to the next. Using these relative motions, a local Euclidean
+		mosaic of the video can be created and a curve can be fit to the video's
+		accumulative motion path to stabilize the presentations of both the video
+		and the local Euclidean mosaic. The increase in users' abilities to perform
+		common search-and-rescue tasks of identifying objects of interest throughout
+		the stabilized and locally mosaiced mUAV video is then evaluated. Finally,
+		a discussion of remaining limitations is presented along with some possibilities
+		for future work.},
+	school={Brigham Young University},
+	year={2007},
+	month={April},
+	annote={This Master Thesis presented computer vision algorithms to stablize video,
+		remove jitters, and creating Euclidean mosaic of the video.},
+	institution={Brigham Young University}
+}
+
+@inproceedings{[02GeneralStuff]ProbPathPlanning,
+	author={Atilla Dogan},
+	title={Probabilistic Path Planning for {UAV}s },
+	abstract={This paper introduces a probabilistic approach to the problem of mission
+		planning for UAVs (Unmanned Aerial Vehicles) flying through an area of
+		multiple sources of threat. As the first step, this new approach is used
+		in path palnning. It is assumed that the probabilistic map of the area
+		of operation is available during the mission. Probabilistic map is defined
+		as the risk of exposure to the sources of threat as a function of position.
+		In the path planning, the objective is to go to a target location along
+		the shortest possible path with an acceptable probability of getting disabled
+		or along an acceptably long path with the lowest possible probability of
+		getting disabled. Depending on the definition of threat, a UAV is considered
+		"disabled" by a source of threat when it is detected, hit or shut down.
+		The conditional probability of a UAV getting disabled under the condition
+		that it follows a certain path is defined and formulated based on the probabilistic
+		map of the area. Then, a locally minimizing strategy that leads a UAV to
+		the targets through the area of operation is developed. The strategy uses
+		the local information of the probabilistic map and the information about
+		the location of the target. It is parameterized to change the weighting
+		on finding a shorter path or finding a path with smaller probability of
+		getting disabled. Finally, the strategies are implemented in single-target
+		and multiple-target cases to illustrate the application of the probabilistic
+		approach. The paper includes a discussion on using the probabilistic approach
+		in other phases of mission planning for multiple UAVs.},
+	booktitle={2nd AIAA "Unmanned Unlimited" Conf. and Workshop and Exhibit, San Diego,
+		California, Sep.},
+	year={2003},
+	month={Sep},
+	annote={This paper describes a probabilistic approach to UAV mission planning through
+		an area of multiple sources of threat.},
+	number={AIAA-2003-6552}
+}
+
+@inproceedings{[02GeneralStuff]StevenHansenPaper,
+	author={Steven R. Hansen and Timothy W. McLain and Michael A. Goodrich},
+	title={Probabilistic Searching Using a Small {U}nmanned {A}erial {V}ehicle},
+	abstract={Ground breaking concepts in optimal search theory were developed during
+		World War II by the U.S. Navy. These concepts use an assumed detection
+		model to calculate a detection probability rate and an optimal search allocation.
+		Although this theory is useful in determining when and where search effort
+		should be applied, it offers little guidance for the planning for an SUAV
+		with a fixed CCD camera. Three search strategies are developed: greedy
+		search, contour search, and composite search. In addition, the concepts
+		of search efficiency and search completeness are offered as metrics for
+		search effectiveness. Simulation results comparing the effectiveness of
+		the strategies are presented.},
+	booktitle={AIAA Infotech@Aerospace},
+	year={2007},
+	annote={This paper presents three search strategies: greedy (with global assignment),
+		contour and composite search. Also uses the concepts of search efficiency
+		and search completeness as metrics for search effectiveness.},
+	number={AIAA-2007-2740}
+}
+
+@article{[02GeneralStuff]RoadMapHelicopter,
+	author={PO Pettersson and P Doherty},
+	title={Probabilistic roadmap based path planning for an autonomous unmanned helicopter},
+	abstract={The emerging area of intelligent unmanned aerial vehicle (UAV) research
+		has shown rapid development in recent years and offers a great number of
+		research challenges for artificial intelligence. For both military and
+		civil applications, there is a desire to develop more sophisticated UAV
+		platforms where the emphasis is placed on development of intelligent capabilities.
+		Imagine a mission scenario where a UAV is supplied with a 3D model of a
+		region containing buildings and road structures and is instructed to fly
+		to an arbitrary number of building structures and collect video streams
+		of each of the building's respective facades. In this article, we describe
+		a fully operational UAV platform which can achieve such missions autonomously.
+		We focus on the path planner integrated with the platform which can generate
+		collision free paths autonomously during such missions. Both probabilistic
+		roadmap-based (PRM) and rapidly exploring random trees-based (RRT) algorithms
+		have been used with the platform. The PRM-based path planner has been tested
+		together with the UAV platform in an urban environment used for UAV experimentation.},
+	journal={Journal of Intelligent and Fuzzy Systems},
+	volume={17},
+	year={2006},
+	pages={395-405},
+	month={Sep},
+	number={4},
+	annote={This paper presents a fully operational UAV platform that can autonomously
+		generate collision free paths using probabilistic roadmap-based and rapidly
+		exploring random trees-based algorithms.}
+}
+
+@mastersthesis{[02GeneralStuff]StevenHansenThesis,
+	author={Steven R. Hansen},
+	title={Applications of Search Theory to Coordinated Searching by {U}nmanned {A}erial
+		{V}ehicles},
+	abstract={Concepts in optimal search theory have been used in human-based search since
+		World War II. This thesis addresses the technical and theoretical issues
+		necessary to apply this crucial theory in path planning. A typical search
+		often requires that more than one target be located. Accordingly, a method
+		is presented to locate multiple targets in three dimensions, as well as
+		to differentiate between them. However, significant error can be present
+		when locating targets from an airborne platform, and the idea of target
+		quality is also introduced as a way to describe the reliability of target
+		estimates. Flight test results are presented to validate the target differentiation
+		algorithm. In this test, five out of six targets as close as 6.1 m apart
+		are located and differentiated with less than four meters of error. This
+		flight test also provides color information that is used in generating
+		artificial target images and understanding the target detection probability.
+		Image skew is then incorporated into the detection probability model, and
+		a function is derived that predicts target detection as a function of distance.
+		In order to measure the effectiveness of search algorithms that use this
+		model, the concept of a probability map is introduced. This map can be
+		updated as the search progresses, and is stored on a probability grid containing
+		nodes that keep track of the probable target locations and the probability
+		of detection. Using this tool, a search width is developed for a given
+		airborne agent. The search width is then used to derive optimal search
+		performance based on a given probability map and UAV. Finally, the concepts
+		of efficiency and completeness are given specific definitions in the context
+		of discrete search. These metrics are used to develop one path plan that
+		focuses on efficiency, and one that focuses on completeness. Example simulations
+		are used to illustrate the conditions under which each plan might be desirable,
+		and a composite search strategy is presented that combines both plans to
+		obtain a superior result.},
+	school={Brigham Young University},
+	year={2008},
+	month={April},
+	type={Masters Thesis},
+	annote={Need to Add},
+	note={Need to Read}
+}
+
+@book{[02GeneralStuff]Koopman80,
+	author={B. O. Koopman},
+	title={Search and Screening: {General} Principles with Historical Applications},
+	publisher={Pergamon Press},
+	year={1980},
+	annote={Chapter 3 of the book talks about the probabilities involved in the detection
+		of a target and introduces the idea of instantaneous conditional probabilities
+		of detection.},
+	note={This book has been reprinted in its entirety in 1999 by the Military Operations
+		Research Society, Inc.}
+}
+
+@book{[02GeneralStuff]CS450,
+	author={Rafael C. Gonzales},
+	title={Digital Image Processing 2nd ed.},
+	abstract={Shows how to implement geometric image transformation with backward mapping
+		using bilinear interpolation. Apply low-pass filter first to preserve information
+		about the image before transformation. Use sampling theorem to decide the
+		cut-off frequency for low pass filter. },
+	publisher={Prentice Hall},
+	year={2002},
+	annote={This book teaches digital image processing concepts, theories and techniques
+		such as Fourier Transform and Convolution.},
+	note={Read}
+}
+
+@mastersthesis{[03GeneralTSP]ShuchiChawlaThesis,
+	author={Shuchi Chawla},
+	title={Graph Algorithms for Planning and Partiioning},
+	abstract={In this thesis, we present new approximation algorithms as well as hardness
+		of approximation results for several planning and partitioning problems.
+		In planning problems, one is typically given a set of locations to visit,
+		along with timing constraings, such as deadlines for visiting them; The
+		goal is to visit a large number of locations as efficiently as possible.
+		We give the first approximation algorithms for problems such as ORIENTEERING,
+		DEADLINES-TSP, and TIME-WINDOWS-TSP, as well as results for planning in
+		stochastic graphs (Markov decision processes). The goal in partitioning
+		problems is to partition a set of objects into clusters while satisfying
+		"split" or "combine" constraints on pairs of objects. We consider three
+		kinds of partitioning problems, viz. Correlation-Clustering, Sparset-Cut,
+		and Multicut. We give approximation algorithms for the first two, and improved
+		hardness of approximation results for Sparsest-Cut and Multicut.},
+	school={Cargegie Mellon University},
+	year={2005},
+	month={Sep},
+	type={Masters Thesis},
+	annote={Need to Add}
+}
+
+@article{[03GeneralTSP]SelectiveTSP,
+	author={Gilbert Laporte and Silvano Martello},
+	title={The selective {T}ravelling {S}alesman {P}roblem},
+	abstract={Given a weighted graph with profits associated with the vertices, the selective
+		travelling salesman problem (or orienteering problem) consists of selecting
+		a simple circuit of maximal total profit, whose length does not exceed
+		a prespecified bound. This paper provides integer linear programming formulation
+		of the problem. Upper and lower bounds are then derived and embedded in
+		exact enumerative algorithms. Computational results are reported.},
+	journal={DISCRETE APPL. MATH.},
+	volume={26},
+	year={1990},
+	pages={193-207},
+	number={2-3},
+	annote={This paper provides integer linear programming formulation of the problem
+		within a branch-and-bound scheme. After solving LP relaxation, a cutting
+		plane algoirthm is added and the LP is solved again. Upper and lower bounds
+		are then derived and embedded in exact enumerative algorithms. }
+}
+
+@article{[03GeneralTSP]TSPwithProfits,
+	author={Dominique Feillet and Pierre Dejax and Michel Gendreau },
+	title={{T}raveling {S}alesman {P}roblems with Profits},
+	abstract={Traveling salesman problems with profits (TSPs with profits) are a generalization
+		of the traveling salesman problem (TSP), where it is not necessary to visit
+		all vertices. A profit is associated with each vertex. The overall goal
+		is the simultaneous optimization of the collected profit and the travel
+		costs. These two optimization criteria appear either in the objective function
+		or as a constraint. In this paper, a classification of TSPs with profits
+		is proposed, and the existing literature is surveyed. Different classes
+		of applications, modeling approaches, and exact or heuristic solution techniques
+		are identified and compared. Conclusions emphasize the interest of this
+		class of problems, with respect to applications as well as theoretical
+		results.},
+	journal={TRANSPORTATION SCIENCE},
+	volume={39},
+	year={2005},
+	pages={188-205},
+	month={May},
+	number={2},
+	annote={This paper proposed a classification of TSPs with Profits and surveyed existing
+		literatures. Different classes of applications, modeling approaches and
+		exact or heuristic solution techniques are identified and compared.}
+}
+
+@book{[03GeneralTSP]TSPGutinPunnen,
+	author={Gregory Gutin and Abraham P. Punnen},
+	title={The {T}raveling {S}alesman {P}roblem and Its Variations},
+	publisher={Kluwer Academic Publishiers},
+	year={2002},
+	annote={This book discusses in detail the various methods used to solve the TSP
+		problem and many variations of the TSP problem. Methods in the book include
+		Branch-and-Cut algorithms, exact methods, approximation algorithms. Variations
+		of TSP include Geometric TSP, Symmetiric/Asymmetric TSP, Maximum TSP, Prize
+		Collecting TSP and Bottleneck TSP.}
+}
+
+@phdthesis{[03GeneralTSP]Pillai92,
+	author={Rekha Sukumar Pillai},
+	title={The {T}raveling {S}alesman {S}ubset-{T}our {P}roblem With One Additional
+		Constraint (TSSP+1)},
+	abstract={The Traveling Salesman Subset-tour Problem (TSSP) requires the salesman
+		to select a subset of customers from the list and construct a minimum length
+		tour over the selected customers. The TSSP problem is thus one of selection
+		and sequencing whereas a TSP involves only sequencing. When an additional
+		restriction is imposed on the minimum length tour, the problem is called
+		a TSSP with one additional constraint, (TSSP+1). Previously studied problems
+		such as the Orienteering Problem, the Prize Collecting TSP (PCTSP), and
+		the Time Constrained TSP (TCTSP) are special cases of the TSSP+1. An optimal
+		solution approach developed for the general TSSP+1 can be immedidately
+		applied to solve these special cases. In this dissertation, we investigate
+		a branch-and-cut approach for solving the symmetric TSSP+1. In the symmetric
+		version of the TSSP+1, the distance associated with travel from customer
+		i to customer j is the same as from customer j to customer i. We employ
+		a Linear Programming (LP)-based cutting plane method for bounding within
+		the branch-and-cut algorithm. The cutting plane method utilizes linear
+		programming to solve a relaxed version of the problem and uses specialize
+		algorithms to identify violated constraints. The violated constraints are
+		added to the current LP formulation and the problem is re-solved. The steps
+		of constraint identification, constraint addition, and LP solution are
+		repeated until no more violated constraints can be found or the LP relaxation
+		yields an integer solution. If the LP solution at the end of the cutting
+		plane procedure is non-integer, branching on variables with non-integer
+		values is carried out. The procedure terminates with a confirmed optimal
+		solution when all the branches have been explicitly or implicitly investigated.
+		The branch-and-cut procedure is tested on 169 test problems from the literature.
+		The results indicate that the branch-and-cut procedure is a viable method
+		for producing optimal solutions or tight bounds from the symmetric TSSP+1.
+		Time Constrained TSP (TCTSP): The goal is to determine a route maximizing
+		the total profit while visiting each customer at most once and keeping
+		the total time of the route less than a given bound T. },
+	school={The University of Tennessee},
+	year={1992},
+	type={Doctoral Dissertation},
+	annote={This dissertation investigates a branch-and-cut approach for solving the
+		symmetric TSSP+1. The author employes a Linear Programmig-based cutting
+		plane method for boudning within the branch-and-cut algorithm. The cutting
+		plane method utilizes linear programming to solve a relaxed version of
+		the problem and uses specialize algorithms to identify violated constraints.
+		The violated constraints are added to the current LP formulation and the
+		problem is re-solved. The steps of constraint identification, constraint
+		addition, and LP solution are repeated until no more violated constraints
+		can be found or the LP relaxation yields an integer solution. }
+}
+
+@article{[03GeneralTSP]OrienteeringBranchAndCut,
+	author={Matteo Fischetti},
+	title={Solving the {O}rienteering {P}roblem through Branch-and-Cut},
+	abstract={In the Orienteering Problem (OP) we are given an undirected graph with edge
+		weights and node prizes. The problem calls for a simple cycle whose total
+		edge weight does not exceed a given threshold, while visiting a subset
+		of nodes with maximum total prize. This NP_hard problem arises in routing
+		and scheduling applications. We describe a branch-and-cut algorithm for
+		finding an optimal OP solution. The algorithm is based on several families
+		of valid inequalities. We also introduce a family of cuts which can cut
+		off the optimal OP solution, called conditional cuts, and propose an effective
+		way to use them within the overall branch-and-cut framework. Exact and
+		heuristic separation algorithms are described, as well as heuristic procedures
+		to produce near-optimal OP solutions. An extensive computational analysis
+		on several classes of both real-world and random instances is reported.
+		The algorithm proved to be able to solve to optimality large-scale instances
+		involving up to 500 nodes, within acceptable computing time. This compares
+		favourably with previous published methods.},
+	journal={INFORMS Journal on Computing},
+	volume={10},
+	year={1998},
+	pages={133-148},
+	month={Feb},
+	number={2},
+	annote={This paper describes a branch-and-cut algorithm for finding an optimal OP
+		solution. It also introduces a family of cuts which can cut off the optimal
+		OP solution, called conditional cuts, and proposes an effecitve way to
+		use them within the overall branch-and-cut framework.}
+}
+
+@article{[03GeneralTSP]InsertDeleteHeuristic,
+	author={John Mittenthal and Charles E. Noon},
+	title={An Insert/Delete Heuristic for the {T}ravelling {S}alesman {S}ubset-{T}our
+		Problem with One Additional Constraint},
+	abstract={The Travelling Salesman Subset-tour Problem (TSSP) differs from the well-known
+		Travelling Salesman Problem (TSP) in that the salesman is not required
+		to visit every city. Many problems, such as the prize collecting TSP, the
+		orienteering problem, and the time constrained TSP, can be viewed as TSSPs
+		with one additional constraint (TSSP + 1). In this paper, we present a
+		heuristic approach for the TSSP + 1 class of problems. The general philosophy
+		of our approach is to maintain tour feasibility with respect to the TSSP
+		subproblem. This allows us to begin our approach with any TSSP tour. In
+		each step, the insertion or deletion of a city is performed either to reduce
+		infeasibility in the additional constraint or to improve upon the minimization
+		objective. We present computational results that show our approach is superior
+		to approaches using just insertion, and thus demonstrate the importance
+		of considering the possible deletion of cities.},
+	journal={The Journal of the Operational Research Society},
+	volume={43},
+	year={1992},
+	pages={277-283},
+	number={3},
+	annote={This paper presents a heuristic approach for the TSSP+1 class of problems
+		by inserting or deleting cities. Results show that this approach is superior
+		to approaches using just insertion.}
+}
+
+@article{[03GeneralTSP]OptimalAlgorithmForOrienteering,
+	author={R. Ramesh and Yong-Seok Yoon and Mark H. Karwan},
+	title={An Optimal Algorithm for the {O}rienteering {T}our {P}roblem},
+	abstract={Orienteering is a sport in which a competitor selects a path from a start
+		to a destination, visiting control points along the path. Each control
+		point has an associated score, and the travel between control points involves
+		a certain cost. The problem is to select a set of control points to visit,
+		so that the total score is maximized subject to a budget constraint on
+		total cost. Several versions of this problem exist. In the version considered
+		in this research, the start and the destination are the same, and the problem
+		is to construct a subtour of the set of control points. The orienteering
+		problem is a variant of the traveling salesman problem, and arises in vehicle
+		routing and production scheduling situations. This problem has been shown
+		to be NP-hard in the literature. We develop an optimal algorithm to solve
+		this problem, using Lagrangean relaxation within a branch-and-bound framework.
+		The Lagrangean relaxation is solved by a degree-constrained spanning tree
+		procedure. Characteristics of the Lagrangean relaxation are studied, and
+		several implmentation features to improve the performance of the algorithm
+		are presented. Detailed computational results for problems having up to
+		150 control points are presented. The results show that the proposed approach
+		is viable for solving problems of medium to large size.},
+	journal={ORSA Journal on Computing},
+	volume={4},
+	year={1992},
+	month={Spring},
+	number={2},
+	annote={This paper deveoped an optimal algorithm to solve the Orienteering Problem,
+		using Lagrangean relaxation within a branch-and-bound framework. The Lagrangean
+		relaxation is solved by a degree-constrained spanning tree procedure. Characteristics
+		of the Lagrangean relaxation are studied, and several implmentation features
+		to improve the performance of the algorithm are presented.}
+}
+
+@phdthesis{[03GeneralTSP]Sokkappa90,
+	author={Padmini R. Sokkappa},
+	title={The Cost-Constrained {T}raveling {S}alesman {P}roblem},
+	abstract={The Cost-Constrained Traveling Salesman Problem (CCTSP) is a variant of
+		the well-known Traveling Salesman Problem (TSP). In the TSP, the goal is
+		to find a tour of a given set of cities such that the total cost of the
+		tour is minimized. In the CCTSP, each city is given a value, and a fixed
+		cost-constraint is specified. The objective is to find a subtour of the
+		cities that achieves maximum value without exceeding the cost-constraint.
+		Thus, unlike the TSP, the CCTSP requires both selection and sequencing.
+		As a consequence, most results for the TSP cannot be extended to the CCTSP.
+		We show that the CCTSP is NP-hard and that no K-approximation algorithm
+		or fully polynomial approximation scheme exists, unless P = NP. We also
+		show that several special cases are polynomially solvable. Algorithms for
+		the CCTSP, which outperform previous methods, were developed in three areas:
+		upper bounding methods, exact algorithms, and heuristics. Extensive computational
+		studies were undertaken to evaluate and compare algorithms. These computational
+		studies also examined the sensitivity of performance to problem characteristics.
+		We found that a bounding strategy based on the knapsack problem performs
+		better, both in speed and in the quality of the bounds, than methods based
+		on the assignment problem. Likewise, we found that a branch-and-bound approach
+		using the knapsack bound was superior to a method based on a common branch-and-bound
+		method for the TSP. In our study of heuristic algorithms, we found that,
+		when selecting nodes for inclusion in the subtour, it is important to consider
+		the "neighborhood" of the nodes. A node with low value that brings the
+		subtour near many other nodes may be more desirable than an isolated node
+		of high value. We found two types of repetition to be desirable: repetitions
+		based on randomization in the subtour building process, and repetitions
+		encouraging the inclusion of different subsets of the nodes. By varying
+		the number and type of repetitions, we can adjust the computation time
+		required by our method to obtain algorithms that outperform previous methods
+		in both speed and solution quality.},
+	school={University of California},
+	year={1990},
+	month={October},
+	type={Doctoral Dissertation},
+	annote={This dissertation shows that the CCTSP is NP-hard and that no K-approximation
+		algorithm or fully polynomial approximation scheme exists, unless P = NP.
+		It also shows that several special cases are polynomially solvable. It
+		further compares different exact algorithms and heuristic algorithms. }
+}
+
+@article{[04CompleteCoverage]Survey,
+	author={Howie Choset},
+	title={Coverage for robotics: A survey of recent results},
+	abstract={This paper surveys recent results in coverage path planning, a new path
+		planning approach that determines a path for a robot to pass over all points
+		in its free space. Unlike conventional point-to-point path planning, coverage
+		path planning enables applications such as robotic de-mining, snow removal,
+		lawn mowing, car-body painting, machine milling, etc. This paper will focus
+		on coverage path planning algorithms for mobile robots constrained to operate
+		in the plane. These algorithms can be classified as either heuristic or
+		complete. It is our conjecture that most complete algorithms use an exact
+		cellular decomposition, either explicitly or implicitly, to achieve coverage.
+		Therefore, this paper organizes the coverage algorithms into four categories:
+		heuristic, approximate, partial-approximate and exact cellular decompositions.
+		The final section describes some provably complete multi-robot coverage
+		algorithms.},
+	journal={Annals of Mathematics and Artificial Intelligence},
+	volume={31},
+	year={2001},
+	pages={113-126},
+	month={October},
+	number={1-4},
+	annote={This paper surveys recent results in coverage path planning and organizes
+		the coverage algorithms into four categories: heuristic, approximate, partial-approximate
+		and exact cellular decompositions.}
+}
+
+@inproceedings{[04CompleteCoverage]LineSweepBased,
+	author={Wesley H. Huang},
+	title={Optimal Line-sweep-based Decompositions for Coverage Algorithms},
+	abstract={Robotic coverage is the problem of moving a sensor or actuator over all
+		points in given region. Ultimately, we want a coverage path that minimizes
+		some cost such as time. We take the approach of decomposing the coverage
+		region into subregions, selecting a sequence of those subregions, and then
+		generating a path that covers each subregion in turn. We focus on generating
+		decompositions based upon the planar line sweep. After a general overview
+		of the coverage problem, we describe how our assumptions lead to the optimality
+		criterion of minimizing the sum of subregion altitudes (which are measured
+		relative to the sweep direction assigned to that subregion). For a line-sweep
+		decomposition, the sweep direction is the same for all subregions. We describe
+		how to find the optimal sweep direction for convex polygonal worlds. We
+		then introduce the minimal sum of altitudes (MSA) decomposition in which
+		we may assign a different sweep direction to each subregion. This decomposition
+		is better for generating an optimal coverage path. We describe a method
+		based on multiple line sweeps and dynamic programming to generate the MSA
+		decomposition.},
+	booktitle={Robotics and Automation, 2001. Proceedings 2001 ICRA. IEEE International
+		Conference on},
+	year={2001},
+	pages={27-32},
+	organization={Dept. of Comput. Sci., Rensselaer Polytech. Inst., Troy, NY, USA},
+	volume={1},
+	annote={This paper talks about a method under the cellular decomposition method
+		and uses a line-sweep decomposition method in order to minimize the sum
+		of subregion altitudes.}
+}
+
+@book{[05HeuristicSearch]RussellNorvig95,
+	author={S. Russell and P. Norvig},
+	title={Artificial Intelligence: A Modern Approach (2nd Edition)},
+	publisher={Prentice Hall},
+	year={2002},
+	annote={Chapter 3 and 4 of the book introduces various search algorithms such as
+		BFS, DFS, IDFS, Hill Climbing, A*, LRTA* etc.}
+}
+
+@article{[05HeuristicSearch]TutorialPlanning,
+	author={Daniel Bryce and Subbarao Kambhampati},
+	title={A Tutorial on Planning Graph-Based Reachability Heuristics},
+	abstract={The primary revolution in automated planning in the last decade has been
+		the very impressive scaleup in planner performance. A large part of the
+		credit for this can be attributed squarely to the invention and deployment
+		of powerful reachability heuristics. Most, if not all, modern reachability
+		heuristics are based on a remarkably extensible data structure called the
+		planning graph, which made its debut as a bit player in the sucess of GraphPlan,
+		but quickly grew in prominence to occupy the center stage. Planning graphs
+		are a cheap means to obtain informative look-ahead heuristics for search
+		and have become ubiquitous in state-of-the-art heuristic search planners.
+		We present the foundations of planning graph heuristics in classical planning
+		and explain how their flexibility lets them adapt to more expressive scenarios
+		that consider action costs, goal utility, numeric resources, time, and
+		uncertainty.},
+	journal={AI Magazine},
+	volume={28},
+	year={2007},
+	pages={47-83},
+	month={Spring},
+	number={1}
+}
+
+@mastersthesis{[05HeuristicSearch]HelenWollan,
+	author={Helen Wollan},
+	title={Incorporating Heuristically Generated Search Patterns in Search and Rescue},
+	abstract={Search and Rescue operations rely heavily on generic search patterns when
+		using aircraft in a search effort. These search patterns need to be manually
+		modified to accomodate the area to be searched. This dissertation proposes
+		to use heuristic methods to generate search patterns to fit the area instead
+		of modifying a generic pattern. With this aim in mind, this dissertation
+		describes an implementation of one such heuristic method in a Search Management
+		tool. This Search Management tool incorporates the ability to view and
+		maintain the status of a search effort along with the search pattern generation.
+		These functionalities provide a tool to use throughout a search effort
+		to define the search area, generate the search patterns as necessary, and
+		view the current status of the search effort. Additionally this Search
+		Management tool includes the capability for XML messaging, allowing users
+		in the field to send updated information to the search manager through
+		the Search Management tool.},
+	school={University of Edinburgh},
+	year={2004},
+	type={Masters Thesis},
+	annote={Need to Add},
+	note={Need to Read}
+}
+
+@article{[05HeuristicSearch]HeuristicOrienteering,
+	author={T. Tsiligirides},
+	title={Heuristic methods applied to {O}rienteering},
+	abstract={A general description of the sport of orienteering in its two forms known
+		as orienteering event and score orienteering event is given. The similarities
+		between the latter and the generalized travelling salesman problem are
+		underlined, and a common mathematical model is deduced. A "good", if not
+		"optimal" solution of the corresponding problem by means of an efficient
+		and computationally feasible method is derived and discussed. This solution
+		is obtained by the use of either of two algorithms based on approximate
+		methods. The two algorithms are given, and their efficiency is tested on
+		a number of illustrative problems. Finally, a comparison between the two
+		forms of the sport of orienteering is made. },
+	journal={Journal of the Operational Research Society},
+	volume={35},
+	year={1984},
+	pages={797-810},
+	number={9},
+	annote={This paper uses two algorithms based on approximate methods to solve the
+		Orienteering Problem. The efficiency of the two algorithms are tested on
+		a number of illustrative problems.}
+}
+
+@article{[05HeuristicSearch]LRTA*TargetSensing,
+	author={Jason K. Howlett and Timothy W. McLain and Michael A. Goodrich },
+	title={{L}earning {R}eal-{T}ime {A}* Path Planner for {U}nmanned {A}ir {V}ehicle
+		Target Sensing},
+	abstract={This paper presents a path planner for sensing closely-spaced targets from
+		a fixed-wing unmanned air vehicle (UAV) having a specified sensor footprint.
+		The planner is based on the learning real-time A* (LRTA*) search algorithm
+		and produces dynamically feasible paths that accomplish the sensing objectives
+		in the shortest possible distance. A tree of candidate paths that span
+		the area of interest is created by assembling primitive turn and straight
+		sections of a specified step size in a sequential fashion from the starting
+		position of the UAV. An LRTA* search of the tree produces feasible paths
+		any time during its execution and minimum length paths if run to completion.
+		The running time and path-length performance of the search are directly
+		influenced by the operating parameters of the LRTA* search that terminates
+		when there is no improvement in the path for a predefined number of iterations
+		is implemented. The result is a path planner that produces short-distance
+		paths in acceptably short running times.},
+	journal={Journal of Aerospace Computing, Information, and Communication},
+	volume={3},
+	year={2006},
+	pages={108-122},
+	number={3},
+	annote={This paper presents a path planner for sensing closely-spaced targets from
+		fixed-wing UAVs using the LRTA* search algorithm. The search tree is created
+		by assembling primitive turn and straight sections of a specified step
+		size in a sequential fashion from the starting position of the UAV. Experiment
+		results show that the running time and path-length performance of the search
+		are directly influenced by the operating parameters.}
+}
+
+@inproceedings{[05HeuristicSearch]LRTA*SensingTargets,
+	author={J. Howlett and San Jose State University Foundation Moffett Field, CA and
+		M. Goodrich and T. McLain},
+	title={{L}earning {R}eal-{T}ime {A}* Path Planner for Sensing Closely-Spaced Targets
+		from an Aircraft},
+	abstract={This work develops an any-time path planner, based on the learning real-time
+		A* (LRTA*) search, for generating flyable paths that allow an aircraft
+		with a specified sensor footprint to sense a group of closely-spaced targets.
+		The LRTA* algorithm searches a tree of flyable paths for the branch that
+		accomplishes the desired objectives in the shortest distance. The tree
+		of paths is created by assembling primitive turn and straight sections
+		of a specified step size. The operating parameters for the LRTA* search
+		directly influence the running time and path-length performance of the
+		search. A modified LRTA* search is presented that terminates when there
+		has been no improvement in the path for some number of iterations, resulting
+		in a path planner that provides short-distance paths in short running times.},
+	booktitle={AIAA Guidance, Navigation, and Control Conference and Exhibit},
+	year={2003},
+	month={Aug.},
+	annote={Need to Add},
+	number={AIAA-2003-5338 }
+}
+
+@inproceedings{[05HeuristicSearch]AnytimeDynamicA*,
+	author={Maxim Likhachev and Dave Ferguson and Geoff Gordon and Anthony Stentz and
+		Sebastian Thrun},
+	title={Anytime {D}ynamic {A}*: An Anytime, Replanning Algorithm},
+	abstract={We present a graph-based planning and replanning algorithm able to produce
+		bounded suboptimal solutions in an anytime fashion. Our algorithm tunes
+		the quality of its solution based on available search time, at every step
+		reusing previous search efforts. When updated information regarding the
+		underlying graph is received, the algorithm incrementally repairs its previous
+		solution. The result is an approach that combines the benefits of anytime
+		and incremental planners to provide efficient solutions to complex, dynamic
+		search problems. We present theoretical analysis of the algorithm, experimental
+		results on a simulated robot kinematic arm, and two current applications
+		in dynamic path planning for outdoor mobile robots.},
+	booktitle={Proceedings of the International Conference on Automated Planning and Scheduling
+		(ICAPS)},
+	year={2005},
+	month={June},
+	annote={This paper presents an anytime dynamic A* algorithm that combines the benefits
+		of anytime and incremental planners to provide efficient solutions to complex,
+		dynamic search problems.}
+}
+
+@book{[07GeneticAlgorithm]Mitchell97,
+	author={T. M. Mitchell},
+	title={Machine Learning},
+	publisher={McGraw-Hill},
+	year={1997},
+	annote={This book explains in detail the various machine learning algorithms such
+		as Decision Tree, Naive Base, KNN, and GA, etc. }
+}
+
+@inproceedings{[07GeneticAlgorithm]GA4Orienteering,
+	author={M. Fatih Tasgetiren and Alice E. Smith},
+	title={A {G}enetic {A}lgorithm for the {O}rienteering {P}roblem},
+	abstract={This paper presents a genetic algorithm to solve the orienteering problem,
+		which is concerned with finding a path between a given set of control points,
+		among which a start and an end point are specified, so as to maximize the
+		total score collected subject to a prescribed time constraint. Employing
+		three sets of test problems from the literature, the performance of the
+		genetic algorithm is evaluated against problem specific heuristics and
+		an artificial neural network},
+	booktitle={Evolutionary Computation, 2000. Proceedings of the 2000 Congress on},
+	year={2000},
+	pages={910-915},
+	volume={2},
+	annote={This paper presents a genetic algorithm to solve the orienteering problem.
+		Tours are encoded using bit strings by the sequence of points; crossover
+		and mutation techniques were used in each iteration. Performance of the
+		algorithm is compared to problem specific heuristics and an artificial
+		neural network.}
+}
+
+@inproceedings{[07GeneticAlgorithm]EvolutionBasedPathPlanningUAV,
+	author={David Rathbun and Sean Kragelund and Anawat Pongpunwattana},
+	title={An evolution based path planning algorithm for autonomous motion of a {UAV}
+		through uncertain environments},
+	abstract={Adaptive and intelligent on-board path planning is a required part of a
+		fully autonomous UAV. In controlled airspace, such a UAV would have to
+		interact with other vehicles moving though its environment. The locations
+		of obstacles (other vehicles) that form obstructions in the environment
+		may only be known with limited accuracy. Evolutionary algorithms (EA) have
+		been successfully used to compute near-optimal paths through obstructed,
+		dynamically changing environments. Explicitly accounting for the uncertainty
+		of the obstacles can result in the survival of "best" paths which differ
+		from those that would be favored in a purely deterministic environment.
+		In this paper, we consider the application of evolution-based path planning
+		to the motion of an unmanned air vehicle (UAV) through a field of obstacles
+		at uncertain locations. We begin with the static form of the EA algorithm
+		for generating a path at a single point in time. We describe the algorithm
+		and show its behavior, specifically how it responds differently based on
+		the known accuracy of the predictions of the environment. We then show
+		how the static structure can be extended to consider the uncertainties
+		which change with time. We demonstrate by application to path planning
+		through a field of moving obstacles whose future motion is uncertain.},
+	booktitle={Digital Avionics Systems Conference, 2002. Proceedings. The 21st},
+	year={2002},
+	pages={8D2-1- 8D2-12},
+	organization={University of Washington},
+	volume={2}
+}
+
+@article{[08AntColonyAlgorithm]AntOrienteering,
+	author={Yun-Chia Liang and Alice E. Smith},
+	title={An {A}nt {C}olony Approach to the {O}rienteering {P}roblem},
+	abstract={This paper develops an ant colony optimization approach to the orienteering
+		problem, a general version of the well-known traveling salesman problem
+		with many relevant applications in industry. Based on mainstream ant colony
+		ideas, an unusual sequenced local search and a distance based penalty function
+		are added which result in a method that is convincingly shown to be the
+		best heuristic published for this problem class. Results on 67 test problems
+		show that the ant colony method performs as well or better than all other
+		methods from the literature in all cases and does so at very modest computational
+		cost. Furthermore, the ant colony method is insensitive to seed, problem
+		instance, problem size and degree of constraint.},
+	journal={Journal of the Chinese Institute of Industrial Engineers},
+	volume={23},
+	year={2006},
+	pages={403-414},
+	number={5},
+	annote={This paper describes an Ant Colony Optimization apporach to solve the Orienteering
+		Problem. Distance based penalty function and an unusual sequenced local
+		search are used as the heuristic for the search. Experiment results show
+		that the algorithm performed as well or better than all other methods at
+		very modest computational cost.}
+}
+
+@article{[08AntColonyAlgorithm]GridAntOrienteering,
+	author={JA Mocholi and J Jaen and JH Canos},
+	title={A Grid {A}nt {C}olony Algorithm for the {O}rienteering {P}roblem},
+	abstract={In this paper we propose a distributed ant colony algorithm to solve large
+		scale orienteering problem instances. Our approach is based on a multi-colony
+		strategy where each colony works in an independent portion (cluster) in
+		the original graph. This results in no need for communicating pheromones
+		information among colonies and in increasing speedup. We have implemented
+		our algorithm as a .NET Web services infrastructure following a grid computing
+		philosophy and we provide some promising experimental results to show the
+		feasibility and effectiveness of our approach.},
+	journal={Evolutionary Computation, 2005. The 2005 IEEE Congress on},
+	volume={1},
+	year={2005},
+	pages={942-949},
+	number={5},
+	annote={This paper presented a distributed version of the ant colony algorithm for
+		the Orienteering problem proposed by Liang using colony based parallelism.
+		One important issue is how to split clusters. 1. Partitioning TMax proportional
+		to the average cost of the cluster and the number of nodes. 2. Partitioning
+		TMax proportional of the average attractiveness of the nodes in a given
+		cluster. Another Key aspect is how to merge the different obtained partial
+		tours. This paper used the heuristic approach and then used Variable Neighbourhood
+		Search metaheuristic method.}
+}
+
+@article{GrandChallengeOfRobotics1,
+	author={Charles C. Kemp and Aaron Edsinger and Eduardo Torres-Jara},
+	title={Challenges for Robot Manipulation in Human Environments},
+	abstract={- Today's Robots: Simulation/Controlled Environments/Operated by a Human.
+		- Approaches: Perception (Active Percpetion and Task Relevant Features/Vision/Tactile
+		Sensing), Learning (Opportunities for Learning/Common Sense for Manipulation),
+		Working with People (Semi-Autonomous Teleoperation/Human Interaction and
+		Cooperation), Platform Design (Safety/Designing for Uncertainty/On Human
+		Form), Control. - Grand Challenges: Disordered House to an Ordered House
+		(Reversing Entropy to Create Beauty). Preparing and Delivering an Order
+		at a Burger Joint. Outdoor Party Preparation. - Plausible paths: by Approach,
+		by Module, Platform, and Algorithm, From Semi-Autonomy to Full Autonomy,
+		From Simple to Complex Tasks. Whether in a domestic settings or the workplace,
+		we would like robots to physically alter the world through contact. Human
+		environments have a number of challenging characteristics that will usually
+		be beyond the control of the robot's creator. Perception is one of the
+		most important challenges facing the field. Careful design of the robot's
+		body can reduce the need for perception and control, compensate for uncertainty,
+		and enhance sensing.},
+	journal={IEEE Robotics Automation Magazine},
+	volume={14},
+	year={2007},
+	pages={20-29},
+	month={March},
+	number={4},
+	note={Read}
+}
+
+@article{GrandChallengeOfRobotics2,
+	author={Brian Dellon and Yoky Matsuoka},
+	title={Prosthetics, Exoskeletons, and Rehabilitation},
+	abstract={- Types: Worn by the user or not - Challenges in three areas: Electomechanical
+		Implementation Replicating complexity of limb is HARD Need better materials,
+		actuators, sensors, long-lasting power supply Safety. There is no standard.
+		Redundant safety mechanisms must be in place. Neural Control Signals and
+		Extraction of Intent Arm has 7 DOF and hand has 20. Need better intelligence
+		to drive the device Trend is to use neural signals to control (surface
+		muscle electrodes) Linear mapping and have the user learn the mapping Clinical
+		Interface Challenge lies in achieving the control of high degrees of freedom
+		- Grand Challenges: Most critical challenge lies in the design of a controller
+		to allow natural movement of a highly articulate prosthetic with minimal
+		ethical and physical invasion - Determine a mapping from EMG patterns to
+		muscle forces - Perceiving and exploiting the intricacies of low-level
+		neural signals In the near future, the need for assistive robotic devices
+		will increase. We will be able to replace entire limbs with prosthetics
+		that can replicate one's own biological functions precisely, casting a
+		natural outward appearance and requiring minimal upkeep.},
+	journal={IEEE Robotics Automation Magazine},
+	volume={14},
+	year={2007},
+	pages={30-34},
+	month={March},
+	number={4},
+	note={Read}
+}
+
+@article{GrandChallengeOfRobotics3,
+	author={Adriana Tapus and Maja J. Mataric and Brian Scassellati},
+	title={Socially Assistive Robotics},
+	abstract={- Application Domains Care of the Elderly (Companion robots) Care of Individuals
+		with Physical Recovery, Rehabilitation and Training Needs (Repetitive exercises)
+		Care of Individuals with Cognitive Disabilities (Assistive robots offer
+		a unique opportunity for quantifying social behavior) - Grand Challenges
+		Socially intelligent robotics is the pursuit of creating robots capable
+		of exhibiting natural-appearing social qualities. Social behavior plays
+		a fundamental role in assisting all people, including people with special
+		needs. },
+	journal={IEEE Robotics Automation Magazine},
+	volume={14},
+	year={2007},
+	pages={35-42},
+	month={March},
+	number={4},
+	note={Need to Read}
+}
+
+@article{GrandChallengeOfRobotics4,
+	author={Mark Yim and Wei-min Shen and Behnam Salemi and Daniela Rus and Mark Moll
+		and Hod Lipson and Eric Klavins and Gregory S. Chirikjian},
+	title={Modular Self-Reconfigurable Robot Systems},
+	journal={IEEE Robotics Automation Magazine},
+	volume={14},
+	year={2007},
+	pages={43-52},
+	month={March},
+	number={4},
+	note={Need to Read}
+}
+
+@article{GrandChallengeOfRobotics5,
+	author={Metin Sitti},
+	title={Microscale and Nanoscale Robotics Systems},
+	journal={IEEE Robotics Automation Magazine},
+	volume={14},
+	year={2007},
+	pages={53-60},
+	month={March},
+	number={4},
+	note={Need to Read}
+}
+
+@article{GrandChallengeOfRobotics6,
+	author={Calin Belta and Antonio Bicchi and Magnus Egerstedt and Emilio Frazzoli
+		and Eric Klavins and George J. Pappas},
+	title={Symbolic Planning and Control of Robot Motion},
+	journal={IEEE Robotics Automation Magazine},
+	volume={14},
+	year={2007},
+	pages={61-70},
+	month={March},
+	number={4},
+	note={Need to Read}
+}
+
+@article{GrandChallengeOfRobotics7,
+	author={Satoshi Murata and Haruhisa Kurokawa},
+	title={Self-Reconfigurable Robots},
+	abstract={- Potential: better in multifunctionality, flexibility, and robustness.
+		Morphogenesis (Self-Assembly): problems: finding an algorithm to shift
+		from any shape to a specific one; finding a reconfiguration path from one
+		certain configuration to another; finding a suitable configuration under
+		the given environment. Self-Repair Scalability: functionality depends linearly
+		on the number of modules (e.g. All Pushing in the same direction. Lifting
+		things) Motion Generation: Autonomous motion generation for an arbitrary
+		configuration is most desirable; however, it is quite difficult. One feasible
+		solution is semi-autonomous motion generation to reduce human intervention.
+		Co-Evolution of Shape and Motion (Shape affects motion and motion affects
+		shape) Types: heterogeneous/homogenous (facilitates self-repair and self-reproduction
+		schemes) (Maybe hybrid too) - Lattice-Type (To reduce complexity, group
+		modules together to make meta-module) - Chain-Type (Less symmetrical; Can
+		be built with fewer actuators and connectors and has high torque/weight
+		ratio) - Hybrid-Type M-Tran combines a central pattern generator (CPG)
+		and a genetic algorithm (GA). - Challenges: Hardware Issues A method of
+		quantitatively estimating self-reconfiguration functionalities based on
+		the geometric properties of a module Reliability of the hardware Control
+		System Issues Differentiation of modules or role sharing Synchronization
+		among modules for coherent motion generation high-level decision making
+		in a distributed manner. Algorithm Issues The concurrent search of morphology
+		and motion is quite difficult because of explosive computational complexity
+		(new description method of morphology and motion) Connectivity (wholeness)
+		issue: 2 merges into 1, 1 divided into 2, self-reproduces by collecting
+		scattered modules - Future of SR Robots Application-oriented direction
+		Exploration tasks. Repairing self. (Gracefully degraded) Eduction and arts
+		Fundamental-science-oriented direction SR robots systems have ultimate
+		autonomy in the sense that they rise above the perpetual cycle of conventional
+		engineering. Improve by acceleration of evolution involving both large-scale
+		simulations in the virtual world and hardware experiments in the real world.
+		Shape-Changing Cellular Robots Can Exceed Conventional Robot Flexibility
+		An SR robot is not a robot designed to perform a specific task but a system
+		that develops into various types of robots and executes a variety of tasks.
+		An SR robot is able to adapt not only to the changes in its external environment
+		but also to the changes in its internal environment, like functional disturbances
+		or failures in modules. },
+	journal={IEEE Robotics Automation Magazine},
+	volume={14},
+	year={2007},
+	pages={71-78},
+	month={March},
+	number={4}
+}
+
+@article{GrandChallengeOfRobotics8,
+	author={Georgia C. Anousaki and Konstantinos J. Kyriakopoulos},
+	title={Simultaneous Localization and Map Building of Skid-Steered Robots},
+	journal={IEEE Robotics Automation Magazine},
+	volume={14},
+	year={2007},
+	pages={79-89},
+	month={March},
+	number={4},
+	note={Need to Read}
+}
+
+@article{GrandChallengeOfRobotics9,
+	author={Elena Garcia and Maria Antonia Jimenez and Pablo Gonzalez De Santos and
+		Manuel Armada},
+	title={The Evolution of Robotics Research - From Industrial Robotics to Field and
+		Service Robotics},
+	journal={IEEE Robotics Automation Magazine},
+	volume={14},
+	year={2007},
+	pages={90-103},
+	month={March},
+	number={4},
+	note={Need to Read}
+}
+
+@book{[06DijstraAlgorithm]IntroToAlgorithms,
+	author={Thomas H. Cormen and Charles E. Leiserson and Ronald L. Rivest and Clifford
+		Stein},
+	title={Introduction to Algorithms (2nd edition)},
+	publisher={The MIT Press},
+	year={2001},
+	edition={2},
+	month={September},
+	annote={This book teachs various algorithms including the Dijkstra's Algorithm.}
+}
+
+@book{[08AntColonyAlgorithm]ACO,
+	author={Marco Dorigo and Thomas Stutzle},
+	title={{A}nt {C}olony {O}ptimization},
+	publisher={The MIT Press},
+	year={2004},
+	annote={This book introduces the rapidly growing field of ant colony optimization.
+		It includes detailed description of the ideas underlying ACO and how ACO
+		can be applied to a wide range of combinatorial optimization problems.}
+}
+
+@inproceedings{[05HeuristicSearch]D*,
+	author={Anthony Stentz},
+	title={The focussed {D}* algorithm for real-time replanning},
+	abstract={Finding the lowest-cost path through a graph is central to many problems,
+		including route planning for a mobile robot. If arc costs change during
+		the traverse, then the remainder of the path may need to be replanned.
+		This is the case for a sensor-equipped mobile robot with imperfect information
+		about its environment. As the robot acquires additional information via
+		its sensors, it can revise its plan to reduce the total cost of the traverse.
+		If the prior information is grossly incomplete, the robot may discover
+		useful information in every piece of sensor data. During replanning, the
+		robot must either wait for the new path to be computed or move in the wrong
+		direction; therefore, rapid replanning is essential. The D* algorithm (Dynamic
+		A*) plans optimal traverses in real-time by incrementally repairing paths
+		to the robot's state as new information is discovered. This paper describes
+		an extension to D* that focusses the repairs to significantly reduce the
+		total time required for the initial path calculation and subsequent replanning
+		operations. This extension completes the development of the D* algorithm
+		as a full generalization of A* for dynamic environments, where arc costs
+		can change during the traverse of the solution path.},
+	booktitle={Proceedings of the International Joint Conference on Artificial Intelligence},
+	year={1995},
+	month={August},
+	organization={Robotics Institute Carnegie Mellon University},
+	annote={This paper introduces the D* algorithm (Dynamic A*) that allows rapid replanning
+		in real-time as robot sensors receive additional information about the
+		environment.}
+}
+
+@inproceedings{[05HeuristicSearch]D*Lite,
+	author={Sven Koenig and Maxim Likhachev},
+	title={Improved Fast replanning for Robot Navigation in Unknown Terrain},
+	abstract={Mobile robots often operate in domains that are only incompletely known,
+		for example, when they have to move from given start coordinates to given
+		goal coordinates in unknown terrain. In this case, they need to be able
+		to replan quickly as their knowledge of the terrain changes. Stentz' Focussed
+		Dynamic A* is a heuristic search method that repeatedly determines a shortest
+		path from the current robot coordinates to the goal coordinates while the
+		robot moves along the path. It is able to replan one to two orders of magnitudes
+		faster than planning from scratch since it modifies previous search results
+		locally. Consequently, it has been extensively used in mobile robotics.
+		In this paper, we introduce an alternative to Focussed Dynamic A* that
+		implements the same navigation strategy but is algorithmically different.
+		Focussed Dynamic A* Lite is simpler, easier to understand, easier to analyze
+		and easier to extend than Focussed Dynamic A*, yet is more efficient. We
+		believe that our results will make D*-like replanning algorithms even more
+		popular and enable robotics researchers to adapt them to additional applications.},
+	booktitle={Robotics and Automation, 2002. Proceedings. ICRA '02. IEEE International
+		Conference on},
+	year={2002},
+	pages={968-975},
+	volume={1},
+	annote={This paper introduces an alternative to Focussed Dynamic A* algorithm called
+		Focussed Dynamic A* Lite. It is simpler, easier to understand, easier to
+		analyze and easier to extend, yet is more efficient.}
+}
+
+@article{[05HeuristicSearch]WrenHoliday,
+	author={A Wren and A Holliday},
+	title={Computer Scheduling of Vehicles from One or More Depots to a Number of Delivery
+		Points },
+	abstract={The problem of scheduling delivery vehicles from a number of depots to customers,
+		subject to constraints on load and distance or time, is considered. A new
+		algorithm is presented; this allows routes from several depots to be constructed
+		simultaneously, subject to restrictions on numbers of vehicles at individual
+		depots. Where too many customers require service, a flexible priority rule
+		will select those to be served. Results from the single depot case are
+		compared with other known algorithms; further results are given and discussed
+		for cases of several depots.},
+	journal={Operational Research Quarterly},
+	volume={23},
+	year={1972},
+	pages={333-344},
+	annote={This paper presents a new algorithm that allows routes from several depots
+		to be constructed simultaneously, subject to restrictions on numbers of
+		vehicles at individual depots.}
+}
+
+@inproceedings{[02GeneralStuff]AnytimeAlgorithm,
+	author={T. Dean and M. Boddy},
+	title={An analysis of time-dependent planning},
+	booktitle={Proceedings of the Seventh National Conference on Artificial Intelligence},
+	year={1988},
+	address={St. Paul, Minnesota},
+	annote={This article first introduced the term Anytime Algorithm and discussed how
+		it can be used in time-dependent planning problems.}
+}
+
+@inproceedings{[02GeneralStuff]AdjustableAutonomy,
+	author={Michael A. Goodrich and Dan R. Olsen Jr. and Jacob W. Crandall and Thomas
+		J. Palmer},
+	title={Experiments in Adjustable Autonomy},
+	abstract={Human-robot interaction is becoming an increasingly important research area.
+		In this paper, we present our work on designing a human-robot system with
+		adjustable autonomy and describe not only the prototype interface but also
+		the corresponding robot behaviors. In our approach, we grant the human
+		meta-level control over the level of robot autonomy, but we allow the robot
+		a varying amount of self-direction with each level. Within this framework
+		of adjustable autonomy, we explore appropriate interface concepts for controlling
+		multiple robots from multiple platforms.},
+	booktitle={Proceedings of the IJCAI Workshop on Autonomy, Delegation and Control: Interacting
+		with Intelligent Agents, 2001},
+	year={2001},
+	annote={This paper describes different interface concepts applied to adjustable
+		level of control over level of robot autonomy and also the corresponding
+		robot behaviors.}
+}
+
+@inproceedings{[02GeneralStuff]AdjustableAutonomySpace,
+	author={M. Sierhuis and J. Bradshaw and A. Acquisti and R. Hoof and R. Jeffers},
+	title={Human-Agent Teamwork and Adjustable Autonomy in Practice},
+	abstract={This paper outlines a preliminary perspective on teamwork and adjustable
+		autonomy in groups involving a mix of humans and autonomous agents. Unlike
+		other approaches to agent teamwork, a humancentered perspective to human-agent
+		interaction is used. The paper describes how we are integrating the Brahms
+		and KAoS agent frameworks in order to model and simulate realistic work
+		situations in space and to support the design of robotic and software agents
+		for human-agent teamwork.},
+	booktitle={International Symposium on AI, Robotics and Automation in Space},
+	year={2003},
+	address={Nara, Japan},
+	annote={This paper describes how the Brahms and KAoS agent frameworks were integrated
+		to model and simulate realistic work situations in space and to support
+		the design of robotic and software agents for human-agent teamwork using
+		adjustable autonomy.}
+}
+
+@inproceedings{[02GeneralStuff]AdjustableAutonomyOriginal,
+	author={Gregory A. Dorais and R. Peter Bonasso and David Kortenkamp and Barney Pell
+		and Debra Schrechenghost},
+	title={Adjustable Autonomy for Human-Centered Autonomous Systems on {M}ars},
+	abstract={We expect a variety of autonomous systems, from rovers to life-support systems,
+		to play a critical role in the success of manned Mars missions. The crew
+		and ground support personnel will want to control and be informed by these
+		systems at varying levels of detail depending on the situation. Moreover,
+		these systems will need to operate safely in the presence of people and
+		cooperate with them effectively. We call such autonomous systems human-centered
+		in constrast with traditional "black-box" autonomous systems. Our goal
+		is to design a framework for human-centered autonomous systems that enables
+		users to interact with these systems at whatever level of control is most
+		appropriate whenever they so choose, but minimize the necessity for such
+		interaction. This paper discusses on-going research at the NASA Ames Research
+		Center and the Johnson Space Center in developing human-centered autonomous
+		systems that can be used for a manned Mars mission.},
+	booktitle={The First International Conference of the Mars Society},
+	year={1998},
+	annote={This paper describes a framework for human-centered autonomous systems that
+		enables users to interact with these systems at whatever level of control
+		is most appropriate whenever they so choose, but minimize the necessity
+		for such interaction for human-centered autonomous systems that can be
+		used for a manned Mars mission.}
+}
+
+@inproceedings{[06PotentialFields]Arkin,
+	author={Ronald C. Arkin},
+	title={Behavior-based robotics },
+	booktitle={Behavior-based robotics },
+	year={1998},
+	publisher={The MIT Press},
+	annote={Chapter 3 of the book talks about robotic behaviors and discussed the potential
+		fields algorithm as a reactive robotic system.}
+}
+
+@article{SVM,
+	author={Christopher J.C. Burges},
+	title={A Tutorial on Support Vector Machines for Pattern Recognition},
+	abstract={The tutorial starts with an overview of the concepts of VC dimension and
+		structural risk minimization. We then describe linear Support Vector Machines
+		(SVMs) for separable and non-separable data, working through a non-trivial
+		example in detail. We describe a mechanical analogy, and discuss when SVM
+		solutions are unique and when they are global. We describe how support
+		vector training can be practically implemented, and discuss in detail the
+		kernel mapping technique which is used to construct SVM solutions which
+		are nonlinear in the data. We show how Support Vector machines can have
+		very large (even infinite) VC dimension by computing the VC dimension for
+		homogeneous polynomial and Gaussian radial basis function kernels. While
+		very high VC dimension would normally bode ill for generalization performance,
+		and while at present there exists no theory which shows that good generalization
+		performance is guaranteed for SVMs, there are several arguments which support
+		the observed high accuracy of SVMs, which we review. Results of some experiments
+		which were inspired by these arguments are also presented. We give numerous
+		examples and proofs of most of the key theorems. There is new material,
+		and I hope that the reader will find that even old material is cast in
+		a fresh light.},
+	journal={Data Mining and Knowledge Discovery},
+	volume={2},
+	year={1998},
+	pages={121-167},
+	month={June},
+	number={2},
+	annote={This paper gives an introduction to SVMs and provides non-trivial examples
+		to demonstrate the kernel mapping technique and how linear SVMs can be
+		practically implemented on separable and non-separable data. VC dimension
+		is used to analyze SVMs and proofs of key theorems were given together
+		with experiment results.}
+}
+
+@manual{LibSVM,
+	author={Chih-Chung Chang and Chih-Jen Lin},
+	title={{LIBSVM}: a library for support vector machines},
+	organization={Software available at http://www.csie.ntu.edu.tw/~cjlin/libsvm},
+	year={2001}
+}
+
+@article{Meta-Learning,
+	author={Richardo Vilalta and Youssef Drissi},
+	title={A Perspective View And Survey Of Meta-Learning},
+	abstract={Different researchers hold different views of what the term meta-learning
+		exactlymeans. The first part of this paper provides our own perspective
+		view in which the goal isto build self-adaptive learners (i.e. learning
+		algorithms that improve their bias dynamicallythrough experience by accumulating
+		meta-knowledge). The second part provides a survey ofmeta-learning as reported
+		by the machine-learning literature. We find that, despite differentviews
+		and research lines, a question remains constant: how can we exploit knowledge
+		aboutlearning (i.e. meta-knowledge) to improve the performance of learning
+		algorithms? Clearlythe answer to this question is key to the advancement
+		of the field and continues being thesubject of intensive research.},
+	journal={Artificial Intelligence Review},
+	volume={18},
+	year={2002},
+	pages={77-95},
+	month={June},
+	number={2}
+}
+
+@article{[01UAVSpecific]FieldReport,
+	author={Michael A. Goodrich and Bryan S. Morse and Damon Gerhardt and Joseph L.
+		Cooper and Morgan Quigley and Julie A. Adams and Curtis Humphrey},
+	title={Supporting Wilderness Search and Rescue using a Camera-Equipped Mini {UAV}},
+	abstract={Wilderness Search and Rescue (WiSAR) entails searching over large regions
+		in often rugged remote areas. Because of the large regions and potentially
+		limited mobility of ground searchers, WiSAR is an ideal application for
+		using small (human-packable) unmanned aerial vehicles (UAVs) to provide
+		aerial imagery of the search region. This paper presents a brief analysis
+		of the WiSAR problem with emphasis on practical aspects of visual-based
+		aerial search. As part of this analysis, we present and analyze a generalized
+		contour search algorithm, and relate this search to existing coverage searches.
+		Extending beyond laboratory analysis, lessons from field trials with search
+		and rescue personnel indicated the immediate need to improve two aspects
+		of UAV-enabled search: How video information is presented to searchers
+		and how UAV technology is integrated into existing WiSAR teams. In response
+		to the first need, three computer vision algorithms for improving video
+		display presentation are compared; results indicate that constructing temporally
+		localized image mosaics is more useful than stabilizing video imagery.
+		In response to the second need, a goal-directed task analysis of the WiSAR
+		domain was conducted and combined with field observations to identify operational
+		paradigms and field tactics for coordinating the UAV operator, the payload
+		operator, the mission manager, and ground searchers. ?? 2008 Wiley Periodicals,
+		Inc.},
+	journal={Journal of Field Robotics},
+	volume={25},
+	year={2008},
+	pages={89-110},
+	month={January},
+	number={1-2},
+	annote={1/3 of the technical report}
+}
+
+@unpublished{[01UAVSpecific]ProbabilityMap,
+	author={Brian Buss and Michael A. Goodrich},
+	title={A {M}arkov Model for Lost-Person Navigation},
+	abstract={Search and rescue commanders make critical decisions based upon uncertain
+		and incomplete information concerning the location of a victim lost in
+		the wilderness. Current methods for estimating the victim¡¯s probable location
+		incorporate only limited statistical data. With a model for lost-person
+		travel, it may be possible to improve these probability estimates. Based
+		upon observations from search and rescue incident reports, we propose a
+		model which represents an individual's course as a path through a series
+		of adjacent regions. Data from the locations of existing trails are used
+		to fit model parameters. Given the last known position of the victim, probable
+		locations are estimated by iteration of a Markov chain. Results are compared
+		to historical data on the net distance traveled by lost persons.},
+	note={BYU 22nd Annual Spring Research Conference},
+	year={2008}
+}
+
+@inproceedings{[01UAVSpecific]UAVSensorVisualSearch,
+	author={Joseph Cooper and Michael A. Goodrich},
+	title={Towards Combining {UAV} and Sensor Operator Roles in {UAV}-Enabled Visual
+		Search},
+	abstract={Wilderness search and rescue (WiSAR) is a challenging problem because of
+		the large areas and often rough terrain that must be searched. Using mini-UAVs
+		to deliver aerial video to searchers has potential to support WiSAR efforts,
+		but a number of technology and human factors problems must be overcome
+		to make this practical. At the source of many of these problems is a desire
+		to manage the UAV using as few people as possible, so that more people
+		can be used in ground-based search efforts. This paper uses observations
+		from two informal studeis and one formal experiment to identify what human
+		operators may be unaware of as a function of autonomy and information display.
+		Results suggest that progress is being made on designing autonomy and information
+		displays that may make it possible for a single human to simultaneously
+		manage the UAV and its camera in WiSAR, but that adaptable displays that
+		support systematic navigation are probably needed.},
+	booktitle={Proceedings of ACM/IEEE International Conference on Human-Robot Interaction},
+	year={2008},
+	month={March},
+	address={Amsterdam, The Netherlands}
+}
+
+@inproceedings{[02GeneralStuff]BourgaultDHMS,
+	author={Frederic Bourgault and Aakash Chokshi and Mark Compbell},
+	title={{Human-Computer augmented Nodes for Scalable Mobile Sensor Networks}},
+	abstract={In this paper, scalable collaborative human systems for information gathering
+		applications are approached as an active sensor network problem. The human-computer
+		augmented node is a mobile sensor unit where the human contributes both
+		the sensors and the sensor carrying "platform", while the computer runs
+		both a decentralized Bayesian fusion node and a decentralized Bayesian
+		control negotiation algorithm. The individual controllers iteratively negotiate
+		anonymously in the information space to find cooperative search plans based
+		on both observed and predicted information that explicitly consider the
+		human motion model, its sensors detection functions, as well as the target
+		arbitrary motion model. The results of a search experiment conducted with
+		ten human carrying small portable computers with wireless communication
+		are presented to demonstrate the efficiency of the approach.},
+	booktitle={Proceedings of the SMC DHMS 2008},
+	year={2008}
+}
+
+@article{BourgaultCoordinated,
+	author={Fr¨¦d¨¦ric Bourgault and Ali Goktogan and Tomonari Furukawa and Hugh F.
+		Durrant-Whyte},
+	title={Coordinated search for a lost target in a Bayesian world},
+	abstract={This paper considers thruster dead zones and saturation limits, which are
+		nonlinear elements that complicate fine motion control of underwater robots.
+		If the vehicle is configured with redundant thrusters, the respective dead
+		zones and their surrounding nonlinear regions could be avoided by implementing
+		a null motion solution for the command input of the vehicle. This solution
+		is derived from the vehicle's geometry and is realized before the application
+		of the motion control algorithm. The result is an improvement in system
+		performance exclusive of the implemented controller type. The approach
+		is illustrated through simulation and experiment with an underwater robot,
+		ODIN.},
+	journal={Advanced Robotics},
+	volume={18},
+	year={2004},
+	pages={979-1000},
+	number={10},
+	bibsource={DBLP, http://dblp.uni-trier.de}
+}
+
+@article{Chi-squaredTest,
+	author={Valen E. Johnson},
+	title={A {B}ayesian $\chi^2$ test for goodness-of-fit},
+	abstract={This article describes an extension of classical ¦{\"O}2 goodness-of-fit tests
+		to Bayesian model assessment. The extension, which essentially involves
+		evaluating Pearson¡¯s goodness-of-fit statistic at a parameter value drawn
+		from its posterior distribution, has the important property that it is
+		asymptotically distributed as a ¦{\"O}2 random variable on K?{\'O}11 degrees of
+		freedom, independently of the dimension of the underlying parameter vector.
+		By examining the posterior distribution of this statistic, global goodness-of-fit
+		diagnostics are obtained. Advantages of these diagnostics include ease
+		of interpretation, computational convenience and favorable power properties.
+		The proposed diagnostics can be used to assess the adequacy of a broad
+		class of Bayesian models, essentially requiring only a finite-dimensional
+		parameter vector and conditionally independent observations. },
+	journal={The Annals of Statistics},
+	volume={32},
+	year={2004},
+	pages={2361-2384},
+	number={6}
+}
+
+@book{textbook,
+	author={Andrew Gelman and John B. Carlin and Hal S. Stern and Donald B. Rubin },
+	title={Bayesian Data Analysis},
+	publisher={Chapman \& Hall/CRC},
+	year={2004},
+	edition={2nd}
+}
+
+@inproceedings{Bourgault,
+	author={Fr¨¦d¨¦ric Bourgault and Tomonari Furukawa and Hugh F. Durrant-Whyte},
+	title={{Optimal Search for a Lost Target in a Bayesian World.}},
+	abstract={This paper presents a Bayesian approach to the problem of searching for
+		a single lost target by a single autonomous sensor platform. The target
+		may be static or mobile but not evading. Two candidate utility functions
+		for the control solution are highlighted, namely the Mean Time to Detection,
+		and the Cumulative Probability of Detection. The framework is implemented
+		for an airborne vehicle looking for both a stationary and a drifting target
+		at sea. Simulation results for different control solutions are investigated
+		and compared to demonstrate the effectiveness of the method. },
+	booktitle={FSR},
+	year={2003},
+	publisher={Springer},
+	editor={Shin'ichi Yuta and Hajime Asama and Sebastian Thrun and Erwin Prassler and
+		Takashi Tsubouchi},
+	pages={209-222},
+	volume={24},
+	series={Springer Tracts in Advanced Robotics},
+	description={dblp},
+	date={2008-09-26},
+	ee={http://dx.doi.org/10.1007/10991459_21},
+	isbn={978-3-540-32801-8},
+	keywords={dblp }
+}
+
+@book{AnalysisOfLostPersonBehavior,
+	author={W. G. Syrotuck},
+	title={Analysis of Lost Person Behavior},
+	publisher={Barkleigh Productions},
+	year={2000},
+	month={December}
+}
+
+@article{CanadaSAR,
+	author={C. Donald Heth and Edward H. Cornell},
+	title={Characteristics of travel by persons lost in {A}lbertan wilderness areas},
+	abstract={We examined 162 incidents of persons lost in wilderness areas in southwestern
+		Alberta, Canada. Measures of travel by lost persons are organized for use
+		by search managers. Specifically, we tabulated crow's-flight distance traveled
+		and dispersion of travel by different categories of wilderness users. The
+		distribution of crow's-flight distance of outdoor travel can be described
+		by the Wakeby equation, regardless of whether the lost person is hiking,
+		cross-country skiing, or mountain biking. Quantitative differences in the
+		distribution are consistent with a common-sense geographical distinction
+		between front and back country wilderness. However, the distribution is
+		qualitatively different for lost persons who walk away from interpersonal
+		conflict or are despondent.},
+	journal={Journal of Environmental Psychology},
+	volume={18},
+	year={1998},
+	pages={223-235},
+	month={September},
+	number={3}
+}
+
+@inproceedings{GISSAR,
+	author={Don Ferguson},
+	title={{GIS} for wilderness search and rescue},
+	abstract={The objective of any search and rescue mission is to locate the missing
+		subject and return them to a stable and safe environment. To do this, search
+		managers must employ tactics that are efficient and do not pose unnecessary
+		risk to rescue personnel. Modern search stategies involve the use of behavioral
+		profiling, probability theory, terrain interpretation and resource management.
+		Geographic information systems provide a platform to integrate these various
+		elements into an effective tool for managing search operations. This paper
+		discusses the application of GIS to manage the search for a missing autistic
+		youth in the Dolly Sods Wilderness area of West Virginia. Through this
+		example, details are provided for seegmenting the designated search area
+		into probability regions based on statistical analysis and a behavioral
+		profile of the missing subject. An operational basemap was developed by
+		integrating digital raster graphics, elevation datasets, and aerial imagery
+		with various shapefiles in order to further segment the probabiliity regions
+		into searchable areas. Attribute tables provided a database to track resources,
+		clue logs and area coverage as well as performing basic probability estimates.
+		Recommendations for the use of GIS during search operations focus on improving
+		search efficiency and effectiveness, as well as reducing operational costs
+		and response times with the goal of finding the missing subject as quickly
+		as possible.},
+	booktitle={ESRI Federal User Conference},
+	year={2008},
+	month={February}
+}
+
+@inproceedings{UtilityGISSAR,
+	author={Emrah Soylemez and Nur¨¹nnisa Usul},
+	title={{Utility of GIS in Search and Rescue Operations}},
+	abstract={The main purpose of search and rescue operations is making effective and
+		efficient searches with the ultimate goal of saving lives in the determined
+		area. Two key factors are important in these operations. The first is to
+		determine and specify the incident area by shrinking it; since determining
+		a smaller search area decreases the search time. Secondly, reaching this
+		area in an optimal way, so that the search team will not loose time during
+		the operations.},
+	booktitle={ESRI Users Group Conference},
+	year={2006},
+	month={September}
+}
+
+@article{BIC,
+     jstor_articletype = {primary_article},
+     title = {Estimating the Dimension of a Model},
+     author = {Gideon Schwarz},
+     journal = {The Annals of Statistics},
+     jstor_issuetitle = {},
+     volume = {6},
+     number = {2},
+     jstor_formatteddate = {Mar., 1978},
+     pages = {461--464},
+     ISSN = {00905364},
+     abstract = {The problem of selecting one of a number of models of different dimensions is treated by finding its Bayes solution, and evaluating the leading terms of its asymptotic expansion. These terms are a valid large-sample criterion beyond the Bayesian context, since they do not depend on the a priori distribution.},
+     language = {},
+     year = {1978},
+     publisher = {Institute of Mathematical Statistics},    
+     copyright = {Copyright ? 1978 Institute of Mathematical Statistics},
+}
+
+
+@ARTICLE{AIC,
+	title={A new look at the statistical model identification},
+	author={ Akaike, H.},
+	journal={Automatic Control, IEEE Transactions on},
+	year={1974},
+	month={Dec},
+	volume={19},
+	number={6},
+	pages={ 716-723},
+	keywords={null Parameter identification, Time series, maximum-likelihood (ML) estimation},
+	doi={},
+	ISSN={0018-9286}, 
+}
+
+@article{DIC,
+     jstor_articletype = {primary_article},
+     title = {{Bayesian Measures of Model Complexity and Fit}},
+     author = {Spiegelhalter, David J. and Best, Nicola G. and Carlin, Bradley P. and Linde, Angelika van der},
+     journal = {Journal of the Royal Statistical Society. Series B (Statistical Methodology)},
+     jstor_issuetitle = {},
+     volume = {64},
+     number = {4},
+     jstor_formatteddate = {2002},
+     pages = {583--639},
+     ISSN = {13697412},
+     abstract = {We consider the problem of comparing complex hierarchical models in which the number of parameters is not clearly defined. Using an information theoretic argument we derive a measure pD for the effective number of parameters in a model as the difference between the posterior mean of the deviance and the deviance at the posterior means of the parameters of interest. In general pD approximately corresponds to the trace of the product of Fisher's information and the posterior covariance, which in normal models is the trace of the 'hat' matrix projecting observations onto fitted values. Its properties in exponential families are explored. The posterior mean deviance is suggested as a Bayesian measure of fit or adequacy, and the contributions of individual observations to the fit and complexity can give rise to a diagnostic plot of deviance residuals against leverages. Adding pD to the posterior mean deviance gives a deviance information criterion for comparing models, which is related to other information criteria and has an approximate decision theoretic justification. The procedure is illustrated in some examples, and comparisons are drawn with alternative Bayesian and classical proposals. Throughout it is emphasized that the quantities required are trivial to compute in a Markov chain Monte Carlo analysis.},
+     language = {},
+     year = {2002},
+     publisher = {Blackwell Publishing for the Royal Statistical Society},    
+     copyright = {Copyright ? 2002 Royal Statistical Society},
+}
+
+@book{LostPersonBehavior,
+	author={Robert J. Koester},
+	title={Lost Person Behavior: A search and rescue guide on where to look - for land, air and water},
+	publisher={dbS Productions LLC},
+	year={2008},
+	month={August}
+}
+
+@inproceedings{BayesianImitationHumanBehavior,
+ author = {Gorman, Bernard and Thurau, Christian and Bauckhage, Christian and Humphrys, Mark},
+ title = {{Bayesian Imitation of Human Behavior in Interactive Computer Games}},
+ booktitle = {ICPR '06: Proceedings of the 18th International Conference on Pattern Recognition},
+ year = {2006},
+ isbn = {0-7695-2521-0},
+ pages = {1244--1247},
+ publisher = {IEEE Computer Society},
+ address = {Washington, DC, USA},
+}
+
+@inproceedings{BayesianHumanConceptLearning,
+ author = {Tenenbaum, Joshua B.},
+ title = {Bayesian modeling of human concept learning},
+ booktitle = {Proceedings of the 1998 conference on Advances in neural information processing systems II},
+ year = {1999},
+ isbn = {0-262-11245-0},
+ pages = {59--65},
+ publisher = {MIT Press},
+ address = {Cambridge, MA, USA},
+}
+
+@ARTICLE{BayesianHumanInteraction,
+	title={{A Bayesian computer vision system for modeling human interactions}},
+	author={Oliver, N.M. and Rosario, B. and Pentland, A.P.},
+	journal={Pattern Analysis and Machine Intelligence, IEEE Transactions on},
+	year={2000},
+	month={Aug},
+	volume={22},
+	number={8},
+	pages={831-843},
+	abstract={We describe a real-time computer vision and machine learning system for modeling and recognizing human behaviors in a visual surveillance task. The system deals in particularly with detecting when interactions between people occur and classifying the type of interaction. Examples of interesting interaction behaviors include following another person, altering one's path to meet another, and so forth. Our system combines top-down with bottom-up information in a closed feedback loop, with both components employing a statistical Bayesian approach. We propose and compare two different state-based learning architectures, namely, HMMs and CHMMs for modeling behaviors and interactions. Finally, a synthetic ¡°Alife-style¡± training system is used to develop flexible prior models for recognizing human interactions. We demonstrate the ability to use these a priori models to accurately classify real human behaviors and interactions with no additional tuning or training},
+	keywords={Bayes methods, computer vision, hidden Markov models, image segmentation, learning systems, object recognition, real-time systems, surveillanceBayes method, computer vision, hidden Markov model, human behavior recognition, image segmentation, machine learning, pattern recognition, people detection, real-time systems, visual surveillance},
+	doi={10.1109/34.868684},
+	ISSN={0162-8828}, 
+}
+
+@article{IntroMCMC,
+  author    = {Christophe Andrieu and
+               Nando de Freitas and
+               Arnaud Doucet and
+               Michael I. Jordan},
+  title     = {An Introduction to MCMC for Machine Learning},
+  journal   = {Machine Learning},
+  volume    = {50},
+  number    = {1-2},
+  year      = {2003},
+  pages     = {5-43},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+@incollection{MCMCPeople,
+	title = {{Markov Chain Monte Carlo with People}},
+	author = {Adam Sanborn and Thomas Griffiths},
+	booktitle = {Advances in Neural Information Processing Systems 20},
+	editor = {J.C. Platt and D. Koller and Y. Singer and S. Roweis},
+	publisher = {MIT Press},
+	address = {Cambridge, MA},
+	pages = {1265--1272},
+	year = {2008}
+}

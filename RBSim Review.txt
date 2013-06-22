@@ -1,0 +1,175 @@
+Excellent work!  This should go into the lit review of upcoming papers and your dissertation.
+
+Mike
+
+On 2/15/12 12:01 PM, Lanny Lin wrote:
+> Hi Mike,
+>
+> Sorry for not getting back to you right away. I was not feeling well 
+> and basically slept through the last two days.
+>
+> See below the comparison of the RBSim program and my work:
+>
+> Similarities:
+> 1. Both use GIS information (terrain features).
+> 2. Both model human movement based on terrain information.
+> 3. Use grid cells to discretize area.
+>
+> Differences:
+> RBSim:
+> 1. Each Artificial Life (agent) is like a particle.
+> 2. Agents can interact with each other (e.g., minimize encounters).
+> 3. Multiple agents can exist at the same time with different physical 
+> mobility capabilities, sensory capabilities, and cognitive capabilities.
+> (hiker agents, jeep agents, biker agents, etc.) 4. Knowledge and rules 
+> are built into each agent based on empirical data with the intuition 
+> of the programmer.
+> 5. Agents are solitude seeking (minimizing encounters with other agents).
+> 6. All agents detect explicit locations of other agents and determine 
+> whether they are visible or not.
+> 7. Inputs:
+> - Terrain features
+> - Agent capabilities (speed, energy levels, objective or goals)
+> - Set of rules associated with the agent 8. Outputs (for each cell):
+> - Agent info
+> - Physical encounters with other agents
+> - Visual encounters with other agents
+> - Time allocation (viewing landscape, resting, etc.)
+> - Movement patterns.
+>
+> My work:
+> 1. Uses a Bayesian approach with prior beliefs, observations, and 
+> posterior beliefs.
+> 2. Can incorporate past human behavior data.
+> 3. Predict likely places to find the missing person over time.
+> 4. Inputs:
+> - Terrain features
+> - Prior beliefs of how the missing person would traverse based on 
+> terrain features (transitional probabilities)
+> - Past human behavior data
+> 5. Outputs:
+> - Prior predictive probability distribution over time
+> - Posterior predictive probability distribution over time
+>
+> In summary, the RBSim tool can probably be used to predict missing 
+> person behavior if a set of rules exist on how an agent would traverse 
+> based on terrain features. When many agents are used, it is kind of 
+> like a
+> (stochastic) particle swarm approach to predicting where the missing 
+> person might be. It doesn't really allow the use of past human behavior data.
+>
+> Our research uses the Bayesian approach so we can use past human 
+> behavior data. Our approach also computes how the probability changes 
+> over time by sampling from prior or posterior beliefs.
+>
+> Best,
+> Lanny
+>
+> -----Original Message-----
+> From: Michael A. Goodrich [mailto:mike@cs.byu.edu]
+> Sent: Monday, February 13, 2012 2:59 PM
+> To: Lanny Lin
+> Cc: mike
+> Subject: Fwd: Re: Hazards and Emergency Response
+>
+> Hi Lanny,
+>
+> Will you please look into this link?
+>
+> http://www.srnr.arizona.edu/~gimblett/rbsim.html
+>
+> Please let me know how it is similar and different from your work.
+>
+> Mike
+>
+> -------- Original Message --------
+> Subject: 	Re: Hazards and Emergency Response
+> Date: 	Thu, 09 Feb 2012 11:50:55 -0500
+> From: 	Donald Ferguson<dferguso@mix.wvu.edu>
+> To: 	Paul Doherty<PDoherty@esri.com>, "jared.doke@gmail.com"
+> <jared.doke@gmail.com>, "Robert.j.koester@gmail.com"
+> <Robert.j.koester@gmail.com>, "mike@cs.byu.edu"<mike@cs.byu.edu>, 
+> Lauren Rosenshein<LRosenshein@esri.com>
+>
+>
+>
+> Hi Paul...
+>
+> First, this looks like a really great talk and it is good to see that 
+> GIS for SAR is being well covered at the AAG Conference.  I will be 
+> arriving in NYC late Friday and will be unable to attend your talk.
+> However, one of the other talks in the session is also quite 
+> interesting and you may want to chat with them a bit if you have time.  
+> Haojie Zhu's talk on Agent-Based Simulation is very interesting.  Some 
+> other work was done in this area but focused on simulating human 
+> movement based on recreational habits and terrain.  Here is a link:
+>
+> http://www.srnr.arizona.edu/~gimblett/rbsim.html
+>
+> My thoughts are that this could eventually be a tool to model lost 
+> subject movement.  I don't think this is too far a of a stretch from 
+> the presenter's material as the title would seem to imply a simulation 
+> of how individuals perform during an emergency evacuation.  This most 
+> likely would include a behavioral element related to the probability 
+> subjects would follow the planned evacuation route or choose a 
+> different path, etc.  This would be somewhat equivalent to a lost 
+> subject staying on a trail, choose a drainage, or cruising 
+> cross-country.  Essential this would be coding some form of lost 
+> person behavior.  The autonomous agent (AA) element of the algorithm 
+> would weigh decisions based on instructions on lost person behavior 
+> and terrain models.  I would envision the user having the ability to "force" a decision at various times then allow the AA to make decisions from the choice point.
+>
+> It might be worth making contact with the authors if you are interested.
+>
+> cheers,
+> Don
+>
+>
+>
+>
+> On 02/09/12, *Paul Doherty *<PDoherty@esri.com>  wrote:
+>>
+>> When: Friday, February 24, 2012 11:30 AM-1:30 PM (UTC-08:00) Pacific 
+>> Time (US&  Canada).
+>> Where: Madison Suite 4, Sheraton Hotel, Fifth Floor
+>>
+>> Note: The GMT offset above does not reflect daylight saving time 
+>> adjustments.
+>>
+>> *~*~*~*~*~*~*~*~*~*
+>>
+>> _http://meridian.aag.org/callforpapers/program/SessionDetail.cfm?Sess
+>> i
+>> onID=15746_
+>>
+>> Hey all - I am giving a talk during this time on SARGIS. I will try 
+>> to recruit a larger audience here for our SARGIS paper session.
+>>
+> --
+> Don Ferguson, Ph.D.
+>
+> National Energy Technology Laboratory US DOE - Engineer West Virginia 
+> University - Mechanical and Aerospace Engineering - Adjunct Professor 
+> Appalachian Search and Rescue Conference - Technology Officer West 
+> Virginia Search and Rescue Council - Operations Officer
+>
+> Mountaineer Area Rescue Group
+>
+>
+>
+>
+>
+>
+>
+>
+> --
+> Michael A. Goodrich
+> Professor
+> Computer Science Department, Brigham Young University mike@cs.byu.edu
+>
+>
+
+--
+Michael A. Goodrich
+Professor
+Computer Science Department, Brigham Young University mike@cs.byu.edu

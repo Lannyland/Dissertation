@@ -1,0 +1,463 @@
+\begin{thebibliography}{68}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Akagi and Kitajima(2006)]{Akagi:cg06}
+Yasuhiro Akagi and Katsuhiro Kitajima.
+\newblock Computer animation of swaying trees based on physical simulation.
+\newblock \emph{Computers and Graphics}, 30\penalty0 (4):\penalty0 529--539,
+  2006.
+
+\bibitem[Aono and Kunii(1984)]{Aono:1984}
+Masaki Aono and Tosiyasu Kunii.
+\newblock Botanical tree image generation.
+\newblock \emph{IEEE Computer Graphics Applications}, 4\penalty0 (5):\penalty0
+  10--34, 1984.
+
+\bibitem[Barbic and Zhao(2011)]{Barbic:2011:RLS}
+Jernej Barbic and Yili Zhao.
+\newblock Real-time large-deformation substructuring.
+\newblock \emph{ACM Transactions on Graphics}, 30\penalty0 (4):\penalty0
+  91:1--91:7, 2011.
+
+\bibitem[Bhat et~al.(2003)Bhat, Twigg, Hodgins, Khosla, Popovi, and
+  Seitz]{Bhat2003}
+Kiran~S. Bhat, Christopher~D. Twigg, Jessica~K. Hodgins, Pradeep~K. Khosla,
+  Zoran Popovi, and Steven~M. Seitz.
+\newblock Estimating cloth simulation parameters from video.
+\newblock In \emph{Proceedings of the Eurographics Symposium on Computer
+  Animation}, pages 37--51, 2003.
+
+\bibitem[Bickel et~al.(2007)Bickel, Botsch, Angst, Matusik, Otaduy, Pfister,
+  and Gross]{bickel:siggraph07}
+Bernd Bickel, Mario Botsch, Roland Angst, Wojciech Matusik, Miguel Otaduy,
+  Hanspeter Pfister, and Markus Gross.
+\newblock Multi-scale capture of facial geometry and motion.
+\newblock \emph{ACM Transactions on Graphics}, 26:\penalty0 33--41, 2007.
+
+\bibitem[Chuang et~al.(2005)Chuang, Goldman, Zheng, Curless, Salesin, and
+  Szeliski]{Chuang:sig05}
+Yung-Yu Chuang, Dan~B. Goldman, Ke~C. Zheng, Brian Curless, David~H. Salesin,
+  and Richard Szeliski.
+\newblock Animating pictures with stochastic motion textures.
+\newblock \emph{ACM Transactions on Graphics}, 24\penalty0 (3):\penalty0
+  853--860, July 2005.
+
+\bibitem[de~Reffye et~al.(1988)de~Reffye, Edelin, Francon, Jaeger, and
+  Puech]{deReffye1988}
+Phillippe de~Reffye, Claude Edelin, Jean Francon, Marc Jaeger, and Claude
+  Puech.
+\newblock Plant models faithful to botanical structure and development.
+\newblock In \emph{Proceedings of the 15th Annual Conference on Computer
+  Graphics and Interactive Techniques}, pages 151--158, 1988.
+
+\bibitem[Diener et~al.(2006)Diener, Reveret, and Fiume]{Diener:2006}
+Julien Diener, Lionel Reveret, and Eugene Fiume.
+\newblock Hierarchical retargetting of 2d motion fields to the animation of 3d
+  plant models.
+\newblock In \emph{Proceedings of the Eurographics Symposium on Computer
+  Animation}, pages 187--195, 2006.
+
+\bibitem[Diener et~al.(2009)Diener, Rodriguez, Baboud, and
+  Reveret]{diener:cgf09}
+Julien Diener, Mathieu Rodriguez, Lionel Baboud, and Lionel Reveret.
+\newblock Wind projection basis for real-time animation of trees.
+\newblock In \emph{Proceedings of the Eurographics Symposium on Computer
+  Animation}, pages 533--540, March 2009.
+
+\bibitem[Ganz et~al.(2009)Ganz, Loog, Brandt, and Nielsen]{ganz:cvpr09}
+Melanie Ganz, Marco Loog, Sami Brandt, and Mads Nielsen.
+\newblock Dense iterative contextual pixel classification using kriging.
+\newblock In \emph{Proceedings of the Computer Vision and Pattern Recognition
+  Workshops}, volume LNCS 5519, pages 87--93, June 2009.
+
+\bibitem[Habel et~al.(2009)Habel, Kusternig, and Wimmer]{Habel09PGT}
+Ralf Habel, Alexander Kusternig, and Michael Wimmer.
+\newblock Physically guided animation of trees.
+\newblock In \emph{Proceedings of the Eurographics Symposium on Computer
+  Animation}, pages 523--532, March 2009.
+
+\bibitem[Jesser and Fitzpatrick(2010)]{Jesser2010}
+Jody~D. Jesser and Lisa Fitzpatrick.
+\newblock \emph{The Making of Avatar}.
+\newblock Abrams, 2010.
+
+\bibitem[Jiang et~al.(1999)Jiang, Yao, and Walton]{jiangWGIJMS1999}
+Wenguang Jiang, Minsi Yao, and James~M. Walton.
+\newblock A concise finite element model for simple straight wire rope strand.
+\newblock \emph{International Journal of Mechanical Sciences}, 41\penalty0
+  (2):\penalty0 143--161, 1999.
+
+\bibitem[Keerthi et~al.(2001)Keerthi, Shevade, Bhattacharyya, and
+  Murthy]{keerthi:nc01}
+Sathiya~S. Keerthi, Shirish Shevade, Chiranjib Bhattacharyya, and Krishna~K.R.
+  Murthy.
+\newblock Improvements to {P}latt's {SMO} algorithm for {SVM} classifier
+  design.
+\newblock \emph{Neural Computation}, 13\penalty0 (3):\penalty0 637--649, March
+  2001.
+
+\bibitem[Kim et~al.(2007)Kim, Sewall, Sud, and Lin]{Kim2007}
+Theodore Kim, Jason Sewall, Avneesh Sud, and Ming Lin.
+\newblock Fast simulation of {L}aplacian growth.
+\newblock \emph{IEEE Computer Graphics and Applications}, 27\penalty0
+  (2):\penalty0 68--76, 2007.
+
+\bibitem[Kirk et~al.(2005)Kirk, O.Brien, and Forsyth]{Kirk:2005:SPE}
+Adam~G. Kirk, James~F. O.Brien, and David~A. Forsyth.
+\newblock Skeletal parameter estimation from optical motion capture data.
+\newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 782--788, June 2005.
+
+\bibitem[Kurth and Sloboda(1997)]{kurth:sf97}
+Winfried Kurth and Branislav Sloboda.
+\newblock Growth grammars simulating trees-an extension of {L}-systems
+  incorporating local variables and sensitivity.
+\newblock \emph{Silva Fennica}, 31\penalty0 (3):\penalty0 285--295, 1997.
+
+\bibitem[Kwatra et~al.(2010)Kwatra, Wojtan, Carlson, Essa, Mucha, and
+  Turk]{Kwatra:TVCG200966}
+Nipun Kwatra, Chris Wojtan, Mark Carlson, Irfan Essa, Peter~J. Mucha, and Greg
+  Turk.
+\newblock Fluid simulation with articulated bodies.
+\newblock \emph{IEEE Transactions on Visualization and Computer Graphics},
+  16:\penalty0 70--80, 2010.
+
+\bibitem[Li et~al.(2011)Li, Deussen, Song, Willis, and Hall]{Li:2011:MGM}
+Chuan Li, Oliver Deussen, Yi-Zhe Song, Phil Willis, and Peter Hall.
+\newblock Modeling and generating moving trees from video.
+\newblock \emph{ACM Transactions on Graphics}, 30:\penalty0 127:1--127:12,
+  2011.
+
+\bibitem[Lindenmayer(1968)]{lindenmayer68}
+Aristid Lindenmayer.
+\newblock Mathematical models for cellular interaction in development: Parts
+  {I} and {II}.
+\newblock \emph{Journal of Theoretical Biology}, 18\penalty0 (3):\penalty0
+  280--315, March 1968.
+
+\bibitem[Lintermann and Deussen(1999)]{Lintermann1999}
+Bernd Lintermann and Oliver Deussen.
+\newblock Interactive modeling of plants.
+\newblock \emph{IEEE Computer Graphics Applications}, 19\penalty0 (1):\penalty0
+  56--65, January 1999.
+
+\bibitem[Liu and McMillan(2006)]{Liu:tvcj06}
+Guodong Liu and Leonard McMillan.
+\newblock Estimation of missing markers in human motion capture.
+\newblock \emph{The Visual Computer}, 22\penalty0 (9):\penalty0 721--728,
+  September 2006.
+
+\bibitem[Long et~al.(2010)Long, Reimschussel, Britton, Hall, and
+  Jones]{Long:MCN2010}
+Jie Long, Cory Reimschussel, Ontario Britton, Anthony Hall, and Michael Jones.
+\newblock Motion capture for a natural tree in the wind.
+\newblock In \emph{Proceedings of the Third International Conference on Motion
+  in Games}, pages 158--169, 2010.
+
+\bibitem[Lorenzo et~al.(2003)Lorenzo, Sonchez, James, Edge, King, and
+  Maddock]{Lorenzo03}
+Manuel~S. Lorenzo, Manuel Sonchez, Lorenzo James, James~D. Edge, Scott~A. King,
+  and Steve Maddock.
+\newblock Use and re-use of facial motion capture data.
+\newblock In \emph{Proceedings of the Vision, Video and Graphics Conference},
+  pages 135--142, July 2003.
+
+\bibitem[Lou and Chai(2010)]{Lou:EHM2010}
+Hui Lou and Jinxiang Chai.
+\newblock Example-based human motion denoising.
+\newblock \emph{IEEE Transactions on Visualization and Computer Graphics},
+  16\penalty0 (5):\penalty0 870--879, September 2010.
+
+\bibitem[Ma et~al.(2008)Ma, Jones, Chiang, Hawkins, Frederiksen, Peers,
+  Vukovic, Ouhyoung, and Debevec]{Ma:FPS2008}
+WanChun Ma, Andrew Jones, JenYuan Chiang, Tim Hawkins, Sune Frederiksen, Pieter
+  Peers, Marko Vukovic, Ming Ouhyoung, and Paul Debevec.
+\newblock Facial performance synthesis using deformation-driven polynomial
+  displacement maps.
+\newblock \emph{ACM Transactions on Graphics}, 27:\penalty0 121:1--121:10,
+  December 2008.
+
+\bibitem[Marcus and Magnor(2004)]{MarcusVolker04clothmotion}
+Volker~S. Marcus and Marcus~A. Magnor.
+\newblock Cloth motion from optical flow.
+\newblock In \emph{Proceedings of the 9th International Fall Workshop on
+  Vision, Modeling and Visualization}, pages 117--124, 2004.
+
+\bibitem[Mech and Prusinkiewicz(1996)]{Mech:SIGGRAPH96}
+Radomir Mech and Przemyslaw Prusinkiewicz.
+\newblock Visual models of plants interacting with their environment.
+\newblock In \emph{Proceedings of the 23rd Annual Conference on Computer
+  Graphics and Interactive Techniques}, pages 397--410, New York, NY, USA,
+  1996.
+
+\bibitem[Neubert et~al.(2007)Neubert, Franken, and Deussen]{neubert:acmtg07}
+Boris Neubert, Thomas Franken, and Oliver Deussen.
+\newblock Approximate image-based tree-modeling using particle flows.
+\newblock \emph{ACM Transactions on Graphics}, 26\penalty0 (3):\penalty0
+  88:1--88:11, July 2007.
+
+\bibitem[Ono(1997)]{ono:eu97}
+Hiromi Ono.
+\newblock Practical experience in the physical animation and destruction of
+  trees.
+\newblock In \emph{Proceedings of the 8th Eurographics Workshop on Computer
+  Animation and Simulation}, pages 149--159. Springer, Budapest, Hungary, 1997.
+
+\bibitem[Oppenheimer(1986)]{Oppenheimer1986}
+Peter~E. Oppenheimer.
+\newblock Real time design and animation of fractal plants and trees.
+\newblock In \emph{Proceedings of the 13th Annual Conference on Computer
+  Graphics and Interactive Techniques}, pages 55--64, New York, NY, USA, 1986.
+
+\bibitem[Ota et~al.(2003)Ota, Fujimotoa, Tamura, Muraoka, Fujita, and
+  Chiba]{ota:cgi03}
+Shin Ota, Tadahiro Fujimotoa, Machiko Tamura, Kazunobu Muraoka, Kunihiko
+  Fujita, and Norishige Chiba.
+\newblock $1/f^{\beta}$ noise-based real-time animation of trees swaying in
+  wind fields.
+\newblock In \emph{Proceedings of the Computer Graphics International
+  Conference}, pages 52--59, July 2003.
+
+\bibitem[Ota et~al.(2004)Ota, Tamura, Fujimoto, Muraoka, and Chiba]{Ota:TFMC04}
+Shin Ota, Machiko Tamura, Tadahiro Fujimoto, Kazunobu Muraoka, and Norishige
+  Chiba.
+\newblock A hybrid method for real-time animation of trees swaying in wind
+  fields.
+\newblock \emph{The Visual Computer}, 20\penalty0 (10):\penalty0 613--623,
+  2004.
+
+\bibitem[Palubicki et~al.(2009)Palubicki, Horel, Longay, Runions, Lane, Mech,
+  and Prusinkiewicz]{palubicki:siggraph09}
+Wojciech Palubicki, Kipp Horel, Steven Longay, Adam Runions, Brendan Lane,
+  Radomír Mech, and Przemyslaw Prusinkiewicz.
+\newblock Self-organizing tree models for image synthesis.
+\newblock \emph{ACM Transactions on Graphics}, 28\penalty0 (3):\penalty0
+  58:1--58:10, July 2009.
+
+\bibitem[Park and Hodgins(2006)]{park:tog06}
+Sang~II. Park and Jessica~K. Hodgins.
+\newblock Capturing and animating skin deformation in human motion.
+\newblock \emph{ACM Transactions on Graphics}, 25\penalty0 (3):\penalty0
+  881--889, July 2006.
+
+\bibitem[Perttunen et~al.(1998)Perttunen, Sievanen, and Nikinmaa]{Perttunen98}
+Jari Perttunen, Risto Sievanen, and Eero Nikinmaa.
+\newblock Lignum: a model combining the structure and the functioning of trees.
+\newblock \emph{Ecological Modelling}, 108\penalty0 (1-3):\penalty0 189--198,
+  1998.
+
+\bibitem[Pfaff et~al.(2010)Pfaff, Thuerey, Cohen, Tariq, and Gross]{pfa10}
+Tobias Pfaff, Nils Thuerey, Jonathan Cohen, Sarah Tariq, and Markus Gross.
+\newblock Scalable fluid simulation using anisotropic turbulence particles.
+\newblock \emph{ACM Transactions on Graphics}, pages 174:1--174:8, 2010.
+
+\bibitem[Platt(1999)]{platt:mit99}
+John~C. Platt.
+\newblock Fast training of support vector machines using sequential minimal
+  optimization.
+\newblock \emph{Advances in Kernel Methods: Support Vector Learning}, pages
+  185--208, 1999.
+
+\bibitem[Pope(2000)]{pope2000}
+Stephen~B. Pope.
+\newblock \emph{Turbulent Flows}, chapter~10, pages 373--382.
+\newblock Cambridge University Press, 2000.
+
+\bibitem[Pritchard and Heidrich(2003)]{PritchardDavid2003}
+David Pritchard and Wolfgang Heidrich.
+\newblock Cloth motion capture.
+\newblock In \emph{Proceedings of the ACM SIGGRAPH Sketches and Applications},
+  volume~22, pages 263--271, New York, NY, USA, 2003.
+
+\bibitem[Prusinkiewicz and Lindenmayer(1990)]{Prusinkiewicz:sv90}
+Przemyslaw Prusinkiewicz and Aristid Lindenmayer.
+\newblock \emph{The Algorithmic Beauty of Plants}.
+\newblock Springer-Verlag New York, Inc., New York, NY, USA, 1990.
+
+\bibitem[Prusinkiewicz et~al.(1993)Prusinkiewicz, Hammel, and
+  Mjolsness]{prusinkiewicz:siggraph93}
+Przemyslaw Prusinkiewicz, Mark~S. Hammel, and Eric Mjolsness.
+\newblock Animation of plant development.
+\newblock In \emph{Proceedings of the 20th Annual Conference on Computer
+  Graphics and Interactive Techniques}, pages 351--360, New York, NY, USA,
+  1993.
+
+\bibitem[Prusinkiewicz et~al.(2001)Prusinkiewicz, Mundermann, Karwowski, and
+  Lane]{Prusinkiewicz:2001}
+Przemyslaw Prusinkiewicz, Lars Mundermann, Radoslaw Karwowski, and Brendan
+  Lane.
+\newblock The use of positional information in the modeling of plants.
+\newblock In \emph{Proceedings of the 28th Annual Conference on Computer
+  Graphics and Interactive Techniques}, pages 289--300, New York, NY, USA,
+  2001.
+
+\bibitem[Rajko and Qian(2007)]{Rajko:2007:RAK}
+Stjepan Rajko and Gang Qian.
+\newblock Real-time automatic kinematic model building for optical motion
+  capture using a {M}arkov random field.
+\newblock In \emph{Proceedings of the IEEE International Conference on
+  Human-Computer Interaction}, pages 69--78, Berlin, Heidelberg, 2007.
+
+\bibitem[Reche-Martinez et~al.(2004)Reche-Martinez, Martin, and
+  Drettakis]{RecheMartinez2004}
+Alex Reche-Martinez, Ignacio Martin, and George Drettakis.
+\newblock Volumetric reconstruction and interactive rendering of trees from
+  photographs.
+\newblock \emph{ACM Transactions on Graphics}, pages 720--727, 2004.
+
+\bibitem[Reeves(1983)]{Reeves83particlesystems}
+William~T. Reeves.
+\newblock Particle systems — {A} technique for modeling a class of fuzzy
+  objects.
+\newblock In \emph{Proceedings of the 10th Annual Conference on Computer
+  Graphics and Interactive Techniques}, pages 91--108, New York, NY, USA, April
+  1983.
+
+\bibitem[Reeves and Blau(1985)]{ReevesB85}
+William~T. Reeves and Ricki Blau.
+\newblock Approximate and probabilistic algorithms for shading and rendering
+  structured particle systems.
+\newblock In \emph{Proceedings of the 12th Annual Conference on Computer
+  Graphics and Interactive Techniques}, pages 313--322, New York, NY, USA,
+  1985.
+
+\bibitem[Rosenhahn et~al.(2005)Rosenhahn, Kersting, Smith, Gurney, Brox, and
+  Klette]{Rosenhahn:KI06}
+Bodo Rosenhahn, Uwe~G. Kersting, Andrew~W. Smith, Jason.~K. Gurney, Thomas
+  Brox, and Reinhard Klette.
+\newblock A system for markerless human motion estimation.
+\newblock In \emph{Proceedings of the 27th Conference on Pattern Recognition},
+  pages 230--237, Berlin, Heidelberg, 2005.
+
+\bibitem[Rudnicki and Burns(2006)]{Rudnicki:PBC06}
+Mark Rudnicki and D.~Burns.
+\newblock Branch sway period of 4 tree species using 3-d motion tracking.
+\newblock In \emph{Proceedings of the Fifth Plant Biomechanics Conference},
+  pages 25--30, Stockholm, Sweden, 2006.
+
+\bibitem[Runions et~al.(2007)Runions, Lane, and Prusinkiewicz]{Runions07}
+Adam Runions, Brendan Lane, and Przemyslaw Prusinkiewicz.
+\newblock Modeling trees with a space colonization algorithm.
+\newblock In \emph{Proceedings of the Eurographics Workshop on Natural
+  Phenomena}, pages 63--70, 2007.
+
+\bibitem[Selino and Jones(2012)]{Selino:2012}
+Anthony Selino and Michael Jones.
+\newblock Large and small eddies matter: Animating trees in wind using coarse
+  fluid simulation and synthetic turbulence.
+\newblock \emph{Computer Graphics Forum}, 24:\penalty0 417--425, July 2012.
+
+\bibitem[Shinya and Fournier(1992)]{shinya:eu92}
+Mikio Shinya and Alain Fournier.
+\newblock Stochastic motion motion under the influence of wind.
+\newblock In \emph{Proceedings of the Eurographics Symposium on Computer
+  Animation}, volume~11, pages 119--128, 1992.
+
+\bibitem[Shlyakhter et~al.(2001)Shlyakhter, Rozenoer, Dorsey, and
+  Teller]{shlyakhter:ieeecga01}
+Ilya Shlyakhter, Max Rozenoer, Julie Dorsey, and Seth Teller.
+\newblock Reconstructing 3d tree models from instrumented photographs.
+\newblock \emph{IEEE Computer Graphics and Application}, 21\penalty0
+  (3):\penalty0 53--61, May 2001.
+
+\bibitem[Sifakis et~al.(2005)Sifakis, Neverov, and
+  Fedkiw]{SifakisEftychios2005}
+Eftychios Sifakis, Igor Neverov, and Ronald Fedkiw.
+\newblock Automatic determination of facial muscle activations from sparse
+  motion capture marker data.
+\newblock \emph{ACM Transactions on Graphics}, 24\penalty0 (3):\penalty0
+  417--425, 2005.
+
+\bibitem[Simiu and Scanlan(1996)]{simiu1996wind}
+Emil Simiu and Robert~H. Scanlan.
+\newblock \emph{Wind Effects on Structures: Fundamentals and Applications to
+  Design}.
+\newblock Number V. 1 in Wiley-Interscience Publication. John Wiley, 1996.
+
+\bibitem[Stam(1997)]{stams:eu97}
+Jos Stam.
+\newblock Stochastic dynamics: Simulating the effects of turbulence on flexible
+  structures.
+\newblock \emph{Computer Graphics Forum}, 16\penalty0 (3):\penalty0 159--164,
+  1997.
+
+\bibitem[Sun et~al.(2003)Sun, Jepson, and Eugene]{Sun:2003:VID}
+Meng Sun, Allan~D. Jepson, and Fiu Eugene.
+\newblock Video input driven animation.
+\newblock In \emph{Proceedings of the 9th IEEE International Conference on
+  Computer Vision}, volume~2, pages 96--106, Washington, DC, USA, 2003.
+
+\bibitem[Tan et~al.(2007)Tan, Zeng, Wang, Kang, and Quan]{Tan:2007:ITM}
+Ping Tan, Gang Zeng, Jingdong Wang, Sing~Bing Kang, and Long Quan.
+\newblock Image-based tree modeling.
+\newblock \emph{ACM Transactions on Graphics}, 26\penalty0 (3):\penalty0 87,
+  2007.
+
+\bibitem[Vicsek(1991)]{Vicsek1992}
+Tamas Vicsek.
+\newblock \emph{Fractal Growth Phenomena}.
+\newblock World Scientific Publishing Co Pte Ltd; 2nd edition, 1991.
+
+\bibitem[Weber and Penn(1995)]{Weber1995}
+Jason Weber and Joseph Penn.
+\newblock Creation and rendering of realistic trees.
+\newblock In \emph{Proceedings of the 22nd Annual Conference on Computer
+  Graphics and Interactive Techniques}, pages 119--128, New York, NY, USA,
+  1995.
+
+\bibitem[Weber et~al.(1998)Weber, Schek, and Blott]{Weber1998}
+Roger Weber, Hans-Jorg Schek, and Stephen Blott.
+\newblock A quantitative analysis and performance study for similarity-search
+  methods in high-dimensional spaces.
+\newblock In \emph{Proceedings of the 24th International Conference on Very
+  Large Data Bases}, pages 194--205, San Francisco, CA, USA, 1998.
+
+\bibitem[Wen et~al.(2006)Wen, Wang, Xia, and Zhu]{Wen:2006:MCD}
+Gaojin Wen, Zhaoqi Wang, Shihong Xia, and Dengming Zhu.
+\newblock From motion capture data to character animation.
+\newblock In \emph{Proceedings of the ACM Symposium on Virtual Reality Software
+  and Technology}, pages 165--168, New York, NY, USA, 2006.
+
+\bibitem[White et~al.(2007)White, Crane, and Forsyth]{whiteRyan2007siggraph}
+Ryan White, Keenan Crane, and D.~A. Forsyth.
+\newblock Capturing and animating occluded cloth.
+\newblock \emph{ACM Transactions on Graphics}, 26:\penalty0 34:1--34:9, 2007.
+
+\bibitem[Worring et~al.(1994)Worring, Pfluger, Houtsmuller, and
+  Houtsmuller]{WorringMarcel94measurementof}
+Marcel Worring, Pia Pfluger, Arnold Houtsmuller, and Adriaan Houtsmuller.
+\newblock Measurement of 3d line shaped objects.
+\newblock \emph{Pattern Recognition Letters}, 15:\penalty0 497--506, 1994.
+
+\bibitem[Wu et~al.(1999)Wu, Chen, Yan, and Zhang]{wu:cas99}
+Enhua Wu, Yanyun Chen, Tao Yan, and Xiaopeng Zhang.
+\newblock Reconstruction and physically-based animation of trees from static
+  images.
+\newblock In \emph{Proceedings of the Eurographics Symposium on Computer
+  Animation and Simulation}, pages 157--166, Milano, Italy, September 1999.
+
+\bibitem[Yan et~al.(2003)Yan, De~Reffye, Leroux, and Hu]{YAN03}
+Hongping Yan, Philippe De~Reffye, Jonathan Leroux, and Baogang Hu.
+\newblock Study on plant growth behaviors simulated by the
+  functional-structural plant growth model --- greenlab.
+\newblock In \emph{Proceedings of the Plant Modeling, Visualization, and its
+  Applications}, pages 118--125, October 2003.
+
+\bibitem[Zhang et~al.(2006)Zhang, Song, Tan, Chen, and Peng]{ZhangSTCP06}
+Long Zhang, Chengfang Song, Qifeng Tan, Wei Chen, and Qunsheng Peng.
+\newblock Quasi-physical simulation of large-scale dynamic forest scenes.
+\newblock In \emph{Proceedings of the 24th Computer Graphics International
+  Conference}, pages 735--742, Hangzhou, China, June 2006.
+
+\bibitem[Zordan and Van Der~Horst(2003)]{ZordanVictorBrian2003}
+Victor~B. Zordan and Nicholas~C. Van Der~Horst.
+\newblock Mapping optical motion capture data to skeletal motion using a
+  physical model.
+\newblock In \emph{Proceedings of the Eurographics Symposium on Computer
+  Animation}, pages 245--250, Aire-la-Ville, Switzerland, Switzerland, 2003.
+
+\end{thebibliography}

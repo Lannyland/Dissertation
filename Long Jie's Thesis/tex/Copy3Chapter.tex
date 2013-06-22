@@ -1,0 +1,99 @@
+\chapter{Chapter 1: Use of the ``byumsphd'' {\LaTeX} Class}
+
+To use this package, you must first declare it as your document class
+\begin{verbatim}
+    \documentclass[<options>]{byumsphd}
+\end{verbatim}
+then put the \verb|\maketitle| command at the beginning of your document and add the remaining content.  This class is meant to ensure that the last part really is the hard part; nobody wants to go through years of research and hard work only to discover that their margins are next to impossible to get right.
+
+The class declaration is, of course, not all that is required.  Several things must be specified in the preamble of your document before the appropriate preface material can be generated.  Each of these is discussed within its own section.
+
+\section{Class Options}
+
+This class has several options that affect document output in various ways.  These are described in detail here.
+
+\begin{itemize}
+    \item Document Type:
+        \begin{itemize}
+            \item \textbf{phd (default)}: Produce a dissertation
+            \item \textbf{ms} Produce a thesis
+            \item \textbf{electronic}: Make an ETD (sets equalmargins, oneside)
+            \item \textbf{hardcopy}: Make bindable (sets no equalmargins, twoside)
+        \end{itemize}
+\pagebreak
+    \item Font Size:
+        \begin{itemize}
+            \item \textbf{10pt}
+            \item \textbf{11pt}
+            \item \textbf{12pt (default)}
+        \end{itemize}
+    \item Preamble Settings:
+        \begin{itemize}
+            \item \textbf{lot}: Produce a List of Tables (default off)
+            \item \textbf{lof}: Produce a List of Figures (default off)
+            \item \textbf{lol}: Produce a List of Listings (default off)
+        \end{itemize}
+    \item Page Formatting:
+        \begin{itemize}
+            \item \textbf{equalmargins}: Make all margins equal - no binding offset
+            \item \textbf{twoside (default)}: Alternate margins for even and odd pages
+            \item \textbf{oneside}: One-sided document - margins don't alternate
+            \item \textbf{twosidetoc}: Start two-sided margins at the TOC, don't wait for the document body and arabic numerals to do it.  This is a strange requirement that I have seen in some places, especially strange since it means that the page numbering will change suddenly in the middle of the roman numerals (the first four full sheets might have numbers i-iv, but not printed, and the next sheets will each have two page numbers; most people probably won't notice, but it's still a weird requirement).
+            \item \textbf{openright (default)}: Chapters start on an odd page
+            \item \textbf{openany}: Chapters start anywhere (tip: don't use this)
+            \item \textbf{duplexprinter}: If printing two-sided (to save trees while evaluating the state of things, for example), this ensures that a blank page is printed when necessary between the front matter and the first chapter, ensuring that the first chapter starts on the front of a sheet (the right side).  It is important to note that you should \emph{not} plan on using this to generate the final document.  Paper that is required for theses is typically much heavier and more opaque than paper you are going to have in your department printer.  Print everything one-sided so that text from the back of a page doesn't bleed through when getting copied for the final draft.  Here is how I suggest you print the final draft:
+              \begin{itemize}
+                \item Print the entire document \emph{without} this option (but \emph{with} the twoside option so that page margins alternate correctly).
+                \item Take it to the copy center and say the word "thesis" to someone behind the counter.
+                \item Show her the front matter and say "one-sided".  A sticky note is likely to be applied.
+                \item Show her the rest and say "two-sided".
+                \item Smile: she has your baby in her hands.
+                \item Pay and wait until it's done.
+              \end{itemize}
+        \end{itemize}
+    \item Miscellaneous Layout:
+        \begin{itemize}
+            \item \textbf{prettyheadings (default)}: Allow larger font sizes for chapter, part, and section headings.  If you can get away with it, use this.
+            \item \textbf{compliantheadings}: Use the same font size for everything -- ugly, but compliant with the minimum style requirements.
+            \item \textbf{simplechapterheading}: Chapter headings are "simple", meaning that they are of the format "1 Title" instead of "Chapter 1(newline)Title".
+            \item \textbf{chapterleft (default)}: Chapter headings are left justified
+            \item \textbf{chaptercenter}: Chapter headings are centered
+            \item \textbf{partmiddle (default)}: Part headings are vertically centered
+            \item \textbf{parttop}: Part headings are near the top of the page, appropriate if each part contains introductory text.
+        \end{itemize}
+\pagebreak
+    \item Visualization Aids (all default to off):
+        \begin{itemize}
+            \item \textbf{layout}: Display dotted lines for help with layouts.  Shows the margins (helpful for finding overfull hboxes, etc.)
+            \item \textbf{grid}: Display a \( 1/2 \)-inch grid on every page.  When printing your document, use this on one of the pages to find out whether the printer shifts things down or not.  My printer shifts everything down by \( 0.03 \) inches, which doesn't sound like a lot, but can make a huge difference, especially considering that paper is not actually \( 8 1/2 \) by \( 11 \), but a little smaller than that in each dimension.
+            \item \textbf{separator}: Output an extra instruction page in between the preamble and the body of the document.  Even if the document is two-sided, the preamble \emph{never} is, so this page reminds you or the printing service that this is the case while giving appropriate instructions for the remainder of the document.  It \emph{will not print} if the document is all one-sided (there's no point, really), and it should \emph{never} be included in your final copies of the document, but discarded during printing.  If it is not discarded, it is probably harmless since you can just throw it away after getting copies made.
+        \end{itemize}
+\end{itemize}
+
+\section{Preamble Setup Commands}
+
+In order to produce a correct preamble, several things must be set, and others can optionally be added.  The settings described next affect the behavior of \verb|\maketitle|.  These are required:
+\begin{itemize}
+    \item \verb|\title{<your document title>}|
+    \item \verb|\committeechair{<your adviser's name>}|
+    \item \verb|\committeemembera{<second member>}|
+    \item \verb|\committeememberb{<third member>}|
+    \item \verb|\committeememberc{<fourth member (PhD only)>}|
+    \item \verb|\committeememberd{<fifth member (PhD only)>}|
+    \item \verb|\monthgraduated{<month of graduation>}|
+    \item \verb|\yeargraduated{<hopefully this year>}|
+    \item \verb|\documentabstract{<your thesis abstract goes here>}|
+\end{itemize}
+The following are optional or have defaults suitable for CS majors:
+\begin{itemize}
+    \item \verb|\yearcopyrighted{<defaults to year graduated>}|
+    \item \verb|\acknowledgments{<the text of your acknowledgments goes here>}|
+    \item \verb|\university{<default: Brigham Young University>}|
+    \item \verb|\department{<default: Computer Science>}|
+    \item \verb|\graduatecoordinator{<default: Parris K. Egbert>}|
+    \item \verb|\college{<default: Physical and Mathematical Sciences>}|
+    \item \verb|\collegedean{<default: Thomas W. Sederberg>}|
+    \item \verb|\collegedeantitle{<default: Associate Dean>}|
+    \item \verb|\settextwidth{<default: 6in>}|
+    \item \verb|\setbindingoffset{<default: 0.5in (for non-equalmargins)>}|
+\end{itemize}

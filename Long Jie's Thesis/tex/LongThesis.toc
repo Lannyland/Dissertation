@@ -1,0 +1,89 @@
+\contentsline {chapter}{List of Figures}{ix}{toclistings.1}
+\contentsline {chapter}{\numberline {1}Background, Motivation, and Overview}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Thesis Statement}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}Publications}{5}{section.1.2}
+\contentsline {chapter}{\numberline {2}Motion Capture for a Natural Tree in the Wind}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introduction}{10}{section.2.1}
+\contentsline {section}{\numberline {2.2}Related Work}{11}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Static Tree Modeling}{11}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Animation of Trees}{12}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Motion Capture}{14}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}Motion Capture}{14}{section.2.3}
+\contentsline {section}{\numberline {2.4}Build Static Tree Geometries}{16}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Skeleton and Topology Estimation}{16}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Geometry of Branches and Leaves}{19}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.5}Build Tree Motion}{20}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Filter-based Noise Detection and Removal}{20}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Small Gaps in Data}{20}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Large Gaps in Data}{21}{subsection.2.5.3}
+\contentsline {subsection}{\numberline {2.5.4} Leaf Motions}{23}{subsection.2.5.4}
+\contentsline {section}{\numberline {2.6}Results}{23}{section.2.6}
+\contentsline {section}{\numberline {2.7}Conclusion and Future Work}{24}{section.2.7}
+\contentsline {chapter}{\numberline {3}Motion Capture of Rope}{25}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{26}{section.3.1}
+\contentsline {section}{\numberline {3.2}Related Work}{28}{section.3.2}
+\contentsline {section}{\numberline {3.3}Motion Capture Data}{29}{section.3.3}
+\contentsline {section}{\numberline {3.4}Reconstructing Rope Motion}{31}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Clustering Positions into Traces}{32}{subsection.3.4.1}
+\contentsline {subsubsection}{First Round of Clustering}{33}{section*.7}
+\contentsline {subsubsection}{Second Round of Clustering}{33}{section*.8}
+\contentsline {subsection}{\numberline {3.4.2}Swaps}{35}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Gaps}{37}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.4}Add Unused Data}{40}{subsection.3.4.4}
+\contentsline {subsection}{\numberline {3.4.5}Separate Rope Markers from Actor Markers}{40}{subsection.3.4.5}
+\contentsline {section}{\numberline {3.5}Results}{42}{section.3.5}
+\contentsline {section}{\numberline {3.6}Conclusion and Discussion}{44}{section.3.6}
+\contentsline {chapter}{\numberline {4}3D Tree Modeling Using Motion Capture}{47}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{48}{section.4.1}
+\contentsline {section}{\numberline {4.2}Related Work}{50}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Tree Modeling}{50}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Applied Motion Capture}{51}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Motion Capture of Trees}{52}{section.4.3}
+\contentsline {section}{\numberline {4.4}Data Processing}{54}{section.4.4}
+\contentsline {section}{\numberline {4.5}Generating 3D Tree Shape}{55}{section.4.5}
+\contentsline {section}{\numberline {4.6}Adding Leaves}{60}{section.4.6}
+\contentsline {section}{\numberline {4.7}Results}{61}{section.4.7}
+\contentsline {section}{\numberline {4.8}Discussion and Future Work}{66}{section.4.8}
+\contentsline {chapter}{\numberline {5}A Realistic 3D Tree Model Based on L-Systems}{68}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction}{69}{section.5.1}
+\contentsline {section}{\numberline {5.2}Related Work}{70}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}L-systems}{71}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Image Reconstructions}{71}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Other Methods}{72}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}Tree Modeling Using L-systems}{72}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Branch Library on L-systems}{73}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Hemisphere for Probabilities Distribution}{74}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Bounding Box for Local Growth Control}{76}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}Growth Level Controls}{76}{subsection.5.3.4}
+\contentsline {subsection}{\numberline {5.3.5}Tree Generation Steps}{78}{subsection.5.3.5}
+\contentsline {subsection}{\numberline {5.3.6}Examples of 3D Tree Modeling}{79}{subsection.5.3.6}
+\contentsline {subsubsection}{Trees' Photokinesis Simulations}{79}{section*.37}
+\contentsline {subsubsection}{Growth Control Over Blocks}{80}{section*.39}
+\contentsline {subsubsection}{Trees' Fruits Simulation}{80}{section*.40}
+\contentsline {section}{\numberline {5.4}Results}{80}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Growth Probability Control by Hemisphere}{80}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Growth Level Controls}{81}{subsection.5.4.2}
+\contentsline {subsection}{\numberline {5.4.3}Growth Control over Small Components}{81}{subsection.5.4.3}
+\contentsline {subsection}{\numberline {5.4.4}Growth Control for Leaves}{82}{subsection.5.4.4}
+\contentsline {subsection}{\numberline {5.4.5}Growth Control by Bounding Box}{83}{subsection.5.4.5}
+\contentsline {subsection}{\numberline {5.4.6}Randomness}{84}{subsection.5.4.6}
+\contentsline {section}{\numberline {5.5}Conclusions and Discussions}{85}{section.5.5}
+\contentsline {section}{\numberline {5.6}Practical Application Plan}{86}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Social Effects}{86}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Political Effects}{87}{subsection.5.6.2}
+\contentsline {subsection}{\numberline {5.6.3}Economic Effects}{87}{subsection.5.6.3}
+\contentsline {chapter}{\numberline {6}Animating Trees Using Wind Fields Estimated from Motion Capture Data}{89}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduction}{90}{section.6.1}
+\contentsline {section}{\numberline {6.2}Related Work}{92}{section.6.2}
+\contentsline {section}{\numberline {6.3}Methods}{94}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Motion Capture}{95}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Tree Modeling}{95}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Wind--tree Interaction}{97}{subsection.6.3.3}
+\contentsline {subsubsection}{Wind Velocity Field}{97}{section*.49}
+\contentsline {subsubsection}{Wind Effects on a Tree}{100}{section*.51}
+\contentsline {subsubsection}{Tree Effects on Wind}{103}{section*.54}
+\contentsline {subsubsection}{Tree Animation}{105}{section*.55}
+\contentsline {section}{\numberline {6.4}Results}{105}{section.6.4}
+\contentsline {section}{\numberline {6.5}Discussion and Future Work}{107}{section.6.5}
+\contentsline {chapter}{\numberline {7}Discussion and Conclusion}{110}{chapter.7}
+\contentsline {chapter}{References}{113}{toclistings.2}

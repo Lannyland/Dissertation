@@ -1,0 +1,1035 @@
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2011.5.18)  11 JAN 2013 17:14
+entering extended mode
+**C:/PhDthesis/JiePhdThesis/tex/LongThesis.tex
+(C:/PhDthesis/JiePhdThesis/tex/LongThesis.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+(C:\PhDthesis\JiePhdThesis\tex\byumsphd.cls
+Document Class: byumsphd 2007/03/10 BYU LaTeX MS/PhD Class
+Ignoring option ``letterpaper''
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\report.cls"
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size12.clo"
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(C:\Users\BYU\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+\@assumedcharwidth=\skip43
+\@defaultindent=\skip44
+\@blankline=\skip45
+\@prefacemargingapsingle=\skip46
+\@prefacemargingapdouble=\skip47
+\c@toclistings=\count91
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2011/04/17 v6.82g Hypertext links for LaTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2011/04/23 v1.4 Bundle oberdiek, subset hyperref (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2011/04/23 v1.4 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2011/04/23 v1.4 Subsetting bundle oberdiek (HO)
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/04/04 v1.12 Provides string conversions (HO)
+Package: bigintcalc 2011/01/30 v1.2 Expandable big integer calculations (HO)
+Package: bitset 2011/01/30 v1.1 Data type bit set (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provides unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2011/01/30 v1.0 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/04/23 v1.7 Hooks at very end of document (HO)
+Package atveryend Info: \enddocument detected (standard).
+Package: atbegshi 2011/01/30 v1.15 At begin shipout hook (HO)
+Package: refcount 2010/12/01 v3.2 Data extraction from references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options of hyperref/bookmark (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+)
+\@linkdim=\dimen111
+\Hy@linkcounter=\count92
+\Hy@pagecounter=\count93
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2011/04/17 v6.82g Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count94
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `bookmarks' set `true' on input line 3905.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 3905
+.
+Package hyperref Info: Option `breaklinks' set `false' on input line 3905.
+Package hyperref Info: Option `raiselinks' set `true' on input line 3905.
+Package hyperref Info: Option `colorlinks' set `false' on input line 3905.
+Package hyperref Info: Option `plainpages' set `false' on input line 3905.
+Package hyperref Info: Hyper figures OFF on input line 4026.
+Package hyperref Info: Link nesting OFF on input line 4031.
+Package hyperref Info: Hyper index ON on input line 4034.
+Package hyperref Info: Plain pages OFF on input line 4041.
+Package hyperref Info: Backreferencing OFF on input line 4046.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4264.
+\c@Hy@tempcnt=\count95
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
+\Urlmuskip=\muskip10
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4617.
+\Fld@menulength=\count96
+\Field@Width=\dimen112
+\Fld@charsize=\dimen113
+Package hyperref Info: Hyper figures OFF on input line 5701.
+Package hyperref Info: Link nesting OFF on input line 5706.
+Package hyperref Info: Hyper index ON on input line 5709.
+Package hyperref Info: backreferencing OFF on input line 5716.
+Package hyperref Info: Link coloring OFF on input line 5721.
+Package hyperref Info: Link coloring with OCG OFF on input line 5726.
+Package hyperref Info: PDF/A mode OFF on input line 5731.
+LaTeX Info: Redefining \ref on input line 5771.
+LaTeX Info: Redefining \pageref on input line 5775.
+\Hy@abspage=\count97
+\c@Item=\count98
+\c@Hfootnote=\count99
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2011/04/17 v6.82g Hyperref driver for pdfTeX
+\Fld@listcount=\count100
+\c@bookmark@seq@number=\count101
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip48
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\hypcap.sty"
+Package: hypcap 2011/02/16 v1.11 Adjusting anchors of captions (HO)
+)
+(C:\Users\BYU\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip49
+\bibsep=\skip50
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count102
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/04/25 v0.06b Graphics/color for pdfTeX
+\Gread@gobject=\count103
+))
+\Gin@req@height=\dimen114
+\Gin@req@width=\dimen115
+)
+(C:\Users\BYU\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
+Package: caption 2011/11/10 v3.2e Customizing captions (AR)
+
+(C:\Users\BYU\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+Package: caption3 2011/11/01 v1.4a caption3 kernel (AR)
+\captionmargin=\dimen116
+\captionmargin@=\dimen117
+\captionwidth=\dimen118
+\caption@indent=\dimen119
+\caption@parindent=\dimen120
+\caption@hangindent=\dimen121
+)
+\c@ContinuedFloat=\count104
+Package caption Info: hyperref package is loaded.
+Package caption Info: hypcap package is loaded.
+)
+(C:\Users\BYU\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\subcaption.sty
+Package: subcaption 2011/10/30 v1.1c Sub-captions (AR)
+\c@subfigure=\count105
+\c@subtable=\count106
+)
+(C:\PhDthesis\JiePhdThesis\tex\0abstract.tex)
+(C:\PhDthesis\JiePhdThesis\tex\1acknowledgments.tex)
+(C:\Users\BYU\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\microtype.sty
+Package: microtype 2010/01/10 v2.4 Micro-typography with pdfTeX (RS)
+\MT@toks=\toks16
+\MT@count=\count107
+LaTeX Info: Redefining \lsstyle on input line 1597.
+LaTeX Info: Redefining \lslig on input line 1597.
+\MT@outer@space=\skip51
+LaTeX Info: Redefining \textls on input line 1605.
+\MT@outer@kern=\dimen122
+LaTeX Info: Redefining \textmicrotypecontext on input line 2156.
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(C:\Users\BYU\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\microtype.cfg
+File: microtype.cfg 2010/01/10 v2.4 microtype main configuration file (RS)
+))
+(C:\PhDthesis\JiePhdThesis\tex\LongThesis.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 102.
+LaTeX Font Info:    ... okay on input line 102.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* hratio: 1:1
+* modes: 
+* h-part:(L,W,R)=(72.27pt, 469.75499pt, 72.27pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75499pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.00002pt
+* \evensidemargin=0.00002pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\AtBeginShipoutBox=\box26
+Package hyperref Info: Link coloring OFF on input line 102.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count108
+)
+LaTeX Info: Redefining \ref on input line 102.
+LaTeX Info: Redefining \pageref on input line 102.
+LaTeX Info: Redefining \nameref on input line 102.
+
+(C:\PhDthesis\JiePhdThesis\tex\LongThesis.out)
+(C:\PhDthesis\JiePhdThesis\tex\LongThesis.out)
+\@outlinefile=\write3
+
+(C:\Users\BYU\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count109
+\scratchdimen=\dimen123
+\scratchbox=\box27
+\nofMPsegments=\count110
+\nofMParguments=\count111
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count112
+\MPscratchDim=\dimen124
+\MPnumerator=\count113
+\everyMPtoPDFconversion=\toks18
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Info: Redefining \microtypecontext on input line 102.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+Package microtype Info: No tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+ (C:\Users\BYU\AppData\Roaming\MiKTeX\2.9\tex\latex\microtype\mt-cmr.cfg
+File: mt-cmr.cfg 2009/11/09 v2.0 microtype config. file: Computer Modern Roman 
+(RS)
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 107.
+
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 107.
+ [1
+
+
+{C:/Users/BYU/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2
+
+] [3
+
+] [4]
+(C:\PhDthesis\JiePhdThesis\tex\LongThesis.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 3.
+ [5
+
+] [6] [7])
+\tf@toc=\write4
+ [8]
+(C:\PhDthesis\JiePhdThesis\tex\LongThesis.lof [9
+
+] [10])
+\tf@lof=\write5
+ [11]
+(C:\PhDthesis\JiePhdThesis\tex\2introduction.tex
+Chapter 1.
+[1
+
+
+] [2] [3] [4] [5] [6] [7]) (C:\PhDthesis\JiePhdThesis\tex\6Chapter.tex
+[8]
+Chapter 2.
+[9
+
+] [10] [11] [12] [13] [14]
+<../fig/experiment.PNG, id=744, 1863.96375pt x 939.51pt>
+File: ../fig/experiment.PNG Graphic file (type png)
+
+<use ../fig/experiment.PNG>
+Package pdftex.def Info: ../fig/experiment.PNG used on input line 68.
+(pdftex.def)             Requested size: 433.62pt x 218.56284pt.
+ [15 <C:/PhDthesis/JiePhdThesis/fig/experiment.PNG (PNG copy)>] <../fig/skeleto
+n.PNG, id=749, 1508.63625pt x 1011.78pt>
+File: ../fig/skeleton.PNG Graphic file (type png)
+
+<use ../fig/skeleton.PNG>
+Package pdftex.def Info: ../fig/skeleton.PNG used on input line 81.
+(pdftex.def)             Requested size: 361.34999pt x 242.33812pt.
+ [16 <C:/PhDthesis/JiePhdThesis/fig/skeleton.PNG (PNG copy)>] [17] <../fig/cost
+.PNG, id=766, 1868.9825pt x 505.89pt>
+File: ../fig/cost.PNG Graphic file (type png)
+
+<use ../fig/cost.PNG>
+Package pdftex.def Info: ../fig/cost.PNG used on input line 114.
+(pdftex.def)             Requested size: 433.62pt x 117.37119pt.
+ [18] [19 <C:/PhDthesis/JiePhdThesis/fig/cost.PNG (PNG copy)>] [20] [21]
+<../fig/low-speed-high-speed.jpg, id=789, 2145.6295pt x 634.63992pt>
+File: ../fig/low-speed-high-speed.jpg Graphic file (type jpg)
+
+<use ../fig/low-speed-high-speed.jpg>
+Package pdftex.def Info: ../fig/low-speed-high-speed.jpg used on input line 159
+.
+(pdftex.def)             Requested size: 433.62pt x 128.25241pt.
+ [22] [23 <C:/PhDthesis/JiePhdThesis/fig/low-speed-high-speed.jpg>]) (C:\PhDthe
+sis\JiePhdThesis\tex\4Chapter.tex [24]
+Chapter 3.
+[25
+
+] [26] [27] [28]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 50.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 50.
+ <../fig/mocapData1.png, id=854, 2258.4375pt x 451.6875pt>
+File: ../fig/mocapData1.png Graphic file (type png)
+
+<use ../fig/mocapData1.png>
+Package pdftex.def Info: ../fig/mocapData1.png used on input line 53.
+(pdftex.def)             Requested size: 469.75499pt x 93.9474pt.
+ [29 <C:/PhDthesis/JiePhdThesis/fig/mocapData1.png>] [30] [31] <../fig/mainProc
+.PNG, id=876, 858.95906pt x 397.485pt>
+File: ../fig/mainProc.PNG Graphic file (type png)
+
+<use ../fig/mainProc.PNG>
+Package pdftex.def Info: ../fig/mainProc.PNG used on input line 92.
+(pdftex.def)             Requested size: 397.48499pt x 183.93703pt.
+ [32 <C:/PhDthesis/JiePhdThesis/fig/mainProc.PNG>]
+[33] <../fig/ClusterProc.png, id=890, 1299.85625pt x 415.5525pt>
+File: ../fig/ClusterProc.png Graphic file (type png)
+
+<use ../fig/ClusterProc.png>
+Package pdftex.def Info: ../fig/ClusterProc.png used on input line 137.
+(pdftex.def)             Requested size: 469.75499pt x 150.1758pt.
+ [34 <C:/PhDthesis/JiePhdThesis/fig/ClusterProc.png (PNG copy)>] <../fig/SecClu
+ster.png, id=904, 1032.85875pt x 453.94594pt>
+File: ../fig/SecCluster.png Graphic file (type png)
+
+<use ../fig/SecCluster.png>
+Package pdftex.def Info: ../fig/SecCluster.png used on input line 153.
+(pdftex.def)             Requested size: 469.75499pt x 206.45567pt.
+ [35] [36 <C:/PhDthesis/JiePhdThesis/fig/SecCluster.png>] <../fig/filling-gaps-
+2.jpg, id=918, 1037.0745pt x 590.80725pt>
+File: ../fig/filling-gaps-2.jpg Graphic file (type jpg)
+
+<use ../fig/filling-gaps-2.jpg>
+Package pdftex.def Info: ../fig/filling-gaps-2.jpg used on input line 184.
+(pdftex.def)             Requested size: 469.75499pt x 267.60971pt.
+ [37] [38 <C:/PhDthesis/JiePhdThesis/fig/filling-gaps-2.jpg>] [39]
+<../fig/segmentInitInverted.png, id=944, 146.949pt x 125.268pt>
+File: ../fig/segmentInitInverted.png Graphic file (type png)
+
+<use ../fig/segmentInitInverted.png>
+Package pdftex.def Info: ../fig/segmentInitInverted.png used on input line 239.
+
+(pdftex.def)             Requested size: 260.17244pt x 221.8027pt.
+ [40] [41 <C:/PhDthesis/JiePhdThesis/fig/segmentInitInverted.png>]
+<../fig/jumpRopeFig.png, id=964, 606.76688pt x 392.96812pt>
+File: ../fig/jumpRopeFig.png Graphic file (type png)
+
+<use ../fig/jumpRopeFig.png>
+Package pdftex.def Info: ../fig/jumpRopeFig.png used on input line 263.
+(pdftex.def)             Requested size: 469.75499pt x 304.23534pt.
+
+<../fig/gapAnalysisEasy50002.png, id=967, 384.6872pt x 148.30406pt>
+File: ../fig/gapAnalysisEasy50002.png Graphic file (type png)
+
+<use ../fig/gapAnalysisEasy50002.png>
+Package pdftex.def Info: ../fig/gapAnalysisEasy50002.png used on input line 271
+.
+(pdftex.def)             Requested size: 469.75499pt x 181.1117pt.
+ [42] [43 <C:/PhDthesis/JiePhdThesis/fig/jumpRopeFig.png>] <../fig/result.png, 
+id=984, 822.82407pt x 626.34pt>
+File: ../fig/result.png Graphic file (type png)
+
+<use ../fig/result.png>
+Package pdftex.def Info: ../fig/result.png used on input line 287.
+(pdftex.def)             Requested size: 469.75499pt x 357.58138pt.
+ [44 <C:/PhDthesis/JiePhdThesis/fig/gapAnalysisEasy50002.png (PNG copy)>]) (C:\
+PhDthesis\JiePhdThesis\tex\5Chapter.tex [45 <C:/PhDthesis/JiePhdThesis/fig/resu
+lt.png>] [46]
+Chapter 4.
+[47
+
+] <../fig/Maple.png, id=1003, 1371.62437pt x 432.11438pt>
+File: ../fig/Maple.png Graphic file (type png)
+
+<use ../fig/Maple.png>
+Package pdftex.def Info: ../fig/Maple.png used on input line 17.
+(pdftex.def)             Requested size: 370.34354pt x 116.67244pt.
+ <../fig/varTree.png, id=1004, 1035.87pt x 392.96812pt>
+File: ../fig/varTree.png Graphic file (type png)
+
+<use ../fig/varTree.png>
+Package pdftex.def Info: ../fig/varTree.png used on input line 24.
+(pdftex.def)             Requested size: 372.91292pt x 141.4684pt.
+ [48 <C:/PhDthesis/JiePhdThesis/fig/Maple.png> <C:/PhDthesis/JiePhdThesis/fig/v
+arTree.png>] [49] [50] [51] [52]
+<../fig/Mocap.png, id=1062, 1369.36594pt x 524.71031pt>
+File: ../fig/Mocap.png Graphic file (type png)
+ <use ../fig/Mocap.png>
+Package pdftex.def Info: ../fig/Mocap.png used on input line 78.
+(pdftex.def)             Requested size: 361.34999pt x 138.46309pt.
+
+[53] [54 <C:/PhDthesis/JiePhdThesis/fig/Mocap.png>]
+<../fig/PineTrunk1.png, id=1080, 309.40594pt x 408.77719pt>
+File: ../fig/PineTrunk1.png Graphic file (type png)
+
+<use ../fig/PineTrunk1.png>
+Package pdftex.def Info: ../fig/PineTrunk1.png used on input line 104.
+(pdftex.def)             Requested size: 103.34666pt x 136.53732pt.
+
+<../fig/PineTrunk2.png, id=1081, 439.6425pt x 412.54124pt>
+File: ../fig/PineTrunk2.png Graphic file (type png)
+
+<use ../fig/PineTrunk2.png>
+Package pdftex.def Info: ../fig/PineTrunk2.png used on input line 111.
+(pdftex.def)             Requested size: 145.6229pt x 136.64261pt.
+
+<../fig/PineTrunk3.png, id=1082, 412.54124pt x 426.84468pt>
+File: ../fig/PineTrunk3.png Graphic file (type png)
+
+<use ../fig/PineTrunk3.png>
+Package pdftex.def Info: ../fig/PineTrunk3.png used on input line 118.
+(pdftex.def)             Requested size: 140.92792pt x 145.81566pt.
+
+Underfull \hbox (badness 1831) in paragraph at lines 119--119
+[]\OT1/cmr/m/n/10.95 (+20) (c) |Adding ran-dom off-sets
+ []
+
+[55] <../fig/boundbox1.png, id=1096, 253.69781pt x 527.72156pt>
+File: ../fig/boundbox1.png Graphic file (type png)
+
+<use ../fig/boundbox1.png>
+Package pdftex.def Info: ../fig/boundbox1.png used on input line 136.
+(pdftex.def)             Requested size: 93.94955pt x 195.42302pt.
+
+<../fig/boundbox2.png, id=1097, 342.5297pt x 530.73282pt>
+File: ../fig/boundbox2.png Graphic file (type png)
+
+<use ../fig/boundbox2.png>
+Package pdftex.def Info: ../fig/boundbox2.png used on input line 143.
+(pdftex.def)             Requested size: 126.83585pt x 196.52193pt.
+
+<../fig/boundbox3.png, id=1098, 255.95625pt x 525.46312pt>
+File: ../fig/boundbox3.png Graphic file (type png)
+
+<use ../fig/boundbox3.png>
+Package pdftex.def Info: ../fig/boundbox3.png used on input line 150.
+(pdftex.def)             Requested size: 93.94955pt x 192.87085pt.
+
+<../fig/ConvexHullPoints.png, id=1100, 368.87813pt x 420.06938pt>
+File: ../fig/ConvexHullPoints.png Graphic file (type png)
+
+<use ../fig/ConvexHullPoints.png>
+Package pdftex.def Info: ../fig/ConvexHullPoints.png used on input line 162.
+(pdftex.def)             Requested size: 184.4386pt x 210.03418pt.
+ [56 <C:/PhDthesis/JiePhdThesis/fig/PineTrunk1.png> <C:/PhDthesis/JiePhdThesis/
+fig/PineTrunk2.png> <C:/PhDthesis/JiePhdThesis/fig/PineTrunk3.png>] [57 <C:/PhD
+thesis/JiePhdThesis/fig/boundbox1.png> <C:/PhDthesis/JiePhdThesis/fig/boundbox2
+.png> <C:/PhDthesis/JiePhdThesis/fig/boundbox3.png> <C:/PhDthesis/JiePhdThesis/
+fig/ConvexHullPoints.png>]
+<../fig/flow1.png, id=1119, 563.85657pt x 690.32906pt>
+File: ../fig/flow1.png Graphic file (type png)
+ <use ../fig/flow1.png>
+Package pdftex.def Info: ../fig/flow1.png used on input line 175.
+(pdftex.def)             Requested size: 93.94955pt x 115.01593pt.
+
+Underfull \hbox (badness 3601) in paragraph at lines 176--176
+\OT1/cmr/m/n/10.95 (+20) trac-tor and near-
+ []
+
+<../fig/flow2.png, id=1120, 376.40625pt x 338.01282pt>
+File: ../fig/flow2.png Graphic file (type png)
+ <use ../fig/flow2.png>
+Package pdftex.def Info: ../fig/flow2.png used on input line 182.
+(pdftex.def)             Requested size: 140.92792pt x 126.55333pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 183.
+
+<../fig/flow3.png, id=1121, 371.88937pt x 351.56343pt>
+File: ../fig/flow3.png Graphic file (type png)
+ <use ../fig/flow3.png>
+Package pdftex.def Info: ../fig/flow3.png used on input line 189.
+(pdftex.def)             Requested size: 140.92792pt x 133.22534pt.
+
+[58 <C:/PhDthesis/JiePhdThesis/fig/flow1.png> <C:/PhDthesis/JiePhdThesis/fig/fl
+ow2.png (PNG copy)> <C:/PhDthesis/JiePhdThesis/fig/flow3.png (PNG copy)>]
+<../fig/forceTable.png, id=1131, 285.31593pt x 65.49469pt>
+File: ../fig/forceTable.png Graphic file (type png)
+
+<use ../fig/forceTable.png>
+Package pdftex.def Info: ../fig/forceTable.png used on input line 205.
+(pdftex.def)             Requested size: 342.3774pt x 78.5932pt.
+ [59 <C:/PhDthesis/JiePhdThesis/fig/forceTable.png>] [60] <../fig/cluster1.png,
+ id=1150, 604.50844pt x 264.99pt>
+File: ../fig/cluster1.png Graphic file (type png)
+
+<use ../fig/cluster1.png>
+Package pdftex.def Info: ../fig/cluster1.png used on input line 258.
+(pdftex.def)             Requested size: 187.89912pt x 82.3644pt.
+
+<../fig/cluster2.png, id=1151, 566.86781pt x 235.63031pt>
+File: ../fig/cluster2.png Graphic file (type png)
+
+<use ../fig/cluster2.png>
+Package pdftex.def Info: ../fig/cluster2.png used on input line 265.
+(pdftex.def)             Requested size: 187.89912pt x 78.1034pt.
+ [61 <C:/PhDthesis/JiePhdThesis/fig/cluster1.png> <C:/PhDthesis/JiePhdThesis/fi
+g/cluster2.png (PNG copy)>]
+<../fig/Marker0orig.jpg, id=1158, 1224.37425pt x 462.528pt>
+File: ../fig/Marker0orig.jpg Graphic file (type jpg)
+
+<use ../fig/Marker0orig.jpg>
+Package pdftex.def Info: ../fig/Marker0orig.jpg used on input line 279.
+(pdftex.def)             Requested size: 197.29623pt x 74.52824pt.
+
+<../fig/Marker5orig.jpg, id=1159, 1224.37425pt x 462.528pt>
+File: ../fig/Marker5orig.jpg Graphic file (type jpg)
+
+<use ../fig/Marker5orig.jpg>
+Package pdftex.def Info: ../fig/Marker5orig.jpg used on input line 286.
+(pdftex.def)             Requested size: 197.29623pt x 74.52824pt.
+
+<../fig/ResultBoundPine2.png, id=1164, 331.99031pt x 387.69844pt>
+File: ../fig/ResultBoundPine2.png Graphic file (type png)
+
+<use ../fig/ResultBoundPine2.png>
+Package pdftex.def Info: ../fig/ResultBoundPine2.png used on input line 302.
+(pdftex.def)             Requested size: 155.02pt x 181.03513pt.
+
+<../fig/ResultBoundPine1.png, id=1165, 316.18124pt x 362.85562pt>
+File: ../fig/ResultBoundPine1.png Graphic file (type png)
+
+<use ../fig/ResultBoundPine1.png>
+Package pdftex.def Info: ../fig/ResultBoundPine1.png used on input line 309.
+(pdftex.def)             Requested size: 159.71497pt x 183.29324pt.
+
+<../fig/boundBoxTree.png, id=1166, 332.74312pt x 352.31625pt>
+File: ../fig/boundBoxTree.png Graphic file (type png)
+
+<use ../fig/boundBoxTree.png>
+Package pdftex.def Info: ../fig/boundBoxTree.png used on input line 316.
+(pdftex.def)             Requested size: 159.71497pt x 169.10988pt.
+
+<../fig/boundConvexTree.png, id=1167, 320.69812pt x 352.31625pt>
+File: ../fig/boundConvexTree.png Graphic file (type png)
+
+<use ../fig/boundConvexTree.png>
+Package pdftex.def Info: ../fig/boundConvexTree.png used on input line 323.
+(pdftex.def)             Requested size: 155.02pt x 170.3087pt.
+
+<../fig/Pine.png, id=1169, 1221.81468pt x 710.655pt>
+File: ../fig/Pine.png Graphic file (type png)
+ <use ../fig/Pine.png>
+Package pdftex.def Info: ../fig/Pine.png used on input line 335.
+(pdftex.def)             Requested size: 439.85295pt x 255.8356pt.
+
+[62 <C:/PhDthesis/JiePhdThesis/fig/Marker0orig.jpg> <C:/PhDthesis/JiePhdThesis/
+fig/Marker5orig.jpg>] [63 <C:/PhDthesis/JiePhdThesis/fig/ResultBoundPine2.png> 
+<C:/PhDthesis/JiePhdThesis/fig/ResultBoundPine1.png> <C:/PhDthesis/JiePhdThesis
+/fig/boundBoxTree.png (PNG copy)> <C:/PhDthesis/JiePhdThesis/fig/boundConvexTre
+e.png (PNG copy)>] <../fig/currency1.png, id=1182, 313.9228pt x 389.20406pt>
+File: ../fig/currency1.png Graphic file (type png)
+
+<use ../fig/currency1.png>
+Package pdftex.def Info: ../fig/currency1.png used on input line 346.
+(pdftex.def)             Requested size: 155.02pt x 192.19041pt.
+
+<../fig/currency2.png, id=1183, 313.9228pt x 389.20406pt>
+File: ../fig/currency2.png Graphic file (type png)
+
+<use ../fig/currency2.png>
+Package pdftex.def Info: ../fig/currency2.png used on input line 353.
+(pdftex.def)             Requested size: 155.02pt x 192.19041pt.
+
+<../fig/gravity001.png, id=1185, 304.13625pt x 426.84468pt>
+File: ../fig/gravity001.png Graphic file (type png)
+
+<use ../fig/gravity001.png>
+Package pdftex.def Info: ../fig/gravity001.png used on input line 367.
+(pdftex.def)             Requested size: 140.92792pt x 197.79033pt.
+
+<../fig/gravity020.png, id=1186, 304.13625pt x 426.84468pt>
+File: ../fig/gravity020.png Graphic file (type png)
+
+<use ../fig/gravity020.png>
+Package pdftex.def Info: ../fig/gravity020.png used on input line 374.
+(pdftex.def)             Requested size: 140.92792pt x 197.79033pt.
+
+<../fig/gravityNeg020.png, id=1187, 304.13625pt x 426.84468pt>
+File: ../fig/gravityNeg020.png Graphic file (type png)
+
+<use ../fig/gravityNeg020.png>
+Package pdftex.def Info: ../fig/gravityNeg020.png used on input line 381.
+(pdftex.def)             Requested size: 140.92792pt x 197.79033pt.
+ [64 <C:/PhDthesis/JiePhdThesis/fig/Pine.png>]
+[65 <C:/PhDthesis/JiePhdThesis/fig/currency1.png (PNG copy)> <C:/PhDthesis/JieP
+hdThesis/fig/currency2.png> <C:/PhDthesis/JiePhdThesis/fig/gravity001.png (PNG 
+copy)> <C:/PhDthesis/JiePhdThesis/fig/gravity020.png (PNG copy)> <C:/PhDthesis/
+JiePhdThesis/fig/gravityNeg020.png (PNG copy)>]
+<../fig/wind001.png, id=1199, 311.66437pt x 386.19281pt>
+File: ../fig/wind001.png Graphic file (type png)
+
+<use ../fig/wind001.png>
+Package pdftex.def Info: ../fig/wind001.png used on input line 395.
+(pdftex.def)             Requested size: 140.92792pt x 174.62782pt.
+
+<../fig/wind007.png, id=1200, 311.66437pt x 386.19281pt>
+File: ../fig/wind007.png Graphic file (type png)
+
+<use ../fig/wind007.png>
+Package pdftex.def Info: ../fig/wind007.png used on input line 402.
+(pdftex.def)             Requested size: 140.92792pt x 174.62782pt.
+
+<../fig/wind015.png, id=1201, 311.66437pt x 386.19281pt>
+File: ../fig/wind015.png Graphic file (type png)
+
+<use ../fig/wind015.png>
+Package pdftex.def Info: ../fig/wind015.png used on input line 409.
+(pdftex.def)             Requested size: 140.92792pt x 174.62782pt.
+
+<../fig/treediff1.png, id=1203, 335.00156pt x 408.77719pt>
+File: ../fig/treediff1.png Graphic file (type png)
+
+<use ../fig/treediff1.png>
+Package pdftex.def Info: ../fig/treediff1.png used on input line 423.
+(pdftex.def)             Requested size: 140.92792pt x 171.95969pt.
+
+<../fig/treediff2.png, id=1204, 335.00156pt x 408.77719pt>
+File: ../fig/treediff2.png Graphic file (type png)
+
+<use ../fig/treediff2.png>
+Package pdftex.def Info: ../fig/treediff2.png used on input line 430.
+(pdftex.def)             Requested size: 140.92792pt x 171.95969pt.
+
+<../fig/treediff3.png, id=1205, 335.00156pt x 408.77719pt>
+File: ../fig/treediff3.png Graphic file (type png)
+
+<use ../fig/treediff3.png>
+Package pdftex.def Info: ../fig/treediff3.png used on input line 437.
+(pdftex.def)             Requested size: 140.92792pt x 171.95969pt.
+ [66 <C:/PhDthesis/JiePhdThesis/fig/wind001.png (PNG copy)> <C:/PhDthesis/JiePh
+dThesis/fig/wind007.png (PNG copy)> <C:/PhDthesis/JiePhdThesis/fig/wind015.png 
+(PNG copy)>])
+(C:\PhDthesis\JiePhdThesis\tex\7Chapter.tex [67 <C:/PhDthesis/JiePhdThesis/fig/
+treediff1.png (PNG copy)> <C:/PhDthesis/JiePhdThesis/fig/treediff2.png (PNG cop
+y)> <C:/PhDthesis/JiePhdThesis/fig/treediff3.png (PNG copy)>]
+Chapter 5.
+[68
+
+] [69] [70] [71] [72]
+<../fig/EPLCfig1a.png, id=1266, 249.18094pt x 189.70876pt>
+File: ../fig/EPLCfig1a.png Graphic file (type png)
+
+<use ../fig/EPLCfig1a.png>
+Package pdftex.def Info: ../fig/EPLCfig1a.png used on input line 64.
+(pdftex.def)             Requested size: 187.89912pt x 143.05699pt.
+
+<../fig/EPLCfig1b.png, id=1267, 264.99pt x 189.70876pt>
+File: ../fig/EPLCfig1b.png Graphic file (type png)
+
+<use ../fig/EPLCfig1b.png>
+Package pdftex.def Info: ../fig/EPLCfig1b.png used on input line 70.
+(pdftex.def)             Requested size: 197.29623pt x 141.24779pt.
+ [73]
+<../fig/EPLCfig2.png, id=1273, 382.42876pt x 289.83281pt>
+File: ../fig/EPLCfig2.png Graphic file (type png)
+
+<use ../fig/EPLCfig2.png>
+Package pdftex.def Info: ../fig/EPLCfig2.png used on input line 86.
+(pdftex.def)             Requested size: 305.9434pt x 231.86655pt.
+
+<../fig/EPLCfig3.png, id=1274, 491.58656pt x 230.36063pt>
+File: ../fig/EPLCfig3.png Graphic file (type png)
+
+<use ../fig/EPLCfig3.png>
+Package pdftex.def Info: ../fig/EPLCfig3.png used on input line 93.
+(pdftex.def)             Requested size: 393.26978pt x 184.28873pt.
+ [74 <C:/PhDthesis/JiePhdThesis/fig/EPLCfig1a.png> <C:/PhDthesis/JiePhdThesis/f
+ig/EPLCfig1b.png> <C:/PhDthesis/JiePhdThesis/fig/EPLCfig2.png>] [75 <C:/PhDthes
+is/JiePhdThesis/fig/EPLCfig3.png>]
+<../fig/EPLCfig4.png, id=1291, 574.39594pt x 301.125pt>
+File: ../fig/EPLCfig4.png Graphic file (type png)
+
+<use ../fig/EPLCfig4.png>
+Package pdftex.def Info: ../fig/EPLCfig4.png used on input line 120.
+(pdftex.def)             Requested size: 344.64021pt x 180.67638pt.
+
+<../fig/EPLCfig5.png, id=1292, 246.9225pt x 249.18094pt>
+File: ../fig/EPLCfig5.png Graphic file (type png)
+
+<use ../fig/EPLCfig5.png>
+Package pdftex.def Info: ../fig/EPLCfig5.png used on input line 127.
+(pdftex.def)             Requested size: 197.53824pt x 199.345pt.
+ [76] [77 <C:/PhDthesis/JiePhdThesis/fig/EPLCfig4.png> <C:/PhDthesis/JiePhdThes
+is/fig/EPLCfig5.png>] [78]
+<../fig/EPLCfig6.png, id=1310, 237.88875pt x 271.0125pt>
+File: ../fig/EPLCfig6.png Graphic file (type png)
+
+<use ../fig/EPLCfig6.png>
+Package pdftex.def Info: ../fig/EPLCfig6.png used on input line 168.
+(pdftex.def)             Requested size: 190.31123pt x 216.81029pt.
+ [79 <C:/PhDthesis/JiePhdThesis/fig/EPLCfig6.png>]
+<../fig/EPLCfig7.png, id=1320, 453.94594pt x 295.1025pt>
+File: ../fig/EPLCfig7.png Graphic file (type png)
+
+<use ../fig/EPLCfig7.png>
+Package pdftex.def Info: ../fig/EPLCfig7.png used on input line 192.
+(pdftex.def)             Requested size: 363.15724pt x 236.0823pt.
+ [80]
+<../fig/EPLCfig8.png, id=1331, 599.23875pt x 266.49562pt>
+File: ../fig/EPLCfig8.png Graphic file (type png)
+
+<use ../fig/EPLCfig8.png>
+Package pdftex.def Info: ../fig/EPLCfig8.png used on input line 204.
+(pdftex.def)             Requested size: 359.54602pt x 159.89859pt.
+ [81 <C:/PhDthesis/JiePhdThesis/fig/EPLCfig7.png>]
+<../fig/EPLCfig9a.png, id=1344, 595.47469pt x 219.06844pt>
+File: ../fig/EPLCfig9a.png Graphic file (type png)
+
+<use ../fig/EPLCfig9a.png>
+Package pdftex.def Info: ../fig/EPLCfig9a.png used on input line 217.
+(pdftex.def)             Requested size: 328.82706pt x 120.96935pt.
+
+<../fig/EPLCfig9b.png, id=1345, 589.4522pt x 202.50656pt>
+File: ../fig/EPLCfig9b.png Graphic file (type png)
+
+<use ../fig/EPLCfig9b.png>
+Package pdftex.def Info: ../fig/EPLCfig9b.png used on input line 223.
+(pdftex.def)             Requested size: 328.82706pt x 112.97028pt.
+ [82 <C:/PhDthesis/JiePhdThesis/fig/EPLCfig8.png (PNG copy)>] <../fig/EPLCfig10
+.png, id=1351, 596.2275pt x 248.42813pt>
+File: ../fig/EPLCfig10.png Graphic file (type png)
+
+<use ../fig/EPLCfig10.png>
+Package pdftex.def Info: ../fig/EPLCfig10.png used on input line 245.
+(pdftex.def)             Requested size: 357.73926pt x 149.05801pt.
+ [83 <C:/PhDthesis/JiePhdThesis/fig/EPLCfig9a.png> <C:/PhDthesis/JiePhdThesis/f
+ig/EPLCfig9b.png>]
+<../fig/EPLCfig11.png, id=1360, 472.01344pt x 255.95625pt>
+File: ../fig/EPLCfig11.png Graphic file (type png)
+
+<use ../fig/EPLCfig11.png>
+Package pdftex.def Info: ../fig/EPLCfig11.png used on input line 256.
+(pdftex.def)             Requested size: 377.61127pt x 204.76526pt.
+ [84 <C:/PhDthesis/JiePhdThesis/fig/EPLCfig10.png> <C:/PhDthesis/JiePhdThesis/f
+ig/EPLCfig11.png>]
+<../fig/EPLCfig12.png, id=1368, 492.33937pt x 258.21469pt>
+File: ../fig/EPLCfig12.png Graphic file (type png)
+
+<use ../fig/EPLCfig12.png>
+Package pdftex.def Info: ../fig/EPLCfig12.png used on input line 265.
+(pdftex.def)             Requested size: 393.87201pt x 206.57202pt.
+ [85 <C:/PhDthesis/JiePhdThesis/fig/EPLCfig12.png>]
+[86] [87]) (C:\PhDthesis\JiePhdThesis\tex\3Chapter.tex [88]
+Chapter 6.
+<../fig/mocapMaple.png, id=1387, 557.83406pt x 494.59781pt>
+File: ../fig/mocapMaple.png Graphic file (type png)
+
+<use ../fig/mocapMaple.png>
+Package pdftex.def Info: ../fig/mocapMaple.png used on input line 17.
+(pdftex.def)             Requested size: 140.92792pt x 124.94722pt.
+
+<../fig/simulatedField.png, id=1388, 620.3175pt x 539.76656pt>
+File: ../fig/simulatedField.png Graphic file (type png)
+
+<use ../fig/simulatedField.png>
+Package pdftex.def Info: ../fig/simulatedField.png used on input line 24.
+(pdftex.def)             Requested size: 140.92792pt x 122.62823pt.
+
+<../fig/motionPathMaple.png, id=1389, 553.31718pt x 496.10344pt>
+File: ../fig/motionPathMaple.png Graphic file (type png)
+
+<use ../fig/motionPathMaple.png>
+Package pdftex.def Info: ../fig/motionPathMaple.png used on input line 31.
+(pdftex.def)             Requested size: 140.92792pt x 126.34952pt.
+ [89
+
+] [90 <C:/PhDthesis/JiePhdThesis/fig/mocapMaple.png> <C:/PhDthesis/JiePhdThesis
+/fig/simulatedField.png> <C:/PhDthesis/JiePhdThesis/fig/motionPathMaple.png>] [
+91] [92] [93] [94] [95]
+<../fig/particle.png, id=1463, 344.03531pt x 339.51843pt>
+File: ../fig/particle.png Graphic file (type png)
+
+<use ../fig/particle.png>
+Package pdftex.def Info: ../fig/particle.png used on input line 89.
+(pdftex.def)             Requested size: 130.08621pt x 128.37593pt.
+ [96 <C:/PhDthesis/JiePhdThesis/fig/particle.png (PNG copy)>] [97] <../fig/vect
+orField.png, id=1478, 645.91313pt x 482.55281pt>
+File: ../fig/vectorField.png Graphic file (type png)
+
+<use ../fig/vectorField.png>
+Package pdftex.def Info: ../fig/vectorField.png used on input line 111.
+(pdftex.def)             Requested size: 180.67499pt x 134.97395pt.
+ [98 <C:/PhDthesis/JiePhdThesis/fig/vectorField.png>] [99] [100] <../fig/turbul
+enceFlow.png, id=1509, 256.70906pt x 176.91093pt>
+File: ../fig/turbulenceFlow.png Graphic file (type png)
+
+<use ../fig/turbulenceFlow.png>
+Package pdftex.def Info: ../fig/turbulenceFlow.png used on input line 177.
+(pdftex.def)             Requested size: 245.71754pt x 169.33856pt.
+ [101] [102 <C:/PhDthesis/JiePhdThesis/fig/turbulenceFlow.png>] <../fig/energyF
+low.png, id=1536, 1411.52344pt x 383.93437pt>
+File: ../fig/energyFlow.png Graphic file (type png)
+
+<use ../fig/energyFlow.png>
+Package pdftex.def Info: ../fig/energyFlow.png used on input line 220.
+(pdftex.def)             Requested size: 433.62pt x 117.94048pt.
+ [103 <C:/PhDthesis/JiePhdThesis/fig/energyFlow.png>] [104] <../fig/mapleModelM
+ocapTip.png, id=1556, 439.6425pt x 392.96812pt>
+File: ../fig/mapleModelMocapTip.png Graphic file (type png)
+
+<use ../fig/mapleModelMocapTip.png>
+Package pdftex.def Info: ../fig/mapleModelMocapTip.png used on input line 254.
+(pdftex.def)             Requested size: 219.82071pt x 196.48357pt.
+
+<../fig/branchPath.png, id=1558, 496.85625pt x 124.465pt>
+File: ../fig/branchPath.png Graphic file (type png)
+
+<use ../fig/branchPath.png>
+Package pdftex.def Info: ../fig/branchPath.png used on input line 263.
+(pdftex.def)             Requested size: 298.11604pt x 74.67957pt.
+ [105]
+<../fig/branchTipMocap.png, id=1568, 496.85625pt x 474.27188pt>
+File: ../fig/branchTipMocap.png Graphic file (type png)
+
+<use ../fig/branchTipMocap.png>
+Package pdftex.def Info: ../fig/branchTipMocap.png used on input line 274.
+(pdftex.def)             Requested size: 136.22578pt x 130.03076pt.
+
+<../fig/branchtipSynthesized.png, id=1569, 490.83376pt x 475.7775pt>
+File: ../fig/branchtipSynthesized.png Graphic file (type png)
+
+<use ../fig/branchtipSynthesized.png>
+Package pdftex.def Info: ../fig/branchtipSynthesized.png used on input line 281
+.
+(pdftex.def)             Requested size: 140.92792pt x 136.59984pt.
+ [106 <C:/PhDthesis/JiePhdThesis/fig/mapleModelMocapTip.png> <C:/PhDthesis/JieP
+hdThesis/fig/branchPath.png (PNG copy)>]
+<../fig/mapleSway.png, id=1577, 694.84593pt x 146.04562pt>
+File: ../fig/mapleSway.png Graphic file (type png)
+
+<use ../fig/mapleSway.png>
+Package pdftex.def Info: ../fig/mapleSway.png used on input line 293.
+(pdftex.def)             Requested size: 451.6445pt x 94.92851pt.
+
+<../fig/multipleTrees.png, id=1578, 332.74312pt x 446.41782pt>
+File: ../fig/multipleTrees.png Graphic file (type png)
+
+<use ../fig/multipleTrees.png>
+Package pdftex.def Info: ../fig/multipleTrees.png used on input line 300.
+(pdftex.def)             Requested size: 226.26231pt x 303.56009pt.
+ [107 <C:/PhDthesis/JiePhdThesis/fig/branchTipMocap.png> <C:/PhDthesis/JiePhdTh
+esis/fig/branchtipSynthesized.png>])
+(C:\PhDthesis\JiePhdThesis\tex\Conclusion.tex [108 <C:/PhDthesis/JiePhdThesis/f
+ig/mapleSway.png> <C:/PhDthesis/JiePhdThesis/fig/multipleTrees.png>] [109]
+Chapter 7.
+[110
+
+] [111]) (C:\PhDthesis\JiePhdThesis\tex\LongThesis.bbl [112] [113
+
+] [114]
+[115]
+Missing character: There is no í in font cmr12!
+ [116]
+Missing character: There is no — in font cmr12!
+ [117] [118])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 125.
+ [119]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 125.
+ (C:\PhDthesis\JiePhdThesis\tex\LongThesis.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 125.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 125.
+Package rerunfilecheck Info: File `LongThesis.out' has not changed.
+(rerunfilecheck)             Checksum: 88E6409897CD9908EF8F57D972A74138;6184.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 125.
+ )
+(\end occurred inside a group at level 2)
+
+### semi simple group (level 2) entered at line 123 (\begingroup)
+### semi simple group (level 1) entered at line 102 (\begingroup)
+### bottom level 
+Here is how much of TeX's memory you used:
+ 9666 strings out of 494053
+ 153554 string characters out of 3146191
+ 276973 words of memory out of 3000000
+ 12288 multiletter control sequences out of 15000+200000
+ 12828 words of font info for 98 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
+ 36i,9n,38p,1689b,1400s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
+i12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6
+.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pf
+b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/
+Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Prog
+ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on LongThesis.pdf (130 pages, 16584364 bytes).
+PDF statistics:
+ 1772 PDF objects out of 2073 (max. 8388607)
+ 368 named destinations out of 1000 (max. 500000)
+ 11787 words of extra memory for PDF output out of 12000 (max. 10000000)
+

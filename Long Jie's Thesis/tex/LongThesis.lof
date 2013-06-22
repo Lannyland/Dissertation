@@ -1,0 +1,58 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Motion capture set up for a natural tree.}}{15}{figure.caption.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Steps in building a tree skeleton.\relax }}{16}{figure.caption.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Reconstructed tree topologies.}}{19}{figure.caption.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Predicted versus actual displacement.}}{23}{figure.caption.4}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Motion capture setup and notation for describing captured data.\relax }}{29}{figure.caption.5}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Process for converting unindexed marker positions into motion paths.\relax }}{32}{figure.caption.6}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Clustering process for the second round.\relax }}{34}{figure.caption.9}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces An input point cloud and clustering result.\relax }}{36}{figure.caption.10}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Estimate the position of marker.}}{38}{figure.caption.11}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Rope marker selection.\relax }}{41}{figure.caption.12}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Screenshots of original and reconstructed rope and human actor.}}{43}{figure.caption.13}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Analysis of gap filling algorithm.}}{44}{figure.caption.14}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Screenshots of reconstructed motion of ropes and ribbon.\relax }}{45}{figure.caption.15}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Maple model.\relax }}{48}{figure.caption.16}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Various tree shapes generated from the same set of motion capture data. \relax }}{48}{figure.caption.17}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Marker placement on the crown periphery.}}{54}{figure.caption.18}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces A simple trunk model is added to the collection of branch tip positions.\relax }}{56}{figure.caption.19}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces New particles are added within a vertical stack of bounding boxes.\relax }}{57}{figure.caption.20}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces A convex hull for all the particles.}}{57}{figure.caption.21}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces A simple particle flow results in crown branching structure.\relax }}{58}{figure.caption.22}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Definition of three forces. }}{59}{figure.caption.23}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Clustering that removes noise that leads to spurious marker positions.\relax }}{61}{figure.caption.24}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Remove spurious motion. }}{62}{figure.caption.25}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Bounding volumes affect tree shape.\relax }}{63}{figure.caption.26}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Pine tree model.}}{64}{figure.caption.27}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Shape-format force.\relax }}{65}{figure.caption.28}
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Tree shapes with different weight factors for gravity.\relax }}{65}{figure.caption.29}
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Tree shapes with different weighting factors for wind force.\relax }}{66}{figure.caption.30}
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Various tree shapes.\relax }}{67}{figure.caption.31}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Tree structure under L-systems.\relax }}{74}{figure.caption.32}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Side view of a 3D tree model and hemisphere.\relax }}{74}{figure.caption.33}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces An example of probability distribution of hemisphere.}}{75}{figure.caption.34}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Various growth levels. }}{77}{figure.caption.35}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces A tree model with three growth levels.\relax }}{77}{figure.caption.36}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces A result for photokinesis simulation.\relax }}{79}{figure.caption.38}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Branch directions. }}{81}{figure.caption.41}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces 3D tree models.}}{82}{figure.caption.42}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Particles with tree shape.\relax }}{83}{figure.caption.43}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Simulate tree growth. }}{84}{figure.caption.44}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces 3D tree model compared to L-system. }}{84}{figure.caption.45}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces 3D tree model compared to DLA. }}{85}{figure.caption.46}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Estimate wind flow and create tree motion. }}{90}{figure.caption.47}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces A particle with its nearest trunk point and its crown root point.\relax }}{96}{figure.caption.48}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Vector field of wind velocities with estimated and interpolated values. Wind velocity estimates based on recorded tree motion are shown in red with interpolated velocities in blue.\relax }}{98}{figure.caption.50}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Turbulence simulation to create branch motion.\relax }}{102}{figure.caption.52}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Energy flow in a wind velocity field.\relax }}{103}{figure.caption.53}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces 3D branching structure with marker locations.\relax }}{106}{figure.caption.56}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Branch motion paths with and without subgrid turbulence.}}{106}{figure.caption.57}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Motion paths for the animated tree. }}{107}{figure.caption.58}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Maple animation.}}{108}{figure.caption.59}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Multiple trees swaying. }}{108}{figure.caption.60}
+\addvspace {10\p@ }
