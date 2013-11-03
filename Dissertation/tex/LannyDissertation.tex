@@ -28,9 +28,9 @@
 % Because I use these things in more than one place, I created new commands for
 % them.  I did not use \providecommand because I absolutely want LaTeX to error
 % out if these already exist.
-\newcommand{\Title}{Animating Non-rigid Bodies using Motion Capture}
-\newcommand{\Author}{Jie Long}
-\newcommand{\GraduationMonth}{January}
+\newcommand{\Title}{Managing Autonomy by Hierarchically Managing Information: The Right Amount of Autonomy at the Right Place and the Right Time}
+\newcommand{\Author}{Lanny Lin}
+\newcommand{\GraduationMonth}{December}
 \newcommand{\GraduationYear}{2013}
 
 % Set up the internal PDF information so that it becomes part of the document
@@ -40,7 +40,7 @@
     pdfauthor=\Author,%
     pdfsubject={PhD Dissertation, BYU CS Department: %
                 Degree Granted \GraduationMonth~\GraduationYear, Document Created \today},%
-    pdfkeywords={Motion capture, non-rigid bodies, plant modeling, wind dynamics, particle flow},%
+    pdfkeywords={Unmanned Systems, Path Planning, Navigation, Human-Robot Interaction, Adjustable Autonomy, Bayesian Modeling},%
 }
 
 % Rewrite the itemize, description, and enumerate environments to have more
@@ -57,33 +57,33 @@
 \title{\Title}
 \author{\Author}
 
-\committeechair{Michael~Jones}
-\committeemembera{Parris~Egbert}
-\committeememberb{Bryan~Morse}
-\committeememberc{Eric~Mercer}
-\committeememberd{Sean~Warnick}
+\committeechair{Michael~A.~Goodrich}
+\committeemembera{Bryan~S.~Morse}
+\committeememberb{Mark~Colton}
+\committeememberc{Kevin~Seppi}
+\committeememberd{David~Embley}
 
 \monthgraduated{\GraduationMonth}
 \yeargraduated{\GraduationYear}
 \yearcopyrighted{\GraduationYear}
 
-\input{0abstract.tex}
+\input{0Abstract.tex}
 
 \documentkeywords{%
-    Motion capture, non-rigid bodies, plant modeling, wind dynamics, particle flow
+    Unmanned Systems, Path Planning, Navigation, Human-Robot Interaction, Adjustable Autonomy, Bayesian Modeling
 }
 
-\input{1acknowledgments.tex}
+\input{1Acknowledgments.tex}
 
 \department{Computer~Science}
-\graduatecoordinator{Dan~Ventura}
+\graduatecoordinator{Quinn~Snell}
 \collegedean{Thomas~W.~Sederberg}
 \collegedeantitle{Associate~Dean}
 
 % Customize the name of the Table of Contents section.
 \renewcommand\contentsname{Table of Contents}
 
-% Remove all widows an orphans.  This is not normally recommended, but in a
+% Remove all widows and orphans.  This is not normally recommended, but in a
 % paper dissertation there is no reasonable way around it; you can't exactly
 % rewrite already-published content to fix the problem.
 \clubpenalty 10000
@@ -106,20 +106,20 @@
 \maketitle
 \microtypesetup{protrusion=true}
 
-\input{2introduction.tex}
-
-\input{6Chapter.tex}
-\input{4Chapter.tex}
-\input{5Chapter.tex}
-\input{7Chapter.tex}
-\input{3Chapter.tex}
-
-\input{Conclusion.tex}
+\input{2Chatper_1_Introduction.tex}
+\input{3Chapter_2_AAAI_Paper.tex}
+\input{4Chapter_3_CMOT_Paper.tex}
+\input{5Chapter_4_IROS_Paper.tex}
+\input{6Chapter_5_SMC_B_Paper.tex}
+\input{7Chapter_6_HRI_Paper.tex}
+\input{8Chapter_7_Map_Edit_Interfaces.tex}
+\input{9Chapter_8_Conclusion_and_Future_Work.tex}
+\input{10Appendix.tex}
 
 %Commented out by Jie
 %\nocite{testentry}
 
 \bibliographystyle{plainnat}
-\bibliography{../bib/bib}
+\bibliography{../bib/LannyDissertation}
 
 \end{document}
