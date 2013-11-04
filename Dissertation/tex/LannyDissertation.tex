@@ -1,4 +1,5 @@
-\documentclass[phd,electronic,oneside,letterpaper,chaptercenter,parttop,lof]{byumsphd}
+\documentclass[phd,electronic,oneside,letterpaper,chaptercenter,parttop,lof,lot]{byumsphd}
+
 \usepackage[
     bookmarks=true,
     bookmarksnumbered=true,
@@ -16,19 +17,34 @@
 \usepackage[numbers,sort&compress]{natbib}
 %Commented out by Jie
 %\usepackage{hypernat}
-%Add by Jie
+%Added by Jie
 \usepackage{graphicx}
 \graphicspath{{../fig/}}
-\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg,.eps}
 \usepackage{caption}
 \usepackage{subcaption}
 %\usepackage{makeidx}
 %\makeindex
 
+
+%Added by Lanny
+\usepackage{amsmath}
+\usepackage[titletoc]{appendix}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{algpseudocode}
+\usepackage{epstopdf}
+\newcommand{\rr}{\raggedright}
+\newcommand{\tn}{\tabularnewline}
+\newcommand{\shortcite}[1]{\cite{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+
+
+
 % Because I use these things in more than one place, I created new commands for
 % them.  I did not use \providecommand because I absolutely want LaTeX to error
 % out if these already exist.
-\newcommand{\Title}{Managing Autonomy by Hierarchically Managing Information: The Right Amount of Autonomy at the Right Place and the Right Time}
+\newcommand{\Title}{Managing Autonomy by Hierarchically Managing Information: Autonomy and Information at the Right Time and the Right Place}
 \newcommand{\Author}{Lanny Lin}
 \newcommand{\GraduationMonth}{December}
 \newcommand{\GraduationYear}{2013}
@@ -114,12 +130,15 @@
 \input{7Chapter_6_HRI_Paper.tex}
 \input{8Chapter_7_Map_Edit_Interfaces.tex}
 \input{9Chapter_8_Conclusion_and_Future_Work.tex}
-\input{10Appendix.tex}
 
 %Commented out by Jie
 %\nocite{testentry}
 
 \bibliographystyle{plainnat}
 \bibliography{../bib/LannyDissertation}
+
+\begin{appendices}
+\input{10Appendix.tex}
+\end{appendices}
 
 \end{document}

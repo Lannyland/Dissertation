@@ -1,449 +1,397 @@
-\chapter{3D Tree Modeling Using Motion Capture}
-\label{chap:treeparticles}
-
-\noindent
-Jie Long and Michael Jones. 3D Tree Modeling using Motion Capture. \emph{IEEE The Fourth International Symposium on Plant Growth Modeling, Simulation, Visualization and Application (PMA '12)}, to appear.
+\chapter[Paper: UAV Intelligent Path Planning for Wilderness Search and Rescue]{Paper: UAV Intelligent Path Planning for Wilderness Search and Rescue\footnote {Published in IROS 2009 (IEEE/RSJ International Conference on Intelligent Robots and Systems) conference. Authors are Lanny Lin, and Michael A. Goodrich.}}
+\label{chap:IROS2009}
 
 \begin{abstract}
-Recovering tree shape from motion capture data is a first step toward efficient and accurate animation of trees in wind using motion capture data. Existing algorithms for generating models of tree branching structures for image synthesis in computer graphics are not adapted to the unique data set provided by motion capture. We present a method for tree shape reconstruction using particle flow on input data obtained from a passive optical motion capture system. Initial branch tip positions are estimated from averaged and smoothed motion capture data. Branch tips, as particles, are also generated within bounding space defined by a stack of bounding boxes or a convex hull. The particle flow, starting at branch tips within the bounding volume under forces, creates tree branches. The resulting shapes are realistic and similar to the original tree crown shape. Several tunable parameters provide control over branch shape and arrangement.
+In the priority search phase\footnote{Four qualitatively different types of search strategies are used in WiSAR: hasty search, constraining search, priority search, and exhaustive search. See~\cite{Goodrich2008Supporting} for more details.} of Wilderness Search and Rescue, a probability distribution map is created. Areas with higher probabilities are searched first in order to find the missing person in the shortest expected time. When using a UAV to support search, the onboard video camera should cover as much of the important areas as possible within a set time. We explore several algorithms (with and without set destination) and describe some novel techniques in solving this problem and compare their performances against typical WiSAR scenarios. This problem is NP-hard, but our algorithms yield high quality solutions that approximate the optimal solution, making efficient use of the limited UAV flying time.
 \end{abstract}
 
+%=================================================================================
 \section{Introduction}
 
-Reconstruction of tree shape from motion capture data is an important step in replaying motion capture of trees under external forces, such as natural wind. Motion capture provides a fast and easy way to collect the locations over time of retroreflective marker locations placed on an object. In this paper, we address the problem of creating 3D tree shape from motion capture data. We also discuss best practices for collecting motion data from a tree. This research focuses on reconstructing static 3D tree shape with branching skeletons from data collected by a motion capture system.
+The use of mini-UAVs (Unmanned Aerial Vehicles) in Wilderness Search and Rescue (WiSAR) has gained interest for researchers and experienced advancement in recent years due to its low cost, portability, and potential field use~\cite{Goodrich2008Supporting}. The UAV onboard video camera provides visual support, enables search and rescue workers to systematically survey large areas of importance in real time~\cite{Goodrich2008Supporting,Quigley2005Towards}, and increases the workers' awareness of the environment.
 
-\begin{figure*}[!t]
-\centering
-\includegraphics[scale=0.27]{Maple}
-\caption{Maple model.}
-\label{fig:treemodelssubfig2}
-\end{figure*}
+For WiSAR, as time progresses, the survivability of the missing person decreases and the effective search radius increases by approximately 3km/hour~\cite{Setnicka1980Wilderness,Syrotuck2000Introduction}. Therefore, search efficiency can dramatically affect the outcome of the search and rescue. In the prioritized search phase, the incident commander creates a probability distribution map for finding the missing person based upon terrain features, profile of the missing person, weather conditions, and subjective judgment of expert searchers. Such maps can also be created systematically by utilizing geographical information available to the public via the Internet~\cite{Lin2009Bayesian,Ferguson2008GIS,Soylemez2006Utility}. UAVs have limited flying time, and in most cases, it is not long enough for the onboard video camera to cover the entire search area. For these reasons, the important question is this: given a probability distribution map, a starting point, an ending point (optional), and specified flying time, what is the best path that enables the UAV onboard video camera to ``cover'' as much of the probability distribution as possible?
 
-\begin{figure*}[!t]
-\centering
-\includegraphics[scale=0.36]{varTree}
-\caption{Various tree shapes generated from the same set of motion capture data. }
-\label{fig:varTree}
-\end{figure*}
+Characteristics such as possibly repeated visits and probability cumulation make this a more challenging problem than standard Orienteering Problem (OP) and coverage problem. Contributions of this paper include novel path planning techniques (``global warming effect'', path crossover/mutation), additional specified-destination constraint while accumulating probability, a solid validation of the algorithms' performance, and applying algorithms to a practical, real-world application. Experimental results from this paper are conducted in simulation and not on-board a real UAV. 
 
-Solutions to the motion capture problem for trees can be applied to problems in visual effects and the study of tree motion. Motion capture is a potential solution because motion capture data includes effects that are difficult to model in simulation, such as variable branch stiffness, non-uniform variation in size, and emergent effects due to leaf deformation.
+%=================================================================================
+\section{Problem Formulation}
 
-Tree shape modeling has long been studied in computer graphics.  Past methods include particle systems \cite{Reeves83particlesystems,Runions07,palubicki:siggraph09,neubert:acmtg07}, L-systems \cite{lindenmayer68,Lintermann1999,Prusinkiewicz:2001}, parametric models \cite{Weber1995}, photographs \cite{RecheMartinez2004,neubert:acmtg07,Tan:2007:ITM}, and videos \cite{Li:2011:MGM,Diener:2006}. Most of these methods result in satisfying tree shapes but do not leverage the 3D positions of motion capture markers, which are recorded as part of a motion capture session but require a different set of inputs. Image- or video-based approaches convert a set of 2D input images into 3D tree models by filling in the missing dimension.  Motion capture systems can record tree shape in 3D with high precision (using similar techniques for converting a set of 2D images to a 3D model). Prior work in reconstructing tree shape from motion capture data using either exact measurements or markers placed within the crown does not scale and does not apply when leaves occlude the branching structure.
+We model this problem as a discretized combinatorial optimization problem with respect to probability accumulated in the 2D space for UAVs that use gimbaled cameras. Using Koopman's search metric of the instantaneous probability of detection by one glimpse~\cite{Koopman1980Search}, we assume the observer has a 100\% target detection rate. This means that as the UAV camera footprint moves along the probability distribution map, it collects (``zeros out'') all the probability along the way and accumulates the probability. A good analogy would be thinking of the UAV as a vacuum cleaner sucking up probabilities with 100\% efficiency.
 
-We reconstruct 3D tree shape using particle flow with motion capture data as input. Passive optical motion capture\footnote[1]{http://www.naturalpoint.com/optitrack/} records locations of reflective markers in the capture arena. We place markers only at branch tips on the edge of the tree crown. Approximately 30 markers cover the crown shape of a medium-sized tree. We do not put markers on each branch tip because passive optical motion capture systems cannot reliably track more than 70 markers. A particle flow algorithm generates branching structures starting at the recorded tip positions. Additional starting points are defined within the estimated volume of the tree crown using a vertical stack of bounding boxes or a convex hull. The bounding space approximates the tree crown and bounds particle flow and creation. The step length of a particle's flow varies with the distance to the nearest trunk point. The direction of particle motion is a combination of three forces: gravity, shape-format, and wind. The shape-format guides the particles to preserve the original tree shape. The dominant wind direction is recorded during the motion capture process. We also introduce two vectors with one pointing to the nearest trunk point and the other pointing to a constant predefined attractor point. These vectors are factors for the direction and magnitude of the forces.
+In WiSAR operations, a UAV maintains an altitude of approximately 60m above ground and travels at roughly 12--13m/s~\cite{Goodrich2008Supporting}. With this height, the onboard camera footprint size comes to about 32m$\times$24m. The batteries on the UAV can keep it airborne for approximately 1--2 hours depending on weather conditions. We assume that the UAV will always maintain the same height of 60m above ground (through Height-Above-Ground automation) and travel at the constant speed of 12m/s, and use 24m$\times$24m as the effective camera footprint size. Given these parameters, a 60$\times$60 probability grid, where each probability node is 24m$\times$24m, represents an area of 2.0736km$^2$ that will take the UAV 2~hours to cover entirely. In our path planning, we restrict the direction a UAV can travel to only North, South, West and East (making only 90 degree turns), and it takes the UAV 2~seconds (1~time step) to travel from one node to its direct 4-connected neighbor. In real flights, a UAV can approximate a 90~degree turn (covering 3~nodes) in 4~seconds, so this model is close to UAV's capabilities. Also during roll or yaw, the gimbaled camera can rotate to remain aiming straight down, enabling the 90 degree turn of the camera footprint.
 
-In this paper, we propose a new particle flow method for reconstructing tree shape from only motion capture data. Our primary contributions are 
-\begin{itemize}
-	\item {a simplified particle flow algorithm for constructing tree shapes from a sparse set of branch tip positions as collected as part of motion capture and}
-	\item {a method for deploying passive optical motion capture to reconstruct the shape and motion of trees in the laboratory. }
-\end{itemize}
+Using $i$ for the row number and $j$ for the column number, each probability node (cell in grid) can be written as $N_{ij}$ where $0{\leq}i,j{<}60$. The value of each $N_{ij}$ is the total volume of probability within the grid cell and thus
+\begin{equation}
+\sum_{i=0}^{n-1}\sum_{j=0}^{n-1}N_{ij} = 1,
+\label{4totalP}
+\end{equation}
+where $n$=60. Let $T$ be the total number of time steps allowed for the UAV (specified flying time). Let $P$ be the set of all possible paths for the UAV on the probability grid for $T$ time steps. Each path, $p_{k} \!{\in} P$, can be represented by a sequence of probability nodes \{$N_{0},N_{1},N_{2},...,N_{T}$\} consisting of $T\!{+}1$ nodes. If the UAV is allowed to visit a node more than once, then the same node can be in a different part of the sequence.
 
-The combination of motion capture with a particle flow method provides a fast and easy approach for creating complex 3D tree shapes. The resulting tree shapes are similar to the original trees, as shown in Figure \ref{fig:treemodelssubfig2}, and can be used to replay motion similar to the captured motion. With the flexibilities of tuning the forces, we can produce several tree shapes besides the original shape. Figure \ref{fig:varTree} shows various tree shapes generated from the same set of motion capture data and demonstrates the flexibility of our forces for guiding particle flow.
+If we use a binary variable $x_{ij}$ to represent whether $N_{ij} \!{\in} p_{k}$, $x_{ij}$ becomes a function of path $p_{k}$: 
+\begin{equation}
+x_{ij}(p_{k}) = 
+	\left\{
+	\begin{array}{cl}
+		1, & N_{ij} \in p_{k} \\
+		0, & \mbox{otherwise}
+	\end{array}
+	\right.
+\label{inpath function}
+\end{equation}
+The number of unique nodes visited is less than or equal to the length of the path:
+\begin{equation}
+\sum_{i=0}^{n-1}\sum_{j=0}^{n-1}x_{i,j}(p_{k}) \leq T + 1,
+\end{equation}
+and the total probability accumulated, $PC_{p_{k}}$, if the UAV follows path $p_{k}$ is
+\begin{equation}
+PC_{p_{k}}=\sum_{i=0}^{n-1}\sum_{j=0}^{n-1}x_{ij}(p_{k})N_{ij}.
+\label{pathk}
+\end{equation}
 
+The optimal path $p^* \!{\in} P$ is defined such that $\!{\forall} p_{k} \!{\in} P, PC_{p^*} \!{\geq} PC_{p_{k}}$, and our goal is to find or approximate the path $p^*$, which produces the maximum cumulative probabilities within reasonable computation time.
+
+%=================================================================================	
 \section{Related Work}
 
-Our work is most closely related to prior work in tree modeling and applied motion capture. Our purpose is to investigate methods for creating tree shapes on which motion capture data can be replayed. Compared to prior work in modeling trees, we use motion capture as our equipment to collect partial information of tree shape and run particle flow to complete the modeling. Compared to prior work in motion capture, we design a new data collection process for non-rigid bodies and reconstruct realistic 3D models out of the data.
+Many algorithms have been used for UAV path planning such as Voronoi Diagram with Eppstein's $k$-best paths algorithm ~\cite{Beard2005Autonomous}, A*~\cite{Quigley2005Towards}, LRTA*~\cite{Howlett2006Learning}, and Probability Roadmaps~\cite{Pettersson2006Probabilistic}. These papers focus on obstacle avoidance and sensing multiple targets. 
 
-\subsection{Tree Modeling}
+For path planning in searching for a target, some researchers propose to use a probabilistic model and try to maximize accumulated probability along the path. In~\cite{Hansen2007Probabilistic}, Hansen et al.\ propose three search strategies: greedy, contour, and composite search, using a probability grid. In a series of papers (e.g.~\cite{Bourgault2006Optimal,Bourgault2008AugmentedNodes}), Bourgault et al.\ describe a Bayesian framework for trajectory planning to maximize the chances of finding the target given restricted time using one or multiple UAVs and human systems. However, the solution uses a very simple 1-step lookahead approach which generates paths far from optimal and difficult to improve upon. Both papers do not consider the possible set destination constraint and also lack solid validation of the path efficiency.
 
-L-systems \cite{lindenmayer68} generate a tree's branching structure using axioms and rules in a concurrent context-free rewriting system. L-systems have been extended in many ways. The extension most relevant to our work is \cite{Prusinkiewicz:2001}, in which L-systems are enriched with partial differential equations and can be parameterized to reconstruct the shape of a specific tree or plant.  We chose not to investigate L-systems, or Weber and Penn's parametric tree model \cite{Weber1995}, for this application because particle flow from recorded branch tip positions closely matches the data collected in motion capture.  
+If we disallow visiting the same node more than once, this problem falls within a variation of the Traveling Salesman Problem (TSP) called the Orienteering Problem (OP)~\cite{Ramesh1992Optimal} or the Prize-Collecting Traveling Salesman Problem (PCTSP)~\cite{Gutin2002Traveling}, both of which are NP-Hard~\cite{Sokkappa1990Cost}. Many exact solving methods for the OP have been developed~(\cite{Laporte1990Selective,Fischetti1998Solving,Ramesh1992Optimal}. These exact methods can find optimal solutions to small OP problems, but for large-scale OP problems, approximation heuristic approaches are preferred. Mittenthal and Noon~\cite{Mittenthal1992Insert} present a heuristic approach that inserts or deletes a city from the subset-tour. Tasgetiren and Smith propose a Genetic Algorithm in~\cite{Tasgetiren2000Genetic} that encodes tours using a sequence of points and uses a penalty function to help search infeasible regions. Liang and Smith present an Ant Colony Optimization approach that uses an unusual sequenced local search and a distance-based penalty function in~\cite{Liang2006Ant}. These algorithms work well with OP problems of small number of nodes (21--100 nodes) but can be slow with large number of nodes. They also don't allow repeated visits.
 
-More recent work in tree shape modeling involves particle systems. With the exception of Palubicki's work \cite{palubicki:siggraph09}, particle systems approximate tree shapes obtained from photographs \cite{RecheMartinez2004,neubert:acmtg07,Tan:2007:ITM}. Palubicki et al . devised a particle flow which approximates bud fate models. These methods are not directly applicable to motion capture data because these methods use photographs or environmental conditions that are not collected during motion capture.  Photographs of the tree could be taken during motion capture (and indeed are taken during optical motion capture), but we only take marker positions as input because this simplifies data collection and processing by reusing the background removal and image alignment performed as part of marker position calculation.
+%=================================================================================	
+\section{Path Planning Algorithms}
 
-\subsection{Applied Motion Capture}
+Because none of the path-planning algorithms we discussed above work well under our model of the problem, we developed a set of algorithms based on the following ideas: Local Hill Climbing (LHC), Convolution, and Evolutionary Algorithms (EA). We also verify the paths generated to ensure the UAV is not flying backward or going outside of the allowed search area.
 
-Motion capture has been mainly used in rigid bodies, such as human motion. It produces positions for points on an object over time with very small measurement errors.
+\subsection{Algorithms without a Set Destination}
 
-Motion capture systems have been widely used for human or animal motion capture \cite{Lou:EHM2010,Rajko:2007:RAK,Wen:2006:MCD}. Kirk \cite{Kirk:2005:SPE} automatically generates rigid skeletons from optical motion capture systems by preserving a constant distance for each rigid part. These algorithms assume that the distance between markers on the same bone is invariant and cannot be directly applied to non-rigid bodies, such as natural trees, because the distance between markers is not invariant as the object deforms. 
+In situations where the operator does not have a preference for where the path should end, the following algorithms were built and evaluated.
 
-Prior work in motion capture for non-rigid bodies includes several approaches to facial motion (including \cite{Ma:FPS2008,SifakisEftychios2005}). These methods are based on domain-specific features of the facial structure or patterns. Obviously these domain-specific features do not apply to tree shape reconstruction or motion capture.
+%=============================
+\subsubsection{Complete-coverage Algorithm (CC)}
 
-The uniform branching structure of human bodies has led to well-understood processes for deploying markers on a human. The number and placement of markers is a critical part of successful motion capture using a passive optical system. Trees have a more complex and less predictable topology and require a different approach to marker placement. Previously \cite{Long:MCN2010}, researchers attempted to directly replay the motion of a tree in wind following the exact motion paths collected for all branches by putting markers on every branch of the tree. Leaves on the tree create marker occlusion, which results in poor data. In addition, manually defining branch topology to exactly match the subject tree is labor intensive. In this paper, we design a data collection and tree modeling process to overcome these difficulties by building a similar, but not exact, copy of the branching structure from a partial collection of branch tip positions. Ongoing work focuses on replaying collected motion such that the motion looks natural on an approximate copy of the branching structure.
+The algorithm plans flight paths by following a lawnmower pattern. It first identifies the smallest $m \!{\times} n$ bounding rectangle that contains all the non-zero probability nodes. If the starting location is inside the pattern, the algorithm simply generates a path following the pattern. Otherwise, it first plans a shortest path to the edge of the bounding rectangle. When allowed flight time is large enough, this algorithm is guaranteed to collect all the probabilities.
 
-\section{Motion Capture of Trees}
-\label{sec:Motioncapturetrees}
+%%=============================
+%\subsubsection{Potential Fields Algorithm}
+%
+%The Potential Fields (PF) algorithm is based on techniques from behavior-based robotics~\cite{[06PotentialFields]Arkin}. In our implementation, each probability node emits an attractive field with a discounting factor $\gamma$, which is a function of the distance between the node and the UAV's current position. Because we are using a 4-connected approach, Manhattan distance is used, and each node emits equal attractive forces both North-South and East-West. The discounted force $f$ can be calculated as: $f = \gamma N_{ij}$, where the discounting factor $\gamma = e^{\frac{-d^{2}}{2\sigma^{2}}}$, $d$ is the distance and $\sigma$ is the standard deviation of a scaled Gaussian curve. Attractive forces in all four directions of the UAV's current position are evaluated, and the UAV follows the direction of the strongest force. In case of a tie, a random direction is selected from the tied directions. The algorithm runs the PF algorithm multiple times with $\sigma \!{=} 10, 20, ..., 120$ and then returns the best path found.
 
-In this section, we describe how to collect data from trees using a motion capture system such that the data supports reconstruction of tree shape. The data is collected indoors on trees with heights less than 2.5 meters. The data collection process results in an unindexed set of marker locations over time for a small set of instrumented tree branch tips. 
+%The discount function plot is shown in Figure~\ref{PFCurves}.
+%
+%\begin{figure}
+%\centering
+%\includegraphics[width=3.5in]{PFCurves.jpg}
+%\caption{Potential Field forces discount function with $\sigma=10,20,...,120$}
+%\label{PFCurves}
+%\end{figure}
 
-We use a passive optical motion capture system (Optitrack V100 by NaturalPoint)\footnote[1 ]{http://www.naturalpoint.com/optitrack/} to collect data. The passive optical capture system strikes a balance between conflicting features. Passive optical systems can reliably track up to 70 markers, and some markers weigh only a few grams. This is ideal for working with tree crowns. Active optical and active magnetic systems use heavier markers and cannot track more than 20 markers at once. The magnetic systems have the advantage of not having visibility occlusions and being able to track position and rotation, but they are more expensive than passive optical systems and can track fewer branch tips. Magnetic system markers are heavier and may alter branch tip motion.
+%=============================
+\subsubsection{Local Hill Climbing Algorithms (LHC)}
 
-Collecting data from natural trees is challenging for passive optical motion capture systems because trees are non-rigid bodies and are partially self-occluding. The following method for deploying passive optical motion capture systems collects data from which tree shape and motion can be inferred. 
-
-Twelve or more cameras are arranged in a circle around the tree with six cameras located approximately 0.8 meters above the ground and another six cameras are located 3.3 meters above the ground. For each camera, the field of view is adjusted to include the entire tree. About 30 markers are placed on branch tips throughout the crown. Markers are square retroreflective markers with a surface area of about 1 cm and adhesive backing. Markers are placed to cover branch tips on each major branch from the stem and to provide nearly uniform coverage of the crown. On these branch tips, the square-shaped markers are wrapped to cover the whole tip so these markers are visible to most of the cameras from different view angles. Uniform coverage improves both shape reconstruction and motion capturing. Placing markers such that their motion paths overlap complicates algorithms for extracting motion paths from unindexed marker positions. For a medium-sized tree, the number of branch tips exceeds the number of markers so that not every branch tip is covered by a marker. Leaves around the marker are removed to improve marker visibility so the resulting 3D tree shape preserves the shape of the original tree crown. While recording tree motion we use an electric fan to create wind around the tree because data is collected indoors. The wind direction is inferred from where the fan sits relative to the tree. Other statistic methods, such as PCA (principle component analysis) can also compute the dominant wind direction after motion data of branch tips are processed.
-
-Photographs in Figure \ref{fig:mocap} show the arrangement of the motion capture cameras and the reflective markers as deployed on an indoor pine tree. Markers are placed at branch tips shown as white dots in the image. The right side image shows marker locations in the red box on the left side image. 
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=5.0in]{Mocap}
-\caption[Marker placement on the crown periphery.]{Marker placement on the crown periphery avoids occlusion while generating data that can be used to generate crown structure.}
-\label{fig:mocap}
-\end{figure}
-
-Our design requires less user intervention, produces cleaner motion capture data , and may support animation of tree motion.
-
-\section{Data Processing}
-\label{sec:Dataprocessing}
-
-Simply inferring positions from one frame of captured data is not adequate due to noise. These branch tips with markers are called "recorded" or "captured" tips. However, the initial locations of recorded branch tips may contain errors due to noise in either the system or the capture environment. 
-
-A clustering algorithm approximates a single initial position from a collection of captured initial positions for recorded branch tips while minimizing error from the motion capture system. The clustering algorithm analyzes positions over many frames of motion capture data and eliminates gaps and noise. Gaps occur when a marker is not present in a frame. This algorithm uses forward differencing to predict a position for a marker at frame $M$ based on positions in previous frames. The closest marker in the next frame is added to the motion trace for the marker if there is a marker located close enough to the predicted position. If there is no marker position recorded close enough to the predicted position, that marker is marked with no data, i.e. a gap, for that frame. Gaps are repaired using interpolation over the motion path for a marker. If the number of marker positions recorded for a marker over time is less than $1/4$ of the total frames, that partial marker trace is marked as noise and eliminated.
-
-If the capture process includes several hundred frames of data in which the tree is not moving, averaging branch tip positions over these frames results in precise estimates of initial positions. In most cases, the number of markers inferred from the clustering process matches the number of markers placed on the tree.
-
-\section{Generating 3D Tree Shape}
-
-Particle flow is a well-studied approach to generating 3D branching structure for trees \cite{Reeves83particlesystems,Runions07,palubicki:siggraph09,neubert:acmtg07}. We adapt the method to motion capture data. The 3D tree crown boundary inferred from motion capture data constrains the particle range and preserves the original 3D tree silhouette. We use a stack of bounding boxes or convex hulls to represent the crown boundary. Particles, either generated randomly in the boundary or locations of branch tips recorded by motion capture, are moving towards trunk nodes. Three forces---gravity, internal force, and external force---drive the particle flow process. The paths of the particle flow produce branching structure. By attaching leaves to the branching structure, we generate a 3D tree model that has similar appearance as the natural tree shape. 
-
-We synthesize a trunk in the center of the crown shape, as shown in Figure \ref{fig:PineTrunk}. Figure \ref{fig:PineTrunksubfig1} shows a photograph of a pine tree with markers placed on its crown. Figure \ref{fig:PineTrunksubfig2} contains a bounding box of these marker locations and a straight vertical line representing trunk shape. The length of the line is scaled by the crown height of the bounding box. On this line segment, we generate about 10 trunk nodes. Random offsets to these nodes in the x and z direction are added as shown in Figure \ref{fig:PineTrunksubfig3}.
-
-\begin{figure}
-\centering
-        \begin{subfigure}[b]{0.22\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{PineTrunk1}
-                \caption{A pine tree with markers.}
-                \label{fig:PineTrunksubfig1}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.31\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{PineTrunk2}
-                \caption{A straight line represents the trunk.}
-                \label{fig:PineTrunksubfig2}
-        \end{subfigure} 
-        ~
-        \begin{subfigure}[b]{0.30\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{PineTrunk3}
-                \caption{Adding random offsets looks more natural.}
-                \label{fig:PineTrunksubfig3}
-        \end{subfigure}             
-\caption{A simple trunk model is added to the collection of branch tip positions.}
-\label{fig:PineTrunk}
-\end{figure}
-
-A particle represents a branch tip. One group of particles is 3D positions of branch tips recorded from motion capture, which is described in Section \ref{sec:Dataprocessing}. Figure \ref{fig:PineTrunksubfig1} shows a photograph of a pine tree with markers placed on the crown. All the branch tip locations recorded by motion capture are labeled with white dots. These particles are shown in black circles in Figure \ref{fig:boundboxsubfig3} and Figure \ref{fig:ConvexHullPoints}. 
-
-Because of motion capture's limited capability, we cannot record locations for every branch tip on the tree. Another group of particles is randomly generated within the bounded space of all the recorded branch tip positions. In Figure \ref{fig:boundboxsubfig3} and Figure \ref{fig:ConvexHullPoints}, these particles are green. 
-
-Instead of using one single bounding box for the whole tree crown, we create a vertical stack of bounding boxes as shown in Figure \ref{fig:boundbox}. The new bounding boxes more closely match the tree shape. In Figure \ref{fig:boundboxsubfig3}, the crown height is evenly divided into four parts. Particles are randomly generated inside the smaller bounding boxes, as shown using green dots in Figure \ref{fig:boundboxsubfig3}. The total number of branch tips, including motion capture branch tips and randomly generated particles, is set to be similar to the original tree. The number of green dots in each box is proportional to the number of black dots. Therefore, we maintain a similar total amount and distribution of natural tree branch tips.
-
-\begin{figure}
-\centering
-        \begin{subfigure}[b]{0.2\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{boundbox1}
-                \caption{}
-                \label{fig:boundboxsubfig1}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.27\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{boundbox2}
-                \caption{}
-                \label{fig:boundboxsubfig2}
-        \end{subfigure} 
-        ~
-        \begin{subfigure}[b]{0.2\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{boundbox3}
-                \caption{}
-                \label{fig:boundboxsubfig3}
-        \end{subfigure}             
-\caption{New particles are added within a vertical stack of bounding boxes.}
-\label{fig:boundbox}
-\end{figure}
-
-Alternatively, we use a convex hull for all the particles, as shown in Figure \ref{fig:ConvexHullPoints}. A convex hull provides more precise bounding space than the stack of bounding boxes. However, it requires a (slightly) more complex boundary detection scheme and more implementation details. Because of the precision that a convex hull brings, we recommend this approach for building a bounding volume.
-
-\begin{figure}[!t]
-\centering
-\includegraphics[scale=0.5]{ConvexHullPoints}
-\caption[A convex hull for all the particles.]{A convex hull for all the particles. Particles in black color are from motion capture and particles in green color are randomly generated inside the convex hull.}
-\label{fig:ConvexHullPoints}
-\end{figure}
-
-For the pine tree's trunk, we generate nine nodes in a straight vertical line and add random offsets in the x and z directions to these trunk nodes. The length of the line is scaled about 1.2 times the pine tree's crown height.
-
-Trunk nodes contain a root attractor point and a nearest trunk point, as shown in Figure \ref{fig:flow}. The root attractor point, shown in green, is the trunk node closest to the lower bound of the bounding box for the entire crown. The nearest trunk point, which is shown in blue for the red particle in Figure \ref{fig:flowsubfig1}, is the closest trunk node to a single particle.
-
-\begin{figure}
-\centering
-        \begin{subfigure}[b]{0.2\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{flow1}
-                \caption{Flow direction depends on root attractor and nearest trunk point positions.}
-                \label{fig:flowsubfig1}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.3\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{flow2}
-                \caption{Root attractor point $S_r$ and nearest trunk point $S_t$.}
-                \label{fig:flowsubfig2}
-        \end{subfigure} 
-        ~
-        \begin{subfigure}[b]{0.3\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{flow3}
-                \caption{Particle flow ends when a particle merges with a neighbor or with the trunk.}
-                \label{fig:flowsubfig3}
-        \end{subfigure}             
-\caption{A simple particle flow results in crown branching structure.}
-\label{fig:flow}
-\end{figure}
-
-Particles move under directions of three forces: gravity, shape-format, and dominant wind. In Figure \ref{fig:forceTable}, we describe the direction and magnitude of each force. Gravity points vertically down to the ground. We assume that a particle has higher mass when it is closer to the trunk. This assumption follows the observation that when closer to the trunk, a branch has a larger radius. For a particle with higher mass, it has a larger magnitude of gravity and moves faster in the vertical downwards direction. Under this assumption, we set the magnitude of gravity proportional to the distance between a particle position $S_p$ and nearest trunk point $S_t$. 
-
-We call the second force shape-format. Arborists distinguish styles of growth habit of trees using different classifications, such as excurrent and decurrent. The force tries to guide particle flow to follow the growth pattern of the original tree. Simulating different growth patterns requires different definitions of the shape-format force. In this research, we provide a simple example of shape-format definition. The shape-format force, shown in Figure \ref{fig:forceTable}, guides the particle flow process by height and depth of a tree crown. The direction of the force is pointing to the root attractor point $S_r$ from particle location $S_p$. The magnitude of the force is the average height of all the particles with a weight parameter $\alpha$. The higher the center of all the particles, the stronger the shape-format force points to the root attractor point $S_r$. This force is a pre-computed global force, which is a constant for all the particles. The direction of the force ensures that a particle finally merges to trunk nodes, and therefore all the branches grow towards the trunk.
-
-The dominant wind direction is recorded from the motion capture setup, as described in Section \ref{sec:Motioncapturetrees}. Wind force is a special case of external force acting on the tree's branching shapes and structures. While doing motion capture, we record the location of the electrical fan. Because we only use one fan to create wind, that is the only source of explicit external force. Alternatively, the dominant wind direction can be inferred from tree movements recorded in motion capture data. Statistic methods, such as PCA , can estimate the dominate wind direction.
-
-\begin{figure}[!t]
-\centering
-\includegraphics[scale=1.2]{forceTable}
-\caption[Definition of three forces. ]{Forces: gravity, shape-format, and dominate wind. 
-$S_p$: position of a particle. $S_{py}$ is position of a particle in $y$ direction.
-$S_t$: position of the nearest trunk point.
-$S_r$: position of the root attractor point.
-$F_w$: wind measured from motion capture setup.
-$\alpha$: scaling weight in range of [0, 1].
-$n$: number of particles.
-}
-\label{fig:forceTable}
-\end{figure}
-
-The flow of particles starts at branch tips. Some particles merge in the flow process while others eventually reach and merge to the trunk. At each time step, we compute for step size and direction of a particle. The step size $L$ is:
-
+This is a greedy algorithm that always follows the direction with the highest value. A direct implementation of LHC does not work well with a multi-modal probability distribution map because the path generated stays with one mode until it has covered it completely before moving on to another. To address this problem, we use a global warming metaphor where the ``ocean surface'' represents all the zero-valued nodes and the ``islands'' represent the probability modes; see Fig.~\ref{GlobalWarming}. We subtract a constant $C$ from all nodes but keep all node values non-negative, where $C \!{=} \max{(N_{ij})}/l$, and $l$ defines how fine grained the search should be:
 \begin{equation}
-\label{eqn:model1}
-			L = \beta * ||S_p, S_t||,
+N_{ij}' \leftarrow
+	\left\{
+	\begin{array}{ll}
+		N_{ij} - C, & N_{ij} > C \\
+		0, & \mbox{otherwise}
+	\end{array}
+	\right.
+\label{4GW}
 \end{equation}
+When the ocean surface rises $C$ each time, the volume of islands above water decreases, and if the ocean surface rises $l$ times, all islands will be below water. In our experiments we set $l$=40 and use the LHC algorithm to generate 40 paths: one before the ocean surface rises and one for each time the ocean surface rises (before water covers everything). We then recompute the probability accumulated for these 40 paths using the original probability grid and return the best path. This global warming technique allows the LHC algorithm to break out of one mode before completely covering that mode and move toward another. In case of a tie as to where to go next, we use two methods as the tie-breaker: LHC-GW-CONV uses a convolution kernel (with small, medium and large sizes) to determine which neighbor is more promising, and LHC-GW-PF uses Potential Fields (PF) with various discounting factors to determine where to go next.
 
-where $\beta$ is a tunable parameter in range of [0.1, 0.5] for most of our tree models. The step direction combines all the three forces. Figure \ref{fig:flowsubfig2} shows the computation of the direction for particle $i$, which is shown as particle $A$ in Figure \ref{fig:flowsubfig2}. Each force has a weighting parameter $\omega$ that tunes the relative importance of each vector and provides flexibility in creating branching shapes. The particle step direction $\vec{D_i}$ is given by
+\begin{figure}
+\centering
+\includegraphics[width=3in]{GlobalWarming.jpg}
+\caption{Global Warming Effect}
+\label{GlobalWarming}
+\vspace*{-3ex}
+\end{figure}
 
+%=============================
+\subsubsection{Evolutionary Algorithms}
+
+We developed two Evolutionary Algorithms: EA-Dir and EA-Path. Both use the probability accumulated for each path as the fitness function and employ the proportional selection method~\cite{Mitchell1997Machine}. The difference between the two algorithms lies in the path representation during crossover.
+
+With the EA-Dir algorithm, a path is encoded as a string of directions consisting of North, East, South, and West in the crossover phase (e.g. ``NNWEE...''). Because the paths generated using single-point crossover~\cite{Mitchell1997Machine} have a very high probability of being invalid (flying out of the map), we only use double-point crossover~\cite{Mitchell1997Machine} and restrict the mid-section to a fixed 5-direction string.
+
+With the EA-Path algorithm, a path is encoded as a sequence of node positions. If the two parent paths share only one common node, then single-point crossover is used; if they share two common nodes in the same order, then double-point crossover is used; otherwise, the two parent paths are discarded and the process starts over. For the single-point crossover method the two parent paths are crossed at the common node; see Fig.~\ref{CType1}. For double-point crossover method, the first common node and the second common node in the parent paths mark the middle sections to be swapped; see Fig.~\ref{CType2}. Both techniques could result in one longer path and one shorter path. The longer path is truncated back to the original path length and the shorter path is extended by performing crossover again and then truncating.
+
+\begin{figure}
+\begin{tabular}{cc}
+\begin{minipage}[b]{0.4\linewidth}
+\centering
+\includegraphics[width=1.5in]{crossover1.jpg}
+\caption{An example of single-point path crossover (Upper row: the parents. Lower row: the children)}
+\label{CType1}
+\end{minipage}
+\hspace{1cm}
+\begin{minipage}[b]{0.4\linewidth}
+\centering
+\includegraphics[width=1.5in]{crossover2.jpg}
+\caption{An example of double-point path crossover (Upper row: the parents. Lower row: the children)}
+\label{CType2}
+\end{minipage}
+\end{tabular}
+\vspace*{-4ex}
+\end{figure}
+
+Two types of mutation methods~\cite{Mitchell1997Machine} are used for flight path evolution; see Fig.~\ref{Mutation}. They follow a greedy approach with the hope that small positive changes to the path will lead to larger positive changes to the path. First we randomly select a node in the flight path and see if the next two nodes along the path would form an L shape with this node or a straight line (these are the only two possibilities). In the first case, method~1 (``flip'') is used and the algorithm replaces the middle node with the node that mirrors the middle node if we connect the first node and the third node with a line. This is like flipping a section of the path. In the second case, method~2 (``pull'') is used and the algorithm inserts two nodes into the path on one side of the line next to the first and the second nodes. This effectively extends the path by two nodes, so we simply truncate the last two nodes from the path. This is like pulling a string from the middle when the beginning end of the string is fixed. Which side to select for insertion depends on whether the new path is a valid path. If both sides allow valid paths, then the algorithm prefers inserting nodes that are not already in the path. Random selection is the last tie-breaker. If all four nodes on either side of the line are already included in the path, then a new mutation point is randomly selected and the same procedure repeats.
+
+%\begin{figure}
+%\begin{tabular}{cc}
+%	\begin{minipage}{0.25\textwidth}
+%	\flushright 
+%	\includegraphics[width=1in]{m1_1.jpg}
+%	\end{minipage}
+%	\begin{minipage}{0.25\textwidth}
+%	\flushleft
+%	\includegraphics[width=1in]{m1_2.jpg}
+%	\end{minipage}\\
+%\end{tabular}
+%\begin{tabular}{cc}
+%	\begin{minipage}{0.25\textwidth}
+%	\flushright 	
+%	\includegraphics[width=1in]{m2_1.jpg}
+%	\end{minipage}
+%	\begin{minipage}{0.25\textwidth}
+%	\flushleft
+%	\includegraphics[width=1in]{m2_2.jpg}
+%	\end{minipage}\\
+%\end{tabular}
+%\caption{Before and after mutation. (Upper: method 1. Lower: method 2)}
+%\label{Mutation}
+%\end{figure}
+
+\begin{figure}
+\begin{tabular}{cc}
+\begin{minipage}[b]{0.41\linewidth}
+\centering
+\includegraphics[width=1.5in]{mutation.jpg}
+\caption{Examples of mutations in EA-DIR and EA-Path algorithms. (Upper row: method 1. Lower row: method 2)}
+\label{Mutation}
+\end{minipage}
+\hspace{1cm}
+\begin{minipage}[b]{0.40\linewidth}
+\centering
+\includegraphics[width=1.5in]{mutationE.jpg}
+\caption{Examples of mutations in EA-Path\_E algorithm. (Upper row: method 2. Lower row: method 3)}
+\label{MutationE}
+\end{minipage}
+\end{tabular}
+\vspace*{-4ex}
+\end{figure}
+
+We use an initial population of 100 paths including various paths generated using other algorithms and 95 randomly generated paths. LHC-GW-PF is not used because it is too slow. Other parameters include replacement rate at 30\% and mutation rate at 50\%. The best three paths are always kept in each iteration. The algorithm runs for at least 500 iterations and stops if either the best path does not improve after 200 iterations or if the algorithm has completed 1000 iterations.
+
+
+%=================================================================================	
+\subsection{Algorithms with a Set Destination}
+
+In WiSAR, an operator might prefer the path to end at a specific destination node to support UAV retrieval, persistent visualization of a specific region at a specific time, or planning multiple path segments that make up a longer path. The following algorithms are modified versions from the previous section to handle the additional requirement. We simply add ``\_E'' to the algorithm names to distinguish them.
+
+%=============================
+\subsubsection{Complete-coverage Algorithm (CC\_E)}
+
+This algorithm is identical to the CC algorithm up to the time when the remaining flight time is just enough to fly the UAV to the end node, then it flies toward the end node using the LHC-GW-CONV\_E algorithm (discussed shortly).
+
+%%=============================
+%\subsubsection{Potential Fields Algorithm}
+%
+%The PF\_E algorithm is similar to the PF algorithm except it is more constrained. During path generation, when choosing which node to go next, if going to the node makes it impossible to get to the end node within the remaining flight time, the node will not be selected. This simple constraint causes the algorithm to generate a path that allows the UAV to arrive at the end node at exactly the end of the specified flight time.
+
+%=============================
+\subsubsection{Local Hill Climbing Algorithms}
+
+The LHC-GW-CONV\_E and LHC-GW-PF\_E algorithms have an additional constraint where nodes that prevent the path from reaching the end node within the remaining time will not be selected.
+
+%=============================
+\subsubsection{Evolutionary Algorithm}
+
+The direction representation of a path does not work with a set destination, so the EA-Path\_E algorithm also uses a sequence of node positions to encode the path. Here we increased mutation rate to 90\% to force more exploration of the state space. The initial population of 100 paths includes various paths generated using other algorithms as seeds (both from start node to end node and reversed) and 90 randomly generated paths.
+
+The EA-Path\_E algorithm uses both single-point and double-point crossover. The difference is that when the child path is too long, the algorithm truncates the path to the original path length, then backtracks the path until the distance between the end of the child path and the desired end node matches the remaining time. The LHC-GW-CONV\_E algorithm is then used to complete the path with the desired end node. If the child path is too short, the LHC-GW-CONV\_E algorithm is used to complete the path.
+
+The EA-Path\_E algorithm uses three types of mutation methods. First, we randomly select a node in the path and see if the next two nodes along the path would form an L shape with this node or a straight line. In the first case, method~1 (``flip'') is used (identical to the one used in the EA-Path algorithm); see Fig.~\ref{Mutation}. If the nodes form a straight line, then method~2 (``pull'') or 3 (``shake'') is selected with equal probabilities; see Fig.~\ref{MutationE}.
+
+Mutation method~2 (``pull'') is a modified version from the EA-Path algorithm. This method does not truncate two nodes at the end of the path; instead, it deletes two nodes in the middle of the path. This is like pulling a string from the middle when both ends of the string are fixed.
+
+Mutation method~3 (``shake'') works by first marking a small mid-section in the path (to keep it short, we set it to 6 nodes). We first randomly select a node in the path, then traverse the path and find the fifth node down the path. If the path between these two nodes is not a straight line, the method replaces the mid-section with random flying while maintaining the same length for the mid-section. This is similar to shaking a chain where the beginning and ending points remain fixed but the middle section shifts.
+
+%\begin{figure}
+%\begin{tabular}{cc}
+%	\begin{minipage}{0.25\textwidth}
+%	\flushright 
+%	\includegraphics[width=1in]{mE2_1.jpg}
+%	\end{minipage}
+%	\begin{minipage}{0.25\textwidth}
+%	\flushleft
+%	\includegraphics[width=1in]{mE2_2.jpg}
+%	\end{minipage}\\
+%\end{tabular}
+%\begin{tabular}{cc}
+%	\begin{minipage}{0.25\textwidth}
+%	\flushright 	
+%	\includegraphics[width=1in]{mE3_1.jpg}
+%	\end{minipage}
+%	\begin{minipage}{0.25\textwidth}
+%	\flushleft
+%	\includegraphics[width=1in]{mE3_2.jpg}
+%	\end{minipage}\\
+%\end{tabular}
+%\caption{Before and after mutation. (Upper: method 2. Lower: method 3)}
+%\label{MutationE}
+%\end{figure}
+
+
+%=============================
+\section{Experimental Results and Analysis}
+
+%=============================
+\subsection{Performance Metrics}
+
+We use $\mathit{Efficiency}$, $\mathit{Efficiency_{LB}}$ and Running Time as metrics to measure the performance of the algorithms, where $\mathit{Efficiency}$ is calculated if we know what's the best possible and $\mathit{Efficiency_{LB}}$ is used as an estimation when we have no way of calculating the best possible. Sorting all the probability nodes by their values in descending order would generate a list \{$N_1, N_2, N_3, ..., N_{3600}$\}. For the best possible path $p^*$, the probability accumulated $PC_{p^*}$ is constrained by a theoretical upper bound $B$:
 \begin{equation}
-\label{eqn:model2}
-	\vec{D_i} = (\omega_1*\vec{G_i} + \omega_2*\vec{S_i} + \omega_3*\vec{W_i} )/3,
+PC_{p^*} \leq \sum_{n=1}^{T+1-d}N_n = B,
+\label{topN}
 \end{equation}
-
-where $\omega$ is the weight of the direction, $\vec{G_i}$ is direction of gravity, $\vec{S_i}$ is direction of shape-format, and $\vec{W_i}$ is the wind direction for particle $i$ where $i\in[1,...,n]$.
-
-Using step size $L$ and direction $\vec{D}$, the new particle position $V(m)$ is given by
-
+where $d$ is the distance from the start node to the closest non-zero valued node. Then for any path $p_k$, we define $\mathit{Efficiency}$ and $\mathit{Efficiency_{LB}}$ as the following:
 \begin{equation}
-\label{eqn:model3}
- V(m) = V(m-1) + L*\vec{D_i},
+\mathit{Efficiency} = \frac{PC_{p_k}}{PC_{p^*}}
+\label{4Efficiency}
 \end{equation}
+\begin{equation}
+\mathit{Efficiency_{LB}} = \frac{PC_{p_k}}{B}
+\label{4EfficiencyLB}
+\end{equation}
+$PC_{p_k}$ can be calculated using~(\ref{pathk}). $\mathit{Efficiency}$ can be calculated when $PC_{p^*}$ is known and $\mathit{Efficiency_{LB}}$ can be calculated anytime. Clearly, $\mathit{Efficiency_{LB}} \leq \mathit{Efficiency}$.
 
-where $m$ is current time step and $V(m-1)$ is the particle position at the last time step.
+For example, a path with 95\% $\mathit{Efficiency}$ means the amount of probability accumulated following this path is 95\% of the maximum possible. A path with 85\% $\mathit{Efficiency_{LB}}$ means the probability accumulated is 85\% of the maximum amount possible if the UAV can teleport from node to node, and the true $\mathit{Efficiency}$ could be much higher.
 
-At each time step, after updating all the particle positions, particles might be merged. When the distance between a pair of particles is less than a predefined merging threshold, those particles are combined. When the distance between a particle and a trunk point falls below a predefined merging threshold, that particle is merged with the trunk. In Figure \ref{fig:flowsubfig3}, we demonstrate the paths of particle flow. Particle $A$, $B$, and $C$ are moved using the step and direction. Particle $A$ and $B$ are merged at point $AB$ and finally merged to the trunk. Particle $C$ merged to the trunk point after two time steps of movement.
+All experiments are run on a Dual-core AMD 3800+ PC with 1GB of memory. For each algorithm, running time is recorded so we can compare algorithm speed.
 
-\section{Adding Leaves}
 
-Tree leaves are visually important to 3D tree models. After the branching structure is generated, leaves are attached. We use predefined leaf shapes, growth patterns, densities, and sizes. Also, because leaves do not always start growing at the beginning of a branch, we set a parameter called the leaf starting point. This parameter is proportional to a branch length. For example, when the parameter is $0.3$, it starts leaves after the point that is $0.3$ times the branch length away from the branch starting point. 
+%=============================
+\subsection{Typical WiSAR Scenarios}
 
-\section{Results}
-
-Results are given for multiple trees, including maple and pine trees. The maple tree is instrumented with 24 markers placed on the periphery of the crown at branch tips and the pine tree is instrumented with 35 markers also located on branch tips. We collect the stationary locations of these markers for about 20 seconds at the capture rate of 100 frames/sec.
-
-Figure \ref{fig:clustersubfig1} shows all the recorded locations as red dots for a single frame, and Figure \ref{fig:clustersubfig2} shows averaged locations from each cluster of marker positions for clusters in which the number of frames with a position in that cluster is $1/4$ of the total frame count. The data is recorded when the tree is stationary. Notice that a point in the blue box in Figure \ref{fig:clustersubfig1} is identified as noise and removed by the clustering algorithm. For the maple tree, after clustering and averaging only 24 markers remain and this matches the actual number of markers placed on the tree.
-
-\begin{figure}
-\centering
-        \begin{subfigure}[b]{0.4\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{cluster1}
-                \caption{Original collected data.}
-                \label{fig:clustersubfig1}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.4\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{cluster2}
-                \caption{Remaining branch tip locations after clustering.}
-                \label{fig:clustersubfig2}
-        \end{subfigure}     
-        \caption{Clustering that removes noise that leads to spurious marker positions.}
-        \label{fig:cluster}
-\end{figure}
-
-Although initial marker positions are collected before wind is applied when the tree is stationary, the data contain a small amount of noise, which can be removed to create a single initial marker position. In Figure \ref{fig:markerPath}, we show marker positions over time for two markers during the stationary phase. The horizontal axis shows time while the vertical axis shows a marker location in 3D space. In the first image, movement in each direction spans $10^{-3}$ meters. In addition, in the second image there is apparently a small periodic motion for the stationary branch tip. The range of motion is also within $10^{-3}$ meters. In both cases, averaging removes this small motion and estimates initial marker positions based on the average rather than a single position in a single frame.
+In our experiments, we focus on probability distribution maps of three abstract but representative WiSAR scenarios: unimodal, bimodal, and bimodal with overlap. The top row of Fig.~\ref{maps} shows the 2D representations where each pixel is a probability node; the lighter the pixel, the higher the probability value. The middle row shows three simplified versions of the distributions, which can be used to manually identify the best path possible for each map and compute $PC_{p^*}$. Then we can measure the true $\mathit{Efficiency}$ of paths generated. The blue arrows on the maps mark the starting node (possible location for a WiSAR command center) and the red dots mark the ending node (intentionally selected at a different region from the starting nodes). The bottom row shows the best paths generated for the real maps at $T$=900.
 
 \begin{figure}
 \centering
-        \begin{subfigure}[b]{0.42\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{Marker0orig}
-                \caption{Close to white noise.}
-                \label{fig:markerPathsubfig1}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.42\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{Marker5orig}
-                \caption{Noise with apparent periods.}
-                \label{fig:markerPathsubfig2}
-        \end{subfigure}     
-        \caption[Remove spurious motion. ]{Marker positions over time contain a small amount of spurious motion that is removed by averaging.}
-        \label{fig:markerPath}
+\includegraphics[width=2.3in]{maps900.jpg}
+\caption{Top row: 2D representations of unimodal, bimodal, and bimodal with overlap probability distribution maps. Middle row: Simplified versions of the three types of maps. Bottom row: Best paths found for each map.}
+\label{maps}
+\vspace*{-4ex}
 \end{figure}
 
-A vertical stack of bounding boxes is a better approximation for the crown volume than a single bounding box and results in better crown shapes. Each bounding box contains branch tips and additional branch tips are added to each box. Figure \ref{fig:boundboxsizesubfig1} and Figure \ref{fig:boundboxsizesubfig2} illustrate the difference between tree crowns created with and without a stack of bounding boxes for a pine tree. Random particles placed uniformly within a single bounding box result in a cube shaped tree. Placing particles in a vertical stack of bounding boxes better approximates the original crown shape. Future work might include investigating non-uniform distributions of randomly inserted points instead of using bounding boxes. 
 
-In Figure \ref{fig:boxTree} and Figure \ref{fig:convextTree}, we demonstrate the difference between tree shapes using stacked box bounding volumes and those using convex hull bounding volumes. The bounding box approach provides a looser bounding condition and allows more random factors in the final tree shape. The convex hull approach more closely approximates the original tree crown shape.
+%=============================
+\subsection{Experimental Results and Analysis}
+
+For each distribution type (real and simplified maps) we ran each algorithm (with or without set destination) using $T$=120, 300, and 900 (4, 10, and 30 minutes). Because of random factors, we ran each experiment 10 times and calculated mean and standard deviation of the results. Due to space limitation, only a subset of the experimental results are presented (e.g. Table~\ref{EBimodalSimplified}, \ref{TBimodalSimplified} and Figure~\ref{graphBimodal}--\ref{graphRealSimple}).
+
+For all the experiments we performed, algorithm running time exhibited the same trend: from the fastest to the slowest we have LHC-GW-CONV(\_E), EA(\_E) and LHC-GW-PF(\_E). For example, with the simplified unimodal map, the LHC-GW-PF algorithm ran for 9.419, 41.952 and 164.383 seconds for $T$=120, 300 and 900 respectively. Because the EA(\_E) algorithms use the path generated from other algorithms as seeds in the initial population, they are generally slower. However, most of the running time is spent generating the initial population and the evolutionary part of these algorithms only takes a fraction of a second. LHC-GW-PF(\_E) algorithms are always the slowest, and that is why we do not include them as seeds in the EA algorithms. For the group of algorithms with set destination, we perform path planning both from the starting node to the ending node and also from the ending node to the starting node (then reverse the path), and then select the better one; we include both runs when we record the algorithm running time. Therefore, the ``\_E'' algorithms always take more time to complete compared to the version before modification.
+
+For the simplified unimodal map, the LHC-GW-CONV(\_E) algorithms are the clear winners in each respective group if we consider both the $\mathit{Efficiency}$ and the running time. For the group of algorithms without set destination, all algorithms gave above $99.5\%$ $\mathit{Efficiency}$. The LHC-GW-CONV algorithm is always the fastest  (e.g. 6.483 seconds for $T$=900) and achieved 100\% $\mathit{Efficiency}$ in all cases. The EA-Dir and EA-Path algorithms also achieved 100\% $\mathit{Efficiency}$, but at a much slower speed (e.g. 62.236 seconds for $T$=900 with EA-Path). For the group of algorithms with set destination, the LHC-GW-CONV\_E algorithm is also the fastest  (e.g. 14.173 seconds for $T$=900) and achieved 99.955\% or higher $\mathit{Efficiency}$ in all cases. Although the EA-Path\_E algorithm achieved slightly better $\mathit{Efficiency}$ (less than 0.1\% improvements), it did so at the cost of more running time (e.g. 78.334 seconds for $T$=900).
+
+For the simplified bimodal map, the LHC-GW-CONV(\_E) algorithms did not always perform well because it doesn't handle the space between the two modes very well, especially for very short flight time. Fig.~\ref{graphBimodal} shows the $\mathit{Efficiency}$ comparison of the group of algorithms without set destination. The LHC-GW-PF(\_E) algorithms still achieved 96\% and above $\mathit{Efficiencies}$, but they are also the slowest. The EA(\_E) algorithms are more attractive in this case because they achieved the best $\mathit{Efficiencies}$ (98.095\%+ for EA and 97.857\%+ for EA\_E) very quickly.
+
+\begin{table}
+%\small
+	\centering
+		\begin{tabular}
+			{|l|c|c|c|c|c|c|}
+			\hline
+			(\%) & \multicolumn{3}{|c|}{Simplified ({\it{Efficiency}})} & \multicolumn{3}{|c|}{Real ({\it{Efficiency$_\textrm{LB}$}})} \\
+			\hline
+			$T$ & 120 & 300 & 900	& 120 & 300 & 900 \\
+			\hline
+			LHC-GW-CONV & 88.89 & 96.80 & 98.35 & 81.64 & 93.97 & 97.75 \\
+			\hline			
+			LHC-GW-PF	& 96.63 & 96.70 & 96.07 & 90.28 & 92.43 & 96.67 \\ 
+			\hline
+			EA-Dir & 98.59 & 97.31 & 98.80 & 90.62 & 94.96 & 97.96 \\
+			\hline
+			EA-Path & 98.66 & 98.09 & 99.07 & 91.18 & 95.71 & 98.02 \\
+			\hline
+		\end{tabular}
+\caption{Algorithm efficiency comparison for bimodal distribution}
+\label{EBimodalSimplified}
+\vspace*{-5ex}
+\end{table}
+
+\begin{table}
+	\centering
+		\begin{tabular}
+			{|l|c|c|c|c|c|c|}
+			\hline
+			(seconds) & \multicolumn{3}{|c|}{Simplified} & \multicolumn{3}{|c|}{Real} \\
+			\hline
+			$T$ & 120 & 300 & 900	& 120 & 300 & 900 \\
+			\hline
+			LHC-GW-CONV & 0.90 & 2.26 & 7.35 & 0.52 & 1.16 & 5.66 \\
+			\hline
+			LHC-GW-PF	& 9.44 & 29.11 & 131.35 & 2.61 & 8.64 & 92.38 \\
+			\hline
+			EA-Dir & 9.36 & 15.56 & 41.71 & 10.97 & 16.69 & 35.11 \\
+			\hline
+			EA-Path & 10.63 & 22.89 & 66.31 & 12.61 & 21.20 & 53.73 \\
+			\hline
+		\end{tabular}
+\caption{Algorithm speed comparison for bimodal distribution}
+\label{TBimodalSimplified}
+\vspace*{-7ex}
+\end{table}
+
+\begin{figure}
+\vspace*{-2ex}
+\centering
+\includegraphics[width=2.7in]{graphBimodal.jpg}
+\caption{$\mathit{Efficiency}$ comparison for group of algorithms without set destination for simplified bimodal map}
+\label{graphBimodal}
+\vspace*{-2ex}
+\end{figure}
+
+For the simplified bimodal with overlap map, the EA(\_E) algorithms achieved the best $\mathit{Efficiencies}$ (98.302\%+ for EA and 98.653\%+ for EA\_E), but the LHC-GW-CONV(\_E) algorithms were able to achieve equivalent or slightly lower Efficiencies (97.391\%+ for LHC-GW-CONV and 98.429\%+ for LHC-GW-CONV\_E) with much less time (8.283 seconds and 16.296 seconds for $T$=900 respectively). Fig.~\ref{graphEBimodalOverlap} shows the $\mathit{Efficiency}$ comparison of the group of algorithms with set destination.
 
 \begin{figure}
 \centering
-        \begin{subfigure}[b]{0.33\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{ResultBoundPine2}
-                \caption{}
-                \label{fig:boundboxsizesubfig1}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.34\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{ResultBoundPine1}
-                \caption{}
-                \label{fig:boundboxsizesubfig2}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.34\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{boundBoxTree}
-                \caption{}
-                \label{fig:boxTree}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.33\textwidth}
-				        \centering
-				        \includegraphics[width=\textwidth]{boundConvexTree}
-				        \caption{}
-				        \label{fig:convextTree}
-        \end{subfigure}
-\caption{Bounding volumes affect tree shape.}
-\label{fig:boxConvex}
+\includegraphics[width=2.7in]{graphEBimodalOverlap.jpg}
+\caption{$\mathit{Efficiency}$ comparison for group of algorithms with set destination for simplified bimodal with overlap map}
+\label{graphEBimodalOverlap}
+\vspace*{-4ex}
 \end{figure}
 
-Particle flow starting from branch tips and using our simplified algorithm results in tree crown shapes that mimic the shape of the tree from which data were collected. In the Figure \ref{fig:treemodelssubfig1}, we show the results from reconstructing a pine tree. 
+For each of the three real distribution maps (unimodal, bimodal, and bimodal with overlap), since $PC_{p^*}$ is unknown, we can only calculate $\mathit{Efficiency_{LB}}$. We observed that the $\mathit{Efficiency_{LB}}$ for each real map is very close to the $\mathit{Efficiency_{LB}}$ for each of the counterpart simplified maps, and we hypothesize that the $\mathit{Efficiency}$ for each real map should also be close to the $\mathit{Efficiency}$ for each of the counterpart simplified maps. Fig.~\ref{graphRealSimple} shows an example of the EA-Path algorithm performance for the real and simplified bimodal with overlap map. The columns in the front row are $\mathit{Efficiency_{LB}}$ values and the columns in the back row are $\mathit{Efficiency}$ values. Based on this graph, we estimate that the $\mathit{Efficiency}$ values for the real map here are above 97\% for all $T$ values.
 
-\begin{figure*}[!t]
+\begin{figure}
+\vspace*{-3ex}
 \centering
-\includegraphics[scale=0.36]{Pine}
-\caption[Pine tree model.]{Pine tree model. 3D tree models created from branch tip positions are similar to the shapes of the trees from which branch tip positions were collected.}
-\label{fig:treemodelssubfig1}
-\end{figure*}
+\includegraphics[width=2.7in]{graphRealSimple.jpg}
+\caption{EA-Path performance for the real and simplified bimodal with overlap map}
+\label{graphRealSimple}
+\end{figure}
 
-Besides replaying the original tree shape, our approach has enough flexibility to produce different tree shapes based on the same set of motion capture data. Three forces with their scales create particles' moving paths, which represents branching structures. Figure \ref{fig:currency} demonstrates that shape-format force sets the global attracting trunk node, which controls the converging direction of particle flow. The resulting tree models display trees' growth styles in terms of excurrent and decurrent.
+To further evaluate our algorithms, we tested our algorithms on a more complex multimodal distribution map generated by mixing multiple Gaussian distributions with various standard deviations; see Fig.~\ref{ComplexMap}. The LHC-GW-CONV algorithm achieved 97.206\% $\mathit{Efficiency_{LB}}$ in 5.516 seconds and the EA-Path algorithm achieved 97.609\% $\mathit{Efficiency_{LB}}$ in 63.984 seconds. Note here that the $\mathit{Efficiency}$ percentiles can only be better.
 
 \begin{figure}
 \centering
-        \begin{subfigure}[b]{0.33\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{currency1}
-                \caption{}
-                \label{fig:currency1}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.33\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{currency2}
-                \caption{}
-                \label{fig:currency2}
-        \end{subfigure}
-\caption{Shape-format force.}
-\label{fig:currency}
+\includegraphics[width=3.2in]{ComplexMap3.jpg}
+\caption{More complex multimodal probability distribution map}
+\label{ComplexMap}
+\vspace*{-3ex}
 \end{figure}
 
-Figure \ref{fig:gravityTree} shows the impact of gravity on trees' shapes with various values for the weighting factor. When the factor is set to be negative, we create a special willow-like tree shape. 
+In every experiment, the EA(\_E) algorithms always achieved the best $\mathit{Efficiency}$ and $\mathit{Efficiency_{LB}}$. Therefore, if the operator has some time for computation, they seem to be attractive candidates. If the operator needs a path generated quickly, the LHC-GW-CONV(\_E) algorithms can be used. Although the LHC-GW-PF(\_E) algorithms do not work as well with these three distribution maps, initial tests on other distribution types such as sparse map and small-multimodal map suggest that they could perform better than other algorithms.
 
-\begin{figure}
-\centering
-        \begin{subfigure}[b]{0.3\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{gravity001}
-                \caption{weighting factor: 0.01}
-                \label{fig:gravity001}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.3\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{gravity020}
-                \caption{weighting factor: 0.20}
-                \label{fig:gravity020}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.3\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{gravityNeg020}
-                \caption{weighting factor: -0.20}
-                \label{fig:gravityNeg020}
-        \end{subfigure}
-\caption{Tree shapes with different weight factors for gravity.}
-\label{fig:gravityTree}
-\end{figure}
 
-Figure \ref{fig:windFactor} shows tree models with different weighting factors of wind force. Bigger values of the factor produces branches bending more toward the wind direction. Notice that the differences among these tree models are small, especially when compared to the influence from the other two forces. This is because the value of force for a global wind direction is set to be much smaller than that of the other two forces. Otherwise, when wind force dominates the direction of particle movement, the particles might not be able to merge to a tree's trunk and might violate natural tree's shape. 
+%=================================================================================	
+\section{Conclusion and Future Work}
 
-\begin{figure}
-\centering
-        \begin{subfigure}[b]{0.3\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{wind001}
-                \caption{Weighting factor: 0.01.}
-                \label{fig:wind001}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.3\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{wind007}
-                \caption{Weighting factor: 0.07.}
-                \label{fig:wind007}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.3\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{wind015}
-                \caption{Weighting factor: 0.15.}
-                \label{fig:wind015}
-        \end{subfigure}
-\caption{Tree shapes with different weighting factors for wind force.}
-\label{fig:windFactor}
-\end{figure}
+We model the UAV path planning problem in WiSAR as a discretized combinatorial optimization problem and design two groups of algorithms for path planning with or without a set destination using algorithms based on Local Hill Climbing, and Evolutionary Algorithms using novel techniques such as ``global warming effect'' and path crossover/mutation. We evaluate the performances of these algorithms on six (3 simplified, 3 ``real'') representations of typical WiSAR probability distribution maps, unimodal, bimodal, and bimodal with overlap, with various flight times and use the simplified maps to validate true efficiencies in real maps. Experimental results show that our algorithms can generate good paths with high $\mathit{Efficiency}$ or estimated $\mathit{Efficiency}$ that approximate the optimal solution within reasonable computation time. Specifically, the LHC-GW-CONV(\_E) algorithms should be used for unimodal maps, and if a few minutes computation time is available, because the EA(\_E) algorithms always keep the best path found from seed algorithms, they can always find a path with the highest $\mathit{Efficiency}$ compared with other algorithms experimented.
 
-In Figure \ref{fig:moreShapes}, we generate 3D tree models with different parameters for particle flow with the same set of motion capture data. These results demonstrate that our approach produces visually plausible tree shapes, which becomes scalable for more extended shapes through tweaking parameters of the three forces. 
-
-\begin{figure}
-\centering
-        \begin{subfigure}[b]{0.3\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{treediff1}
-                \caption{}
-                \label{fig:treediff1}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.3\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{treediff2}
-                \caption{}
-                \label{fig:treediff2}
-        \end{subfigure}
-        ~
-        \begin{subfigure}[b]{0.3\textwidth}
-                \centering
-                \includegraphics[width=\textwidth]{treediff3}
-                \caption{}
-                \label{fig:treediff3}
-        \end{subfigure}
-\caption{Various tree shapes.}
-\label{fig:moreShapes}
-\end{figure}
-
-\section{Discussion and Future Work}
-
-Placing retroreflective markers on branch tips evenly spaced throughout the crown on trees located in a passive optical motion capture arena results in data that can be used to reconstruct tree shape and which may be usable for replaying branch motion.  This can be done using a simplified particle flow system starting from recorded branch tip positions supplemented with additional random branch tip positions within a horizontal stack of bounding boxes and by setting two control parameters.  A new data collection process designed for trees may extend the use of motion capture to include trees and eventually other networks of non-rigid bodies. 
-
-Future work includes extending the process to large trees outdoors as well as improving methods for animating the resulting tree models using the motion capture data.   We have reconstructed an approximate tree crown branching structure.  Replaying the captured motion data will require care to ensure that the motion of the approximate branching structure does not include uncorrelated motion for branch tips who share a common parent.
+Experimenting with more types of distribution maps, designing a more advanced global warming search model, allowing 8-connected path planning, and dealing with dynamic distribution maps that change over time are all natural extensions for future work. Specifically, the set of algorithms with set destinations enables us to further investigate how the path planning task can be segmented so human operators can plan more strategically while the algorithms plan tactically, and what interface can make this an intuitive, smooth, and effective task for the UAV operator in WiSAR operations.

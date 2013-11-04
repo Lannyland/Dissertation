@@ -1,17 +1,161 @@
-\chapter{Discussion and Conclusion}
+\chapter{Full Experiement Results for Chapter 5}
 
-The research builds a new model of motion capture for non-rigid bodies under external forces. From partially recorded movements on non-rigid subjects, we create complete animations of these or similar subjects using physical and statistical models. We present a generic pipeline for capturing movements of non-rigid bodies using passive optical motion capture. We have demonstrated animation of non-rigid bodies using partial motion capture data by extracting external forces rather than replaying motion data directly. The approach simplifies the problem as we no longer need to match motion capture data to a precise reconstruction of the original capture subject. It also results in complete and coherent motion from incomplete data that contain discontinuous motion.
+Here we present the full experiment results of the four WiSAR scenarios described in Chapter 5. For each scenario, we generate paths with three flight durations ($T=300$, $T=600$, and $T=900$) and compare algorithm computation speed (in seconds) and path $\mathit{Efficiency_{LB}}$ (in \%) for BA, LHC-GW-CONV, Top2, and TopN algorithms (including Top2 and TopN algorithms where $k=5$ and $N=3$). . All numbers shown are averages of 10 runs. Best performance results are displayed in bold font face. Standard deviation ($\sigma$) are also shown for both computation speed and path $\mathit{Efficiency_{LB}}$.
 
-Chapter \ref{chap:pilottree} reconstructs tree motion under natural wind. It builds a plausible tree skeleton using a minimal spanning tree algorithm over a cost function defined using position and motion data. Gaps and errors in motion capture data for trees are replaced with data interpolated from neighboring branch motion. These are important steps toward realizing motion capture of trees for tree animation in games. We had hoped to get better results with the repaired data and the rigid body algorithm we used. Based on the results of this pilot project, we believe that investigating other approaches to processing the point cloud are more promising than repairing the errors caused by using the rigid body algorithm we used. 
+%=============
+% TestCase
+%=============
+\begin{center}
+\begin{table*}[ht]
+{
+%\small
+\scriptsize
+\hfill{}
+\setlength{\extrarowheight}{1.5pt}
+\begin{tabular}
+{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+& \multicolumn{4}{|c|}{$T=300$} & \multicolumn{4}{|c|}{$T=600$} & \multicolumn{4}{|c|}{$T=900$} \\ 
+\hline
+& Speed & $\sigma$ & $\mathit{E_{LB}}$ & $\sigma$ & Speed & $\sigma$ & $\mathit{E_{LB}}$ & $\sigma$ & Speed & $\sigma$ & $\mathit{E_{LB}}$ & $\sigma$\\ 
+\hline
+BA & - & - & 27.59 & - & - & - & 43.54 & - & - & - & 59.56 & - \\ 
+\hline
+LHC-GW-CONV & 0.17 & 0.01 & 92.26 & 0.00 & 0.33 & 0.07 & 92.68 & 0.00 & 0.51 & 0.09 & 94.03 & 0.01 \\ 
+\hline
+Top2 (1 layer) & 0.12 & 0.05 & 87.49 & 0.03 & 0.14 & 0.04 & 91.66 & 0.04 & 0.15 & 0.04 & 91.02 & 0.03 \\ 
+\hline
+TopN (1 layer) & \textbf{0.10} & 0.05 & 91.28 & 0.02 & \textbf{0.08} & 0.05 & 91.93 & 0.04 & \textbf{0.07} & 0.03 & 95.24 & 0.01 \\ 
+\hline
+Top2 (Hierarchy) & 0.37 & 0.10 & 90.85 & 0.02 & 0.42 & 0.10 & 93.83 & 0.02 & 0.48 & 0.10 & 93.59 & 0.01  \\ 
+\hline
+TopN (Hierarchy) & 0.91 & 0.21 & \textbf{92.27} & 0.00 & 0.84 & 0.16 & \textbf{95.50} & 0.01 & 0.93 & 0.21 & \textbf{95.56} & 0.01 \\ 
+\hline
+\end{tabular}}
+\medskip
+\caption{Algorithms speed and $\mathit{Efficiency_{LB}}$ comparison for the multi-modal synthetic scenario.}
+\label{TestCaseTable}
+\vspace*{-5ex}
+\end{table*}
+\end{center}
+Table~\ref{TestCaseTable} shows the experiment results for the synthetic WiSAR scenario with a multi-modal distribution of the missing person location and a simple task difficulty map with three difficulty levels (as shown in Fig.\ref{SyntheticCase}). The UAV path starts from a subregion with high task difficulty (lower right corner).
 
-In Chapter \ref{chap:rope}, our work produces visually plausible rope motion from passive optical motion capture data using a statistical model under the assumption that the rope does not stretch. The algorithm preserves continuity of motion in traces and fits the shape of rope.  This work lays a foundation for further investigation of motion capture for non-rigid bodies using statistical rather than physical models. The approach to the problem may advance motion capture results for non-rigid bodies driven by complex or poorly understood physical systems.
+%=============
+% HikerPaul
+%=============
+\begin{center}
+\begin{table*}[ht]
+{
+%\small
+\scriptsize
+\hfill{}
+\setlength{\extrarowheight}{1.5pt}
+\begin{tabular}
+{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+& \multicolumn{4}{|c|}{$T=300$} & \multicolumn{4}{|c|}{$T=600$} & \multicolumn{4}{|c|}{$T=900$} \\ 
+\hline
+& Speed & $\sigma$ & $\mathit{E_{LB}}$ & $\sigma$ & Speed & $\sigma$ & $\mathit{E_{LB}}$ & $\sigma$ & Speed & $\sigma$ & $\mathit{E_{LB}}$ & $\sigma$\\ 
+\hline
+BA & - & - & 56.95 & - & - & - & 60.07 & - & - & - & 57.11 & - \\ 
+\hline
+LHC-GW-CONV & 0.30 & 0.16 & 60.18 & 0.13 & 0.47 & 0.03 & 56.76 & 0.00 & 0.98 & 0.16 & 55.18 & 0.00\\ 
+\hline
+Top2 (1 layer) & \textbf{0.24} & 0.06 & 66.68 & 0.09 & 0.30 & 0.11 & 65.21 & 0.07 & 0.41 & 0.20 & 66.08 & 0.07\\ 
+\hline
+TopN (1 layer) & 0.25 & 0.07 & 76.19 & 0.08 & \textbf{0.24} & 0.11 & 71.02 & 0.04 & \textbf{0.22} & 0.09 & 68.26 & 0.04\\ 
+\hline
+Top2 (Hierarchy) & 0.73 & 0.11 & 78.67 & 0.03 & 0.84 & 0.14 & 73.81 & 0.04 & 1.19 & 0.36 & 72.75 & 0.02\\ 
+\hline
+TopN (Hierarchy) & 1.52 & 0.15 & \textbf{81.43} & 0.03 & 1.73 & 0.25 & \textbf{75.48} & 0.02 & 1.68 & 0.26 & \textbf{74.13} & 0.02\\ 
+\hline
+\end{tabular}}
+\medskip
+\caption{Algorithms speed and $\mathit{Efficiency_{LB}}$ comparison for the HikerPaul scenario.}
+\label{HikerPaulTable}
+\vspace*{-5ex}
+\end{table*}
+\end{center}
+Table~\ref{HikerPaulTable} shows the experiment results for the HikerPaul WiSAR scenario, in which an elderly couple was reported missing near the Grayson Highlands State Park in Virginia. Fig.\ref{HikerPaulMaps} shows the probability distribution map and the task difficulty map for the scenario. Fig.\ref{HikerPaulPaths} shows example paths generated. Each UAV path starts from the Last Known Position (LKP), which is in the middle of the search region.
 
-Chapter \ref{chap:treeparticles} generates a 3D tree model using particle flow along with motion capture data. The particle flow system starts from recorded branch tip positions supplemented with additional random branch tip positions within a horizontal stack of bounding boxes and by setting two control parameters. A new data collection process designed for trees may extend the use of motion capture to include trees and, eventually, other networks of non-rigid bodies. 
+%=============
+% NewYork53
+%=============
+\begin{center}
+\begin{table*}[ht]
+{
+%\small
+\scriptsize
+\hfill{}
+\setlength{\extrarowheight}{1.5pt}
+\begin{tabular}
+{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+& \multicolumn{4}{|c|}{$T=300$} & \multicolumn{4}{|c|}{$T=600$} & \multicolumn{4}{|c|}{$T=900$} \\ 
+\hline
+& Speed & $\sigma$ & $\mathit{E_{LB}}$ & $\sigma$ & Speed & $\sigma$ & $\mathit{E_{LB}}$ & $\sigma$ & Speed & $\sigma$ & $\mathit{E_{LB}}$ & $\sigma$\\ 
+\hline
+BA & - & - & 39.95 & - & - & - & 54.27 & - & - & - & 65.08 & - \\ 
+\hline
+LHC-GW-CONV & \textbf{0.01} & 0.00 & 38.47 & 0.00 & \textbf{0.02} & 0.00 & 56.91 & 0.00 & \textbf{0.02} & 0.00 & 67.38 & 0.00\\ 
+\hline
+Top2 (1 layer) & 0.75 & 0.15 & 54.42 & 0.04 & 0.92 & 0.60 & 66.61 & 0.03 & 0.81 & 0.55 & 72.79 & 0.02\\ 
+\hline
+TopN (1 layer) & 0.70 & 0.45 & 59.15 & 0.07 & 0.77 & 0.55 & 68.78 & 0.04 & 0.69 & 0.30 & 74.54 & 0.01\\ 
+\hline
+Top2 (Hierarchy) & 1.87 & 0.23 & 57.18 & 0.03 & 2.06 & 0.34 & 69.29 & 0.02 & 1.92 & 0.33 & 74.44 & 0.01\\ 
+\hline
+TopN (Hierarchy) & 5.01 & 0.67 & \textbf{65.39} & 0.03 & 5.76 & 0.96 & \textbf{71.47} & 0.02 & 5.32 & 1.12 & \textbf{77.36} & 0.02\\ 
+\hline
+\end{tabular}}
+\medskip
+\caption{Algorithms speed and $\mathit{Efficiency_{LB}}$ comparison for the NewYork53 scenario.}
+\label{NewYork53Table}
+\vspace*{-5ex}
+\end{table*}
+\end{center}
+Table~\ref{NewYork53Table} shows the experiment results for the NewYork53 WiSAR scenario, in which a 46 year old male camper was reported missing near Adirondack Park in upperstate New York. Fig.\ref{NewYork53Maps} shows the probability distribution map and the task difficulty map for the scenario. Fig.\ref{NewYork53Paths} shows example paths generated. Each path starts from the Last Known Position (LKP), which is in the middle of the search region.
 
-Chapter \ref{chap:treeLsystem} introduces a new method based on L-systems for 3D tree modeling. This new method employs a moving particle for a branch unit, which reduces computation time compared to diffusion-limited aggregation. We control the main crown shapes with the hemisphere while controlling the internal growth structure using growth levels. Under these controls, randomness is added by randomly selecting tree branches from the L-systems branch library. By introducing the random factors, it is difficult to produce the exact shape of the original tree. Also, small changes in parameters might produce big changes in the output tree shape, which is a common problem when employing L-systems.
+%=============
+% NewYork108
+%=============
+\begin{center}
+\begin{table*}[ht]
+{
+%\small
+\scriptsize
+\hfill{}
+\setlength{\extrarowheight}{1.5pt}
+\begin{tabular}
+{|l|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+& \multicolumn{4}{|c|}{$T=300$} & \multicolumn{4}{|c|}{$T=600$} & \multicolumn{4}{|c|}{$T=900$} \\ 
+\hline
+& Speed & $\sigma$ & $\mathit{E_{LB}}$ & $\sigma$ & Speed & $\sigma$ & $\mathit{E_{LB}}$ & $\sigma$ & Speed & $\sigma$ & $\mathit{E_{LB}}$ & $\sigma$\\ 
+\hline
+BA & - & - & 39.92 & - & - & - & 45.34 & - & - & - & 49.39 & -\\ 
+\hline
+LHC-GW-CONV & \textbf{0.01} & 0.00 & 41.38 & 0.00 & \textbf{0.45} & 0.06 & 52.88 & 0.00 & \textbf{0.02} & 0.00 & 52.61 & 0.00\\ 
+\hline
+Top2 (1 layer) & 0.98 & 0.33 & 58.37 & 0.04 & 0.90 & 0.36 & 54.18 & 0.02 & 1.44 & 0.65 & 57.33 & 0.02\\ 
+\hline
+TopN (1 layer) & 0.92 & 0.38 & 54.03 & 0.06 & 0.83 & 0.56 & 53.91 & 0.07 & 0.97 & 0.42 & 57.91 & 0.03\\ 
+\hline
+Top2 (Hierarchy) & 2.42 & 0.39 & \textbf{60.73} & 0.02 & 2.52 & 0.67 & 55.91 & 0.01 & 2.50 & 0.23 & 57.94 & 0.01\\ 
+\hline
+TopN (Hierarchy) & 6.81 & 1.10 & 59.60 & 0.02 & 6.59 & 0.98 & \textbf{60.26} & 0.01 & 7.42 & 1.11 & \textbf{60.99} & 0.02\\ 
+\hline
+\end{tabular}}
+\medskip
+\caption{Algorithms speed and $\mathit{Efficiency_{LB}}$ comparison for the NewYork108 scenario.}
+\label{NewYork108Table}
+\vspace*{-5ex}
+\end{table*}
+\end{center}
+Table~\ref{NewYork108Table} shows the experiment results for the NewYork53 WiSAR scenario, in which two teenage female hikers were reported missing near West Chesterfield in Massachusetts. Fig.\ref{NewYork108Maps} shows the probability distribution map and the task difficulty map for the scenario. Fig.\ref{NewYork108Paths} shows example paths generated. Each path starts from the Last Known Position (LKP), which is in the middle of the search region.
 
-Chapter \ref{chap:estwindfield} is based on all of the previous work in our research. In this project, we present animation of non-rigid bodies using partial motion capture data by extracting a wind velocity field rather than replaying motion data directly. This simplifies the problem as we no longer need to match motion capture data to a precise reconstruction of the original capture subject. It also results in complete and coherent motion from incomplete data that contains discontinuous motion. We have also presented a method for enriching the extracted force field to include fine-resolution turbulence. This is possible because the extracted velocity field can be analyzed and enriched, much like position graphs can be analyzed and enriched in other applications. This work opens a new direction in the motion capture of non-rigid bodies in spatially smooth force fields. We have investigated this idea in the context of trees and wind. Future work might focus on other objects, such as cloth, in other flows. We can also extend the process to larger trees outdoors.
+\chapter{Something}
 
-As inferred from the rope reconstruction project, complicated motions (such as spirals, collisions, sudden changes in movement, or extremely fast movement) are not well handled in our model. Our assumptions for detecting swaps may be oversimplified relative to natural movement. In the future, consideration of other factors, such as velocity or acceleration, might improve gap-filling results. We have used a simple method for interpolating rope position between markers.  More complex methods may result in more plausible results, particularly when the distance between markers on the rope is large.
+\chapter{Something}
 
-Our research discusses animating non-rigid bodies using motion capture, but mostly focuses on replaying motion for trees and ropes. We present a general application of motion capture for non-rigid bodies, including a data collection process and data cleaning algorithms. The work can be extended to non-rigid bodies other than trees and ropes. By emphasizing different non-rigid subjects under various force fields, followed by our general application of motion capture, the data cleaning algorithms can be improved with the context, and different physical and/or statistical models might be required to build an animation. Besides building animations that replay the original movements, resulting estimated motion can also validate the real collected data against theoretic physical and/or statistical models. Therefore, the presented application of motion capture for non-rigid bodies can go further in different research areas and become a useful tool in these areas.
+
