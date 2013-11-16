@@ -1,4 +1,5 @@
 \chapter{Full Experiement Results for Chapter 5}
+\label{chap:result}
 
 Here we present the full experiment results of the four WiSAR scenarios described in Chapter 5. For each scenario, we generate paths with three flight durations ($T=300$, $T=600$, and $T=900$) and compare algorithm computation speed (in seconds) and path $\mathit{Efficiency_{LB}}$ (in \%) for BA, LHC-GW-CONV, Top2, and TopN algorithms (including Top2 and TopN algorithms where $k=5$ and $N=3$). . All numbers shown are averages of 10 runs. Best performance results are displayed in bold font face. Standard deviation ($\sigma$) are also shown for both computation speed and path $\mathit{Efficiency_{LB}}$.
 
@@ -6,7 +7,7 @@ Here we present the full experiment results of the four WiSAR scenarios describe
 % TestCase
 %=============
 \begin{center}
-\begin{table*}[ht]
+\begin{table*}
 {
 %\small
 \scriptsize
@@ -35,7 +36,7 @@ TopN (Hierarchy) & 0.91 & 0.21 & \textbf{92.27} & 0.00 & 0.84 & 0.16 & \textbf{9
 \medskip
 \caption{Algorithms speed and $\mathit{Efficiency_{LB}}$ comparison for the multi-modal synthetic scenario.}
 \label{TestCaseTable}
-\vspace*{-5ex}
+%\vspace*{-5ex}
 \end{table*}
 \end{center}
 Table~\ref{TestCaseTable} shows the experiment results for the synthetic WiSAR scenario with a multi-modal distribution of the missing person location and a simple task difficulty map with three difficulty levels (as shown in Fig.\ref{SyntheticCase}). The UAV path starts from a subregion with high task difficulty (lower right corner).
@@ -44,7 +45,7 @@ Table~\ref{TestCaseTable} shows the experiment results for the synthetic WiSAR s
 % HikerPaul
 %=============
 \begin{center}
-\begin{table*}[ht]
+\begin{table*}
 {
 %\small
 \scriptsize
@@ -73,7 +74,7 @@ TopN (Hierarchy) & 1.52 & 0.15 & \textbf{81.43} & 0.03 & 1.73 & 0.25 & \textbf{7
 \medskip
 \caption{Algorithms speed and $\mathit{Efficiency_{LB}}$ comparison for the HikerPaul scenario.}
 \label{HikerPaulTable}
-\vspace*{-5ex}
+%\vspace*{-5ex}
 \end{table*}
 \end{center}
 Table~\ref{HikerPaulTable} shows the experiment results for the HikerPaul WiSAR scenario, in which an elderly couple was reported missing near the Grayson Highlands State Park in Virginia. Fig.\ref{HikerPaulMaps} shows the probability distribution map and the task difficulty map for the scenario. Fig.\ref{HikerPaulPaths} shows example paths generated. Each UAV path starts from the Last Known Position (LKP), which is in the middle of the search region.
@@ -82,7 +83,7 @@ Table~\ref{HikerPaulTable} shows the experiment results for the HikerPaul WiSAR 
 % NewYork53
 %=============
 \begin{center}
-\begin{table*}[ht]
+\begin{table*}
 {
 %\small
 \scriptsize
@@ -111,7 +112,7 @@ TopN (Hierarchy) & 5.01 & 0.67 & \textbf{65.39} & 0.03 & 5.76 & 0.96 & \textbf{7
 \medskip
 \caption{Algorithms speed and $\mathit{Efficiency_{LB}}$ comparison for the NewYork53 scenario.}
 \label{NewYork53Table}
-\vspace*{-5ex}
+%\vspace*{-5ex}
 \end{table*}
 \end{center}
 Table~\ref{NewYork53Table} shows the experiment results for the NewYork53 WiSAR scenario, in which a 46 year old male camper was reported missing near Adirondack Park in upperstate New York. Fig.\ref{NewYork53Maps} shows the probability distribution map and the task difficulty map for the scenario. Fig.\ref{NewYork53Paths} shows example paths generated. Each path starts from the Last Known Position (LKP), which is in the middle of the search region.
@@ -120,7 +121,7 @@ Table~\ref{NewYork53Table} shows the experiment results for the NewYork53 WiSAR 
 % NewYork108
 %=============
 \begin{center}
-\begin{table*}[ht]
+\begin{table*}
 {
 %\small
 \scriptsize
@@ -149,13 +150,15 @@ TopN (Hierarchy) & 6.81 & 1.10 & 59.60 & 0.02 & 6.59 & 0.98 & \textbf{60.26} & 0
 \medskip
 \caption{Algorithms speed and $\mathit{Efficiency_{LB}}$ comparison for the NewYork108 scenario.}
 \label{NewYork108Table}
-\vspace*{-5ex}
+%\vspace*{-5ex}
 \end{table*}
 \end{center}
 Table~\ref{NewYork108Table} shows the experiment results for the NewYork53 WiSAR scenario, in which two teenage female hikers were reported missing near West Chesterfield in Massachusetts. Fig.\ref{NewYork108Maps} shows the probability distribution map and the task difficulty map for the scenario. Fig.\ref{NewYork108Paths} shows example paths generated. Each path starts from the Last Known Position (LKP), which is in the middle of the search region.
 
-\chapter{Something}
+\chapter{Hierarchical Coarse-to-Fine Search and Hierarchical Decision Making}
+\label{chap:hierarchical}
 
-\chapter{Something}
+\chapter{Complexity Analysis of the UAV Path Planning Problem}
+\label{chap:complexity}
 
 

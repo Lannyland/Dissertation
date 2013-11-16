@@ -76,7 +76,7 @@ To illustrate how the model works, it is helpful to use an exercise scenario as 
 
 \begin{figure}
 \centering
-\includegraphics[width=4.5in]{satellite.eps}
+\includegraphics[width=5in]{satellite.eps}
 \caption[Satellite imagery and terrain data of area by Payson Lake, Utah]{Satellite imagery of area by Payson Lake, Utah together with relative topography, vegetation, and elevation data downloaded from USGS web site. The topography and vegetation plots are discretized into (lake, plain, hill), and (sparse, medium, dense) respectively.}
 \label{satellite}
 \end{figure}
@@ -89,7 +89,7 @@ The first step in the model is to discretize the area into a hexagonal tessellat
 
 \begin{figure}
 \centering
-\includegraphics[width=4.5in]{hexgrid.eps}
+\includegraphics[width=5.5in]{hexgrid.eps}
 \caption[Hexagonal discretized tessellation showing past historical data]{Hexagonal discretized tessellation showing past historical data (the path marked by the white cells in the main image) together with topography, vegetation, and elevation information in hexagonal tessellation.}
 \label{hexgrid}
 \end{figure}
@@ -123,7 +123,7 @@ However, we would also like to enable the domain experts to incorporate uncertai
 
 \begin{figure}
 \centering
-\includegraphics[width=3.5in]{BetaPDF.eps}
+\includegraphics[width=5in]{BetaPDF.eps}
 \caption[Beta Distribution probability density function]{Beta Distribution probability density function}
 \label{BetaPDF}
 \end{figure}
@@ -219,7 +219,7 @@ Figure~\ref{BN} illustrates the process of computing the likelihood graphically.
 
 \begin{figure}
 \centering
-\includegraphics[width=4.5in]{BN.eps}
+\includegraphics[width=6in]{BN.eps}
 \caption{A graphical illustration of the proposed model. Top row: probability distribution for each prior belief. Fourth row: probability of transitioning into a neighboring cell in the hex tessellation. Bottom row: an observation indicating possible travel directions for the lost person.}
 \label{BN}
 \end{figure}
@@ -237,7 +237,7 @@ Existing observations in the model are in the form of sections of GPS track logs
 To incorporate multiple observations, we simply add multiple $z|\underline{\theta}$ nodes in the bottom row of the Bayesian network (illustrated in Figure~\ref{BNPost}). The network is dynamically built with appropriate parent nodes identified and linked to the observation nodes dynamically.
 \begin{figure}
 \centering
-\includegraphics[width=4.5in]{BNPost.eps}
+\includegraphics[width=6in]{BNPost.eps}
 \caption{Bayesian network with multiple observations. Top row: probability distribution for each prior belief. Bottom row: multiple observations from previously collected human behavior data in the form of segments of GPS track logs together with terrain features associated with the track logs.}
 \label{BNPost}
 \end{figure}
@@ -250,7 +250,7 @@ Figure~\ref{Approximation} illustrates how the Monte Carlo method approximates t
 
 \begin{figure}
 \centering
-\includegraphics[width=4.5in]{Approximation.eps}
+\includegraphics[width=5.5in]{Approximation.eps}
 \caption{Graphical illustration of how the Monte Carlo method approximates the posterior distribution of one parameter. Upper: multiple iterations of sampling. Lower: samples clustered to approximate the real distribution.}
 \label{Approximation}
 \end{figure}
@@ -269,7 +269,7 @@ Once we combine previously collected human behavior data and approximate the joi
 
 \begin{figure}
 \centering
-\includegraphics[width=4.5in]{priorvspost.eps}
+\includegraphics[width=6in]{priorvspost.eps}
 \caption[Comparing prior predictive distribution against posterior predictive distribution]{Comparing prior predictive distribution (upper row) against posterior predictive distribution (lower row)}
 \label{priorvspost}
 \end{figure}
@@ -321,7 +321,7 @@ Using the posterior samples, we can compare the marginal prior distribution with
 The plot in the upper left is for parameter $T_{02}$, the terrain feature transition probability from lake to hill. Since we do not have any data point in our dataset that transitioned from lake to hill, here we see the posterior is almost identical to the prior. The plot in the upper right is for parameter $T_{12}$, the terrain feature transition probability from plain to hill. In our dataset, a good segment of the path basically followed the contour line but stayed in the plain states. This characteristic of the dataset explains why the posterior distribution is much narrower and had a much lower mean---because the data did not show many changes from plain to hills, the posterior probability of this transition is much lower with less variance. The plot in the lower left is for parameter $V_{01}$, the terrain feature transition probability from vegetation type sparse to medium. The plot in the lower right is for parameter $S_1$, the terrain feature transition probability from no slope to no slope. Both of these posteriors are only slightly different from the priors.
 \begin{figure}
 \centering
-\includegraphics[width=5in]{posts.eps}
+\includegraphics[width=6in]{posts.eps}
 \caption[Comparing prior distribution with marginal posterior distribution]{Comparing prior distribution with marginal posterior distribution. Upper Left: $T_{02}$ Upper Right: $T_{12}$ Lower Left: $V_{01}$ Lower Right: $S_1$.}
 \label{posts}
 \end{figure}
@@ -337,8 +337,8 @@ Figure~\ref{correlation} shows a graphical representation of the correlation bet
 The results of the correlation analysis indicate that there is likely a correlation among different terrain features. Interestingly, from this figure we can see that parameter $V_{12}$ (Vegetation: medium to dense) and $T_{11}$ (Topography: plain to plain) are clearly, negatively correlated (marked by the upper small circle in Figure~\ref{correlation}). Parameter $V_{22}$ (Vegetation: dense to dense) and $T_{11}$ (Topography: plain to plain) are also clearly, negatively correlated (marked by the lower small circle in Figure~\ref{correlation}). A closer look at the terrain features of the area shows that dense vegetation is mostly located on the hill topography type and medium vegetation is mostly located on the plain topography type. This explains why we see such a negative correlation. This emergence of correlations that are compatible with terrain features suggests that the process of combining prior information with observed track logs is useful. However, when we let the domain experts specify the prior distributions, it is much more intuitive for them to assume independence instead of specifying conditional probabilities (to specify how the parameters are correlated), and we rely on data to identify the dependence relationship.
 \begin{figure}
 \centering
-\includegraphics[width=4.5in]{correlation.eps}
-\caption[Parameter correlation]{Parameter correlation: a grey value of 128, such as (1,21) in the lower left corner, represents no correlation. A white cell, such as (1,1) in the upper left corner, represents a correlation of 1. A black cell represents a correlation of -1. Parameters are in the following order: $T_{00},T_{01},...,T_{22},V_{00},V_{01},...V_{22},S_{0},S_{1},S_{2}.$} The big circle marks a positive correlation between parameters, and the small circles mark a negative correlation between parameters.
+\includegraphics[width=6in]{correlation.eps}
+\caption[Parameter correlation]{Parameter correlation: a grey value of 128, such as (1,21) in the lower left corner, represents no correlation. A white cell, such as (1,1) in the upper left corner, represents a correlation of 1. A black cell represents a correlation of -1. Parameters are in the following order: $T_{00},T_{01},...,T_{22},V_{00},V_{01},...V_{22},S_{0},S_{1},S_{2}.$ The big circle marks a positive correlation between parameters, and the small circles mark a negative correlation between parameters.}
 \label{correlation}
 \end{figure}
 
@@ -388,7 +388,7 @@ Another important question we should ask is: How well would an experienced IC tr
 
 \begin{figure}
 \centering
-\includegraphics[width=3.5in]{BoxElderPeak.eps}
+\includegraphics[width=5.5in]{BoxElderPeak.eps}
 \caption[Satellite imagery of Elder Box Peak in Utah]{Satellite imagery of Elder Box Peak in Utah. The GPS track log shows the path taken by a hiker in summer 2009 when he went off the hiking trail and became lost for several hours before stumbling into another hiking trail.}
 \label{BoxElderPeak}
 \end{figure}

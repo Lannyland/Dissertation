@@ -1,2 +1,13 @@
 \chapter[Probability Distribution Map and Task Difficulty Map Editor Interface]{Probability Distribution Map and Task Difficulty Map Editor Interface}
 \label{chap:MapEdit}
+
+
+
+Searchers can use the \textbf{DistEdit} tool to modify a probability distribution map and use the \textbf{DiffEdit} tool to modify a task-difficulty map generated at the \textbf{Strategic} scale. Both tools enable the user to view maps in 3D with the option to overlay on top of the maps a satelite image of the search area. the user can using mouse gestures and finger gestures to rotate/pan/zoom the respective map and edit the shapes of the maps in 3D to incorporate information that the autonomous components are unable to interprete. 
+
+The searchers can use simple mouse gestures (see Figure  for examples) to specify \textit{areas of focus} that will modify the probability distribution map (created at the strategic scale) using the proposed \textbf{DistMod} tool. Users will modify the distribution by making mouse gestures over a 2D representation of the distribution map where colors are used to represent the probability density (e.g., red for high probability hills and blue for low probability plains/valleys). The searchers can switch to a 3D view (read-only) for a better view of the distribution surface. The modified probability distribution can be used later to prioritize tasks and plan UAV paths. By marking an area as a high priority area, the searchers can indirectly manipulate the UAV to search the area before other areas without the need to manually specify waypoints. We will use the feature set developed by Dean Rubine~\cite{Rubine1991Specifying} and use the k-Nearest Neighbor algorithm~\cite{Mitchell1997Machine} for gesture recognition.
+
+The proposed \textbf{DiffMod} tool allows the searchers to create or modify the \textit{task-difficulty map}. A searcher can pick a difficulty level from a color pallet and then either select a difficult area (maybe due to dense vegetations or low visibility) with lasso capability or paint the area using scribbles. By marking an area as a difficult area, the user can indirectly tell the UAV to make multiple passes over these areas to search more thoroughly.
+
+Both tools enable the searchers to add additional information to the probability distribution and task-difficulty maps, relying on UAV path-planning to use the information to search more efficiently.
+

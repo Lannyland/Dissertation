@@ -106,10 +106,10 @@ When the ocean surface rises $C$ each time, the volume of islands above water de
 
 \begin{figure}
 \centering
-\includegraphics[width=3in]{GlobalWarming.jpg}
+\includegraphics[width=6in]{GlobalWarming.jpg}
 \caption{Global Warming Effect}
 \label{GlobalWarming}
-\vspace*{-3ex}
+%\vspace*{-3ex}
 \end{figure}
 
 %=============================
@@ -125,19 +125,19 @@ With the EA-Path algorithm, a path is encoded as a sequence of node positions. I
 \begin{tabular}{cc}
 \begin{minipage}[b]{0.4\linewidth}
 \centering
-\includegraphics[width=1.5in]{crossover1.jpg}
+\includegraphics[width=2.5in]{crossover1.jpg}
 \caption{An example of single-point path crossover (Upper row: the parents. Lower row: the children)}
 \label{CType1}
 \end{minipage}
 \hspace{1cm}
 \begin{minipage}[b]{0.4\linewidth}
 \centering
-\includegraphics[width=1.5in]{crossover2.jpg}
+\includegraphics[width=2.5in]{crossover2.jpg}
 \caption{An example of double-point path crossover (Upper row: the parents. Lower row: the children)}
 \label{CType2}
 \end{minipage}
 \end{tabular}
-\vspace*{-4ex}
+%\vspace*{-4ex}
 \end{figure}
 
 Two types of mutation methods~\cite{Mitchell1997Machine} are used for flight path evolution; see Fig.~\ref{Mutation}. They follow a greedy approach with the hope that small positive changes to the path will lead to larger positive changes to the path. First we randomly select a node in the flight path and see if the next two nodes along the path would form an L shape with this node or a straight line (these are the only two possibilities). In the first case, method~1 (``flip'') is used and the algorithm replaces the middle node with the node that mirrors the middle node if we connect the first node and the third node with a line. This is like flipping a section of the path. In the second case, method~2 (``pull'') is used and the algorithm inserts two nodes into the path on one side of the line next to the first and the second nodes. This effectively extends the path by two nodes, so we simply truncate the last two nodes from the path. This is like pulling a string from the middle when the beginning end of the string is fixed. Which side to select for insertion depends on whether the new path is a valid path. If both sides allow valid paths, then the algorithm prefers inserting nodes that are not already in the path. Random selection is the last tie-breaker. If all four nodes on either side of the line are already included in the path, then a new mutation point is randomly selected and the same procedure repeats.
@@ -169,21 +169,21 @@ Two types of mutation methods~\cite{Mitchell1997Machine} are used for flight pat
 
 \begin{figure}
 \begin{tabular}{cc}
-\begin{minipage}[b]{0.41\linewidth}
+\begin{minipage}[b]{0.40\linewidth}
 \centering
-\includegraphics[width=1.5in]{mutation.jpg}
+\includegraphics[width=2.5in]{mutation.jpg}
 \caption{Examples of mutations in EA-DIR and EA-Path algorithms. (Upper row: method 1. Lower row: method 2)}
 \label{Mutation}
 \end{minipage}
 \hspace{1cm}
 \begin{minipage}[b]{0.40\linewidth}
 \centering
-\includegraphics[width=1.5in]{mutationE.jpg}
-\caption{Examples of mutations in EA-Path\_E algorithm. (Upper row: method 2. Lower row: method 3)}
+\includegraphics[width=2.5in]{mutationE.jpg}
+\caption{Examples of mutations in EA-Path\_E algorithm. ~\\ (Upper row: method 2. Lower row: method 3)}
 \label{MutationE}
 \end{minipage}
 \end{tabular}
-\vspace*{-4ex}
+%\vspace*{-4ex}
 \end{figure}
 
 We use an initial population of 100 paths including various paths generated using other algorithms and 95 randomly generated paths. LHC-GW-PF is not used because it is too slow. Other parameters include replacement rate at 30\% and mutation rate at 50\%. The best three paths are always kept in each iteration. The algorithm runs for at least 500 iterations and stops if either the best path does not improve after 200 iterations or if the algorithm has completed 1000 iterations.
@@ -282,10 +282,10 @@ In our experiments, we focus on probability distribution maps of three abstract 
 
 \begin{figure}
 \centering
-\includegraphics[width=2.3in]{maps900.jpg}
+\includegraphics[width=6in]{maps900.jpg}
 \caption{Top row: 2D representations of unimodal, bimodal, and bimodal with overlap probability distribution maps. Middle row: Simplified versions of the three types of maps. Bottom row: Best paths found for each map.}
 \label{maps}
-\vspace*{-4ex}
+%\vspace*{-4ex}
 \end{figure}
 
 
@@ -321,7 +321,7 @@ For the simplified bimodal map, the LHC-GW-CONV(\_E) algorithms did not always p
 		\end{tabular}
 \caption{Algorithm efficiency comparison for bimodal distribution}
 \label{EBimodalSimplified}
-\vspace*{-5ex}
+%\vspace*{-5ex}
 \end{table}
 
 \begin{table}
@@ -344,34 +344,34 @@ For the simplified bimodal map, the LHC-GW-CONV(\_E) algorithms did not always p
 		\end{tabular}
 \caption{Algorithm speed comparison for bimodal distribution}
 \label{TBimodalSimplified}
-\vspace*{-7ex}
+%\vspace*{-7ex}
 \end{table}
 
 \begin{figure}
-\vspace*{-2ex}
+%\vspace*{-2ex}
 \centering
-\includegraphics[width=2.7in]{graphBimodal.jpg}
+\includegraphics[width=6in]{graphBimodal.jpg}
 \caption{$\mathit{Efficiency}$ comparison for group of algorithms without set destination for simplified bimodal map}
 \label{graphBimodal}
-\vspace*{-2ex}
+%\vspace*{-2ex}
 \end{figure}
 
 For the simplified bimodal with overlap map, the EA(\_E) algorithms achieved the best $\mathit{Efficiencies}$ (98.302\%+ for EA and 98.653\%+ for EA\_E), but the LHC-GW-CONV(\_E) algorithms were able to achieve equivalent or slightly lower Efficiencies (97.391\%+ for LHC-GW-CONV and 98.429\%+ for LHC-GW-CONV\_E) with much less time (8.283 seconds and 16.296 seconds for $T$=900 respectively). Fig.~\ref{graphEBimodalOverlap} shows the $\mathit{Efficiency}$ comparison of the group of algorithms with set destination.
 
 \begin{figure}
 \centering
-\includegraphics[width=2.7in]{graphEBimodalOverlap.jpg}
+\includegraphics[width=6in]{graphEBimodalOverlap.jpg}
 \caption{$\mathit{Efficiency}$ comparison for group of algorithms with set destination for simplified bimodal with overlap map}
 \label{graphEBimodalOverlap}
-\vspace*{-4ex}
+%\vspace*{-4ex}
 \end{figure}
 
 For each of the three real distribution maps (unimodal, bimodal, and bimodal with overlap), since $PC_{p^*}$ is unknown, we can only calculate $\mathit{Efficiency_{LB}}$. We observed that the $\mathit{Efficiency_{LB}}$ for each real map is very close to the $\mathit{Efficiency_{LB}}$ for each of the counterpart simplified maps, and we hypothesize that the $\mathit{Efficiency}$ for each real map should also be close to the $\mathit{Efficiency}$ for each of the counterpart simplified maps. Fig.~\ref{graphRealSimple} shows an example of the EA-Path algorithm performance for the real and simplified bimodal with overlap map. The columns in the front row are $\mathit{Efficiency_{LB}}$ values and the columns in the back row are $\mathit{Efficiency}$ values. Based on this graph, we estimate that the $\mathit{Efficiency}$ values for the real map here are above 97\% for all $T$ values.
 
 \begin{figure}
-\vspace*{-3ex}
+%\vspace*{-3ex}
 \centering
-\includegraphics[width=2.7in]{graphRealSimple.jpg}
+\includegraphics[width=6in]{graphRealSimple.jpg}
 \caption{EA-Path performance for the real and simplified bimodal with overlap map}
 \label{graphRealSimple}
 \end{figure}
@@ -380,10 +380,10 @@ To further evaluate our algorithms, we tested our algorithms on a more complex m
 
 \begin{figure}
 \centering
-\includegraphics[width=3.2in]{ComplexMap3.jpg}
+\includegraphics[width=6in]{ComplexMap3.jpg}
 \caption{More complex multimodal probability distribution map}
 \label{ComplexMap}
-\vspace*{-3ex}
+%\vspace*{-3ex}
 \end{figure}
 
 In every experiment, the EA(\_E) algorithms always achieved the best $\mathit{Efficiency}$ and $\mathit{Efficiency_{LB}}$. Therefore, if the operator has some time for computation, they seem to be attractive candidates. If the operator needs a path generated quickly, the LHC-GW-CONV(\_E) algorithms can be used. Although the LHC-GW-PF(\_E) algorithms do not work as well with these three distribution maps, initial tests on other distribution types such as sparse map and small-multimodal map suggest that they could perform better than other algorithms.

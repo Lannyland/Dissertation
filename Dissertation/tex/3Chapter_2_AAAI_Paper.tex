@@ -18,9 +18,10 @@ Introducing a UAV into the WiSAR system requires autonomy and information techno
 \begin{table}
 \footnotesize
 	\begin{center}
-		\begin{tabular}{|p{4cm}|p{3cm}|p{3cm}|p{3cm}|}
+		\begin{tabular}{|p{3.4cm}|p{2cm}|p{4cm}|p{5cm}|}
 			\hline
-			 & \textbf{Capability} & \textbf{Information Management} & \textbf{Performance Evaluation} \\
+			 & \textbf{Capability} & \textbf{Information} & \textbf{Performance} \\
+			 &  & \textbf{Management} & \textbf{Evaluation} \\
 			 \hline
 			 \rr \textbf{Intelligence of individual tools} & Autonomy & Flexibility & Progress toward individual goal \tn
 			 \hline
@@ -52,10 +53,10 @@ To integrate the UAV intelligent system into existing WiSAR practices --- which 
 
 \begin{figure}
 \centering
-\includegraphics[width=3.0in]{UAVCarrot.jpg}
+\includegraphics[width=6.0in]{UAVCarrot.jpg}
 \caption{A screenshot of the UAV operator interface showing the position/orientation of the UAV, the orientation of the camera, and the projected video. (Top right: The UAV used in our research.)}
 \label{UAVCarrot}
-\vspace*{-3ex}
+%\vspace*{-3ex}
 \end{figure}
 
 
@@ -105,10 +106,10 @@ This section presents a wide breadth of \textbf{autonomy} components currently i
 
 \begin{figure}
 \centering
-\includegraphics[width=3.0in]{maps.jpg}
+\includegraphics[width=6.0in]{maps.jpg}
 \caption{Left: a posterior predictive distribution at 200th time step generated using the Bayesian model. Middle: a multimodal distribution used to test path planning (arrow marks starting point). Right: path generated using Intelligent Path Planning.}
 \label{pathplanning}
-\vspace*{-3ex}
+%\vspace*{-3ex}
 \end{figure}
 
 %==================================================
@@ -129,10 +130,10 @@ The term \textit{mosaic} means to ``stitch'' together multiple frames of video o
 
 \begin{figure}
 \centering
-\includegraphics[width=3.0in]{mosaic.png}
+\includegraphics[width=6.0in]{mosaic.png}
 \caption{Example of a video mosaic with an annotation (indicated by a red circle).}
 \label{mosaic}
-\vspace*{-3ex}
+%\vspace*{-3ex}
 \end{figure}
 
 
@@ -166,7 +167,7 @@ The UAV software consists of several components. \textbf{Phairwell} is the \text
 
 
 %=============================
-\vspace*{4 pt}
+%\vspace*{4 pt}
 \noindent\textbf{Phairwell for UAV Operator:}
 The UAV operator's main responsibilities include assigning the UAV a specific task, ensuring that it is properly performing that task while monitoring the UAV's ``health and safety,'' monitoring the live video, and interacting with the UAV when needed (e.g., once the video analyst spots a suspicious object, a change in the plan is made, or when the UAV needs attention). 
 
@@ -189,7 +190,7 @@ Although the UAV's autonomy allows it to fly a predefined flight plan, the UAV o
 
 
 %=============================
-\vspace*{4 pt}
+%\vspace*{4 pt}
 \noindent\textbf{Wonder Client for Video Analyst:}
 The Wonder Client interface serves as the video analyst's primary tool. They have the flexibility to select between either the live video or mosaiced views. The interface also provides tools to modify the brightness, contrast, and other image properties of the live video or mosaic, which often need to be adjusted to make objects more recognizable.
 
@@ -199,7 +200,7 @@ The video analyst can also indicate any geo-referenced location in the video as 
 
 
 %=============================
-\vspace*{4 pt}
+%\vspace*{4 pt}
 \noindent\textbf{Wonder Client for Mission Manager:}
 The mission manager is responsible for assessing what has been searched and how well. This information is then used to plan further search efforts. While assessing ground searcher coverage is a common practice, UAV-assisted search adds a new and challenging aspect to this task. A coverage map showing the quality of the search is generated from the collective see-ability estimates to provide the mission manager with a complete view of the terrain the UAV video covered.
 
@@ -207,7 +208,7 @@ The Wonder Client gives the mission manager access to all the video analyst's PO
 
 
 %=============================
-\vspace*{4 pt}
+%\vspace*{4 pt}
 \noindent\textbf{For Ground Searchers (under development):}
 Successful search requires that ground searches quickly and thoroughly search their assigned area. We have begun development of a system that utilizes the concept of see-ability to support ground searchers in these efforts. A portable GPS device will be used to display a see-ability map, providing a visual representation of the thoroughness and quality of their search based on what they should have seen.
 
