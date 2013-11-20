@@ -3,7 +3,7 @@
 \chapter{Complexity Analysis of the UAV Path Planning Problem}
 \label{chap:complexity}
 
-In this appendix, we analyse why an heuristic approach is preferred than a dynamic programming / reinforcement learning approach by comparing the computational complexity of each approach.
+In this appendix, we analyze why an heuristic approach is preferred than a dynamic programming / reinforcement learning approach by comparing the computational complexity of each approach.
 
 %=====================================================================================================
 \section{Computational Complexity of Dynamic Programming}
@@ -28,7 +28,7 @@ We have attempted to formulate a specific solution to our path-planning problem 
 \section{Complexity of Reinforcement Learning (Approximate Dynamic Programming)}
 \label{RLComplexity}
 
-Reinforcement learning cannot learn an optimal solution to an NP-hard problem in polynomial time\footnote{The approximate dynamic programming / reinforcement learning (ADP/RL) approach does not support (near) real-time solution for OP type problems (For example, Righini and Salanil show in~\cite{Righini2009Decremental} that it takes roughly 1000-3000 seconds to solve an OP type problem with 100 vertices/nodes). The ADP/RL approach also doesn't scale well due to its complexity. Vansteenwegen et al\. surveyed different approaches to solving the OP~\cite{Vansteenwegen2011Orienteering}. Most of the approaches were heuristic approaches, and the only ADP/RL approach mentioned is~\cite{Righini2009Decremental}.}. If it could, then P=NP. Moreover, reinforcement learning typically requires many, many iterations to reach convergence even for moderately sized problems, meaning it is likely to be significantly slower.  Even dynamic programming-based approaches to reinforcement learning, like learning the transition model and applying policy iteration, cannot run in polynomial time on an exponential problem.
+Reinforcement learning cannot learn an optimal solution to an NP-hard problem in polynomial time\footnote{The approximate dynamic programming / reinforcement learning (ADP/RL) approach does not support (near) real-time solution for OP type problems (For example, Righini and Salanil show in~\cite{Righini2009Decremental} that it takes roughly 1000-3000 seconds to solve an OP type problem with 100 vertices/nodes). The ADP/RL approach also does not scale well due to its complexity. Vansteenwegen et al\. surveyed different approaches to solving the OP~\cite{Vansteenwegen2011Orienteering}. Most of the approaches were heuristic approaches, and the only ADP/RL approach mentioned is~\cite{Righini2009Decremental}.}. If it could, then P=NP. Moreover, reinforcement learning typically requires many, many iterations to reach convergence even for moderately sized problems, meaning it is likely to be significantly slower.  Even dynamic programming-based approaches to reinforcement learning, like learning the transition model and applying policy iteration, cannot run in polynomial time on an exponential problem.
 
 In addition to this fundamental limitation of what reinforcement learning can theoretically do, there is a second practical problem with using reinforcement learning for this problem. This practical limitation is that reinforcement learning approaches tend to get stuck in local minima when there are multiple rewards in the problem.  Indeed, the literature includes many papers that seek to resolve this problem by doing what the reviewer suggests --- trading off exploration and exploitation.  These approaches work in practice for some problems, but not for problems that are exponentially complex.  
 
@@ -55,7 +55,7 @@ In our path planning problem, a node can be visited multiple times, and because 
 
 %=====================================================================================================
 %=====================================================================================================
-\chapter{Full Experiement Results for Chapter 5}
+\chapter{Full Experiment Results for Chapter 5}
 \label{chap:result}
 
 Here we present the full experiment results of the four WiSAR scenarios described in Chapter 5. For each scenario, we generate paths with three flight durations ($T=300$, $T=600$, and $T=900$) and compare algorithm computation speed (in seconds) and path $\mathit{Efficiency_{LB}}$ (in \%) for BA, LHC-GW-CONV, Top2, and TopN algorithms (including Top2 and TopN algorithms where $k=5$ and $N=3$). . All numbers shown are averages of 10 runs. Best performance results are displayed in bold font face. Standard deviation ($\sigma$) are also shown for both computation speed and path $\mathit{Efficiency_{LB}}$.
