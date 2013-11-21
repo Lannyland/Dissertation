@@ -215,6 +215,37 @@ Table~\ref{NewYork108Table} shows the experiment results for the NewYork53 WiSAR
 %=====================================================================================================
 %=====================================================================================================
 
-\chapter{Hierarchical Coarse-to-Fine Search and Hierarchical Decision Making}
+\chapter{Hierarchical Decision Making and Hierarchical Coarse-to-Fine Search}
 \label{chap:hierarchical}
 
+In several parts of our dissertation work, we used hierarchical methods to solve various problems. In this appendix we describe two main areas where we applied the hierarchical methods: 1) Choosing the appropriate path planning algorithm depending on the scenario using hierarchical decision making. 2) Speeding up algorithm computation by hierarchically searching through the parameter space in algorithms design.
+
+%=====================================================================================================
+\section{Hierarchical Decision Making in Choosing the Appropriate Path Planning Algorithm}
+\label{Decision}
+
+We designed multiple Intelligent Path Planning Algorithms to tackle the UAV coverage path planning problem at hand. According to the No Free Lunch Theorem~\cite{Wolpert1997No}, ``for any algorithm, any elevated performance over one class of problems is offset by performance over another class.'' Each path planning algorithm performs well with certain type of scenearios, but might not perform well with other types of scenarios. Therefore, given a scenario, we use a hierarchical decision tree to choose the appropriate path planning algorithm.
+
+At the top level, the total amount of UAV \textbf{flight time} is evaluated. If flight time (in time steps) is much larger (e.g, 10 times) than the size of the search area (in number of cells), the Complete-Coverage (CC) algorithm can be used to just exhaustively search the entire area with lawnmower patterns.
+
+At the next level, the amount of \textbf{computation time} allowed is evaluated. If there's no rush to generate a UAV flight path within seconds, the Evolutionary (EA-Path) algorithm can be used to iteratively improve the flight path. The EA-Path algorithm can generate a final path in about 30 seconds. If it is necessary to generate a UAV flight within a fraction of a second (e.g. in the Sliding Autonomy interface), then the LHC-GW-CONV algorithm or the CC algorithm can be used, because they are both very fast algorithms. And which one to choose will depend on lower levels of decision nodes.
+
+After combining the \textit{probability distribution map} and the \textit{task-difficulty map} (if one is used), we can compute a 3D surface indicating at each cell the amount of probability collectable when the UAV visit the cell teh first time. The \textbf{shape of this surface} is considered at the next level of the decision tree. If the surface is completely flat like a uniform distribution, then the CC algorithm is the best candidate because a lawnmower pattern is the optimal path. If the surface is a unimodal surface, then the LHC-GW-CONV algorithm is selected, because it can generate a spiral-pattern path, which is optimal for this scenario. For a multi-modal surface, we move on to the next level of the decision tree.
+
+At the last level, we check if a \textit{task-difficulty map} is used. In other words, whether \textbf{partial detection} is considered. If the answer is no, then the LHC-GW-CONV algorithm is preferred, because algorithm is fast and the average performance of the algorithm is quite good when 100\% detection probability is assumed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+%=====================================================================================================
+\section{Hierarchical Coarse-to-Fine Search in Parameter Space}
+\label{Decision}
