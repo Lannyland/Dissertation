@@ -96,7 +96,7 @@ TopN (Hierarchy) & 0.91 & 0.21 & \textbf{92.27} & 0.00 & 0.84 & 0.16 & \textbf{9
 %\vspace*{-5ex}
 \end{table*}
 \end{center}
-Table~\ref{TestCaseTable} shows the experiment results for the synthetic WiSAR scenario with a multi-modal distribution of the missing person location and a simple task difficulty map with three difficulty levels (as shown in Fig.\ref{SyntheticCase}). The UAV path starts from a subregion with high task difficulty (lower right corner).
+Table~\ref{TestCaseTable} shows the experiment results for the synthetic WiSAR scenario with a multi-modal distribution of the missing person location and a simple task-difficulty map with three difficulty levels (as shown in Fig.\ref{SyntheticCase}). The UAV path starts from a subregion with high task-difficulty (lower right corner).
 
 %=============
 % HikerPaul
@@ -134,7 +134,7 @@ TopN (Hierarchy) & 1.52 & 0.15 & \textbf{81.43} & 0.03 & 1.73 & 0.25 & \textbf{7
 %\vspace*{-5ex}
 \end{table*}
 \end{center}
-Table~\ref{HikerPaulTable} shows the experiment results for the HikerPaul WiSAR scenario, in which an elderly couple was reported missing near the Grayson Highlands State Park in Virginia. Fig.\ref{HikerPaulMaps} shows the probability distribution map and the task difficulty map for the scenario. Fig.\ref{HikerPaulPaths} shows example paths generated. Each UAV path starts from the Last Known Position (LKP), which is in the middle of the search region.
+Table~\ref{HikerPaulTable} shows the experiment results for the HikerPaul WiSAR scenario, in which an elderly couple was reported missing near the Grayson Highlands State Park in Virginia. Fig.\ref{HikerPaulMaps} shows the probability distribution map and the task-difficulty map for the scenario. Fig.\ref{HikerPaulPaths} shows example paths generated. Each UAV path starts from the Last Known Position (LKP), which is in the middle of the search region.
 
 %=============
 % NewYork53
@@ -172,7 +172,7 @@ TopN (Hierarchy) & 5.01 & 0.67 & \textbf{65.39} & 0.03 & 5.76 & 0.96 & \textbf{7
 %\vspace*{-5ex}
 \end{table*}
 \end{center}
-Table~\ref{NewYork53Table} shows the experiment results for the NewYork53 WiSAR scenario, in which a 46 year old male camper was reported missing near Adirondack Park in upperstate New York. Fig.\ref{NewYork53Maps} shows the probability distribution map and the task difficulty map for the scenario. Fig.\ref{NewYork53Paths} shows example paths generated. Each path starts from the Last Known Position (LKP), which is in the middle of the search region.
+Table~\ref{NewYork53Table} shows the experiment results for the NewYork53 WiSAR scenario, in which a 46 year old male camper was reported missing near Adirondack Park in upperstate New York. Fig.\ref{NewYork53Maps} shows the probability distribution map and the task-difficulty map for the scenario. Fig.\ref{NewYork53Paths} shows example paths generated. Each path starts from the Last Known Position (LKP), which is in the middle of the search region.
 
 %=============
 % NewYork108
@@ -210,7 +210,7 @@ TopN (Hierarchy) & 6.81 & 1.10 & 59.60 & 0.02 & 6.59 & 0.98 & \textbf{60.26} & 0
 %\vspace*{-5ex}
 \end{table*}
 \end{center}
-Table~\ref{NewYork108Table} shows the experiment results for the NewYork53 WiSAR scenario, in which two teenage female hikers were reported missing near West Chesterfield in Massachusetts. Fig.\ref{NewYork108Maps} shows the probability distribution map and the task difficulty map for the scenario. Fig.\ref{NewYork108Paths} shows example paths generated. Each path starts from the Last Known Position (LKP), which is in the middle of the search region.
+Table~\ref{NewYork108Table} shows the experiment results for the NewYork53 WiSAR scenario, in which two teenage female hikers were reported missing near West Chesterfield in Massachusetts. Fig.\ref{NewYork108Maps} shows the probability distribution map and the task-difficulty map for the scenario. Fig.\ref{NewYork108Paths} shows example paths generated. Each path starts from the Last Known Position (LKP), which is in the middle of the search region.
 
 %=====================================================================================================
 %=====================================================================================================
@@ -224,28 +224,88 @@ In several parts of our dissertation work, we used hierarchical methods to solve
 \section{Hierarchical Decision Making in Choosing the Appropriate Path Planning Algorithm}
 \label{Decision}
 
-We designed multiple Intelligent Path Planning Algorithms to tackle the UAV coverage path planning problem at hand. According to the No Free Lunch Theorem~\cite{Wolpert1997No}, ``for any algorithm, any elevated performance over one class of problems is offset by performance over another class.'' Each path planning algorithm performs well with certain type of scenearios, but might not perform well with other types of scenarios. Therefore, given a scenario, we use a hierarchical decision tree to choose the appropriate path planning algorithm.
+We designed multiple Intelligent Path Planning Algorithms to tackle the UAV coverage path planning problem at hand. According to the No Free Lunch Theorem~\cite{Wolpert1997No}, ``for any algorithm, any elevated performance over one class of problems is offset by performance over another class.'' Each path planning algorithm performs well with certain type of scenarios, but might not perform well with other types of scenarios. Therefore, given a scenario, we use a hierarchical decision tree to choose the appropriate path planning algorithm.
 
 At the top level, the total amount of UAV \textbf{flight time} is evaluated. If flight time (in time steps) is much larger (e.g, 10 times) than the size of the search area (in number of cells), the Complete-Coverage (CC) algorithm can be used to just exhaustively search the entire area with lawnmower patterns.
 
 At the next level, the amount of \textbf{computation time} allowed is evaluated. If there's no rush to generate a UAV flight path within seconds, the Evolutionary (EA-Path) algorithm can be used to iteratively improve the flight path. The EA-Path algorithm can generate a final path in about 30 seconds. If it is necessary to generate a UAV flight within a fraction of a second (e.g. in the Sliding Autonomy interface), then the LHC-GW-CONV algorithm or the CC algorithm can be used, because they are both very fast algorithms. And which one to choose will depend on lower levels of decision nodes.
 
-After combining the \textit{probability distribution map} and the \textit{task-difficulty map} (if one is used), we can compute a 3D surface indicating at each cell the amount of probability collectable when the UAV visit the cell teh first time. The \textbf{shape of this surface} is considered at the next level of the decision tree. If the surface is completely flat like a uniform distribution, then the CC algorithm is the best candidate because a lawnmower pattern is the optimal path. If the surface is a unimodal surface, then the LHC-GW-CONV algorithm is selected, because it can generate a spiral-pattern path, which is optimal for this scenario. For a multi-modal surface, we move on to the next level of the decision tree.
+After combining the \textit{probability distribution map} and the \textit{task-difficulty map} (if one is used), we can compute a 3D surface indicating at each cell the amount of probability collectible when the UAV visit the cell the first time. The \textbf{shape of this surface} is considered at the next level of the decision tree. If the surface is completely flat like a uniform distribution, then the CC algorithm is the best candidate because a lawnmower pattern is the optimal path. If the surface is a unimodal surface, then the LHC-GW-CONV algorithm is selected, because it can generate a spiral-pattern path, which is optimal for this scenario. For a multi-modal surface, we move on to the next level of the decision tree.
 
 At the last level, we check if a \textit{task-difficulty map} is used. In other words, whether \textbf{partial detection} is considered. If the answer is no, then the LHC-GW-CONV algorithm is preferred, because algorithm is fast and the average performance of the algorithm is quite good when 100\% detection probability is assumed.
 
 
+%=====================================================================================================
+\section{Hierarchical Coarse-to-Fine Search in Parameter Space}
+\label{CTF}
+
+\begin{figure}
+\centering
+\includegraphics[width=6in]{Multimodal1.jpg}
+\caption{A synthetic WiSAR scenario. Left: Multi-modal probability distribution. Middle: A simple task-difficulty map. Right: Probability collectible on first visit (combining probability distribution and task-difficulty map).}
+\label{SyntheticCase2}
+%\vspace*{-1ex}
+\end{figure}
+
+In the LHC-GW-CONV and Top2 algorithms we used the same hierarchical coarse-to-fine search technique to speed up the search for the best UAV path. Here we describe the technique in detail using the Top2 algorithm as an example.
+
+The Top2 algorithm is designed to generate paths that force the UAV to visit the top 2 subregions in the search area. First the Mode Goodness Ratio heuristic is used to identify the top 2 search subregions (represented by centroids). Then, shortest path segments from the start location and the end location (optional) to the nearest centroid are created. The algorithm then identifies a point (vertex) equidistant from the two centroids and launches two path planning tasks to plan path segments from each centroid to that point. By allocating different percentages of the remaining flight time to these two path planning tasks, the Top2 algorithm can effectively search within a new dimension of time allocation. When searching in this new dimension, we used the coarse-to-fine search technique to improve search efficiency.
+
+Figure~\ref{SyntheticCase2} shows an example synthetic WiSAR scenario, and Figure~\ref{CoarseToFine} shows how search efficiency (CDP) changes when different amount of flight time (in time steps) is allocated to the first path segment (the total amount of flight time is static). The curve in Figure~\ref{CoarseToFine} resembles a smooth curve with only one mode, meaning the local maximum would be the global maximum. This property allows us to use a coarse-to-fine search technique so we don't have to search exhaustively through the parameter space.
+
+%Fig.\ref{CTFAlg} shows the pseudo-code for the coarse-to-fine search technique.
 
 
+\begin{figure}
+\centering
+\includegraphics[width=5in]{CoarseToFine.jpg}
+\caption{Performance of the Top2 algorithm with the example WiSAR scenario when flight time allocated to first path segment varies.}
+\label{CoarseToFine}
+%\vspace*{-3ex}
+\end{figure}
 
+The coarse-to-fine technique is a recursive method with the number of recursive runs predetermined, depending on what resolution is needed. We start from a low resolution (large chunks of flight time transfered from one path planning task to the other) and gradually increasing the resolution (smaller chunks) until the best path is found at the desired resolution. 
 
-
-
-
-
+First the total flight time is divided into equal chunks (3 chunks in our implementation), then four paths are generated with 0, 1, 2, and 3 chunks of flight time allocated to path segment 1 (remaining time allocated to path segment 2). The performance of these four paths are marked in Figure~\ref{CoarseToFine} relatively by four green lines labeled 1--4. Then the flight time allocation that generates the best path (maximum CDP) is identified (green line 2). In the next recursive run, the flight time chunk in the previous run is divided into smaller equal chunks, and three more paths are generated at each side of the green line 2 (marked with shorter blue lines). Together with green line 2, performance of these seven paths are compared, and the one with the best path (still green line 2) is identified and will be used as the center for the next recursive round of search (between blue line 5 and 6). With a few recursive runs, the best time allocation point (between blue line 5 and green line 2) can be identified quickly without exhaustively search through all the possible time allocation options.
 
 
 
 %=====================================================================================================
-\section{Hierarchical Coarse-to-Fine Search in Parameter Space}
-\label{Decision}
+%=====================================================================================================
+
+\chapter{Identifying Modes in a 3D Surface using Local-Hill Climbing with Memory}
+\label{chap:modes}
+
+
+\begin{figure}
+\centering
+\includegraphics[width=6in]{ExampleSurface.jpg}
+\caption{An example 3D surface with 4 modes.}
+\label{4modes}
+%\vspace*{-1ex}
+\end{figure}
+
+
+A 3D probability distribution surface can represent the likelihood of certain events in a specific region where a higher point on the surface could mean it is more likely for the event to happen. For example, a 3D probability distribution surface created for a Wilderness Search and Rescue (WiSAR) operation can show the searchers areas where it is more likely to find the missing person. The distribution map can be used to better allocate search resources and to generate flight paths for an Unmanned Aerial Vehicle (UAV). Figure~\ref{4modes} shows an example probability distribution map with 4 modes.
+
+Because different path-planning algorithms may be better suited for different probability distributions~\cite{Wolpert1997No}, identifying the type of distribution beforehand can help us decide what algorithm is appropriate for the specific path-planning task. In our decision process, we particularly care about how many modes the probability distribution has. So how can we automatically identify all the modes in a 3D probability distribution surface? In this appendix we describe the algorithm we use.
+
+In our case, the 3D probability distribution surface is represented by a matrix/table where each value represents the height of the point. You can think of this distribution as a gray-scale image where the gray value of each pixel represent the height of the point. And we use a Local Hill Climbing with Memory algorithm with 8-connected neighbors.
+
+The algorithm goes as follows:
+\begin{enumerate}
+\item \textbf{Down sample the distribution}: If the distribution map is very large, it might be a good idea to down sample the distribution to improve algorithm speed. We assume the surface is noise-free. If the surface is noisy, we can also smooth it with a Gaussian filter (think image processing).
+\item \textbf{Check for a uniform distribution} (a flat surface): It is a good idea to check if the probability distribution is a uniform distribution. Just check to see if all values in the matrix are identical. If a uniform distribution is identified, we know the distribution has 0 mode and we are done.
+\item \textbf{Local Hill Climbing with Memory}: Start from the a point of the surface and then check its neighbors (8-connected). As soon as a neighbor with the same or better value is found, we ``climb'' to that point. The process is repeated until we reach a point (hilltop) where all neighbors have smaller values. As we ``climb'' and check neighbors, we mark all the points we visited along the way. And when we check neighbors, we only check points we have not visited before. This way we avoid finding a mode we had found before. Once we find a ``mode'', we can start from another unvisited point on the surface and do another Local Hill Climbing. Here I use quotes around the word mode because we are not sure if the ``mode'' we found is a real mode.
+\item \textbf{Make sure the ``mode'' we found is a real mode}: The ``mode'' we found using Local Hill Climbing might not actually be a real mode. It might be right next to a mode previously found and have a lower value (because we only checked unvisited neighbors in the previous step). It might also be part of another flat-surface mode where the mode consists of multiple points with identical values (think of a hilltop that looks like a plateau or think of a ridge). Things get even more complicated with special distributions such as the example in Figure~\ref{GreatWall}. And the ``mode'' point we found might be connected to a previously found mode through other points with the same value (e.g, the ``mode'' point is the end point of the short branch in the middle of Figure~\ref{GreatWall}. Therefore, we need to keep track of all points leading to the final ``mode'' point that have identical values and check all the visited neighbors of these points, making sure this flat surface is not part of a previously found mode. If these points make up a real new mode, we mark these points with a unique mode count id (e.g, mode 3). If they are only part of a previously found mode, we mark these points with the previously found mode id (e.g., mode 2). If one of them is right next to a previously found mode but have lower value, we mark these points as non-mode points. This step is almost like performing a Connected-Component Labeling operation in Computer Vision.
+\end{enumerate}
+
+At the end of the algorithm run, we will have a count of how many modes the probability distribution has (maximum mode id) and also a map with all the mode points marked. With the Great Wall distribution, the map would look just like Figure~\ref{GreatWall} (white pixels marking mode points) with 1 mode. And within Milli-seconds, the algorithm can identify the 4 modes in the example 3D surface above (Figure~\ref{4modes}).
+
+\begin{figure}
+\centering
+\includegraphics[width=6in]{GreatWall.jpg}
+\caption{An example path-type distribution resembling the Great Wall of China.}
+\label{GreatWall}
+%\vspace*{-1ex}
+\end{figure}

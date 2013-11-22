@@ -1,7 +1,7 @@
-\chapter[Probability Distribution Map and Task Difficulty Map Editor Interface]{Probability Distribution Map and Task Difficulty Map Editor Interface}
+\chapter[Probability Distribution Map and Task-Difficulty Map Editor Interface]{Probability Distribution Map and Task-Difficulty Map Editor Interface}
 \label{chap:MapEdit}
 
-At the \textbf{Between-Episodes} scale, a searcher might have additional case-specific information (e.g, past experience, knowledge of the search area or weather conditions, or the profile of the missing person) and would like to modify the general plan produced at the strategic scale. Moreover, as search progresses, the search plan should change due to newly found evidence (or the lack of it) from either the ground searchers or previous UAV flights. We developed two autonomy management tools at this scale that allow the user to manage two types of information: \textit{areas of focus} and \textit{task difficulty}.
+At the \textbf{Between-Episodes} scale, a searcher might have additional case-specific information (e.g, past experience, knowledge of the search area or weather conditions, or the profile of the missing person) and would like to modify the general plan produced at the strategic scale. Moreover, as search progresses, the search plan should change due to newly found evidence (or the lack of it) from either the ground searchers or previous UAV flights. We developed two autonomy management tools at this scale that allow the user to manage two types of information: \textit{probability distribution map} and \textit{task-difficulty map}.
 
 \begin{figure}
 \centering
@@ -9,20 +9,28 @@ At the \textbf{Between-Episodes} scale, a searcher might have additional case-sp
 	\begin{minipage}{0.45\textwidth}
 	\centering
 	\includegraphics[width=2.8in]{DistEditExample.jpg}
-	\caption{An example probability distribution map generated using the DistCreate tool.}
+	\caption{An example probability distribution map generated using the DistEdit tool.}
 	\label{DistEditExample2}
 	\end{minipage}
 &
 	\begin{minipage}{0.45\textwidth}
 	\centering
 	\includegraphics[width=2.8in]{DiffEditExample.jpg}
-	\caption{An example task-difficulty map generated using the DiffCreate tool with satellite image of the search region overlaid on top.}
+	\caption{An example task-difficulty map generated using the DiffEdit tool with satellite image of the search region overlaid on top.}
 	\label{DiffEditExample2}
 	\end{minipage}
 \end{tabular}
 \end{figure}
 
 Searchers can use the \textbf{DistEdit} tool to modify a probability distribution map and use the \textbf{DiffEdit} tool to modify a task-difficulty map generated at the \textbf{Strategic} scale. Both tools enable the user to view maps as 3D surfaces where a color map is applied for better distinction (red means high probability area or high task-difficulty level and blue means low vise versa). The user can use mouse and finger gestures to rotate/pan/zoom the respective map and edit the shapes of the maps in 3D to incorporate information that the autonomous components are unable to interpret. The user also has the option to overlay a satellite image of the search area on top of the maps for better alignments.
+
+if the user is dissatisfied with the \textit{probability distribution map} and \textit{task-difficulty map}.
+
+%=====================================================================================================
+\section{The DiffEdit Tool}
+\label{}
+
+
 
 In \textbf{DistEdit} the user can paint Gaussian distributions onto the probability distribution map (in the form of a 3D surface) with a paintbrush tool to specify \textit{areas of focus}. The mouse click (or finger press gesture) position determines the mean of the Gaussian distribution; brush size determines the standard deviation (with a radius equivalent to three times the standard deviation); and the duration of the click (or finger press gesture) determines the scale of the Gaussian distribution. Using this tool the user can add or subtract Gaussian components to the map to create a mixture of Gaussians. The modified probability distribution can be used later to prioritize tasks and plan UAV paths. By marking an area as a high priority area, the searchers can indirectly manipulate the UAV to search the area before other areas without the need to manually specify waypoints. Figure~\ref{DistEditExample2} shows an example probability distribution map generated using the \textbf{DistEdit} tool.
 
@@ -32,9 +40,6 @@ If the user does not like the probability distribution map or task-difficulty ma
 
 
 
-%=====================================================================================================
-\section{The DiffEdit Tool}
-\label{}
 
 \begin{figure}
 \centering
