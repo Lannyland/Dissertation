@@ -1,23 +1,76 @@
-\chapter[Paper: Sliding Autonomy for UAV Path Planning: Adding New Dimensions to Autonomy Management]{Paper: Sliding Autonomy for UAV Path Planning: Adding New Dimensions to Autonomy Management\footnote {To be submitted to JHRI (Journal of Human-Robot Interaction) journal. Authors are Lanny Lin, and Michael A. Goodrich.}}
-\label{chap:JHRI2014}
+\documentclass[journal]{IEEEtran}
+\usepackage{times}
+
+% numbers option provides compact numerical references in the text. 
+\usepackage[sort,compress,numbers]{natbib}
+\usepackage{multicol}
+\usepackage[bookmarks=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{algpseudocode}
+ 
+% \usepackage{caption}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{algpseudocode}
+\usepackage{epstopdf}
+\newcommand{\rr}{\raggedright}
+\newcommand{\tn}{\tabularnewline}
+\newcommand{\shortcite}[1]{\cite{#1}}
+\newcommand{\degree}{\ensuremath{^\circ}}
+
+
+%\pdfinfo{
+%   /Author (
+%   % Omitted to meet double-blind review requirements % 
+%   Lanny Lin and Michael A. Goodrich)
+%   /Title  (Hierarchical Heuristic Search Using A Gaussian Mixture Model for UAV Coverage Planning)
+%   /CreationDate (D:20130304120000)
+%   /Subject (Algorithm Paper)
+%   /Keywords (UAV, Path Planning, Coverage)
+%}
+
+\begin{document}
+
+% paper title
+\title{Sliding Autonomy for UAV Path Planning: Adding New Dimensions to Autonomy Management}
+
+% You will get a Paper-ID when submitting a pdf file to the conference system
+\author{
+% Author Names Omitted for Anonymous Review. Paper-ID 158 %
+Lanny~Lin,~\IEEEmembership{Member,~IEEE,}
+and~Michael~A.~Goodrich,~\IEEEmembership{Senior~Member,~IEEE}%
+\\Computer Science Department \\ Brigham Young University \\ lanny.lin@byu.edu, mike@cs.byu.edu
+}
+
+\maketitle
 
 \begin{abstract}
 Increased use of autonomy also increases human-automation interaction and the need for humans to manage autonomy. We propose a new autonomy management approach, sliding autonomy, where the user can influence the behavior of the automous system along two new dimensions: a temporal dimension for how much time to allocate to the subtask, and a spatial dimension for where to set task constraints. We apply the approach to the task of UAV (Unmanned Aerial Vehicle) path planning to support Wilderness Search and Rescue (WiSAR), and evaluate the usefulness of the approach against manual and simple pattern path planning modes in a user study. Results show that the sliding autonomy approach performs significantly better than the other two modes, and the performance of the human-automation team outperforms either human or automation working alone. And the users' mental workload, measured by a secondary task performance and NASA TLX, 
 \end{abstract}
 
 
+\begin{IEEEkeywords}
+Unmanned aerial vehicles, path planning, navigation, adjustable autonomy, supervisory control
+\end{IEEEkeywords}
+
+\IEEEpeerreviewmaketitle
+
 
 %=================================================================================
 \section{Introduction}
 \label{sec:Introduction6}
 
-With the rapid advancement in technology, people are seeing increased use of autonomy to augment human abilities and support human decision-making in many application domains (e.g.,~\cite{Chun2010Limousine,Casper2003Human,Lin2010Supporting,Robins2009From}). At the same time, increased use of autonomy also means increased human-automation interaction and increased need for human to manage autonomy~\cite{Bainbridge1983Ironies}. The managerial responsibilities include monitoring the safety of the autonomous system, supervising autonomy to achieve acceptable performance, and making sure autonomy is working toward the collective goal of the overall system. The human operators are domain experts who can use domain-specific knowledge to assist the autonomous system when it deals with changing environments, uncertainty, and case-specific scenarios. However, the humans in such interactions are not likely the designers of the autonomous systems, but these humans must still manage the autonomy, because ``only people are held responsible for consequences (that is, only people can act as problem holders) and only people decide on how authority is delegated to automata''~\cite{Woods2006Joint,Bradshaw2013Seven}. Therefore, it is necessary to design tools and interfaces that enable human users to manage the autonomous behaviors of the system efficiently and effectively; such tools can improve task performance and the experience of the human operator in human-automation interaction.
+\IEEEPARstart{W}{ith} the rapid advancement in technology, people are seeing increased use of autonomy to augment human abilities and support human decision-making in many application domains (e.g.,~\cite{Chun2010Limousine,Casper2003Human,Lin2010Supporting,Robins2009From}). At the same time, increased use of autonomy also means increased human-automation interaction and increased need for human to manage autonomy~\cite{Bainbridge1983Ironies}. The managerial responsibilities include monitoring the safety of the autonomous system, supervising autonomy to achieve acceptable performance, and making sure autonomy is working toward the collective goal of the overall system. The human operators are domain experts who can use domain-specific knowledge to assist the autonomous system when it deals with changing environments, uncertainty, and case-specific scenarios. However, the humans in such interactions are not likely the designers of the autonomous systems, but these humans must still manage the autonomy, because ``only people are held responsible for consequences (that is, only people can act as problem holders) and only people decide on how authority is delegated to automata''~\cite{Woods2006Joint,Bradshaw2013Seven}. Therefore, it is necessary to design tools and interfaces that enable human users to manage the autonomous behaviors of the system efficiently and effectively; such tools can improve task performance and the experience of the human operator in human-automation interaction.
 
 In our previous work~\cite{Lin2010Supporting} we organized the challenges of autonomy integration design along two dimensions: \textit{attributes of an intelligent system} (capability, information management, performance evaluation) and \textit{scale} (individual versus group), which can serve as a guideline in designing autonomous components. Here we extend this table by adding a row in the middle describing what attributes are needed when multiple agents work collaboratively (see Figure~\ref{IChallenges}). A human-automation team working on the same task falls within this category. As an individual tool, an autonomous component needs to be able to perform a task (\textbf{Autonomy}); the operator can match capability to task according to the information available to the operator, which requires that antonomy can be interrupted, paused, aborted, and resumed (\textbf{Flexibility}); the performance is evaluated to match individual task goal. When a human-automation team work on the same task collaboratively, the autonomous component needs to provide interfaces so the human can influence the autonomous behavior with human inputs (\textbf{Interactivity}); the human agent should be able to manage how autonomy works in order to jointly find a solution by utilizing information only available to the human agent and/or feed information to autonomy in a representation that autonomy can understand (\textbf{Manageability}); and when performance is evaluated, the human operator can judge whether the individual goal aligns with the collective goal of the system. As part of a larger distributed system, the autonomous component needs to be modular (\textbf{Modularity}); information from various sources need to be combined and presented to one or multiple users in a \textbf{Fusion}; and performance of the system needs to be evaluated as a whole. This paper focuses on the middle row of this guideline: intelligence of collaborative agents (human-automation team).
 
 \begin{figure}
 \centering
-\includegraphics[width=6in]{IntegrationChallenges.JPG}
+\includegraphics[width=3.5in]{IntegrationChallenges.JPG}
 \caption{Autonomy integration challenges defined along two dimensions. Horizontal dimension: attributes of intelligence. Vertical dimension: scale.}
 \label{IChallenges}
 \end{figure}
@@ -162,3 +215,26 @@ The \textbf{SlidingAutonomy} interface allows the user to work with automation a
 
 At this scale, while the UAV is in the air during mission, as information is collected and processed by the collective search and rescue team, situation arises when the \textit{probability distribution map} and/or the \textit{task-difficulty map} become incorrect. In cases where these two maps cannot be updated in real-time, how can the user use \textbf{SlidingAutonomy} to manage UAV path planning autonomy to address the information change, maybe avoid certain regions or force the UAV to visit certain regions repeatedly, is another interesting research topic. A user study can be performed to evaluate the human-automation interaction experience and the performance of this Sliding Autonomy approach.
 
+
+
+%=================================================================================	
+\section*{Acknowledgments}
+
+This work was partially supported by 
+the National Science Foundation 
+%\_\_\_\_\
+under grant number 
+0534736 
+%\_\_\_\_\_
+and by a grant from
+the Army Research Laboratory.
+%\_\_\_\_\.
+Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the sponsoring organizations.
+
+%% Use plainnat to work nicely with natbib. 
+
+\bibliographystyle{IEEEtran}
+\bibliography{LannyDissertation}
+
+
+\end{document}
