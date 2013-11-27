@@ -49,7 +49,7 @@ and~Michael~A.~Goodrich,~\IEEEmembership{Senior~Member,~IEEE}%
 \maketitle
 
 \begin{abstract}
-Increased use of autonomy also increases human-automation interaction and the need for humans to manage autonomy. We propose a new autonomy management approach, sliding autonomy, where the user can influence the behavior of the automous system along two new dimensions: a temporal dimension for how much time to allocate to the subtask, and a spatial dimension for where to set task constraints. We apply the approach to the task of UAV (Unmanned Aerial Vehicle) path planning to support Wilderness Search and Rescue (WiSAR), and evaluate the usefulness of the approach against manual and simple pattern path planning modes in a user study. Results show that the sliding autonomy approach performs significantly better than the other two modes, and the performance of the human-automation team outperforms either human or automation working alone. And the users' mental workload, measured by a secondary task performance and NASA TLX, 
+Increased use of autonomy also increases human-automation interaction and the need for humans to manage autonomy. We propose a new autonomy management approach, sliding autonomy, where the user can influence the behavior of the automous system along two new dimensions: a temporal dimension for how much time to allocate to the subtask, and a spatial dimension for where to set task constraints. We apply the approach to the task of UAV (Unmanned Aerial Vehicle) path planning to support Wilderness Search and Rescue (WiSAR), and evaluate the usefulness of the approach against manual and simple pattern path planning methods in a user study. Results show that the sliding autonomy approach performs significantly better than the other two methods without increasing the users' mental workload, and the performance of the human-automation team outperforms either human or automation working alone.
 \end{abstract}
 
 
@@ -75,7 +75,17 @@ In our previous work~\cite{Lin2010Supporting} we organized the challenges of aut
 \label{IChallenges}
 \end{figure}
 
-Many approaches to autonomy management exist, such as \textit{Supervisory Control}, \textit{Mixed-initiative}, \textit{Collaborative Control}, \textit{Adjustable Autonomy}~\cite{Dorais1998AdjustableAutonomy,Dorais2001Designing} (also referred to as \textit{Sliding Autonomy}~\cite{Dias2008SlidingAutonomy} or \textit{Adaptive Automation}~\cite{Rouse1988Adaptive,Kaber2001Design}). The approach we propose falls under the category of \textbf{Adjustable Autonomy}. However with our approach the user can influence the behavior of the automous system along two new dimensions: a temporal dimension for how much time to allocate to the subtask, and a spatial dimension for where to set task constraints. These two dimensions are in addition to dimensions of \textit{Adjustable Autonomy} identified in the literature~\cite{Bradshaw2004Dimensions}. We apply the proposed autonomy management approach to the task of UAV (Unmanned Aerial Vehicle) path planning to support Wilderness Search and Rescue (WiSAR). We argue that 
+Many approaches to autonomy management exist, such as \textit{Supervisory Control}, \textit{Mixed-initiative}, \textit{Collaborative Control}, \textit{Adjustable Autonomy}~\cite{Dorais1998AdjustableAutonomy,Dorais2001Designing} (also referred to as \textit{Sliding Autonomy}~\cite{Dias2008SlidingAutonomy} or \textit{Adaptive Automation}~\cite{Rouse1988Adaptive,Kaber2001Design}). The approach we propose falls under the category of \textbf{Adjustable Autonomy}. However with our approach the user can influence the behavior of the automous system along two new dimensions: a temporal dimension for how much time to allocate to the subtask, and a spatial dimension for where to set task constraints. These two dimensions are in addition to dimensions of \textit{Adjustable Autonomy} identified in the literature~\cite{Bradshaw2004Dimensions}. To evaluate the usefulness of the proposed autonomy management approach, we applied it to the task of UAV (Unmanned Aerial Vehicle) path planning to support Wilderness Search and Rescue (WiSAR).
+
+UAVs used for WiSAR. 
+Use probability distribution map and task-difficulty map.
+Given fixed flying time, maximize probability of finding missing person.
+In the temporal dimension, use use slider to choose time allocation for current path segment. Then join segments to form full path.
+In the spatial dimension, add constraints. Constraints can be end points or no-fly zones (cite spencer's paper).
+
+
+
+
 
   and evaluate the usefulness of the approach against manual control and simple pattern path planning methods in a user study.
 
