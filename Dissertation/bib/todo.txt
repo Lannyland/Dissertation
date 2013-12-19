@@ -1,0 +1,14 @@
+Dissertation:
+1. Cut chatper 1 down by 1/4.
+2. Cut user study description and experiment results in JHRI chapter.
+3. Add move endpoint thing in discussion.
+4. Sliding authority and flexibility.
+
+
+Journal Paper:
+1. Cut down related work slightly.
+2. Add Spencer's stuff.
+
+
+
+Proceedings of the Innovative Applications of Artificial Intelligence Conference
