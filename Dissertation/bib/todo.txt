@@ -3,6 +3,9 @@ Dissertation:
 2. Cut user study description and experiment results in JHRI chapter.
 3. Add move endpoint thing in discussion.
 4. Sliding authority and flexibility.
+[Done] 5. Make sure all scales lower case.
+[Done] 6. Make sure to change to temporal scale in all places
+[Done] 7. Make sure to change to organizational scale in all places
 
 
 Journal Paper:
@@ -11,4 +14,3 @@ Journal Paper:
 
 
 
-Proceedings of the Innovative Applications of Artificial Intelligence Conference

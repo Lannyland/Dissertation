@@ -298,7 +298,7 @@ Because different path-planning algorithms may be better suited for different pr
 
 In our case, the 3D probability distribution surface is represented by a matrix/table where each value represents the height of the point. You can think of this distribution as a gray-scale image where the gray value of each pixel represent the height of the point.
 
-The algorithm goes as follows:
+The \textit{local hill climbing with memory} algorithm proceeds as follows:
 \begin{enumerate}
 \item \textbf{Downsample and smooth the distribution}: If the distribution map is very large, it is useful to downsample the distribution to improve algorithm speed. For the results in this dissertation, we used $100^2$ sample points over an $100 \times 100$ grid. Since the algorithm assumes that the surface is free of noise, it may be necessary to smooth the surface using a Gaussian filter. The results in this dissertation assume a noise-free surface and, therefore, do not use smoothing.
 \item \textbf{Check for a uniform distribution} (a flat surface): It is a good idea to check if the probability distribution is a uniform distribution. Just check to see if all values in the matrix are identical or are within $\varepsilon$ units of each other. If a uniform distribution is identified, we know the distribution has 0 modes and we are done.
@@ -317,3 +317,12 @@ At the end of the algorithm run, we will have a count of how many modes the prob
 \label{GreatWall}
 %\vspace*{-1ex}
 \end{figure}
+
+
+
+%=====================================================================================================
+%=====================================================================================================
+
+\chapter{Sliding Autonomy User Study Design and Full Results}
+\label{chap:SlidingAutonomy}
+
