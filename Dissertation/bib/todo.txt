@@ -7,6 +7,14 @@ Dissertation:
 [Done] 6. Make sure to change to temporal scale in all places
 [Done] 7. Make sure to change to organizational scale in all places
 
+Manage multiple dimensions at the same time.
+Slide end points to assign different authority and flexibility.
+Slide no-fly zones?
+
+Shorter time without end point will search local maximum
+Longer time without end point will probably move to another probability hill
+
+
 
 Journal Paper:
 1. Cut down related work slightly.

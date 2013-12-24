@@ -150,7 +150,18 @@ As an individual tool, an autonomous component needs to be able to perform a tas
 
 When a human-autonomy team works on the same task collaboratively, the autonomous component needs to provide interfaces so the human can influence the autonomous behavior with human inputs (\textbf{Interactivity}); the human should be able to manage how autonomy works in order to jointly find a solution by utilizing information only available to the human and/or feed information to autonomy in a representation that autonomy can understand (\textbf{Manageability}); and when performance is evaluated, the human operator can judge whether the individual goal aligns with the collective goal of the system. 
 
-As part of a larger distributed system, each autonomous component needs to be modular (\textbf{Modularity}), so they can be mixed and matched to support different user roles; information from various sources need to be combined and presented to one or multiple users in a \textbf{Fusion}; and performance of the system needs to be evaluated as a whole. This paper focuses on the middle row of the guidelines: intelligence of collaborative agents (human-autonomy team). The three dimensions we propose are ways path planning autonomy can be managed, and the path planner component is designed to accept human inputs along the three dimensions to provide interactivity. The human can also incorporate information from various sources and influence the behavior of path planning autonomy, making sure the task goal aligns with the ultimate goal of finding the missing person quickly.
+As part of a larger distributed system, each autonomous component needs to be modular (\textbf{Modularity}), so they can be mixed and matched to support different user roles; information from various sources need to be combined and presented to one or multiple users in a \textbf{Fusion}; and performance of the system needs to be evaluated as a whole. 
+
+This paper focuses on the middle row of the guidelines: intelligence of collaborative agents (human-autonomy team). The three dimensions we propose are ways path planning autonomy can be managed, and the path planner component is designed to accept human inputs along the three dimensions to provide interactivity. The human can also incorporate information from various sources and influence the behavior of path planning autonomy, making sure the task goal aligns with the ultimate goal of finding the missing person quickly.
+
+%===================================================
+\subsection{Information Representation Dimension}
+
+Many path planning algorithms use a probability distribution map that shows where are likely places to find the missing person. We also designed our path planning algorithms to support a task-difficulty map: a spatial representation showing (one minus) sensor detection probability in different parts of the search region. For example, probability near the last known position (LKP) of the missing person is normally high (low task difficulty); and the probability of detecting the missing person in a dense vegetation area from camera footprints is normally low (high task difficulty). The objective of path planning is to find a path that maximize the detection probability of the missing person given a fixed flying time. 
+
+These two maps are in human-readable form and are used directly by path planning autonomy. They can be systematically generated based on terrain features and vegetation data~\cite{Lin2010Bayesian, Lin2014Hierarchical}. However, the searcher likely wants to include his/her domain expertise (past experience, knowledge of the search region, etc.) and additional information (maybe new evidence found during the search) in the planning. These types of information are not directly understandable by autonomous algorithms, but the searcher can incorporate them into the probability distribution map and the task-difficulty map using map editing tools\footnote{Such as these tools at http://tech.lannyland.com/demos.html.}, thus influence the behavior of path planning autonomy.
+
+Marking an area with high probability, the searcher indirectly tells the UAV to treat the area with high priority; marking an area with high task-difficulty, the UAV might make multiple passes over the area to search more thoroughly. The 3D surface in Figure~\ref{dimensions} shows an example probability distribution map where hills (red) indicate high probability and the flat area (blue) indicates low probability.
 
 \begin{figure}
 \centering
@@ -159,21 +170,22 @@ As part of a larger distributed system, each autonomous component needs to be mo
 \label{dimensions}
 \end{figure}
 
-%===================================================
-\subsection{Information Representation Dimension}
-
-Many path planning algorithms use a probability distribution map that shows where are likely places to find the missing person. We also designed our path planning algorithms to support a task-difficulty map: a spatial representation showing (one minus) sensor detection probability in different parts of the search region. For example, probability near the last known position (LKP) of the missing person is normally high (low task difficulty); and the probability of detecting the missing person in a dense vegetation area from camera footprints is normally low (high task difficulty). The objective of path planning is to find a path that maximize the detection probability of the missing person given a fixed flying time. 
-
-These two maps can be systematically generated based on terrain features and vegetation data~\cite{Lin2010Bayesian, Lin2014Hierarchical}. However, the searcher likely wants to include his/her domain expertise (past experience, knowledge of the search region, etc.) and additional information (maybe new evidence found during the search) in the planning. These types of information are not directly understandable by autonomous algorithms, but the searcher can incorporate them into the probability distribution map and the task-difficulty map using map editing tools\footnote{Such as these tools at http://tech.lannyland.com/demos.html.}, thus influence the behavior of path planning autonomy.
-
-Marking an area with high probability, the searcher indirectly tells the UAV to treat the area with high priority; marking an area with high task-difficulty, the UAV might make multiple passes over the area to search more thoroughly. The 3D surface in Figure~\ref{dimensions} shows an example probability distribution map where hills (red) indicate high probability and the flat area (blue) indicates low probability.
-
 By managing information representation, the searcher can quickly figure out how his actions will affect the behavior of autonomy, even though he/she has no idea about how autonomy works behind the scene. Our interface supports autonomy management along this dimension. But we choose to not include it in the current user study (due to the one-hour limit per test subject) and leave the evaluation in a separate user study.
 
 %===================================================
-\subsection{Task Constraints Dimension}
+\subsection{Spatial Constraints Dimension}
 
-The searcher can also influence the behavior of path planning autonomy by adding constraints to the problem. Constraints can be the start/end points of the path or no-fly zones. Setting an end point in an area is a way for the searcher to indirectly tell path planning autonomy that he/she wants the UAV to search this area. For example, if a piece of clothing is found by the ground team, the searcher can force path planning autonomy to go visit that area by setting an end point there. The searcher can also use this method to direct path planning autonomy to not visit an area (maybe the area has been thoroughly searched by the ground team) by setting the end point in other areas. By managing autonomy along this dimension, the searcher can incorporate additional information, information not directly understandable by autonomy, to improve task performance and align the task goal with the overall goal of finding the missing person quickly. A no-fly zone is pretty straight forward way to restrict the UAV from visiting certain areas maybe due to safety reasons. In Figure~\ref{dimensions}, the UAV icon in the middle indicates the start point of the path segment and the sphere on the right side indicates the desired end point. Because start/end points and no-fly zones are all spatial constraints, the searcher manages autonomy along a spatial dimension.
+The searcher can also influence the behavior of path planning autonomy by setting/changing spatial constraints. Spatial constraints can be in the forms of start/end points of the path or no-fly zones. 
+
+Setting an end point in an area is a way for the searcher to indirectly tell path planning autonomy that the area should have higher priority. For example, if a piece of clothing is found by the ground team, the searcher can force path planning autonomy to go visit that area by setting an end point there. The searcher can also use this method to direct path planning autonomy to avoid certain areas (maybe the area has been thoroughly searched by the ground team) by setting the end point in other areas. 
+
+A no-fly zone is a pretty straight-forward way to restrict the UAV from visiting certain areas maybe due to safety reasons. 
+
+In Figure~\ref{dimensions}, the UAV icon in the middle indicates the start point of the path segment and the sphere on the right side indicates the desired end point. 
+
+By managing autonomy along this dimension, the searcher has another way to incorporate additional information to the path planning task, improve task performance, and align the task goal with the overall goal of finding the missing person quickly. 
+
+
 
 Spatial constraints are easy to understand, so the searcher knows how these constraints will affect the behavior of path planning autonomy. In our user study we fixed the start point of the path to the center of the map because that was the last know position of the missing person. The searcher can set the end point for the current path segment anywhere on the map, and this end point automatically becomes the start point for the next path segment. No-fly zone was not included in this user study (it was tested in a separate user study~\cite{Clark2013Hierarchical}).
 
