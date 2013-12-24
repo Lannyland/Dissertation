@@ -14,3 +14,6 @@ Journal Paper:
 
 
 
+I prefer temporal constraints.  This includes an allocated amount of time along deadlines and task ordering constraints.  See Spencer's thesis.
+
+I prefer spatial constraints.  If you agree, please rework this section.  Also, include things like no-fly zones since this is something that we can add when we incorporate Spencer's thesis work.
