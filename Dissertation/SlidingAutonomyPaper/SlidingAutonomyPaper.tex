@@ -35,8 +35,10 @@
 % Group authors from the same affiliation together -- see example for two authors
 %\author{Sole Author}
 %\affiliation{Author Affiliation}
-\author{Lanny~Lin, Michael~A.~Goodrich}
-\affiliation{Brigham Young University}
+\author{Lanny~Lin, Michael~A.~Goodrich
+%, Spencer~Clark
+}
+\affiliation{Computer Science Department, Brigham Young University}
 %\threeauthors{First Author}{Second Author}{Third Author} 
 %\threeaffiliations{First Affiliation}{Second Affiliation}{Some Important Place}
 %\fourauthors{First Author}{Second Author}{Third Author}{Fourth Author}
@@ -148,7 +150,7 @@ In our previous work~\cite{Lin2010Supporting} we organized the challenges of aut
 
 As an individual tool, an autonomous component needs to be able to perform a task (\textbf{Autonomy}); the operator can match capability to task according to the information available to the operator, which requires that autonomy can be interrupted, paused, aborted, and resumed (\textbf{Flexibility}); the performance is evaluated to match individual task goal. 
 
-When a human-autonomy team works on the same task collaboratively, the autonomous component needs to provide interfaces so the human can influence the autonomous behavior with human inputs (\textbf{Interactivity}); the human should be able to manage how autonomy works in order to jointly find a solution by utilizing information only available to the human and/or feed information to autonomy in a representation that autonomy can understand (\textbf{Manageability}); and when performance is evaluated, the human operator can judge whether the individual goal aligns with the collective goal of the system. 
+When a human-autonomy team works on the same task collaboratively, the autonomous component needs to provide interfaces so the human can interactively influence the autonomous behavior with human inputs (\textbf{Interactivity}); the human should be able to manage how autonomy works in order to jointly find a solution by utilizing information only available to the human and/or feed information to autonomy in a representation that autonomy can understand (\textbf{Manageability}); and when performance is evaluated, the human operator can judge whether the individual goal aligns with the collective goal of the system. 
 
 As part of a larger distributed system, each autonomous component needs to be modular (\textbf{Modularity}), so they can be mixed and matched to support different user roles; information from various sources need to be combined and presented to one or multiple users in a \textbf{Fusion}; and performance of the system needs to be evaluated as a whole. 
 
@@ -175,31 +177,30 @@ By managing information representation, the searcher can quickly figure out how 
 %===================================================
 \subsection{Spatial Constraints Dimension}
 
-The searcher can also influence the behavior of path planning autonomy by setting/changing spatial constraints. Spatial constraints can be in the forms of start/end points of the path or no-fly zones. 
+The searcher can also influence the behavior of path planning autonomy by setting/changing spatial constraints. Spatial constraints can be in the forms of start/end points of the path segment or task-specific zones.
 
-Setting an end point in an area is a way for the searcher to indirectly tell path planning autonomy that the area should have higher priority. For example, if a piece of clothing is found by the ground team, the searcher can force path planning autonomy to go visit that area by setting an end point there. The searcher can also use this method to direct path planning autonomy to avoid certain areas (maybe the area has been thoroughly searched by the ground team) by setting the end point in other areas. 
+Setting an end point in an area is a way for the searcher to indirectly tell path planning autonomy that the area should have higher priority than other areas. For example, if a piece of clothing is found by the ground team, the searcher can force path planning autonomy to go visit that area by setting an end point there. Because the UAV must allocate part of the fix-length flight time to reach this specified area, some areas that had good payoffs before become costly and are no longer attractive to path planning autonomy. This way the searcher can also direct path planning autonomy to avoid certain areas (maybe the area has been thoroughly searched by the ground team). The end point can be dragged around the search region and path planning autonomy suggests different paths accordingly. In Figure~\ref{dimensions}, the UAV icon in the middle indicates the start point of the path segment and the sphere on the right side indicates the desired end point. 
 
-A no-fly zone is a pretty straight-forward way to restrict the UAV from visiting certain areas maybe due to safety reasons. 
+A task-specific zone can be a no-fly zone, a coverage zone, or a sampling zone. A no-fly zone is a pretty straight-forward way to restrict the UAV from visiting certain areas. The decision might be for safety reasons or part of the searcher's strategic planning depending on resource allocation. A coverage zone requires the UAV to fully cover the area; a sampling zone only asks the UAV to collect a few sensor samples from the zone, so the visit can be very brief. A task-specific zone can be dragged around and the searcher can also change the shape and/or size of the zone to influence the path generated by autonomy.
 
-In Figure~\ref{dimensions}, the UAV icon in the middle indicates the start point of the path segment and the sphere on the right side indicates the desired end point. 
+The interactive ability to move the end point around (or changing the shape of the no-fly zone) and see immediately how the change would affect the UAV path recommended by path planning autonomy gives the user the power to perform ``what-if'' analysis. It also allows the user to see the causal effect between his/her action and changes in autonomous behavior.
 
-By managing autonomy along this dimension, the searcher has another way to incorporate additional information to the path planning task, improve task performance, and align the task goal with the overall goal of finding the missing person quickly. 
-
-
-
-Spatial constraints are easy to understand, so the searcher knows how these constraints will affect the behavior of path planning autonomy. In our user study we fixed the start point of the path to the center of the map because that was the last know position of the missing person. The searcher can set the end point for the current path segment anywhere on the map, and this end point automatically becomes the start point for the next path segment. No-fly zone was not included in this user study (it was tested in a separate user study~\cite{Clark2013Hierarchical}).
+Spatial constraints are easy to understand, so the searcher knows how these constraints will affect the behavior of path planning autonomy. By managing autonomy along this dimension, the searcher has another way to incorporate additional information to the path planning task, improve task performance, and align the task goal with the overall goal of finding the missing person quickly. In our user study we fixed the start point of the path to the center of the map because that was the last know position of the missing person. The searcher can set the end point for the current path segment anywhere on the map, and this end point automatically becomes the start point for the next path segment. Task-specific zone was not included in this user study (it was tested in a separate user study~\cite{Clark2013Hierarchical}).
 
 %===================================================
-\subsection{Time Allocation Dimension}
+\subsection{Temporal Constraints Dimension}
 
-Once the information representation and task constraints (optional) are set, the searcher can use a slider to allocate different time to path planning autonomy. For example, as shown in Figure~\ref{dimensions}, for a 60-minute total flight, the searcher can set an end point to the probability hill on the right, and then move the slider to see immediately what path segment autonomy would suggest. The path segment shown is when 20 minutes are allocated. If the searcher is happy with the suggestion, he approves the path segment. The UAV moves to the end point and ``vacuums up'' the probability along the path (how much can be vacuumed up is determined by the task-difficulty map). Then the searcher works together with autonomy to plan the path for the remaining 40 minutes. The two (or more) path segments are joined to form the final path. 
+In the UAV path planning problem, temporal constraints can be time limit for a subtask (path segment), subtask ordering, or valid time window.
 
-In the example shown, the combination of the information representation, task constraints, and time allocation allows the searcher to cover the middle area pretty well and then move to the search area on the right ready to search there. If no constraint is set, autonomy might decide to search the probability hill on the left instead. If more flight time is allocated with the set end point, autonomy might start searching the area on the right. Because the searcher decides how many path segments to plan and how much time to allocate to each path segment, the searcher manages autonomy along a temporal dimension.
+With the time limit constraint, the searcher can decide how much flight time to allocate to a path segment out of the total flight time. This enables the searcher to break the path planning task into multiple subtasks and then plan each path segment separately. In our interface design we let the searcher control time allocation to autonomy using a slider, and as the searcher moves the slider, path planning autonomy shows how suggested path segment changes respectively. Similar to the spatial constraints, this instant feedback enables ``what-if'' analysis and provides instant feedback on the causal effect between searcher action and changes in autonomous behavior.
 
-As the searcher moves the slider to control time allocation, the sliding autonomy tool provides suggested path segment immediately. This instant feedback provides the searcher the ability to perform ``what-if'' analysis and see the causal effect between his/her action and changes in autonomous behavior. 
+For example, for a 60-minute total flight with an end point set to the probability hill on the right (Figure~\ref{dimensions}), the searcher can move the slider to set time limits and see immediately what path segment autonomy would suggest. The path segment shown is when 20 minutes are allocated. If the searcher is happy with the suggestion, he approves the path segment. The UAV moves to the end point in the path planner and ``vacuums up'' the probability along the path (how much can be vacuumed up is determined by the task-difficulty map). Then the searcher works with autonomy to plan path for the remaining 40 minutes. The two (or more) path segments are joined to form the final path.
 
-By managing time allocation, the searcher can break the path planning task into subtasks. The objective of path planning autonomy is to maximize the amount of probability the UAV can collect following the current path segment. The objective of the human or the entire distributed system (where the UAV is only a part of the operation) is to find the missing person quickly. By setting constraints and change the amount of time allocated to a path segment, the searcher has the ability to incorporate additional information into the problem, and align the task goal with the overall system goal. The ability to break the task into subtasks also enables the searcher to plan more strategically (prioritizing areas in the entire search region) while autonomy works more tactically (covering the current search area well). Ideally such a human-autonomy team should work better than either human or autonomy working alone.
+Subtask ordering constraint adds temporal dependency to the subtasks (e.g., the sampling task must be flown before the coverage task). It lets the searcher directly specify priorities in different search areas. Valid time window constraint specifies at what time interval a subtask can be completed, so it is more restrictive than subtask ordering constraint.
 
+By managing autonomy along the temporal constraint dimension, the searcher can break the path planning task into subtasks and incorporate additional information into the path planning task. The user study described in this paper includes the time limit constraint. Subtask ordering and valid time window constraints are evaluated in a separate user study~\cite{Clark2013Hierarchical}).
+
+In the example shown in Figure~\ref{dimensions}, the combination of the information representation, end point constraint (spatial), and time limit constraint (temporal) allows the searcher to cover the middle area pretty well and then move to the search area on the right ready to search there. If no end point constraint is set, autonomy might decide to search the probability hill on the left with a low time limit and the hill at the bottom with a high time limit. If more flight time is allocated with the set end point, autonomy might start searching the area on the right. Instant feed back on path changes when the search moves the endpoint or varies the time limit lets searcher interactively review multiple options and select the path segment that fits best with his/her strategic planning. This design enables human to plan more strategically (prioritizing areas in the entire search region) while autonomy works more tactically (covering the current search area well), using strengths of each when they work collaboratively. Ideally such a human-autonomy team should work better than either human or autonomy working alone.
 
 %=================================================================================
 \section{Related Work}
@@ -217,7 +218,7 @@ UAV technology has emerged as a promising tool in supporting WiSAR~\cite{Murphy2
 \section{Hypotheses} 
 \label{sec:Hypotheses}
 
-We performed a user study to evaluate the usefulness with our proposed sliding autonomy approach. More specifically we verify the following hypotheses:
+A user study is performed to evaluate the usefulness of the sliding autonomy approach. More specifically we verify the following hypotheses:
 
 H1: The sliding autonomy method performs better than either the manual path planning method or a semi-autonomous simple pattern path planning method in both low information and high information scenarios.
 
@@ -236,34 +237,28 @@ H3: The sliding autonomy method does not increase the mental workload of the ope
 \label{UserStudy}
 \end{figure}
 
-We performed a 2$\times$3 within-subject design with 2 scenarios (easy vs difficult) and 3 planning methods (manual, pattern, and sliding autonomy). All participants completed all 6 exercises. The order of the scenarios and planning methods is counterbalanced to reduce learning effect. Half of the participants started with scenario 1 (the other half scenario 2). and the order of the planning methods were randomly drawn without repeat from the permutation of all possible combinations (without following the same order in both scenarios).
+We performed a 2$\times$3 within-subject design with 2 scenarios (easy vs difficult) and 3 planning methods (manual, pattern, and sliding autonomy). All participants completed all 6 exercises. The order of the scenarios and planning methods is counterbalanced to reduce learning effect. We recruited a total of 26 college students (14 males and 12 females) between the age of 19 and 30 (average 22.89). 
 
-%===================================================
-\subsection{Participants}
+After the demographic survey, each participant completes four 5-minute non-skippable training exercises (one for each palnning method with no task-difficulty map, and one for manual with a task-difficulty map) and then completes the 6 exercises. Each participant has up to 5 minutes for each exercise. Once the participant is happy with the path generated, he/she can finish the exercise early. We choose this design because we do not want the user to put all effort into completing the secondary task once he/she considers the primary task completed, which would skew the measurements on secondary task performance. At the end of each exercise, the participant completes a NASA TLX survey. Then at teh end, the participant fills out a survey describing his/her subjective preference with the three planning methods.
 
-After analyzing data collected from a pilot study with 6 volunteers, it was determined that 25 participants would likely produce significant test results. We recruited a total of 26 college students (14 males and 12 females) between the age of 19 and 30 (average 22.89). None has colorblindness. The majority has no experience with robots (57.69\%), and 34.62\% of them are slightly experienced with vacuuming robots.
 
 %===================================================
 \subsection{Simulation Environment}
 
-The user study is conducted in a 3D simulation environment. The top portion of Figure~\ref{UserStudy} shows a screen capture of the simulation interface. Both the probability distribution map and the task-difficulty map are displayed as 3D surfaces with a color map (red means high altitude and blue means low). The user can switch between the two maps at any time. The user can also rotate/pan a map and zoom in/out at will. The UAV in the simulation is a hexacopter that is capable of flying in all directions or hover in the same spot.
+The user study is conducted in a 3D simulation environment (see Figure~\ref{UserStudy} top) where both the probability distribution map and the task-difficulty map are displayed as 3D surfaces with a color map (red means high and blue means low). The user can switch between the two maps at any time and rotate/pan/zoom a map at will. The UAV is a hexacopter capable of flying in all directions or hover in the same spot.
 
-With the \textbf{manual} planning method, the user can fly the UAV around with arrow keys as the clock runs in a sped up fashion. The user can switch between two flying modes, turn mode and strafe mode, and four camera views, global view (always north up with full view of the map), behind view, bird's eye view, and free form view (where the user can rotate/pan/zoom while flying). The user can pause/resume the flight to perform the secondary task or just to review the search area for better planning.
+With the \textbf{manual} planning method, the user flies the UAV with arrow keys in a sped up fashion. The user can switch between two flying modes (turn and strafe) and four camera views (global, behind, bird's eye, and free form). The user can also pause/resume the flight for the secondary task or better planning.
 
-With the \textbf{pattern} planning method, the user can choose from three simple patterns (spiral, lawnmower, and line as shown in the bottom portion of Figure~\ref{UserStudy}) and join these patterns to form the final path. As the user moves the cursor around, the size of the pattern changes with the cursor position marking the end of the path segment (up to the remaining flight time to keep the path valid). Rotation of the lawnmower pattern can be achieved by rotating the map left/right instead. And rotating the map up/down turns the perfect spiral pattern into an ellipse pattern. The user can also undo the last path segment created all the way back to the start. This planning method is ``semi-autonomous'' because the patterns are generated automatically without manually setting waypoints.
+With the \textbf{pattern} planning method, the user chooses from spiral, lawnmower, and line patterns (see Figure~\ref{UserStudy} bottom) and join these patterns to form the final path. Cursor position marks the end of the path segment and determines the size of the pattern. The user can also undo the last path segment planned. This planning method is ``semi-autonomous'' because the patterns are generated automatically without manually setting waypoints.
 
-With the \textbf{sliding autonomy} method (top portion of Figure~\ref{UserStudy}), the user can (optionally) set an end point anywhere on the map (reachable within remaining flight time) for the current path segment and then see the path suggested by autonomy. Then he/she can drag the knob of the left slider to change the amount of time allocated to autonomy, and see path suggested by autonomy instantly for each time allocation as the knob of the slider is dragged up or down. The slider's max value always reflects the remaining flight time (in minute) for the user to plan. If the user is happy with the current path segment, he/she approves it, the UAV moves to the end of the path segment, and the process repeats until all flight time has been planned. The path planning algorithm used in this planning method is the LHC-GW-CONV algorithm described in~\cite{Lin2009UAV, Lin2014Hierarchical}. We choose this algorithm because it is the fastest algorithm out of all the algorithms we designed.
+With the \textbf{sliding autonomy} method (see Figure~\ref{UserStudy} top), the user can set an end point (optional), and then drag the left slider to change the amount of time allocated to autonomy. Path suggested by autonomy changes as the slider moves. The slider's max value always reflects the remaining flight time (in minute). If the user is happy with the current path segment, he/she approves it, the UAV moves to the end of the path segment, and the process repeats until all flight time has been planned. The algorithm used is the LHC-GW-CONV algorithm~\cite{Lin2009UAV, Lin2014Hierarchical}, because it is the fastest algorithm out of all the algorithms we designed.
 
-The right slider is used to set the resolution or step value of the left slider and has a range between 1 and 10. For example, if the value of the right slider is set to 10, moving the left slider from bottom up will change time allocation to 10, 20, 30, ..., respectively. The purpose of the second slider is to improve the interaction experience when the user moves the left slider, because in order to provide instant feedback, paths with different time allocation need to be pre-computed by autonomy. Although each path only takes a fraction of a second to generate, for a 60-minute flight autonomy has to generate 60 paths for all possible time allocations, which can take a long time. When the value of the second slider is set high, only a small number of paths need to be pre-computed which enables the instant feedback. This feature turned out to have negative effect on users' interaction experience, which we will discuss later.
-
-With all three planning methods, the user can choose to start over at any time during the exercise, and can restart as many time as exercise time allows, and we record the best path out of all tries. Each user fully understands how the manual and pattern planning methods work, but does not know how path planning autonomy generates paths behind the scene in the sliding autonomy method.
+With all three planning methods, the user can choose to start over at any time during the exercise, and can restart as many time as exercise time allows, and we record the best path out of all tries.
 
 %===================================================
 \subsection{Scenarios}
 
-The user study contains two WiSAR scenarios. Scenario 1 is a synthetic case with a probability distribution map that is a mixture of five Gaussians (shown in the top portion of Figure~\ref{UserStudy}). No task-difficulty map is used in this scenario (uniform detection probability is assumed). 
-
-Scenario 2 comes from a real WiSAR scenario, in which An elderly couple was reported missing near the Grayson Highlands State Park in Virginia. The probability distribution map used for this scenario (Figure~\ref{UserStudy} middle left) was generated using a Bayesian model~\cite{Lin2010Bayesian}. The map has been evaluated at George Mason University's MapScore web portal~\cite{Twardy2012MapScore} and performed better than most other models evaluated\footnote{Scoring 0.8184 on a [-1,1] scale where the higher the score the better. http://sarbayes.org/projects/}. This scenario also uses a task-difficulty map, and the map (Figure~\ref{UserStudy} middle right) was generated using vegetation density data downloaded from the USGS web site and categorized into three difficulty levels (sparse, medium, and dense, with detection probability of 100\%, 66.67\%, and 33.33\% respectively).
+The user study contains two WiSAR scenarios, a synthetic case (see Figure~\ref{UserStudy} top) with no task-difficulty map (assuming uniform detection probability), and a real WiSAR scenario (see Figure~\ref{UserStudy} middle) with a task-difficulty map, in which An elderly couple was reported missing near the Grayson Highlands State Park in Virginia~\cite{Koester2008Lost}\footnote{The probability distribution map used for this scenario (Figure~\ref{UserStudy} middle left) was generated using a Bayesian model~\cite{Lin2010Bayesian}. The map has been evaluated at George Mason University's MapScore web portal~\cite{Twardy2012MapScore} and performed better than most other models evaluated, scoring 0.8184 on a [-1,1] scale where the higher the score the better. http://sarbayes.org/projects/. The task-difficulty map (Figure~\ref{UserStudy} middle right) was generated using vegetation density data downloaded from the USGS web site and categorized into three difficulty levels (sparse, medium, and dense, with detection probability of 100\%, 66.67\%, and 33.33\% respectively).}.
 
 Scenario 2 is clearly more complicated than scenario 1 because the user also has to consider the different detection probability defined by the task-difficulty map. We refer to scenario 2 as the high information scenario and scenario 1 as the low information scenario.
 
@@ -273,15 +268,6 @@ Scenario 2 is clearly more complicated than scenario 1 because the user also has
 In each exercise, we also ask each participant to perform a secondary task together with the main task of path planning. This way we can measure the mental workload of the user. The secondary task is in the form of a group chat window (see the lower left corner of the top picture in Figure~\ref{UserStudy}), and when the user's code name ``Eagle'' is called, the user is asked to answer simple questions by typing in the chat window. Every 3 seconds (plus a random integer drawn from the uniform distribution [-2,2]) a text message is sent to the chat window, and every 5th message asks the user a simple question. Therefore, every minute the user receives 20 messages and 4 of them are directed to the user. For the same scenario and the same planning method, all users use the same set of chat messages.
 
 We choose to use a group chat window as the secondary task because this is typical in real SAR operations. We also designed the chat messages to simulate a real WiSAR search. The user is asked to acknowledge connection and report path planning status periodically. This design ensures that the secondary task is ecologically valid~\cite{Vicente1997Should,Rasmussen1994Cognitive} and makes the experiment result more convincing.
-
-%===================================================
-\subsection{Procedure}
-
-Each participant first fills out a demographic survey after signing the IRB consent form, then he/she completes four training exercises. The first three training exercises teach the user how to plan paths with the three planning methods using a simple probability distribution map and no task-difficulty map. The fourth training exercises adds the task-probability map to the path planning problem, and the user gets to practice the manual planning method again. Each training exercise lasts 5 minutes and the user cannot skip it. A ``cheat sheet'' is provided to each participant during the entire user study to explain the simulation environment and key concepts. Each participant is also asked to read the instructions for the NASA TLX survey.
-
-Then each participant completes the six exercises (2 scenarios and 3 planning methods each) in a counterbalanced order. For each exercise the user has up to 5 minutes to plan a path. Once the user is happy with the path generated, he/she can finish the exercise early. We choose this design because we do not want the user to put all effort into completing the secondary task once he/she considers the primary task completed, which would skew the measurements on secondary task performance.
-
-After the user completes each exercise, we ask the user to complete a NASA TLX survey for the exercise. Then after all six exercises are completed, the user fills out a post user study survey describing his/her subjective preference with the three planning methods.
 
 %===================================================
 \subsection{Measures}
@@ -597,7 +583,13 @@ Any opinions, findings, and conclusions or recommendations expressed in this mat
 
 \hrule
 \vspace*{.1in}
-Authors' names and contact information: Lanny Lin, Brigham Young University, Provo, UT, USA.  Email: lanny@lannyland.com.  Michael A. Goodrich, Brigham Young University, Provo, UT, USA.  Email: mike@cs.byu.edu.
+Authors' names and contact information: 
+
+Lanny Lin, Brigham Young University, Provo, UT, USA.  Email: lanny@lannyland.com.  
+
+Michael A. Goodrich, Brigham Young University, Provo, UT, USA.  Email: mike@cs.byu.edu.
+
+%Spencer Clark, Brigham Young University, Provo, UT, USA.  Email: spengy@gmail.com.
 
 \end{document}
 
