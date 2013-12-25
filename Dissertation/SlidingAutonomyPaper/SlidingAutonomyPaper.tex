@@ -25,7 +25,7 @@
 % The following are required options for the HRI journal format
 \rightheader{Sliding Autonomy for UAV Path Planning}   % This should be the title, or a shortened version of the title if your title is long.
 % \shorttitle{Beyond Fan-Out}    % Not used in HRI journal mode
-\leftheader{Lin and Goodrich}	  % For one or two authors, include both authors last names.  For three or more, use first author's last name et al.
+\leftheader{Lin et al.}	  % For one or two authors, include both authors last names.  For three or more, use first author's last name et al.
 
 % REQUIRED: paper title
 \title{Sliding Autonomy for UAV Path Planning: Adding New Dimensions to Autonomy Management}
@@ -36,7 +36,7 @@
 %\author{Sole Author}
 %\affiliation{Author Affiliation}
 \author{Lanny~Lin, Michael~A.~Goodrich
-%, Spencer~Clark
+, Spencer~Clark
 }
 \affiliation{Computer Science Department, Brigham Young University}
 %\threeauthors{First Author}{Second Author}{Third Author} 
@@ -55,7 +55,7 @@
 
 % REQUIRED: abstract
 \abstract{
-Increased use of autonomy also increases human-autonomy interaction and the need for humans to manage autonomy. We propose a new variation of the concept of sliding autonomy that is useful for planning problems over a spatial region. In this sliding autonomy approach, the user can influence the behavior of the autonomous system via three categories of input: information, spatial constraints, and temporal constraints. We present a set of user interface designs and autonomous algorithms to implement sliding autonomy for UAV (Unmanned Aerial Vehicle) path planning to support Wilderness Search and Rescue (WiSAR). We analyze how this approach fits in the integration challenge guidelines we identified in our prior work and evaluate the usefulness of the approach against manual and simple pattern path planning methods with a user study. Results show that the sliding autonomy approach performs significantly better than the other two methods without increasing the users' mental workload, and the performance of the human-autonomy team outperforms either human or autonomy working alone. We also discuss some interesting observations from the user study.
+Increased use of autonomy also increases human-autonomy interaction and the need for humans to manage autonomy. We propose a new variation of the concept of sliding autonomy that is useful for planning problems over a spatial region. In this sliding autonomy approach, the user can influence the behavior of the autonomous system via three categories of input: information, spatial constraints, and temporal constraints. We present a set of user interface designs to implement sliding autonomy for UAV (Unmanned Aerial Vehicle) path planning to support Wilderness Search and Rescue (WiSAR). Interactivities along these new dimensions allow the user to allocate degrees of authority and flexibility to the robot's algorithms. We analyze how this approach fits in the integration challenge guidelines we identified in our prior work and evaluate the usefulness of the approach against manual and simple pattern path planning methods with a user study. Results show that the sliding autonomy approach performs significantly better than the other two methods without increasing the users' mental workload, and the performance of the human-autonomy team outperforms either human or autonomy working alone. We also discuss some interesting observations from the user study.
 }
 
 % REQUIRED: keywords
@@ -114,7 +114,7 @@ We propose a new autonomy management approach where the user can influence the b
 As the human modifies information, adds priorities, or changes constraints, the sliding autonomy tool shows immediately how those changes influence the UAV's plan. This instant feedback provides the searcher the ability to perform ``what-if'' analysis and see the causal effect between his/her action and changes in autonomous behavior. This allows an interactive approach where autonomous algorithms perform tasks that they are good at and humans do tasks that they are good at, but in a collaborative and interactive way that avoids the pitfalls of simple task allocation~\cite{Sheridan1992Telerobotics}. Properly done, the human-robot team should perform better than a human or robot working alone. 
 
 % Briefly talk about existing approaches and what we propose, and why different.
-Many approaches to autonomy management already exist and are called many different things, such as \textit{supervisory control}~\cite{Sheridan1992Telerobotics}, \textit{mixed-initiative}~\cite{Hearst1999Mixed}, \textit{collaborative control}~\cite{Fong1999Collaborative}, \textit{adjustable autonomy}~\cite{Dorais1998AdjustableAutonomy,Dorais2001Designing} (also referred to as \textit{sliding autonomy}~\cite{Dias2008SlidingAutonomy} or \textit{adaptive automation}~\cite{Rouse1988Adaptive,Kaber2001Design}). The approach we propose falls under the category of \textit{adjustable autonomy}. The three dimensions we identified are in addition to dimensions of \textit{adjustable autonomy} identified by Bradshaw et al.\ in~\cite{Bradshaw2004Dimensions}, so we design tools and algorithms that operate in a particular place in Bradshaw's taxonomy.
+Many approaches to autonomy management already exist and are called many different things, such as \textit{supervisory control}~\cite{Sheridan1992Telerobotics}, \textit{mixed-initiative}~\cite{Hearst1999Mixed}, \textit{collaborative control}~\cite{Fong1999Collaborative}, \textit{adjustable autonomy}~\cite{Dorais1998AdjustableAutonomy,Dorais2001Designing} (also referred to as \textit{sliding autonomy}~\cite{Dias2008SlidingAutonomy} or \textit{adaptive automation}~\cite{Rouse1988Adaptive,Kaber2001Design}). The approach we propose falls under the category of \textit{adjustable autonomy}. The three dimensions we identified are in addition to dimensions of \textit{adjustable autonomy} identified by Bradshaw et al.\, so we design tools and algorithms that operate in a particular place in Bradshaw's taxonomy~\cite{Bradshaw2004Dimensions}.
 
 % Talk about that we extended our guidelines
 In our previous work~\cite{Lin2010Supporting} we identified key elements of autonomy integration challenges along two dimensions: \textit{attributes of an intelligent system} (capability, information management, performance evaluation) and \textit{organizational scale} (individual versus group), which can serve as guidelines in designing autonomous components and autonomy management tools. In this paper we extend the guidelines to include attributes needed when human and autonomy work collaboratively and analyze how our proposed sliding autonomy approach fits in the guidelines. By applying sliding autonomy to the UAV path planning task, we argue that this approach:
@@ -122,7 +122,7 @@ In our previous work~\cite{Lin2010Supporting} we identified key elements of auto
 \item enables the domain expert user to incorporate information only available to or understandable by the expert;
 \item is easy to understand without knowing how autonomy works behind the scene;
 \item lets the human do what the human is good at (planning strategically and balancing performance tradeoffs) and autonomy do what autonomy is good at (planning tactically), resulting in better performance than human or autonomy working alone;
-\item enables the user to align task goal (find the path that maximizes probability collected along the path) with system goal (finding the missing person quickly) when the user has more information than autonomy;
+\item enables the user to align task goal (find the path that maximizes probability collected along the path) with system goal (finding the missing person quickly) when the user has more information or more up-to-date information than autonomy;
 \item and improves human's experience during the human-autonomy interaction.
 \end{itemize}
 
@@ -143,7 +143,7 @@ In our previous work~\cite{Lin2010Supporting} we organized the challenges of aut
 
 \begin{figure}
 \centering
-\includegraphics[width=3.5in]{IntegrationChallenges.JPG}
+\includegraphics[width=5.5in]{IntegrationChallenges.JPG}
 \caption{Autonomy integration challenges defined along two dimensions. Horizontal dimension: attributes of intelligence. Vertical dimension: organizational scale.}
 \label{IChallenges}
 \end{figure}
@@ -154,7 +154,7 @@ When a human-autonomy team works on the same task collaboratively, the autonomou
 
 As part of a larger distributed system, each autonomous component needs to be modular (\textbf{Modularity}), so they can be mixed and matched to support different user roles; information from various sources need to be combined and presented to one or multiple users in a \textbf{Fusion}; and performance of the system needs to be evaluated as a whole. 
 
-This paper focuses on the middle row of the guidelines: intelligence of collaborative agents (human-autonomy team). The three dimensions we propose are ways path planning autonomy can be managed, and the path planner component is designed to accept human inputs along the three dimensions to provide interactivity. The human can also incorporate information from various sources and influence the behavior of path planning autonomy, making sure the task goal aligns with the ultimate goal of finding the missing person quickly.
+This paper focuses on the middle row of the guidelines: intelligence of collaborative agents (human-autonomy team). The three dimensions we propose are ways path planning autonomy can be managed, and our path planner interface is designed to accept human inputs along the three dimensions to provide interactivity. The human can also incorporate information from various sources and influence the behavior of path planning autonomy by allocating degrees of authority and flexibility, making sure the task goal aligns with the ultimate goal of finding the missing person quickly.
 
 %===================================================
 \subsection{Information Representation Dimension}
@@ -179,13 +179,17 @@ By managing information representation, the searcher can quickly figure out how 
 
 The searcher can also influence the behavior of path planning autonomy by setting/changing spatial constraints. Spatial constraints can be in the forms of start/end points of the path segment or task-specific zones.
 
-Setting an end point in an area is a way for the searcher to indirectly tell path planning autonomy that the area should have higher priority than other areas. For example, if a piece of clothing is found by the ground team, the searcher can force path planning autonomy to go visit that area by setting an end point there. Because the UAV must allocate part of the fix-length flight time to reach this specified area, some areas that had good payoffs before become costly and are no longer attractive to path planning autonomy. This way the searcher can also direct path planning autonomy to avoid certain areas (maybe the area has been thoroughly searched by the ground team). The end point can be dragged around the search region and path planning autonomy suggests different paths accordingly. In Figure~\ref{dimensions}, the UAV icon in the middle indicates the start point of the path segment and the sphere on the right side indicates the desired end point. 
+Setting an end point in an area is a way for the searcher to indirectly tell path planning autonomy that the area should have higher priority than other areas. For example, if a piece of clothing is found by the ground team, the searcher can force path planning autonomy to go visit that area by setting an end point there. Because the UAV must allocate part of the fix-length flight time to reach this specified area, some areas that had good payoffs before become costly and are no longer attractive to path planning autonomy. This way the searcher can also direct path planning autonomy to avoid certain areas (maybe the area has been thoroughly searched by the ground team). In Figure~\ref{dimensions}, the UAV icon in the middle indicates the start point of the path segment and the sphere on the right side indicates the desired end point. 
+
+The end point can be dragged around the search region and path planning autonomy suggests different paths accordingly. When the end point is close to the start point, autonomy has greater authority and flexibility in creating paths. If the end point is far from the start point, authority and flexibility for autonomy is reduced because a major part of path planning is simply moving the UAV toward the end point with the shortest path.
 
 A task-specific zone can be a no-fly zone, a coverage zone, or a sampling zone. A no-fly zone is a pretty straight-forward way to restrict the UAV from visiting certain areas. The decision might be for safety reasons or part of the searcher's strategic planning depending on resource allocation. A coverage zone requires the UAV to fully cover the area; a sampling zone only asks the UAV to collect a few sensor samples from the zone, so the visit can be very brief. A task-specific zone can be dragged around and the searcher can also change the shape and/or size of the zone to influence the path generated by autonomy.
 
 The interactive ability to move the end point around (or changing the shape of the no-fly zone) and see immediately how the change would affect the UAV path recommended by path planning autonomy gives the user the power to perform ``what-if'' analysis. It also allows the user to see the causal effect between his/her action and changes in autonomous behavior.
 
-Spatial constraints are easy to understand, so the searcher knows how these constraints will affect the behavior of path planning autonomy. By managing autonomy along this dimension, the searcher has another way to incorporate additional information to the path planning task, improve task performance, and align the task goal with the overall goal of finding the missing person quickly. In our user study we fixed the start point of the path to the center of the map because that was the last know position of the missing person. The searcher can set the end point for the current path segment anywhere on the map, and this end point automatically becomes the start point for the next path segment. Task-specific zone was not included in this user study (it was tested in a separate user study~\cite{Clark2013Hierarchical}).
+Spatial constraints are easy to understand, so the searcher knows how these constraints will affect the behavior of path planning autonomy. By managing autonomy along this dimension, the searcher has another way to incorporate additional information to the path planning task, improve task performance, and align the task goal with the overall goal of finding the missing person quickly. 
+
+In our user study we fixed the start point of the path to the center of the map because that was the last know position of the missing person. The searcher can set the end point for the current path segment anywhere on the map, and this end point automatically becomes the start point for the next path segment. Task-specific zone was not included in this user study (it was tested in a separate user study~\cite{Clark2013Hierarchical}).
 
 %===================================================
 \subsection{Temporal Constraints Dimension}
@@ -200,19 +204,21 @@ Subtask ordering constraint adds temporal dependency to the subtasks (e.g., the 
 
 By managing autonomy along the temporal constraint dimension, the searcher can break the path planning task into subtasks and incorporate additional information into the path planning task. The user study described in this paper includes the time limit constraint. Subtask ordering and valid time window constraints are evaluated in a separate user study~\cite{Clark2013Hierarchical}).
 
-In the example shown in Figure~\ref{dimensions}, the combination of the information representation, end point constraint (spatial), and time limit constraint (temporal) allows the searcher to cover the middle area pretty well and then move to the search area on the right ready to search there. If no end point constraint is set, autonomy might decide to search the probability hill on the left with a low time limit and the hill at the bottom with a high time limit. If more flight time is allocated with the set end point, autonomy might start searching the area on the right. Instant feed back on path changes when the search moves the endpoint or varies the time limit lets searcher interactively review multiple options and select the path segment that fits best with his/her strategic planning. This design enables human to plan more strategically (prioritizing areas in the entire search region) while autonomy works more tactically (covering the current search area well), using strengths of each when they work collaboratively. Ideally such a human-autonomy team should work better than either human or autonomy working alone.
+In the example shown in Figure~\ref{dimensions}, the combination of the information representation, end point constraint (spatial), and time limit constraint (temporal) allows the searcher to cover the middle area pretty well and then move to the search area on the right ready to search there. If no end point constraint is set, autonomy might decide to search the probability hill on the left with a low time limit or the hill at the bottom with a high time limit. If more flight time is allocated with the set end point, autonomy might start searching the area on the right. Instant feed back on path changes when the search moves the endpoint or varies the time limit lets the searcher interactively review multiple options and select the path segment that fits best with his/her strategic planning. This design enables human to plan more strategically (prioritizing areas in the entire search region) while autonomy works more tactically (covering the current search area well), using strengths of each when they work collaboratively. Ideally such a human-autonomy team should work better than either human or autonomy working alone.
 
 %=================================================================================
 \section{Related Work}
 \label{sec:RelatedWork6}
 
-Drucker defines automation as a ``concept of the organization of work~\cite{Drucker2006Practice}.'' Goodrich and Schultz~\cite{Goodrich2007HRISurvey} define the HRI problem as ``understanding and shaping the interactions between one or more humans and one or more robots.'' They also specified robot-assisted search and rescue as a key area for HRI research. In their 1978 seminal paper~\cite{Sheridan1978Human}, Sheridan and Verplank propose the idea of a \textit{level of autonomy} spectrum, with full teleoperation at one end and full autonomy at the other. In the middle, the robot could suggest actions to humans or make decisions before informing humans. Parasuraman et al.\ \cite{Parasuraman2000Model} extended this one-dimensional spectrum to four different broad functions: information acquisition, analysis, decision selection, and action implementation. In~\cite{Sheridan1992Telerobotics} Sheridan proposes \textit{supervisory control}, in which a human divides the task into a sequence of subtasks that the robot is capable of performing, and the human then provides guidance when the autonomous system cannot solve a problem on its own. In contrast to the top-down philosophy of supervisory control, a \textit{mixed-initiative} approach advocates the idea of dynamically shifting tasks when necessary~\cite{Hearst1999Mixed}. \textit{collaborative control}, which can be thought of as an instance of mixed-initiative interaction, is a robot-centric model; instead of the human always being in-charge, the robot is treated as a peer and can make requests to humans through dialogs~\cite{Fong1999Collaborative}. \textit{adjustable autonomy}~\cite{Dorais2001Designing} (also referred to as \textit{sliding autonomy}~\cite{Dias2008SlidingAutonomy} or \textit{adaptive automation}~\cite{Rouse1988Adaptive}) is another type of mixed-initiative interaction, one that enables the human-automation team to dynamically and adaptively allocate functions and tasks among team members. 
+Drucker defines automation as a ``concept of the organization of work~\cite{Drucker2006Practice}.'' Goodrich and Schultz define the HRI problem as ``understanding and shaping the interactions between one or more humans and one or more robots''~\cite{Goodrich2007HRISurvey}. They also specified robot-assisted search and rescue as a key area for HRI research. In their 1978 seminal paper, Sheridan and Verplank propose the idea of a \textit{level of autonomy} spectrum, with full teleoperation at one end and full autonomy at the other~\cite{Sheridan1978Human}. In the middle, the robot could suggest actions to humans or make decisions before informing humans. Parasuraman et al.\ extended this one-dimensional spectrum to four different broad functions: information acquisition, analysis, decision selection, and action implementation~\cite{Parasuraman2000Model}. Sheridan proposes \textit{supervisory control}, in which a human divides the task into a sequence of subtasks that the robot is capable of performing, and the human then provides guidance when the autonomous system cannot solve a problem on its own~\cite{Sheridan1992Telerobotics}. In contrast to the top-down philosophy of supervisory control, a \textit{mixed-initiative} approach advocates the idea of dynamically shifting tasks when necessary~\cite{Hearst1999Mixed}. \textit{Collaborative control}, which can be thought of as an instance of mixed-initiative interaction, is a robot-centric model; instead of the human always being in-charge, the robot is treated as a peer and can make requests to humans through dialogs~\cite{Fong1999Collaborative}. \textit{Adjustable autonomy}~\cite{Dorais2001Designing} (also referred to as \textit{sliding autonomy}~\cite{Dias2008SlidingAutonomy} or \textit{adaptive automation}~\cite{Rouse1988Adaptive}) is another type of mixed-initiative interaction, one that enables the human-automation team to dynamically and adaptively allocate functions and tasks among team members. 
 
-Dorais et al.\ \cite{Dorais1998AdjustableAutonomy} discuss a framework for human-centered autonomous systems for a manned Mars mission. The system enables users to interact with these systems at an appropriate level of control but minimize the necessity for such interaction. Bradshaw et al.\ discuss principles and pitfalls of adjustable autonomy and human-centered teamwork, and then present study results on so-called ``work practice modeling'' and human-agent collaboration in space applications~\cite{Bradshaw2003AdjustableAutonomy}. In~\cite{Kaber2005Adaptive} Kaber et al.\ describe an experiment simulating an air traffic control task where manual control was compared to Adaptive Automation (AA). Results suggest that humans perform better with AA applied to sensory and psychomotor information-processing functions than with AA applied to cognitive functions; these results also suggest that AA is superior to completely manual control. Brookshire et al.\ present preliminary results for applying sliding autonomy to a team of robots performing coordinated assembling work to help the system recover from unexpected errors and to thereby increase system efficiency~\cite{Brookshire2004Preliminary}. Dias et al.\ identified six key capabilities that are essential for overcoming challenges in enabling sliding autonomy in peer-to-peer human-robot teams~\cite{Dias2008SlidingAutonomy}. Bradshaw et al.\ \cite{Bradshaw2004Dimensions} propose two dimensions of Adjustable Autonomy (descriptive and prescriptive) to address the two senses of autonomy (self-sufficiency and self-directedness) and discuss how permissions, obligations, possibilities, and capabilities can be adjusted. Bradshaw et al.\ \cite{Bradshaw2013Seven} also summarized some widespread misconceptions on autonomy and listed seven deadly myths of ``autonomous systems.''
+Dorais et al.\ discuss a framework for human-centered autonomous systems for a manned Mars mission~\cite{Dorais1998AdjustableAutonomy}. The system enables users to interact with these systems at an appropriate level of control but minimize the necessity for such interaction. Bradshaw et al.\ discuss principles and pitfalls of adjustable autonomy and human-centered teamwork, and then present study results on so-called ``work practice modeling'' and human-agent collaboration in space applications~\cite{Bradshaw2003AdjustableAutonomy}. Kaber et al.\ describe an experiment simulating an air traffic control task where manual control was compared to Adaptive Automation (AA)~\cite{Kaber2005Adaptive}. Results suggest that humans perform better with AA applied to sensory and psychomotor information-processing functions than with AA applied to cognitive functions; these results also suggest that AA is superior to completely manual control. Brookshire et al.\ present preliminary results for applying sliding autonomy to a team of robots performing coordinated assembling work to help the system recover from unexpected errors and to thereby increase system efficiency~\cite{Brookshire2004Preliminary}. Dias et al.\ identified six key capabilities that are essential for overcoming challenges in enabling sliding autonomy in peer-to-peer human-robot teams~\cite{Dias2008SlidingAutonomy}. Bradshaw et al.\ propose two dimensions of Adjustable Autonomy (descriptive and prescriptive) to address the two senses of autonomy (self-sufficiency and self-directedness) and discuss how permissions, obligations, possibilities, and capabilities can be adjusted~\cite{Bradshaw2004Dimensions}. Bradshaw et al.\ also summarized some widespread misconceptions on autonomy and listed seven deadly myths of ``autonomous systems''~\cite{Bradshaw2013Seven}.
 
-The human is an integral part of the human-autonomy team. When working with autonomy, the human often takes on the supervisor role. Bainbridge points out that automation requires the human operator to take additional management responsibilities~\cite{Bainbridge1983Ironies}, and Sartar identified in~\cite{Sarter1998Making} two automation management policies: \textit{management by consent} and \textit{management by exception}, defining whether the human always retain authority or can the system take initiative. For complex automation, the human tends to rely on his/her \textit{mental models} (defined by Norman in~\cite{Norman1983Some}) to manage the system. 
+The human is an integral part of the human-autonomy team. When working with autonomy, the human often takes on the supervisor role. Bainbridge points out that automation requires the human operator to take additional management responsibilities~\cite{Bainbridge1983Ironies}, and Sartar identified two automation management policies: \textit{management by consent} and \textit{management by exception}, defining whether the human always retain authority or can the system take initiativein~\cite{Sarter1998Making}. For complex automation, the human tends to rely on his/her \textit{mental models}~\cite{Norman1983Some} to manage the system. 
 
-UAV technology has emerged as a promising tool in supporting WiSAR~\cite{Murphy2008Cooperative,Bourgault2003Coordinated}. The goal of our research is to support fielded missions in the spirit of Murphy's work~\cite{Casper2003Human}. Many path planning algorithms in the literature address obstacle avoidance while planning a path to reach a destination using A*~\cite{Quigley2005Towards}, LRTA*~\cite{Howlett2006Learning}, D*~\cite{Stentz1997Optimal}, Voroni diagrams~\cite{Bortoff2000Path,Beard2005Autonomous}, or probability roadmaps and rapidly-exploring random tree (RRTs)~\cite{Pettersson2006Probabilistic}. Hierarchical heuristics approaches were also developed, such as Hierarchical A* (HA*) by Holte et al.\ ~\cite{Holte1996Hierarchical}, hierarchical task-based real-time path planning by Naveed et al.\ ~\cite{Meuleau2007Hierarchical}, and Hierarchical-AO* (HiAO*) by Meuleau and Brafman~\cite{Naveed2010Hierarchical}. In~\cite{Bourgault2006Optimal, Bourgault2004Coordinated} Bourgault et al.\ describe how to use a Bayesian model to create paths for a single UAV or multiple coordinated UAVs to maximize the amount of probability accumulated by the UAV sensors. The algorithms we used in this paper are algorithms designed from our previous work~\cite{Lin2009UAV,Lin2014Hierarchical} using techniques such as global warming technique, convolution, Gaussian mixture models, and Evolutionary Algorithm.
+UAV technology has emerged as a promising tool in supporting WiSAR~\cite{Murphy2008Cooperative,Bourgault2003Coordinated}. The goal of our research is to support fielded missions in the spirit of Murphy's work~\cite{Casper2003Human}. Many path planning algorithms in the literature address obstacle avoidance while planning a path to reach a destination using A*~\cite{Quigley2005Towards}, LRTA*~\cite{Howlett2006Learning}, D*~\cite{Stentz1997Optimal}, Voroni diagrams~\cite{Bortoff2000Path,Beard2005Autonomous}, or probability roadmaps and rapidly-exploring random tree (RRTs)~\cite{Pettersson2006Probabilistic}. 
+%Hierarchical heuristics approaches were also developed, such as Hierarchical A* (HA*) by Holte et al.\ ~\cite{Holte1996Hierarchical}, hierarchical task-based real-time path planning by Naveed et al.\ ~\cite{Meuleau2007Hierarchical}, and Hierarchical-AO* (HiAO*) by Meuleau and Brafman~\cite{Naveed2010Hierarchical}. 
+Bourgault et al.\ \cite{Bourgault2004Coordinated,Bourgault2006Optimal} describe how to use a Bayesian model to create paths for a single UAV or multiple coordinated UAVs to maximize the amount of probability accumulated by the UAV sensors. The algorithms we used in this paper are algorithms designed from our previous work~\cite{Lin2009UAV,Lin2014Hierarchical} using techniques such as global warming technique, convolution, Gaussian mixture models, and Evolutionary Algorithm.
 
 %=================================================================================	
 \section{Hypotheses} 
@@ -239,7 +245,7 @@ H3: The sliding autonomy method does not increase the mental workload of the ope
 
 We performed a 2$\times$3 within-subject design with 2 scenarios (easy vs difficult) and 3 planning methods (manual, pattern, and sliding autonomy). All participants completed all 6 exercises. The order of the scenarios and planning methods is counterbalanced to reduce learning effect. We recruited a total of 26 college students (14 males and 12 females) between the age of 19 and 30 (average 22.89). 
 
-After the demographic survey, each participant completes four 5-minute non-skippable training exercises (one for each palnning method with no task-difficulty map, and one for manual with a task-difficulty map) and then completes the 6 exercises. Each participant has up to 5 minutes for each exercise. Once the participant is happy with the path generated, he/she can finish the exercise early. We choose this design because we do not want the user to put all effort into completing the secondary task once he/she considers the primary task completed, which would skew the measurements on secondary task performance. At the end of each exercise, the participant completes a NASA TLX survey. Then at teh end, the participant fills out a survey describing his/her subjective preference with the three planning methods.
+After the demographic survey, each participant completes four 5-minute non-skippable training exercises (one for each planning method with no task-difficulty map, and one for manual with a task-difficulty map) and then completes the 6 exercises. Each participant has up to 5 minutes for each exercise. Once the participant is happy with the path generated, he/she can finish the exercise early. We choose this design because we do not want the user to put all effort into completing the secondary task once he/she considers the primary task completed, which would skew the measurements on secondary task performance. At the end of each exercise, the participant completes a NASA TLX survey. Then at the end, the participant fills out a survey describing his/her subjective preference with the three planning methods.
 
 
 %===================================================
@@ -253,7 +259,7 @@ With the \textbf{pattern} planning method, the user chooses from spiral, lawnmow
 
 With the \textbf{sliding autonomy} method (see Figure~\ref{UserStudy} top), the user can set an end point (optional), and then drag the left slider to change the amount of time allocated to autonomy. Path suggested by autonomy changes as the slider moves. The slider's max value always reflects the remaining flight time (in minute). If the user is happy with the current path segment, he/she approves it, the UAV moves to the end of the path segment, and the process repeats until all flight time has been planned. The algorithm used is the LHC-GW-CONV algorithm~\cite{Lin2009UAV, Lin2014Hierarchical}, because it is the fastest algorithm out of all the algorithms we designed.
 
-With all three planning methods, the user can choose to start over at any time during the exercise, and can restart as many time as exercise time allows, and we record the best path out of all tries.
+With all three planning methods, the user can choose to start over at any time during the exercise, and can restart as many times as exercise time allows. We record the best path out of all tries.
 
 %===================================================
 \subsection{Scenarios}
@@ -265,9 +271,9 @@ Scenario 2 is clearly more complicated than scenario 1 because the user also has
 %===================================================
 \subsection{Secondary Task}
 
-In each exercise, we also ask each participant to perform a secondary task together with the main task of path planning. This way we can measure the mental workload of the user. The secondary task is in the form of a group chat window (see the lower left corner of the top picture in Figure~\ref{UserStudy}), and when the user's code name ``Eagle'' is called, the user is asked to answer simple questions by typing in the chat window. Every 3 seconds (plus a random integer drawn from the uniform distribution [-2,2]) a text message is sent to the chat window, and every 5th message asks the user a simple question. Therefore, every minute the user receives 20 messages and 4 of them are directed to the user. For the same scenario and the same planning method, all users use the same set of chat messages.
+In each exercise, each participant also performs a secondary task, so we can measure user's mental workload. In a group chat window (see Figure~\ref{UserStudy} top) when the user's code name is called, the user has to type answers to simple questions. Roughly every 3 seconds a message is sent to the chat window, and every 5th message asks the user a simple question (4 per minute). For the same scenario and the same planning method, all users received the same set of chat messages.
 
-We choose to use a group chat window as the secondary task because this is typical in real SAR operations. We also designed the chat messages to simulate a real WiSAR search. The user is asked to acknowledge connection and report path planning status periodically. This design ensures that the secondary task is ecologically valid~\cite{Vicente1997Should,Rasmussen1994Cognitive} and makes the experiment result more convincing.
+We choose to use a group chat window as the secondary task because this is typical in real SAR operations. We also designed the chat messages to simulate a real WiSAR search. The user is asked to acknowledge connection and report path planning status periodically. This design ensures that the secondary task is ecologically valid~\cite{Vicente1997Should,Rasmussen1994Cognitive}.
 
 %===================================================
 \subsection{Measures}
@@ -275,7 +281,7 @@ We choose to use a group chat window as the secondary task because this is typic
 We use the following five measurements for the primary path planning task:
 
 \begin{itemize}
-\item \textbf{Percent score}: In each exercise, an exercise score is computed by summing the amount of probability collected by the UAV if it followed the path planned. The user's best score for each exercise (because the user can have multiple tries) is normalized by dividing the best score from all users for the same scenario to compute the percent score. This way we can compare planning methods across scenarios.
+\item \textbf{Percent score}: In each exercise, an exercise score is computed by summing the amount of probability collected by the UAV if it followed the path planned. The user's best score for each exercise (out of multiple tries) is normalized by dividing the best score from all users for the same scenario to compute the percent score. This way we can compare planning methods across scenarios.
 \item \textbf{Time spent}: How much time is spent with each exercise.
 \item \textbf{Try count}: How many times the user tried in each exercise. Note that because the manual planning method takes much longer time to plan a path than the other two methods by design, this measurement is used mainly to compare between the pattern and sliding autonomy planning methods.
 \item \textbf{Mouse clicks per try}: How many times the user left-clicked the mouse within a try. Again, this measurement is used to compare pattern and sliding autonomy planning methods because manual planning methods does not require a lot of mouse clicks by design.
@@ -292,89 +298,49 @@ The following two measurements are used for the secondary task:
 \section{Results and Analysis} 
 \label{sec:Results}
 
-We analyzed data recorded with a mixed measures analysis of variance (ANOVA) and report results in this section.
+We analyzed user study data with a mixed measures analysis of variance (ANOVA) and report results in this section.
 
 %===================================================
 \subsection{Comparing Across Scenarios}
 
-During the user study, each participant worked through two WiSAR scenarios. In scenario 1 (low information) no task-difficulty map is used. In scenario 2 (high information) because partial detection is enforced, the amount of probability that can be collected (exercise score) in scenario 2 is much lower than in scenario 1. In order to show a fair comparison across scenarios, we use percent score instead, which is a percent comparing the participant's score to the best performing participant's score in the same scenario.
+During the user study, each participant worked through two WiSAR scenarios. In scenario 1 (low information) no task-difficulty map is used. In scenario 2 (high information) because partial detection is enforced, the amount of probability that can be collected (exercise score) in scenario 2 is much lower than in scenario 1. In order to show a fair comparison across scenarios, we use percent score instead, which compares the participant's score to the best performing participant's score in the same scenario.
 
-Table~\ref{AcrossScenarios} lists the user study results compared between scenario 1 and 2 with statistically significant results highlighted in bold. Average participant percent score is very close in both scenarios because we normalized exercise scores. So an average participant's performance against the highest score is about 75\% in each scenario. There is a slight difference of 26 seconds in average time spent, which is not significant compared to the 300 seconds given for each exercise. Average try count in both scenarios are close enough, meaning each participant had enough time in each exercise to give each scenario a few tries.
+No statistically significant differences were found across scenarios for percent score, time spent, and try count. Average Percent score is very close in both scenarios (about 75\%) because we normalize exercise scores against the highest user score for the same scenario. There is a slight difference of 26 seconds in average time spent, which is not significant compared to the 300 seconds given for each exercise. Average try count in both scenarios are also close enough (3.08 and 2.67).
 
-Mouse clicks per try for the two scenarios are significantly different ($F=$ 28.65, $p<$ .0001) indicating scenario 2 required more physical work from each participant than scenario 1. This result matches the difficulty of the two scenarios where each participant created more path segments with the pattern and sliding autonomy planning methods in scenario 2 because it uses a task-difficulty map with many ``valleys''.
+Mouse clicks per try for the two scenarios are significantly different ($F[1,25]= 28.65, p<.0001$) indicating scenario 2 required more physical work from each participant than scenario 1. This result matches the difficulty of the two scenarios where each participant created more path segments with the pattern and sliding autonomy planning methods in scenario 2 because it uses a complex task-difficulty map.
 
-NASA TLX score is also significantly different ($F=$ 31.35, $p<$ .0001) between the two scenarios where the average score difference is 9.98 (out of a total of 100 points), almost a full ``pip'' on the TLX survey, indicating that on average each participant felt his/her cognitive workload was much higher in the high information scenario.
+NASA TLX scores are also significantly different ($F[1,25]= 31.35, p<.0001$) between the two scenarios where the average score difference is 9.98 (out of a total of 100 points), almost a full ``pip'' on the TLX survey, indicating that on average each participant felt his/her cognitive workload was much higher in the high information scenario.
 
-The percent of questions missed is only slightly different between scenarios (52.94\% and 56.69\%), and the chat latency is also very close (10.39 and 11.17 seconds). This shows that participants performed about the same on average with the secondary task across scenarios.
+The percent of questions missed is almost identical between scenarios (54.88\% and 54.90\%), and the chat latency is also very close (10.39 and 11.17 seconds). This shows that participants on average performed about the same with the secondary task across scenarios.
 
-If we only look at the performance of the sliding autonomy planning method across scenarios, results follow the same trend. Therefore we do not list the results separately.
-
-\begin{table}
-\caption{Comparing across scenarios}
-%\small
-\scriptsize
-	\centering
-		\begin{tabular}
-			{|l|c|c|c|c|}
-			\hline
-			& S1 Low & S2 High & SE & Significance \\
-			\hline
-			Score \% & 76.99 & 74.17 & 1.12 & $F$=7.51, $p$=.01 \\
-%			\hline
-			Time spent & 224.01 & 250.47 & 12.06 & $F$=8.35, $p$=.0079 \\
-%			\hline			
-			Try count & 3.08 & 2.67 & 0.37 & $F$=3.32, $p$=.80 \\
-%			\hline			
-			Clicks/try	& 15.95 & 33.54 & 2.59 & \textbf{$F$=28.65, $p<$.0001} \\ 
-%			\hline
-			NASA TLX & 48.19 & 58.17 & 2.50 & \textbf{$F$=31.35, $p<$.0001} \\ 
-			\hline
-			Q. missed \% & 54.88 & 54.90 & 5.18 & $F$=0.00, $p$=.99 \\ 
-%			\hline
-			Chat latency & 10.88 & 10.77 & 0.56 & $F$=0.03, $p$=.88 \\ 
-			\hline			
-			\multicolumn{5}{c}{}  % This is a patch to fix a bug in the table command.									
-		\end{tabular}
-%\vspace*{2ex}
-%\vspace*{-2ex}
-\label{AcrossScenarios}
-\end{table}
+If we look at the performance of only the sliding autonomy planning method across scenarios, results follow the same trend.
 
 %===================================================
 \subsection{Comparing Across Planning Methods}
 
-For each scenario, three path planning methods were used. Table~\ref{AcrossMethods} lists comparison among the three methods. 
+For each scenario, three path planning methods were used (manual, pattern, and sliding autonomy). Table~\ref{AcrossMethods} lists comparison among these three methods. 
 
-The performance difference in percent score is statistically significant ($F=$ 223.03, $p<$ .0001) with pattern (72.75\%) performing better than manual (59.40\%) and sliding autonomy (94.60\%) performing better than pattern. As shown in Figure~\ref{PerformanceDifference}, this trend is also clear in both scenario 1 and 2. Therefore, user study results show strong support for our first hypothesis: sliding autonomy method performs better than either the manual method or the pattern method in both low information and high information scenarios.
+Percent score differences are statistically significant ($F[2,50]= 223.03, p<.0001$) with sliding autonomy (94.60\%) performing better than pattern (72.75\%) and manual (59.40\%) performing the worst. As shown in Figure~\ref{PerformanceDifference}, this trend is also clear in both scenario 1 and 2 individually. Therefore, user study results show strong support for our first hypothesis: sliding autonomy method performs better than either the manual method or the pattern method in both low information and high information scenarios.
 
 \begin{table}
-\caption{Comparing across planning methods}
-%\small
-\scriptsize
+\caption{Comparing across planning methods (SE stands for standard error)}
 	\centering
 		\begin{tabular}
 			{|l|c|c|c|c|c|}
 			\hline
-			& M & P & SA & SE & Significance \\
+			& M & P & SA & SE & Significance \\			
 			\hline
-			Score \% & 59.40 & 72.75 & 94.60 & 1.39 & \textbf{$F$=223.03, $p<$.0001} \\
-%			\hline
-			Time spent & 243.35 & 240.02 & 228.37 & 12.06 & $F$=1.16, $p$=.32 \\
-%			\hline			
-			Try count & 1.75 & 3.56 & 3.31 & 0.43 & $F$=9.47, $p$=.0003 \\
-%			\hline			
-			Clicks/try & 13.01 & 35.64 & 25.58 & 2.90 & \textbf{$F$=19.47, $p<$.0001} \\
-%			\hline
-			NASA TLX & 61.51 & 49.18 & 48.86 & 2.81 & \textbf{$F$=14.15, $p<$.0001} \\
+			\% Score & 59.40 & 72.75 & 94.60 & 1.39 & $\boldsymbol{F[2,50]=223.03, p<.0001}$ \\
+			Time spent & 243.35 & 240.02 & 228.37 & 12.06 & $F[2,50]=1.16, p=.32$ \\
+			Try count & 1.75 & 3.56 & 3.31 & 0.43 & $F[2,50]=9.47, p=.0003$ \\
+			Clicks/try & 13.01 & 35.64 & 25.58 & 2.90 & $\boldsymbol{F[2,50]=19.47, p<.0001}$ \\
+			NASA TLX & 61.51 & 49.18 & 48.86 & 2.81 & $\boldsymbol{F[2,50]=14.15, p<.0001}$ \\
 			\hline
-			Q. missed \% & 52.94 & 56.69 & 55.04 & 5.17 & $F$=1.26, $p$=.29 \\
-%			\hline
-			Chat latency & 10.39 & 11.17 & 10.92 & 0.65 & $F$=0.46, $p$=.63 \\
+			\% Q. missed & 52.94 & 56.69 & 55.04 & 5.17 & $F[2,50]=1.26, p=.29$ \\
+			Chat latency & 10.39 & 11.17 & 10.92 & 0.65 & $F[2,50]=0.46, p=.63$ \\
 			\hline			
 			\multicolumn{6}{c}{}  % This is a patch to fix a bug in the table command.									
 		\end{tabular}
-%\vspace*{2ex}
-%\vspace*{-2ex}
 \label{AcrossMethods}
 \end{table}
 
@@ -385,9 +351,9 @@ The performance difference in percent score is statistically significant ($F=$ 2
 \label{PerformanceDifference}
 \end{figure}
 
-Statistically significant difference was also found in mouse clicks per try ($F=$19.47, $p<$.0001). The manual method uses arrow keys to fly the UAV around and only uses mouse clicks when switching camera modes or stop the timer in order to perform the secondary task. Therefore, by design, this method does not use a lot of mouse clicks. Pattern and sliding autonomy methods both use mouse clicks for the actual path planning task, and the pattern method clearly generated more mouse clicks per try (35.64) than the sliding autonomy method (25.58). Two factors might have contributed to this difference, first one being that the pattern method allows undoes while the sliding autonomy method does not support this function. Also with the sliding autonomy method a participant can drag the slider and see different suggestions from path planning autonomy, which does not require a lot of mouse clicks.
+Statistically significant differences were also found in mouse clicks per try ($F[2,50]=19.47, p<.0001$). The manual method uses arrow keys to fly the UAV around and only uses mouse clicks when switching camera modes or stop the timer in order to perform the secondary task. By design, this method does not use a lot of mouse clicks. Pattern and sliding autonomy methods both use mouse clicks for the actual path planning task, and the pattern method clearly generated more mouse clicks per try (35.64) than the sliding autonomy method (25.58). Two factors might have contributed to this difference, first one being that the pattern method allows undoes while the sliding autonomy method does not support this function. Also with the sliding autonomy method a participant can drag the slider and see different suggestions from path planning autonomy, which does not require a lot of mouse clicks.
 
-NASA TLX raw scores show significant differences among the three methods ($F=$14.15, $p<$.0001), with the manual method showing the highest cognitive mental workload (61.51), a full ``pip'' more than the other two methods. However, the score difference between the pattern method and the sliding autonomy method is small. Figure~\ref{NASATLX} shows the box plots of the NASA TLX scores for each scenario. Participants felt that the pattern method and the sliding autonomy method required about the same amount of cognitive mental workload in each scenario, and the manual method required a lot more mental workload in both scenarios.
+NASA TLX raw scores show significant differences ($F[2,50]=14.15, p<.0001$) among the three methods, with the manual method showing the highest cognitive mental workload (61.51), a full ``pip'' more than the other two methods on the TLX survey. However, the average score difference between the pattern method and the sliding autonomy method is small (49.18 vs. 48.86). Figure~\ref{NASATLX} shows the box plots of the NASA TLX scores for each scenario. Participants felt that the pattern method and the sliding autonomy method required about the same amount of cognitive mental workload in each scenario, and the manual method required a lot more mental workload in both scenarios.
 
 \begin{figure}
 \centering
@@ -398,14 +364,14 @@ NASA TLX raw scores show significant differences among the three methods ($F=$14
 
 For all three planning methods, participants performed about the same on the secondary task, as shown by percent of questions missed and chat latency in Table~\ref{AcrossMethods}. Combining this with percent score and NASA TLX we can conclude that sliding autonomy performed best without increasing participants' mental workload, which support our third hypothesis: Sliding autonomy method does not increase the mental workload of the operator when compared against manual and pattern methods.
 
-If a participant allocates the entire flight time (60 minutes) to path planning autonomy (LHC-GW-CONV algorithm), the path is generated by full autonomy without any human input. The percent score for this path would be 96.13\% for scenario 1 and 78.83\% for scenario 2. This is better than the average performance of the manual and pattern methods in both scenarios as shown in Figure~\ref{PerformanceMarkers}. If we compare each person's percent score against full autonomy out of all 26 participants, in scenario 1, none could outperform full autonomy using the manual and pattern methods, but 23 (88.46\%) were able to perform better with sliding autonomy (human-autonomy team). In scenario 2, no one did better using the manual method, 5 (19.23\%) did outperform full autonomy using the pattern method, and 24 (92.31\%) were able to beat full autonomy using the sliding autonomy method. Table~\ref{CompareToFullAutonomy} summarizes the comparison. User study results clearly show that the human inputs made significant differences and human-autonomy team outperformed autonomy working alone. This also strongly supports our second hypothesis: Sliding autonomy method performs better than autonomy working alone in both low information and high information scenarios.
-
 \begin{figure}
 \centering
 \includegraphics[width=3.5in]{PerformanceMarkers.JPG}
 \caption{Comparing sliding autonomy performance against various markers.}
 \label{PerformanceMarkers}
 \end{figure}
+
+If a participant allocates the entire flight time (60 minutes) to path planning autonomy (LHC-GW-CONV algorithm), the path is generated by full autonomy without any human input. The percent score for this path would be 96.13\% for scenario 1 and 78.83\% for scenario 2. This is better than the average performance of the manual and pattern methods in both scenarios as shown in Figure~\ref{PerformanceMarkers}. If we compare each person's percent score against full autonomy for all 26 participants, in scenario 1, none could outperform full autonomy using the manual or pattern methods, but 23 (88.46\%) were able to perform better with sliding autonomy (human-autonomy team). In scenario 2, no one did better using the manual method, 5 (19.23\%) did outperform full autonomy using the pattern method, and 24 (92.31\%) were able to beat full autonomy using the sliding autonomy method. Table~\ref{CompareToFullAutonomy} summarizes the comparison. User study results clearly show that the human inputs made significant differences in path planning performnace and human-autonomy team outperformed autonomy working alone. This also strongly supports our second hypothesis: Sliding autonomy method performs better than autonomy working alone in both low information and high information scenarios.
 
 \begin{table}
 \caption{Percent of participants outperforming autonomy with each method}
@@ -429,31 +395,7 @@ If a participant allocates the entire flight time (60 minutes) to path planning 
 %===================================================
 \subsection{Additional Factors}
 
-We also performed ANOVA analysis on some additional factors that might create differences: gender, experience in video games, order of the scenarios, and whether participants used full autonomy with the sliding autonomy method. No significant differences were found for these factors overall, across scenarios, or across methods. Table~\ref{OtherFactors} below lists analysis results. There is also no significant correlation (-0.2259) between percent of questions missed in the secondary task and the NASA TLX raw scores.
-
-\begin{table}
-\caption{ANOVA Analysis Results for Additional Factors}
-%\small
-\scriptsize
-	\centering
-		\begin{tabular}
-			{|l|c|c|c|}
-			\hline
-			 & Overall & Scenario & Method \\
-			\hline
-			Gender & $F$=0.05, $p$=.83 & $F$=0.76, $p$=.39 & $F$=0.59, $p$=.56 \\
-			\hline
-			Video Game Exp. & $F$=0.78, $p$=.55 & $F$=1.64, $p$=.20 & $F$=1.13, $p$=.37 \\
-			\hline
-			Scenario Order & $F$=0.09, $p$=.772 & $F$=0.39, $p$=.54 & $F$=1.53, $p$=.23 \\
-			\hline
-			Full Autonomy & $F$=3.70, $p$=.07 & $F$=0.36, $p$=.56 & $F$=0.04, $p$=.96 \\
-			\hline		
-			\multicolumn{4}{c}{}  % This is a patch to fix a bug in the table command.										
-		\end{tabular}
-%\vspace*{-2ex}
-\label{OtherFactors}
-\end{table}
+We also performed ANOVA analysis on some additional factors that might create differences: gender, experience in video games, order of the scenarios, and whether participants used full autonomy with the sliding autonomy method. No significant differences were found for these factors overall, across scenarios, or across methods. There is also no significant correlation (-0.23) between percent of questions missed in the secondary task and the NASA TLX raw scores.
 
 %=================================================================================	
 \section{Discussion} 
@@ -499,14 +441,6 @@ The algorithm we used for the sliding autonomy method is the LHC-GW-CONV algorit
 
 First, sliding autonomy (human-autonomy team) outperformed autonomy (LHC-GW-CONV algorithm) in both scenarios. Sliding autonomy also outperformed EA in scenario 1 (low information). In scenario 2, the performance of sliding autonomy is not very far from EA (5.36\%), and the difference is even smaller (1.85\%) when averaged over both scenarios. However, the most interesting observation is that autonomy+1 actually outperformed all others in both scenarios (99.47\% for scenario 1 and 98.58\% for scenario 2). Although a few participants did score higher than autonomy+1, the difference is less than 1.5\%. Table~\ref{CompareToMarkers} lists what percentage of participants outperformed full autonomy, EA, and autonomy+1.
 
-What Figure~\ref{PerformanceMarkers} suggests is that with the sliding autonomy method, it does not need a lot of human inputs to perform really well. Instead of spending the effort creating many path segments and set many end points, it is probably more rewarding to search for the right region to set just one or two constraints. However, 88.68\% of participants gave more than 1 input when they used sliding autonomy (81.13\% for 2 inputs and 69.81\% for 3 inputs). In the post user study survey, only 46.15\% participants acknowledged using full autonomy with the sliding autonomy method. These numbers indicate the human's under-reliance on autonomy. When using the sliding autonomy method, a good strategy is actually to start with full autonomy (as the worst scenario) and then see how additional human inputs can improve the path.
-
-%Moray~\cite{Moray1999Mental} provides a good summary of how mental models are used and proposes that mental models ``allow operators to think about causal structures and functions in systems which they must control....'' Goodrich and Boer present a case study of Adaptive Cruise Control design and explain how an automobile driver can switch among multiple mental models and use different management strategies~\cite{Goodrich2002Multiple, Goodrich2003Model}. 
-
-Lee and See propose that because people respond to technology socially, trust guides reliance when unanticipated situations make it impractical or impossible to understand automation~\cite{Lee2004Trust}, and defined \textit{distrust}, ``trust falls short of the automation's capabilities'', and \textit{overtrust}, ``trust exceeds system capabilities''. Bradshaw et al.\ \cite{Bradshaw2013Seven} had similar definitions and used the term \textit{under-reliance} for distrust, instead. Both suggested that trust in automation should be ``calibrated''. Hoffman et al.\ \cite{Hoffman2013Trust} suggest ``active exploration for trusting''(AET) and hope this approach can promote both trust ``calibration'' and appropriate reliance. We believe that the sliding autonomy approach we propose can be useful in this aspect, because as the user is moving the slider, he/she is calibrating his/her reliance on path planning autonomy. In our user study, all participants only had 30 minutes of training before using the sliding autonomy method. We speculate that as the user gets more familiar with the sliding autonomy approach in the long run, he/she would be able to calibrate reliance better. However, validation of this claim is beyond the scope of this paper and will be part of a future long-term user study.
-
-When more complicated probability distribution map and task-difficulty map are used, it is possible that the human user will see more value in the sliding autonomy approach because combining this much information in human mind and then decide trade offs in path planning required much more computation. And when the human user finds himself/herself incapable of such tasks, he/she might rely on autonomy to help solve the puzzle, and the sliding autonomy approach becomes more useful in calibrating reliance. Validating this hypothesis is another natural extension of the present work.
-
 \begin{table}
 \caption{Percent of participants outperforming autonomy performance markers}
 %\small
@@ -526,6 +460,14 @@ When more complicated probability distribution map and task-difficulty map are u
 %\vspace*{-2ex}
 \end{table}
 
+What Figure~\ref{PerformanceMarkers} suggests is that with the sliding autonomy method, it does not need a lot of human inputs to perform really well. Instead of spending the effort creating many path segments and set many end points, it is probably more rewarding to search for the right region to set just one or two constraints. However, 88.68\% of participants gave more than 1 input when they used sliding autonomy (81.13\% for 2 inputs and 69.81\% for 3 inputs). In the post user study survey, only 46.15\% participants acknowledged using full autonomy with the sliding autonomy method. These numbers indicate the human's under-reliance on autonomy. When using the sliding autonomy method, a good strategy is actually to start with full autonomy (as the worst scenario) and then see how additional human inputs can improve the path.
+
+%Moray~\cite{Moray1999Mental} provides a good summary of how mental models are used and proposes that mental models ``allow operators to think about causal structures and functions in systems which they must control....'' Goodrich and Boer present a case study of Adaptive Cruise Control design and explain how an automobile driver can switch among multiple mental models and use different management strategies~\cite{Goodrich2002Multiple, Goodrich2003Model}. 
+
+Lee and See propose that because people respond to technology socially, trust guides reliance when unanticipated situations make it impractical or impossible to understand automation~\cite{Lee2004Trust}, and defined \textit{distrust}, ``trust falls short of the automation's capabilities'', and \textit{overtrust}, ``trust exceeds system capabilities''. Bradshaw et al.\ \cite{Bradshaw2013Seven} had similar definitions and used the term \textit{under-reliance} for distrust, instead. Both suggested that trust in automation should be ``calibrated''. Hoffman et al.\ \cite{Hoffman2013Trust} suggest ``active exploration for trusting''(AET) and hope this approach can promote both trust ``calibration'' and appropriate reliance. We believe that the sliding autonomy approach we propose can be useful in this aspect, because as the user is moving the slider, he/she is calibrating his/her reliance on path planning autonomy. In our user study, all participants only had 30 minutes of training before using the sliding autonomy method. We speculate that as the user gets more familiar with the sliding autonomy approach in the long run, he/she would be able to calibrate reliance better. However, validation of this claim is beyond the scope of this paper and will be part of a future long-term user study.
+
+When more complicated probability distribution map and task-difficulty map are used, it is possible that the human user will see more value in the sliding autonomy approach because combining this much information in human mind and then decide tradeoffs in path planning required much more computation. And when the human user finds himself/herself incapable of such tasks, he/she might rely on autonomy to help solve the puzzle, and the sliding autonomy approach becomes more useful in calibrating reliance. Validating this hypothesis is another natural extension of the present work.
+
 %===================================================
 \subsection{Why human-autonomy team performs better?}
 
@@ -540,11 +482,11 @@ A human user is also very good at recognizing bad moves in solutions suggested b
 
 The pattern and sliding autonomy methods are episodic, suggesting that it is easier for the user to pause planning and shift attention to the secondary task of answering questions in the group chat window. However, user study data show that there is no significant differences in secondary task performance across all three path planning methods.
 
-The manual method requirs a lot of continuous keyboard interaction (great physical demand and temporal demand) to move the UAV around. However, it does not actually require much mental demand and effort because the planning process is more sporadic and spontaneous. If a mistake is made, because there is no way to correct it, the user quickly stops worrying about it and moves on. The low mental demand and effort make monitoring the group chat window an easy task, even though switching back and forth between primary task and secondary task is very frustrating.
+The manual method requires a lot of continuous keyboard interaction (great physical demand and temporal demand) to move the UAV around. However, it does not actually require much mental demand and effort because the planning process is more sporadic and spontaneous. If a mistake is made, because there is no way to correct it, the user quickly stops worrying about it and moves on. The low mental demand and effort make monitoring the group chat window an easy task, even though switching back and forth between primary task and secondary task is very frustrating.
 
-With the pattern and sliding autonomy methods, path planning is more like piecing together a puzzle. The user is deeply drawn into problem solving, constantly comparing trade offs, which actually requires more mental involvement. With the sliding autonomy method, the user is interacting with complicated algorithms, so while planning a path, the user is also trying to build a mental model of how autonomy works. Therefore, the user actually paid less attention to the secondary task. Fighting with autonomy when human and autonomy had disagreements also drew user attention away from the group chat window. But when the group chat window catches the user's attention, he/she can perform the secondary task leisurely.
+With the pattern and sliding autonomy methods, path planning is more like piecing together a puzzle. The user is deeply drawn into problem solving, constantly comparing tradeoffs, which actually requires more mental involvement. With the sliding autonomy method, the user is interacting with complicated algorithms, so while planning a path, the user is also trying to build a mental model of how autonomy works. Therefore, the user actually paid less attention to the secondary task. Fighting with autonomy when human and autonomy had disagreements also drew user attention away from the group chat window. But when the group chat window catches the user's attention, he/she can perform the secondary task leisurely.
 
-David Woods and Eric Hollnagel describe the law of stretched systems~\cite{Woods2006Joint}: ''every system is stretched to operate at its capacity; as soon as there is some improvement, for example in the form of new technology, it will be exploited to achieve a new intensity and tempo of activity.'' With the pattern and sliding autonomy methods, users had more tries and evaluated more options and trade offs. With the sliding autonomy method, users played with more time allocations and evaluated more paths suggested by path planning autonomy, which resulted in better quality paths at the cost of no performance increase in the secondary task.
+David Woods and Eric Hollnagel describe the law of stretched systems~\cite{Woods2006Joint}: ''every system is stretched to operate at its capacity; as soon as there is some improvement, for example in the form of new technology, it will be exploited to achieve a new intensity and tempo of activity.'' With the pattern and sliding autonomy methods, users had more tries and evaluated more options and tradeoffs. With the sliding autonomy method, users played with more time allocations and evaluated more paths suggested by path planning autonomy, which resulted in better quality paths at the cost of no performance increase in the secondary task.
 
 %%===================================================
 %\subsection{Fighting with Human Nature}
@@ -561,7 +503,7 @@ David Woods and Eric Hollnagel describe the law of stretched systems~\cite{Woods
 \section{Conclusions and Future Work} 
 \label{sec:Conclusions6}
 
-In this paper we propose a new autonomy management approach, sliding autonomy, which lets the user influence the behavior of the autonomous system along three new dimensions: information representation, task constraints, and time allocation. We extend the autonomy design guidelines in our prior work by adding a new row for intelligence of collaborative agents (including human-autonomy team), and explain how the three new dimensions fit into the guidelines when we apply the proposed approach to the task of UAV (Unmanned Aerial Vehicle) path planning to support Wilderness Search and Rescue (WiSAR). Experiment results from a user study validate our hypotheses and show that the sliding autonomy method performs significantly better than either the manual or pattern path planning method without increasing the user's mental workload, and the human-autonomy team outperforms either human or autonomy working alone.
+In this paper we propose a new autonomy management approach, sliding autonomy, which lets the user influence the behavior of the autonomous system along three new dimensions: information representation, spatial constraints, and temporal constraints. We extend the autonomy design guidelines in our prior work by adding a new row for intelligence of collaborative agents (human-autonomy team), and explain how the three new dimensions fit into the guidelines when we apply the proposed approach to the task of UAV (Unmanned Aerial Vehicle) path planning to support Wilderness Search and Rescue (WiSAR). We present interface designs that let the user allocate degrees of authority and flexibility to the robot's algorithms through interactivities along these new dimensions. Experiment results from a user study validate our hypotheses and show that the sliding autonomy method performs significantly better than either the manual or pattern path planning method without increasing the user's mental workload, and the human-autonomy team outperforms either human or autonomy working alone.
 
 Possible future work include evaluating the sliding autonomy approach in a long-term study and see how the user's trust can be calibrated. More complicated WiSAR scenarios can be tested and see how that affects the human-autonomy interaction and the performance of the human-autonomy team. Another user study can evaluate how well the human-autonomy team can work with outdated information representation using the sliding autonomy approach. It would also be interesting to investigate the human-autonomy interaction experience when the ability to modify information representation is added to the tool.
 
@@ -589,7 +531,7 @@ Lanny Lin, Brigham Young University, Provo, UT, USA.  Email: lanny@lannyland.com
 
 Michael A. Goodrich, Brigham Young University, Provo, UT, USA.  Email: mike@cs.byu.edu.
 
-%Spencer Clark, Brigham Young University, Provo, UT, USA.  Email: spengy@gmail.com.
+Spencer Clark, Brigham Young University, Provo, UT, USA.  Email: spengy@gmail.com.
 
 \end{document}
 

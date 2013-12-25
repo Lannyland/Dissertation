@@ -27,7 +27,7 @@ Our path planning problem is different from the OP problem in the following aspe
 
 Reinforcement learning cannot learn an optimal solution to an NP-hard problem in polynomial time\footnote{The approximate dynamic programming / reinforcement learning (ADP/RL) approach does not support (near) real-time solution. For example, Righini and Salanil show in~\cite{Righini2009Decremental} that it takes roughly 1000-3000 seconds to solve an OP type problem with 100 vertices/nodes. The ADP/RL approach also does not scale well due to its complexity. Vansteenwegen et al.\ surveyed different approaches to solving the OP~\cite{Vansteenwegen2011Orienteering}. Most of the approaches were heuristic approaches, and the only ADP/RL approach mentioned is~\cite{Righini2009Decremental}.}. If it could, then P=NP. Moreover, reinforcement learning typically requires many, many iterations to reach convergence even for moderately sized problems, meaning it is likely to be significantly slower.  Even dynamic programming-based approaches to reinforcement learning, like learning the transition model and applying policy iteration, cannot run in polynomial time on an exponential problem.
 
-In addition to this fundamental limitation of what reinforcement learning can theoretically do, there is a second practical problem with using reinforcement learning for this problem. This practical limitation is that reinforcement learning approaches tend to get stuck in local minima when there are multiple rewards in the problem.  Indeed, the literature includes many papers that seek to resolve this problem by trading off exploration and exploitation~\cite{Sutton1998Reinforcement}.  These approaches work in practice for some problems, but there is no evidence that these approaches will work for problems that are exponentially complex.  
+In addition to this fundamental limitation of what reinforcement learning can theoretically do, there is a second practical problem with using reinforcement learning for this problem. This practical limitation is that reinforcement learning approaches tend to get stuck in local minimal when there are multiple rewards in the problem.  Indeed, the literature includes many papers that seek to resolve this problem by trading off exploration and exploitation~\cite{Sutton1998Reinforcement}.  These approaches work in practice for some problems, but there is no evidence that these approaches will work for problems that are exponentially complex.  
 
 Moreover, the state space of our path-planning problem grows exponentially because of the possibility of revisiting states. For each revisit, a new reward function must be defined because the Bayesian approach allows for partial collection of information.  This means that we end up with an exponentially hard problem with an exponentially large state space and a unique reward for each element of the state space.  There is no known reinforcement learning algorithm that can solve such problems, let alone solve it in real-time.
 
@@ -55,7 +55,7 @@ In our path planning problem, a node can be visited multiple times, and because 
 \chapter{Full Experiment Results for Chapter~\ref{chap:SMCB2014}}
 \label{chap:result}
 
-Here we present the full experiment results of the four WiSAR scenarios described in Chapter 5. For each scenario, we generate paths with three flight durations ($T=300$, $T=600$, and $T=900$) and compare algorithm computation speed (in seconds) and path $\mathit{Efficiency_{LB}}$ (in \%) for BA, LHC-GW-CONV, Top2, and TopN algorithms (including Top2 and TopN algorithms where $k=5$ and $N=3$). All numbers shown are averages of 10 runs. Best performance results are displayed in bold font face. Standard deviations ($\sigma$) are also shown for both computation speed and path $\mathit{Efficiency_{LB}}$.
+Here we present the full experiment results of the four WiSAR scenarios described in Chapter 5. For each scenario, we generate paths with three flight durations ($T=300, T=600$, and $T=900$) and compare algorithm computation speed (in seconds) and path $\mathit{Efficiency_{LB}}$ (in \%) for BA, LHC-GW-CONV, Top2, and TopN algorithms (including Top2 and TopN algorithms where $k=5$ and $N=3$). All numbers shown are averages of 10 runs. Best performance results are displayed in bold font face. Standard deviations ($\sigma$) are also shown for both computation speed and path $\mathit{Efficiency_{LB}}$.
 
 %=============
 % TestCase
@@ -302,7 +302,7 @@ The \textit{local hill climbing with memory} algorithm proceeds as follows:
 \begin{enumerate}
 \item \textbf{Downsample and smooth the distribution}: If the distribution map is very large, it is useful to downsample the distribution to improve algorithm speed. For the results in this dissertation, we used $100^2$ sample points over an $100 \times 100$ grid. Since the algorithm assumes that the surface is free of noise, it may be necessary to smooth the surface using a Gaussian filter. The results in this dissertation assume a noise-free surface and, therefore, do not use smoothing.
 \item \textbf{Check for a uniform distribution} (a flat surface): It is a good idea to check if the probability distribution is a uniform distribution. Just check to see if all values in the matrix are identical or are within $\varepsilon$ units of each other. If a uniform distribution is identified, we know the distribution has 0 modes and we are done.
-\item \textbf{Local Hill Climbing with Memory}: Start from any point of the surface and then check its neighbors (8-connected). As soon as an unvisited neighbor with the same or better value is found, we ``climb'' to that point. As we ``climb'' and check neighbors, we mark all the points we visited along the way. When we check neighbors, we only check points we have not visited before. This way we avoid finding a mode we had found before. The ``climb'' process is repeated until we reach a point (hilltop) where all unvisited neighbors (if there is any) have smaller values. Once we find a ``mode'', we can start from another unvisited point on the surface and do another Local Hill Climbing. Here I use quotes around the word mode because we are not sure if the ``mode'' we found is a real mode, meaning that we have atually found a local maximum of the probability surface.
+\item \textbf{Local Hill Climbing with Memory}: Start from any point of the surface and then check its neighbors (8-connected). As soon as an unvisited neighbor with the same or better value is found, we ``climb'' to that point. As we ``climb'' and check neighbors, we mark all the points we visited along the way. When we check neighbors, we only check points we have not visited before. This way we avoid finding a mode we had found before. The ``climb'' process is repeated until we reach a point (hilltop) where all unvisited neighbors (if there is any) have smaller values. Once we find a ``mode'', we can start from another unvisited point on the surface and do another Local Hill Climbing. Here I use quotes around the word mode because we are not sure if the ``mode'' we found is a real mode, meaning that we have actually found a local maximum of the probability surface.
 \item \textbf{Make sure the ``mode'' we found is a real mode}: The ``mode'' we found using Local Hill Climbing might not actually be a real mode. It might be right next to a mode previously found and have a lower value (because we only checked unvisited neighbors in the previous step). It might also be part of another flat-surface mode where the mode consists of multiple points with identical values (think of a hilltop that looks like a plateau or think of a ridge). Things get even more complicated with special distributions such as the example in Figure~\ref{GreatWall}. 
 
 Moreover, the ``mode'' point we found might be connected to a previously found mode through other points with the same value (e.g, the ``mode'' point is the end point of the short branch in the middle of Figure~\ref{GreatWall}). Therefore, we need to keep track of all points leading to the final ``mode'' point that have identical values and check all the visited neighbors of these points, making sure this flat surface is not part of a previously found mode. If these points make up a real new mode, we mark these points with a unique mode count id (e.g, mode 3). If they are only part of a previously found mode, we mark these points with the previously found mode id (e.g., mode 2). If one of them is right next to a previously found mode but has lower value, we mark these points as non-mode points. This step is almost like performing a connected-component labeling operation in Computer Vision~\cite{Sonka2007Image}.
@@ -357,7 +357,7 @@ With the \textbf{sliding autonomy} method (top portion of Figure~\ref{UserStudy2
 
 The right slider is used to set the resolution or step value of the left slider and has a range between 1 and 10. For example, if the value of the right slider is set to 10, moving the left slider from bottom up will change time allocation to 10, 20, 30, ..., respectively. The purpose of the second slider is to improve the interaction experience when the user moves the left slider, because in order to provide instant feedback, paths with different time allocation need to be pre-computed by autonomy. Although each path only takes a fraction of a second to generate, for a 60-minute flight autonomy has to generate 60 paths for all possible time allocations, which can take a long time. When the value of the second slider is set high, only a small number of paths need to be pre-computed which enables the instant feedback. This feature turned out to have negative effect on users' interaction experience, which we will discuss later.
 
-With all three planning methods, the user can choose to start over at any time during the exercise, and can restart as many time as exercise time allows, and we record the best path out of all tries. Each user fully understands how the manual and pattern planning methods work, but does not know how path planning autonomy generates paths behind the scene in the sliding autonomy method.
+With all three planning methods, the user can choose to start over at any time during the exercise, and can restart as many times as exercise time allows, and we record the best path out of all tries. Each user fully understands how the manual and pattern planning methods work, but does not know how path planning autonomy generates paths behind the scene in the sliding autonomy method.
 
 %===================================================
 \subsection{Scenarios}
@@ -388,90 +388,101 @@ After the user completes each exercise, we ask the user to complete a NASA TLX s
 \section{User Study Results} 
 \label{sec:AResults}
 
+We analyzed user study data with a mixed measures analysis of variance (ANOVA). In this section we list the complete user study result analysis.
 
+%===================================================
+\subsection{Comparing Across Scenarios}
 
-\begin{table}
-\caption{Comparing across scenarios}
-%\small
-%\scriptsize
+Table~\ref{AAcrossScenarios} lists the user study results compared between scenario 1 (low information) and scenario 2 (high information) with statistically significant results highlighted in bold.
+
+No statistically significant differences were found for percent score, time spent, try count, percent of questions missed, and chat latency across scenarios. However, mouse clicks per try and NASA TLX are significantly different between the two scenarios, indicating scenario 2 with high information load required more work and cognitive workload are needed for scenario 2.
+
+\begin{table}[hbtp]
+\caption{Comparing across scenarios (SE stands for standard error)}
 	\centering
 		\begin{tabular}
 			{|l|c|c|c|c|}
 			\hline
 			& S1 Low & S2 High & SE & Significance \\
 			\hline
-			Score \% & 76.99 & 74.17 & 1.12 & $F$=7.51, $p$=.01 \\
-%			\hline
-			Time spent & 224.01 & 250.47 & 12.06 & $F$=8.35, $p$=.0079 \\
-%			\hline			
-			Try count & 3.08 & 2.67 & 0.37 & $F$=3.32, $p$=.80 \\
-%			\hline			
-			Clicks/try	& 15.95 & 33.54 & 2.59 & \textbf{$F$=28.65, $p<$.0001} \\ 
-%			\hline
-			NASA TLX & 48.19 & 58.17 & 2.50 & \textbf{$F$=31.35, $p<$.0001} \\ 
+			\% Score & 76.99 & 74.17 & 1.12 & $F[1,25]=7.51, p=.01$ \\
+			Time spent & 224.01 & 250.47 & 12.06 & $F[1,25]=8.35, p=.0079$ \\
+			Try count & 3.08 & 2.67 & 0.37 & $F[1,25]=3.32, p=.80$ \\
+			Clicks/try	& 15.95 & 33.54 & 2.59 & $\boldsymbol{F[1,25]=28.65, p<.0001}$ \\ 
+			NASA TLX & 48.19 & 58.17 & 2.50 & $\boldsymbol{F[1.25]=31.35, p<.0001}$ \\ 
 			\hline
-			Q. missed \% & 54.88 & 54.90 & 5.18 & $F$=0.00, $p$=.99 \\ 
-%			\hline
-			Chat latency & 10.88 & 10.77 & 0.56 & $F$=0.03, $p$=.88 \\ 
+			\% Q. missed & 54.88 & 54.90 & 5.18 & $F[1,25]=0.00, p=.99$ \\ 
+			Chat latency & 10.88 & 10.77 & 0.56 & $F[1,25]=0.03, p=.88$ \\ 
 			\hline			
+			\multicolumn{5}{c}{}  % This is a patch to fix a bug in the table command.									
 		\end{tabular}
-%\vspace*{2ex}
-%\vspace*{-2ex}
 \label{AAcrossScenarios}
 \end{table}
 
-\begin{table}
-\caption{Comparing across planning methods}
-%\small
-%\scriptsize
+%===================================================
+\subsection{Comparing Across Planning Methods}
+
+Table~\ref{AAcrossMethods} lists user study results comparison among the three path planning methods (manual, pattern, and sliding autonomy). with statistically significant results highlighted in bold.
+
+No statistically significant differences were found for time spent, try count, percent of questions missed, and chat latency across scenarios. However, sliding autonomy performed significantly better than pattern and pattern also performed significantly better than manual in both scenarios. Mouse clicks per try and NASA TLX are also significantly different among the three planning methods.
+
+\begin{table}[hbtp]
+\caption{Comparing across planning methods (SE stands for standard error)}
 	\centering
 		\begin{tabular}
 			{|l|c|c|c|c|c|}
 			\hline
-			& M & P & SA & SE & Significance \\
+			& M & P & SA & SE & Significance \\			
 			\hline
-			Score \% & 59.40 & 72.75 & 94.60 & 1.39 & \textbf{$F$=223.03, $p<$.0001} \\
-%			\hline
-			Time spent & 243.35 & 240.02 & 228.37 & 12.06 & $F$=1.16, $p$=.32 \\
-%			\hline			
-			Try count & 1.75 & 3.56 & 3.31 & 0.43 & $F$=9.47, $p$=.0003 \\
-%			\hline			
-			Clicks/try & 13.01 & 35.64 & 25.58 & 2.90 & \textbf{$F$=19.47, $p<$.0001} \\
-%			\hline
-			NASA TLX & 61.51 & 49.18 & 48.86 & 2.81 & \textbf{$F$=14.15, $p<$.0001} \\
+			\% Score & 59.40 & 72.75 & 94.60 & 1.39 & $\boldsymbol{F[2,50]=223.03, p<.0001}$ \\
+			Time spent & 243.35 & 240.02 & 228.37 & 12.06 & $F[2,50]=1.16, p=.32$ \\
+			Try count & 1.75 & 3.56 & 3.31 & 0.43 & $F[2,50]=9.47, p=.0003$ \\
+			Clicks/try & 13.01 & 35.64 & 25.58 & 2.90 & $\boldsymbol{F[2,50]=19.47, p<.0001}$ \\
+			NASA TLX & 61.51 & 49.18 & 48.86 & 2.81 & $\boldsymbol{F[2,50]=14.15, p<.0001}$ \\
 			\hline
-			Q. missed \% & 52.94 & 56.69 & 55.04 & 5.17 & $F$=1.26, $p$=.29 \\
-%			\hline
-			Chat latency & 10.39 & 11.17 & 10.92 & 0.65 & $F$=0.46, $p$=.63 \\
+			\% Q. missed & 52.94 & 56.69 & 55.04 & 5.17 & $F[2,50]=1.26, p=.29$ \\
+			Chat latency & 10.39 & 11.17 & 10.92 & 0.65 & $F[2,50]=0.46, p=.63$ \\
 			\hline			
+			\multicolumn{6}{c}{}  % This is a patch to fix a bug in the table command.									
 		\end{tabular}
-%\vspace*{2ex}
-%\vspace*{-2ex}
 \label{AAcrossMethods}
 \end{table}
 
-\begin{figure}
-\centering
-\includegraphics[width=5.5in]{PerformanceDifference.JPG}
-\caption{Performance difference for three path planning methods.}
-\label{APerformanceDifference}
-\end{figure}
+%===================================================
+\subsection{Additional Factors}
 
-\begin{figure}
-\centering
-\includegraphics[width=5.5in]{NASATLXBoxPlot.JPG}
-\caption{Box plots of the NASA TLX scores for each scenario.}
-\label{ANASATLX}
-\end{figure}
+We also performed ANOVA analysis on some additional factors that might create differences between scenarios or among planning methods: gender, experience in video games, order of the scenarios, and whether participants used full autonomy with the sliding autonomy method. Table~\ref{AOtherFactors} lists analysis results. No statistically significant differences were found in any of these factors. There is also no significant correlation (-0.23) between percent of questions missed in the secondary task and the NASA TLX raw scores.
 
-\begin{figure}
-\centering
-\includegraphics[width=5.5in]{PerformanceMarkers.JPG}
-\caption{Comparing sliding autonomy performance against various markers.}
-\label{APerformanceMarkers}
-\end{figure}
+\begin{table}[hbtp]
+\caption{ANOVA Analysis Results for Additional Factors}
+%\small
+%\scriptsize
+	\centering
+		\begin{tabular}
+			{|l|c|c|c|}
+			\hline
+			 & Overall & Scenario & Method \\
+			\hline
+			Gender & $F[1,24]=0.05, p=.83$ & $F[1,24]=0.76, p=.39$ & $F[2,48]=0.59, p=.56$ \\
+			\hline
+			Video Game Exp. & $F[4,21]=0.78, p=.55$ & $F[4,21]=1.64, p=.20$ & $F[8,42]=1.13, p=.37$ \\
+			\hline
+			Scenario Order & $F[1,24]=0.09, p=.77$ & $F[1,24]=0.39, p=.54$ & $F[2,48]=1.53, p=.23$ \\
+			\hline
+			Full Autonomy & $F[1,22]=3.70, p=.07$ & $F[1,22]=0.36, p=.56$ & $F[2,44]=0.04, p=.96$ \\
+			\hline		
+			\multicolumn{4}{c}{}  % This is a patch to fix a bug in the table command.										
+		\end{tabular}
+%\vspace*{-2ex}
+\label{AOtherFactors}
+\end{table}
 
-\begin{table}
+%===================================================
+\subsection{Comparing Against Autonomy Performance Markers}
+
+Table~\ref{ACompareToFullAutonomy} summarizes what percent of participants were able to perform better than autonomy working alone with each planning method in each scenario.
+
+\begin{table}[hbtp]
 \caption{Percent of participants outperforming autonomy with each method}
 %\small
 	\centering
@@ -489,32 +500,9 @@ After the user completes each exercise, we ask the user to complete a NASA TLX s
 \label{ACompareToFullAutonomy}
 \end{table}
 
+Table~\ref{ACompareToMarkers} lists what percentage of participants outperformed full autonomy, EA, and autonomy+1 human input.
 
-\begin{table}
-\caption{ANOVA Analysis Results for Additional Factors}
-%\small
-%\scriptsize
-	\centering
-		\begin{tabular}
-			{|l|c|c|c|}
-			\hline
-			 & Overall & Scenario & Method \\
-			\hline
-			Gender & $F$=0.05, $p$=.83 & $F$=0.76, $p$=.39 & $F$=0.59, $p$=.56 \\
-			\hline
-			Video Game Exp. & $F$=0.78, $p$=.55 & $F$=1.64, $p$=.20 & $F$=1.13, $p$=.370 \\
-			\hline
-			Scenario Order & $F$=0.09, $p$=.77 & $F$=0.39, $p$=.54 & $F$=1.53, $p$=.23 \\
-			\hline
-			Full Autonomy & $F$=3.70, $p$=.07 & $F$=0.36, $p$=.56 & $F$=0.04, $p$=.96 \\
-			\hline			
-		\end{tabular}
-%\vspace*{-2ex}
-\label{AOtherFactors}
-\end{table}
-
-
-\begin{table}
+\begin{table}[hbtp]
 \caption{Percent of participants outperforming autonomy performance markers}
 %\small
 	\centering
