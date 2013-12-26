@@ -156,14 +156,7 @@ If \textbf{Decrease} is selected, the effect is just the reverse of \textbf{Incr
 
 The blue circle on the lower left part of the map in Figure~\ref{DistEdit001} shows the paintbrush cursor projected onto the 3D surface from above, so the user can see directly the brush size with respect to the entire map. The color of the circle matches the color-coded buttons in the control panel, so it is easy to tell which action (erase, increase, and decrease) is currently selected. The user can move the brush size slider in the control panel (see the right side of Figure~\ref{DiffEdit001}) to select a desired brush size between 1 and 10. The probability hill in Figure~\ref{DistEdit003} is created with brush size 10.
 
-\begin{figure}
-\centering
-\includegraphics[width=6in]{DistEdit003.JPG}
-\caption{An example \textit{probability distribution map} with the satellite imagery overlaid on top where an area is selected in the lasso \textbf{select} mode.}
-\label{DistEdit003}
-\end{figure}
-
-It is worth mentioning that although in the \textbf{paint} mode, only symmetrical Gaussians can be added to or subtracted from the \textit{probability distribution map}, non-symmetrical bivariate Gaussians can be approximated by moving the cursor toward a constant direction in constant speed. Figure~\ref{DistEdit002} shows examples of such approximations.
+It is worth mentioning that although in the \textbf{paint} mode, only circularly-symmetric bivariate Gaussians (standard bivariate Normals) can be added to or subtracted from the \textit{probability distribution map}, ellipsically-symmetric bivariate Gaussians and asymmetric bivariate distributions can also be approximated using the paintbrush tool. For example, the user can create three circularly-symmetrical Gaussians where the means of these Gaussians are on a straight line with equal distance, the two Guassians on the outside have identical scales, and the Gaussian in the middle have a larger scale. The mixture of these three Gaussians approximates the shape of an ellipsically-symmetrical bivariate Gaussian. The user can also move the cursor in a straight line but in varying speed while adding a Gaussian to the map to approximate asymmetric bivariate distributions. Figure~\ref{DistEdit002} shows examples of such approximations.
 
 Similar to the function in the \textbf{DiffEdit} tool, in the \textbf{select} mode the user can drag a freehand selection around the desired area. The tool will automatically connect the starting point and the end point of the line to form a closed selection. Probability in the selected area is automatically erased. The white line in Figure~\ref{DistEdit003} shows an area selected by a user. When satellite imagery of the search area is overlaid on top of the \textit{probability distribution map}, the user can zoom in using 3D controls and then trace an area on the satellite imagery using this method.
 
@@ -173,3 +166,10 @@ With both the \textbf{paint} mode and the \textbf{select} mode, when a touch-scr
 \subsection{Cross-Platform Support}
 
 Both the \textbf{DiffEdit} tool and the \textbf{DistEdit} tool are developed using the free version of the Unity Game Engine. This means that these tools are cross platform and can support Windows, Mac, Unix, and can be ported to mobile devices such as iPhone, iPad, Android tablets, and Android phones. Both tools also have web versions that can run under typical web browsers such as Chrome, Firefox, IE, and Safari. The platform independence adds value to these tools and make it more feasible to integrate the tools into real WiSAR operations.
+
+\begin{figure}
+\centering
+\includegraphics[width=6in]{DistEdit003.JPG}
+\caption{An example \textit{probability distribution map} with the satellite imagery overlaid on top where an area is selected in the lasso \textbf{select} mode.}
+\label{DistEdit003}
+\end{figure}
