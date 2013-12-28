@@ -100,7 +100,7 @@ Increased use of autonomy also increases human-autonomy interaction and the need
 \label{sec:Introduction6}
 
 % First talk about need for autonomy management, especially for domain experts who don't know or care about how autonomy works
-With the rapid advancement in technology, people are seeing increased use of autonomy to augment human abilities and support human decision-making in many application domains (e.g.,~\cite{Chun2010Limousine,Casper2003Human,Lin2010Supporting,Robins2009From}). At the same time, increased use of autonomy also means increased human-autonomy interaction and increased need for humans to manage autonomy~\cite{Bainbridge1983Ironies}. Even for so-called fully autonomous systems, human input can potentially improve the system's performance and safety. The humans in such interactions manage autonomy, because ``only people are held responsible for consequences (that is, only people can act as problem holders) and only people decide on how authority is delegated to automata''~\cite{Woods2006Joint,Bradshaw2013Seven}.
+With the rapid advancement in technology, people are seeing increased use of autonomy to augment human abilities and support human decision-making in many application domains (e.g.,~\cite{Chun2010Limousine,Casper2003Human,Lin2010Supporting,Robins2009From}). At the same time, increased use of autonomy also means increased human-autonomy interaction and increased need for humans to manage autonomy~\cite{Bainbridge1983Ironies}. Even for so-called fully autonomous systems, human input can potentially improve the system's performance and safety. The humans in such interactions manage autonomy because ``only people are held responsible for consequences (that is, only people can act as problem holders) and only people decide on how authority is delegated to automata''~\cite{Woods2006Joint,Bradshaw2013Seven}.
 
 When humans manage autonomous systems, their managerial responsibilities often include monitoring the safety of the autonomous system, supervising autonomy to achieve acceptable performance, and making sure autonomy is working toward the collective goal of the overall system. In many emerging domains, the human operators are domain experts who can use domain-specific knowledge to assist the autonomous system when it deals with changing environments, uncertainty, and case-specific scenarios. Therefore, it is necessary to design tools and interfaces that enable human users to manage the autonomous behaviors of the system efficiently and effectively; such tools can improve task performance and the experience of the human operator in human-autonomy interaction. Wilderness Search and Rescue (WiSAR) is one such domain that could benefit from autonomy management tools when a mini-UAV (Unmanned Aerial Vehicle) is used in search.
 
@@ -116,13 +116,13 @@ As the human modifies information, adds priorities, or changes constraints, the 
 Many approaches to autonomy management already exist and are called many different things, such as \textit{supervisory control}~\cite{Sheridan1992Telerobotics}, \textit{mixed-initiative}~\cite{Hearst1999Mixed}, \textit{collaborative control}~\cite{Fong1999Collaborative}, \textit{adjustable autonomy}~\cite{Dorais1998AdjustableAutonomy,Dorais2001Designing} (also referred to as \textit{sliding autonomy}~\cite{Dias2008SlidingAutonomy} or \textit{adaptive automation}~\cite{Rouse1988Adaptive,Kaber2001Design}). The approach we propose falls under the category of \textit{adjustable autonomy}. The three dimensions we identified are in addition to dimensions of \textit{adjustable autonomy} identified by Bradshaw et al.\, so we design tools and algorithms that operate in a particular place in Bradshaw's taxonomy~\cite{Bradshaw2004Dimensions}.
 
 % Talk about that we extended our guidelines
-In our previous work~\cite{Lin2010Supporting} we identified key elements of autonomy integration challenges along two dimensions: \textit{attributes of an intelligent system} (capability, information management, performance evaluation) and \textit{organizational scale} (individual versus group), which can serve as guidelines in designing autonomous components and autonomy management tools. In this paper we extend the guidelines to include attributes needed when human and autonomy work collaboratively and analyze how our proposed sliding autonomy approach fits in the guidelines. By applying sliding autonomy to the UAV path planning task, we argue that this approach:
+In our previous work~\cite{Lin2010Supporting} we identified key elements of autonomy integration challenges along two dimensions: \textit{attributes of an intelligent system} (capability, information management, performance evaluation) and \textit{organizational scale} (individual versus group), which can serve as guidelines in designing autonomous components and autonomy management tools. In this paper we extend the guidelines to include attributes needed when a human and autonomy work collaboratively and analyze how our proposed sliding autonomy approach fits in the guidelines. By applying sliding autonomy to the UAV path planning task, we argue that this approach:
 \begin{itemize}
 \item enables the domain expert user to incorporate information only available to or understandable by the expert;
 \item is easy to understand without knowing how autonomy works behind the scene;
 \item lets the human do what the human is good at (planning strategically and balancing performance tradeoffs) and autonomy do what autonomy is good at (planning tactically), resulting in better performance than human or autonomy working alone;
-\item enables the user to align task goal (find the path that maximizes probability collected along the path) with system goal (finding the missing person quickly) when the user has more information or more up-to-date information than autonomy;
-\item and improves human's experience during the human-autonomy interaction.
+\item enables the user to align the task goal (find the path that maximizes probability collected along the path) with the system goal (finding the missing person quickly) when the user has more information or more up-to-date information than autonomy; and
+\item improves human's experience during the human-autonomy interaction.
 \end{itemize}
 
 % We did user study to evaluate the approach. What are the results.
@@ -147,11 +147,11 @@ In our previous work~\cite{Lin2010Supporting} we organized the challenges of aut
 \label{IChallenges}
 \end{figure}
 
-As an individual tool, an autonomous component needs to be able to perform a task (\textbf{Autonomy}); the operator can match capability to task according to the information available to the operator, which requires that autonomy can be interrupted, paused, aborted, and resumed (\textbf{Flexibility}); the performance is evaluated to match individual task goal. 
+As an individual tool, an autonomous component needs to be able to perform a task (\textbf{Autonomy}); the operator can match the component's capability to a specific task according to the information available to the operator, which requires that autonomy can be interrupted, paused, aborted, and resumed (\textbf{Flexibility}); the performance is evaluated to match individual task goal. 
 
-When a human-autonomy team works on the same task collaboratively, the autonomous component needs to provide interfaces so the human can interactively influence the autonomous behavior with human inputs (\textbf{Interactivity}); the human should be able to manage how autonomy works in order to jointly find a solution by utilizing information only available to the human and/or feed information to autonomy in a representation that autonomy can understand (\textbf{Manageability}); and when performance is evaluated, the human operator can judge whether the individual goal aligns with the collective goal of the system. 
+When a human-autonomy team works on the same task collaboratively, the autonomous component needs to provide interfaces so the human can interactively influence the autonomous behavior (\textbf{Interactivity}); the human should be able to manage how autonomy works in order to jointly find a solution by utilizing information only available to the human and/or feed information to autonomy in a representation that the autonomy can understand (\textbf{Manageability}); and when performance is evaluated, the human operator can judge whether the individual goal aligns with the collective goal of the system. 
 
-As part of a larger distributed system, each autonomous component needs to be modular (\textbf{Modularity}), so they can be mixed and matched to support different user roles; information from various sources need to be combined and presented to one or multiple users in a \textbf{Fusion}; and performance of the system needs to be evaluated as a whole. 
+As part of a larger distributed system, each component and collaborative subsystem needs to be modular (\textbf{Modularity}), so they can be mixed and matched to support different user roles; information from various sources need to be combined and presented to one or multiple users (\textbf{Fusion}); and performance of the complete human-machine system needs to be evaluated as a whole. 
 
 This paper focuses on the middle row of the guidelines: intelligence of collaborative agents (human-autonomy team). The three dimensions we propose are ways path planning autonomy can be managed, and our path planner interface is designed to accept human inputs along the three dimensions to provide interactivity. The human can also incorporate information from various sources and influence the behavior of path planning autonomy by allocating degrees of authority and flexibility, making sure the task goal aligns with the ultimate goal of finding the missing person quickly.
 
@@ -394,7 +394,7 @@ We also performed ANOVA analysis on some additional factors that might create di
 \label{sec:Discussion}
 
 %===================================================
-\subsection{Planning methods Characteristics}
+\subsection{Planning Methods Characteristics}
 
 \noindent \textit{Manual Method}
 
@@ -427,7 +427,7 @@ In scenario 2 where a task-difficulty map was used, because the probability map 
 In the post user study survey, the majority of the participants think manual is the easiest to learn (53.85\%), pattern is the easiest to use (57.69\%), and sliding autonomy performed the best (65.38\%). However, most participants preferred the pattern method (69.23\%) out of all three. We believe the inability to undo, not able to move the end point once path is planned, and operator-induced oscillation when moving the slider all had negetive impacts on participants' preference over the sliding autonomy method. Once these functions are in place, the sliding autonomy method will become more preferrable than the pattern method.
 
 %===================================================
-\subsection{Reliance on autonomy}
+\subsection{Reliance on Autonomy}
 
 \begin{figure}
 \centering
@@ -468,7 +468,7 @@ Lee and See propose that because people respond to technology socially, trust gu
 When more complex probability distribution maps and task-difficulty maps are used, it is possible that the human user will see more value in the sliding autonomy approach because combining this much information in human mind and then decide tradeoffs in path planning required much more computation. And when the human user finds himself/herself incapable of such tasks, he/she might rely on autonomy to help solve the puzzle, and the sliding autonomy approach becomes more useful in calibrating reliance. Validating this hypothesis is another natural extension of the present work.
 
 %===================================================
-\subsection{Why human-autonomy team performs better?}
+\subsection{Why Human-Autonomy Team Performs Better?}
 
 User study results show that the human-autonomy team outperformed either human or autonomy working along. But how were they able to achieve this? We believe that the reason is: through the interactive interface, the sliding autonomy approach enabled the human to focus on what human is good at and autonomy to focus on what autonomy is good at. Bradshaw et al.\ point out~\cite{Bradshaw2013Seven}: ``Humans, though fallible, are functionally rich in reasoning strategies and their powers of observation, learning, and sensitivity to context.'' Our observation suggests that human is really good on two things: planning strategically and recognize bad path segments.
 
@@ -477,7 +477,7 @@ The sliding autonomy method lets the user plan at a higher abstract level by spe
 A human user is also very good at recognizing bad moves in solutions suggested by autonomy. The sliding autonomy approach enables the human user to select from a bunch of suggested paths. Selecting a path segment with fewer bad moves (which might not actually be bad in autonomy's perspective with just the current path segment) will probably increase the chance of a good final path. So again, the sliding approach takes advantage of the strengths of both human and autonomy.
 
 %===================================================
-\subsection{Why similar secondary task performance in all three methods?}
+\subsection{Why Similar Secondary Task Performance in All Three Methods?}
 
 The pattern and sliding autonomy methods are episodic, suggesting that it is easier for the user to pause planning and shift attention to the secondary task of answering questions in the group chat window. However, user study data show that there is no significant differences in secondary task performance across all three path planning methods.
 
@@ -502,7 +502,7 @@ David Woods and Eric Hollnagel describe the law of stretched systems~\cite{Woods
 \section{Conclusions and Future Work} 
 \label{sec:Conclusions6}
 
-In this paper we propose a new autonomy management approach, sliding autonomy, which lets the user influence the behavior of the autonomous system along three new dimensions: information representation, spatial constraints, and temporal constraints. We extend the autonomy design guidelines in our prior work by adding a new row for intelligence of collaborative agents (human-autonomy team), and explain how the three new dimensions fit into the guidelines when we apply the proposed approach to the task of UAV (Unmanned Aerial Vehicle) path planning to support Wilderness Search and Rescue (WiSAR). We present interface designs that let the user allocate degrees of authority and flexibility to the robot's algorithms through interactivities along these new dimensions. Experiment results from a user study validate our hypotheses and show that the sliding autonomy method performs significantly better than either the manual or pattern path planning method without increasing the user's mental workload, the human has better interaction experience, and human-autonomy team outperforms either human or autonomy working alone.
+In this paper we propose a new autonomy management approach, sliding autonomy, which lets the user influence the behavior of the autonomous system along three new dimensions: information representation, spatial constraints, and temporal constraints. We extend the autonomy design guidelines in our prior work by adding a new row for intelligence of collaborative agents (human-autonomy team), and explain how the three new dimensions fit into the guidelines when we apply the proposed approach to the task of UAV (Unmanned Aerial Vehicle) path planning to support Wilderness Search and Rescue (WiSAR). We present interface designs that let the user allocate degrees of authority and flexibility to the robot's algorithms through interactivities along these new dimensions. Experiment results from a user study support our hypotheses and show that the sliding autonomy method performs significantly better than either the manual or pattern path planning method without increasing the user's mental workload, the human has a better interaction experience, and human-autonomy team outperforms either human or autonomy working alone.
 
 Possible future work include evaluating the sliding autonomy approach in a long-term study and see how the user's reliance can be calibrated. More complicated WiSAR scenarios can be tested and see how that affects the human-autonomy interaction and the performance of the human-autonomy team. Another user study can evaluate how well the human-autonomy team works with outdated information representation using the sliding autonomy approach. It would also be interesting to investigate the human-autonomy interaction experience when the ability to modify information representation is added to the tool.
 
@@ -515,10 +515,7 @@ the National Science Foundation
 under grant number 
 0534736 and \_\_\_\_\_, 
 %\_\_\_\_\_
-and under grant number \_\_\_\_\_ from
-the Army Research Laboratory.
-%\_\_\_\_\.
-Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the sponsoring organizations.
+and under the Robotics Collaborative Technology Alliance supported by the Army Research Laboratory. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the sponsoring organizations.
 
 \bibliography{LannyDissertation}
 
