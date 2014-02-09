@@ -42,7 +42,7 @@ This section presents a few of the natural extensions from current research that
 \begin{figure}
 \centering
 \includegraphics[width=6in]{ProjectComponents.JPG}
-\caption{Autonomous components and autonomy management tools of the dissertation work at each temporal scale/hierarchy.}
+\caption[Autonomous components and autonomy management tools at each scale]{Autonomous components and autonomy management tools of the dissertation work at each temporal scale/hierarchy.}
 \label{ProjectComponents2}
 \end{figure}
 
@@ -60,7 +60,7 @@ Presently, the \textbf{DistCreate} component uses a set of default prior belief 
 
 The \textbf{DistCreate} component considers three terrain features: topography, elevation, and vegetation density. It is probably beneficial to incorporate more factors that affect lost-person behaviors into the network. Such factors include but are not limited to direction of travel, trail following, missing person profile, panicking factor, weather conditions and season of the year. Such factors could be included into the existing Bayesian network as prior nodes. Additional utility tools might be needed to generate geographic data when it is not directly available. For example, if trail data cannot be automatically extrapolated, such utility tools would allow the search to manually mark trails on a map.
 
-Currently the user can only specify whether to use past-human behavior data or not with the \textbf{DistCreate} component. In the future, as more past-human behavior data become available, the data could be stored in a database, and the user could further decide which subset of the behavior data to use by querying the database. For example, the user could choose to only use data of the same search region, season of the year, or only data from people who have simililar profile (age, gender, profession, etc.) with the missing person.
+Currently the user can only specify whether to use past-human behavior data or not with the \textbf{DistCreate} component. In the future, as more past-human behavior data become available, the data could be stored in a database, and the user could further decide which subset of the behavior data to use by querying the database. For example, the user could choose to only use data of the same search region, season of the year, or only data from people who have similar profile (age, gender, profession, etc.) with the missing person.
 
 The \textbf{DiffCreate} component uses vegetation coverage data from USGS satellite imagery data to extrapolate vegetation density and determines task difficulty (detection probably). A more advanced model could be designed to include additional factors such as UAV height above ground, time of the day, season of the year, ``seeability''~\cite{Morse2010UAV}, and sensor specific properties (e.g., an infrared multi-spectrum camera). Additional constraints such as no-fly zone or dangerous areas could also be included in the \textit{task-difficulty map}.
 

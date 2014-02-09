@@ -126,14 +126,14 @@ With the EA-Path algorithm, a path is encoded as a sequence of node positions. I
 \begin{minipage}[b]{0.4\linewidth}
 \centering
 \includegraphics[width=2.5in]{crossover1.jpg}
-\caption{An example of single-point path crossover (Upper row: the parents. Lower row: the children)}
+\caption[An example single-point path crossover]{An example of single-point path crossover (Upper row: the parents. Lower row: the children)}
 \label{CType1}
 \end{minipage}
 \hspace{1cm}
 \begin{minipage}[b]{0.4\linewidth}
 \centering
 \includegraphics[width=2.5in]{crossover2.jpg}
-\caption{An example of double-point path crossover (Upper row: the parents. Lower row: the children)}
+\caption[An example double-point path crossover]{An example of double-point path crossover (Upper row: the parents. Lower row: the children)}
 \label{CType2}
 \end{minipage}
 \end{tabular}
@@ -172,14 +172,14 @@ Two types of mutation methods~\cite{Mitchell1997Machine} are used for flight pat
 \begin{minipage}[b]{0.40\linewidth}
 \centering
 \includegraphics[width=2.5in]{mutation.jpg}
-\caption{Examples of mutations in EA-DIR and EA-Path algorithms. (Upper row: method 1. Lower row: method 2)}
+\caption[Examples of mutations in EA-DIR and EA-Path algorithms]{Examples of mutations in EA-DIR and EA-Path algorithms. (Upper row: method 1. Lower row: method 2)}
 \label{Mutation}
 \end{minipage}
 \hspace{1cm}
 \begin{minipage}[b]{0.40\linewidth}
 \centering
 \includegraphics[width=2.5in]{mutationE.jpg}
-\caption{Examples of mutations in EA-Path\_E algorithm. ~\\ (Upper row: method 2. Lower row: method 3)}
+\caption[Examples of mutations in EA-Path\_E algorithm]{Examples of mutations in EA-Path\_E algorithm. ~\\ (Upper row: method 2. Lower row: method 3)}
 \label{MutationE}
 \end{minipage}
 \end{tabular}
@@ -283,7 +283,7 @@ In our experiments, we focus on probability distribution maps of three abstract 
 \begin{figure}
 \centering
 \includegraphics[width=4.75in]{maps900.jpg}
-\caption{Top row: 2D representations of unimodal, bimodal, and bimodal with overlap probability distribution maps. Middle row: Simplified versions of the three types of maps. Bottom row: Best paths found for each map.}
+\caption[Paths found for unimodal, bimodal, and bimodal with overlap distributions]{Top row: 2D representations of unimodal, bimodal, and bimodal with overlap probability distribution maps. Middle row: Simplified versions of the three types of maps. Bottom row: Best paths found for each map.}
 \label{maps}
 %\vspace*{-4ex}
 \end{figure}
@@ -298,7 +298,7 @@ For all the experiments we performed, algorithm running time exhibited the same 
 
 For the simplified unimodal map, the LHC-GW-CONV(\_E) algorithms are the clear winners in each respective group if we consider both the $\mathit{Efficiency}$ and the running time. For the group of algorithms without set destination, all algorithms gave above $99.5\%$ $\mathit{Efficiency}$. The LHC-GW-CONV algorithm is always the fastest  (e.g. 6.483 seconds for $T$=900) and achieved 100\% $\mathit{Efficiency}$ in all cases. The EA-Dir and EA-Path algorithms also achieved 100\% $\mathit{Efficiency}$, but at a much slower speed (e.g. 62.236 seconds for $T$=900 with EA-Path). For the group of algorithms with set destination, the LHC-GW-CONV\_E algorithm is also the fastest  (e.g. 14.173 seconds for $T$=900) and achieved 99.955\% or higher $\mathit{Efficiency}$ in all cases. Although the EA-Path\_E algorithm achieved slightly better $\mathit{Efficiency}$ (less than 0.1\% improvements), it did so at the cost of more running time (e.g. 78.334 seconds for $T$=900).
 
-For the simplified bimodal map, the LHC-GW-CONV(\_E) algorithms did not always perform well because it doesn't handle the space between the two modes very well, especially for very short flight time. Fig.~\ref{graphBimodal} shows the $\mathit{Efficiency}$ comparison of the group of algorithms without set destination. The LHC-GW-PF(\_E) algorithms still achieved 96\% and above $\mathit{Efficiencies}$, but they are also the slowest. The EA(\_E) algorithms are more attractive in this case because they achieved the best $\mathit{Efficiencies}$ (98.095\%+ for EA and 97.857\%+ for EA\_E) very quickly.
+For the simplified bimodal map, the LHC-GW-CONV(\_E) algorithms did not always perform well because it does not handle the space between the two modes very well, especially for very short flight time. Fig.~\ref{graphBimodal} shows the $\mathit{Efficiency}$ comparison of the group of algorithms without set destination. The LHC-GW-PF(\_E) algorithms still achieved 96\% and above $\mathit{Efficiencies}$, but they are also the slowest. The EA(\_E) algorithms are more attractive in this case because they achieved the best $\mathit{Efficiencies}$ (98.095\%+ for EA and 97.857\%+ for EA\_E) very quickly.
 
 \begin{table}
 %\small
@@ -351,7 +351,7 @@ For the simplified bimodal map, the LHC-GW-CONV(\_E) algorithms did not always p
 %\vspace*{-2ex}
 \centering
 \includegraphics[width=6in]{graphBimodal.jpg}
-\caption{$\mathit{Efficiency}$ comparison for group of algorithms without set destination for simplified bimodal map}
+\caption[Algorithm $\mathit{Efficiency}$ comparison for simplified bimodal map]{$\mathit{Efficiency}$ comparison for group of algorithms without set destination for simplified bimodal map}
 \label{graphBimodal}
 %\vspace*{-2ex}
 \end{figure}
@@ -361,7 +361,7 @@ For the simplified bimodal with overlap map, the EA(\_E) algorithms achieved the
 \begin{figure}
 \centering
 \includegraphics[width=6in]{graphEBimodalOverlap.jpg}
-\caption{$\mathit{Efficiency}$ comparison for group of algorithms with set destination for simplified bimodal with overlap map}
+\caption[Algorithm $\mathit{Efficiency}$ comparison for simplified bimodal with overlap map]{$\mathit{Efficiency}$ comparison for group of algorithms with set destination for simplified bimodal with overlap map}
 \label{graphEBimodalOverlap}
 %\vspace*{-4ex}
 \end{figure}
